@@ -1,0 +1,107 @@
+---
+title: 【转载】我对Raeact-Native的理解和看法
+date: 2016-12-05 14:18:32
+tags: React-Native
+category: 教程
+---
+
+> 原作者：[雷志兴](https://www.zhihu.com/people/berg)
+>
+> 发布时间：1 年前
+>
+> 原地址：http://div.io/topic/851?page=1#3453
+
+React native出来也快一周了，我写了几个demo，简单看了看objc代码并和开源前的我们的一些结论（见后文）交叉验证。简单地从前端工程师和系统整体角度说一下React native的特点和优劣吧。
+
+react native充分利用了Facebook的现有轮子，是一个很优秀的集成作品，并且我相信这个团队对前端的了解很深刻，否则不可能让Native code「退居二线」。
+
+对应到前端开发，整个系统结构是这样：
+
+- JSX vs HTML
+- CSS-layout vs css
+- ECMAScript 6 vs ECMAScript 5
+- React native View vs DOM
+
+------
+
+1. 无需编译，我在第一次编译了ipa装好以后，就再也没更新过app，只要更新云端的js代码，reload一下，整个界面就全变了。
+2. 多数布局代码都是[JSX](https://facebook.github.io/react/docs/jsx-in-depth.html)，所有Native组件都是标签化的XML，这对于前端程序员来说，降低了不少学习成本，也大大减少了代码量，不信你可以看看JSX编译后的代码。
+3. 复用React系统，也减少了一定学习和开发成本，更重要的是利用了React里面的分层和diff机制。js层传给Native层的是一个diff后的json，然后由Native将这个数据映射成真正的布局视图。
+4. css-layout也是点睛之笔，前端可以继续用熟悉的类css方式来编写布局，通过这个工具转换成constrain布局。
+5. 系统只有js-objc的单向调用，就是把原生UI组件的方法通过javascritcore或者webview（低版本iOS）映射到js中来，整个调用过程是异步的，这样的设计令React native可以让js运行在桌面chrome中，通过websocket连接Native code和桌面chrome，极大地方便了调试。对其中的机制Bang的一篇文章写得很详细，我就不拾人牙慧了：[http://blog.cnbang.net/tech/2698/](http://blog.cnbang.net/tech/2698/) 。但这样设计也会带来一些问题，后面说。
+6. 点按操作也被抽象成了一组组件（TouchableXXX），这种抽象方式是我在之前做类似工作中没有想到的。facebook还列出Native为什么和web「手感」不同的原因：实时的点按反馈和取消能力。[http://facebook.github.io/react-native/docs/gesture-responder-system.html#content](http://facebook.github.io/react-native/docs/gesture-responder-system.html#content) 这套相应机制设计得很完善，能像Native code那样控制整个点按操作的所有过程。
+7. Debug相当方便！修改了js以后，通过内建的nodejs watcher编译成bundle，在模拟器里面按cmd+r就可以看到效果。而且按cmd+d，可以打开一个chrome窗口，所有的js都移到了chrome里面运行，所以什么断点单步打调用栈，都不在话下。
+
+上面的既是特点也是优点，下面说说缺点，或者应该说：「仍然遗留的问题」，在我看来，这个方案已经超越了Hybird方案。
+
+1. 系统仍然（不得不）依赖原生组件暴露出来的组件和方法。举两个例子，ScrollView这个组件，在Native层是有大量事件的，scrollViewWillBeginDragging， scrollViewWillEndDragging，scrollViewDidEndDragging等等，这些事件在现有的版本都没有暴露，基本上做不了组件联动效果。另外，这个版本中有大量组件是iOS only的：ActivityIndicatorIOS、DatePickerIOS、NavigatorIOS、PickerIOS、SliderIOS、SwitchIOS、TabBarIOS、AlertIOS、AppStateIOS、LinkingIOS、PushNotificationIOS、StatusBarIOS、VibrationIOS，反过来看，剩余的都是一些抽象程度极强的基本组件。这样，用户必须在不同的平台下写两套代码，而且所有能力仍然强烈依赖 React native 开发人员暴露的接口。
+2. 由于最外层是React，初次学习成本高，不像往常的Hybird方案，只要多学几个JS API就可以开始干活了。当然，React的确让后续开发变得简单了一些，这么一套外来的（基于iOS）、残缺不全的（css-layout）在React的包装下，的确显得不那么面目可憎了。
+
+另外，React Native仍然很不完善。文档还不全，我基本上是看着他的示例代码完成的demo，集成到已有app的文档也是今天才出来。按照官方的说法，Android版本要到半年后才发布： [http://facebook.github.io/react/blog/#when-is-react-native-android-coming](http://facebook.github.io/react/blog/#when-is-react-native-android-coming) ，届时整个系统设计可能还会有很大的变化。
+
+PS，在使用Tabbar的时候，我惊喜的发现他们居然用了iconfont方案，我现在手头的项目中也有同样的实现，不过API怎么设计一直很头疼。结果，我发现他是这么写的：
+
+```
+<TabBarItemIOS
+                name="blueTab"
+                icon={_ix_DEPRECATED('favorites')}
+....>
+```
+
+在 `_ix_DEPRECATED` 的定义处，有一句注释： `// TODO(nicklockwood): How can this fit our require system?`
+
+HOW?
+
+以上。
+
+下面是一周前，在React native还没开源的时候，通过反解ipa的一些分析过程，有兴趣的可以看看。
+
+------
+
+# 背景和调研手段
+
+React Native还没开源，最近和组里兄弟反编译了Facebook Group（这个应用是用React Native实现的）的ipa代码，出来几百个JS文件，格式化一下，花了几天时间读了一下源码，对React Native的内部核心机制算是有了一个基本了解。
+
+React Native的核心实现：
+
+先简单说几点，详细的等回头更新。
+
+1. React Native里面没有webview，这货**不是Hybrid app**。
+2. 再说React Native的核心，iOS Native code提供了十来个最**核心的类**（RCTDeviceEventEmitter、RCTRenderingPerf等）、**或组件**（RCTView、RCTTextField、RCTTextView、RCTModalFullscreenView等），然后由React Native的JS部分，组成二十来个**基本组件**（Popover、Listview等），交由上层的**业务方**来使用（THGroupView）。
+3. 就如他们在宣传时所说，他们实现了一套**类似css的子集**，用来解决样式问题，相当复杂和强大，靠这个才能将Native的核心组件组成JS层的基本组件再组成业务端的业务组件，个人猜测是采用CSSLayout的C语言版本实现的。
+4. 在React Native中，写JS的工程师解决的是「**将基本组件拼装成可用的React组件**」的问题，写Native Code的工程师解决的是「**提供核心组件，提供足够的扩展性、灵活性和性能**」的问题。
+
+# React Native的设计考虑：
+
+ReactJS对React Native有着直接的影响（我没真正在生产环境中用过React，只用过Angular，下面的观点可能有偏差）
+
+ReactJS是这么设计的：
+\1. ReactJS 通过createElement返回的不是某个实体DOM对象，而只是一个数组
+\2. 通过源码中 ui/browser/ 目录中的代码，将这个数组转换成DOM
+
+另外，Facebook自己有JSX，CSSLayout等开源项目（自己去github上找介绍吧）
+
+有了React再考虑React Native，很自然就想到了一套最有效率的搞法：
+\1. 将 ui/browser 里面的代码替换成一套 Native 的桥接JS（实际上，iOS版是通过
+injectGenericComponentClass方法，将核心组件的方法注入到JS里面 ），不就用上React的MVVM，自动将数据映射到Native了么
+\2. Native code里面实现三组核心API，一组提供核心组件的API（create、update、delete），一组事件方法（ReactJS里面的EventEmitter ），一组对Style进行解析（貌似是用的CSSLayout的C语言版本）以及返回Style的ComputedStyle（React Native里面叫meatureStyle）
+
+这样，用上了ReactJS本身的所有核心功能和设计思路，Native的开发也足够简单。
+
+# React Native的优势和劣势：（非最终结论，可能会更新）：
+
+React Native的优势：
+相对Hybird app或者Webapp：
+
+1. 不用Webview，彻底摆脱了Webview让人不爽的交互和性能问题
+2. 有较强的扩展性，这是因为Native端提供的是基本控件，JS可以自由组合使用
+3. 可以直接使用Native原生的「牛逼」动画（在FB Group这个app里面，面板滑出带一点果冻弹动，面板基于某个点展开这种动画随处可见，这种动画用Native code来做小菜一碟，但是用Web来做就难上加难）。
+
+相对于Native app：
+
+1. 可以通过更新远端JS，直接更新app，不过这快成为各家大型Native app的标配了…
+
+劣势：
+
+1. 扩展性仍然远远不如web，也远远不如直接写Native code（这个不用废话解释了吧）
+2. 从Native到Web，要做很多概念转换，势必造成双方都要妥协。最终web要用一套CSS的阉割版，Native要费劲地把这个阉割版转换成native原生的表达方式（比如iOS的Constraint\origin\Center等属性），两边都会不爽。
