@@ -6,10 +6,6 @@ category: Python
 ---
 
 
-> 根据廖雪峰的Python3教程
->
-
-
 # 1.Python简介
 
 作者：Guido van Rossum
@@ -173,7 +169,7 @@ x = b'ABC'
 
 常见的占位符有：
 
-|      |        |
+| 占位符  | 数据类型   |
 | ---- | ------ |
 | %d   | 整数     |
 | %f   | 浮点数    |
