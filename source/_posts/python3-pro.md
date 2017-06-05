@@ -1907,23 +1907,21 @@ JSON表示的对象就是标准的JavaScript语言的对象，JSON和Python内�
 
 Python内置的`json`模块提供了非常完善的Python对象到JSON格式的转换。我们先看看如何把Python对象变成一个JSON：
 
-```
+```python
 >>> import json
 >>> d = dict(name='Bob', age=20, score=88)
 >>> json.dumps(d)
 '{"age": 20, "score": 88, "name": "Bob"}'
-
 ```
 
 `dumps()`方法返回一个`str`，内容就是标准的JSON。类似的，`dump()`方法可以直接把JSON写入一个`file-like Object`。
 
 要把JSON反序列化为Python对象，用`loads()`或者对应的`load()`方法，前者把JSON的字符串反序列化，后者从`file-like Object`中读取字符串并反序列化：
 
-```
+```python
 >>> json_str = '{"age": 20, "score": 88, "name": "Bob"}'
 >>> json.loads(json_str)
 {'age': 20, 'score': 88, 'name': 'Bob'}
-
 ```
 
 由于JSON标准规定JSON编码是UTF-8，所以我们总是能正确地在Python的`str`与JSON的字符串之间转换。
@@ -1932,7 +1930,7 @@ Python内置的`json`模块提供了非常完善的Python对象到JSON格式的�
 
 Python的`dict`对象可以直接序列化为JSON的`{}`，不过，很多时候，我们更喜欢用`class`表示对象，比如定义`Student`类，然后序列化：
 
-```
+```python
 import json
 
 class Student(object):
@@ -1943,16 +1941,14 @@ class Student(object):
 
 s = Student('Bob', 20, 88)
 print(json.dumps(s))
-
 ```
 
 运行代码，毫不留情地得到一个`TypeError`：
 
-```
+```python
 Traceback (most recent call last):
   ...
 TypeError: <__main__.Student object at 0x10603cc50> is not JSON serializable
-
 ```
 
 错误的原因是`Student`对象不是一个可序列化为JSON的对象。
@@ -1967,48 +1963,43 @@ TypeError: <__main__.Student object at 0x10603cc50> is not JSON serializable
 
 可选参数`default`就是把任意一个对象变成一个可序列为JSON的对象，我们只需要为`Student`专门写一个转换函数，再把函数传进去即可：
 
-```
+```python
 def student2dict(std):
     return {
         'name': std.name,
         'age': std.age,
         'score': std.score
     }
-
 ```
 
 这样，`Student`实例首先被`student2dict()`函数转换成`dict`，然后再被顺利序列化为JSON：
 
-```
+```python
 >>> print(json.dumps(s, default=student2dict))
 {"age": 20, "name": "Bob", "score": 88}
-
 ```
 
 不过，下次如果遇到一个`Teacher`类的实例，照样无法序列化为JSON。我们可以偷个懒，把任意`class`的实例变为`dict`：
 
-```
+```python
 print(json.dumps(s, default=lambda obj: obj.__dict__))
-
 ```
 
 因为通常`class`的实例都有一个`__dict__`属性，它就是一个`dict`，用来存储实例变量。也有少数例外，比如定义了`__slots__`的class。
 
 同样的道理，如果我们要把JSON反序列化为一个`Student`对象实例，`loads()`方法首先转换出一个`dict`对象，然后，我们传入的`object_hook`函数负责把`dict`转换为`Student`实例：
 
-```
+```python
 def dict2student(d):
     return Student(d['name'], d['age'], d['score'])
-
 ```
 
 运行结果如下：
 
-```
+```python
 >>> json_str = '{"age": 20, "score": 88, "name": "Bob"}'
 >>> print(json.loads(json_str, object_hook=dict2student))
 <__main__.Student object at 0x10cd3c190>
-
 ```
 
 打印出的是反序列化的`Student`实例对象。
@@ -2023,7 +2014,7 @@ Unix/Linux操作系统提供了一个`fork()`系统调用，它非常特殊。�
 
 Python的`os`模块封装了常见的系统调用，其中就包括`fork`，可以在Python程序中轻松创建子进程：
 
-```
+```python
 import os
 
 print('Process (%s) start...' % os.getpid())
@@ -2033,7 +2024,6 @@ if pid == 0:
     print('I am child process (%s) and my parent is %s.' % (os.getpid(), os.getppid()))
 else:
     print('I (%s) just created a child process (%s).' % (os.getpid(), pid))
-
 ```
 
 运行结果如下：
@@ -2042,7 +2032,6 @@ else:
 Process (876) start...
 I (876) just created a child process (877).
 I am child process (877) and my parent is 876.
-
 ```
 
 由于Windows没有`fork`调用，上面的代码在Windows上无法运行。由于Mac系统是基于BSD（Unix的一种）内核，所以，在Mac下运行是没有问题的，推荐大家用Mac学Python！
@@ -2057,7 +2046,7 @@ I am child process (877) and my parent is 876.
 
 `multiprocessing`模块提供了一个`Process`类来代表一个进程对象，下面的例子演示了启动一个子进程并等待其结束：
 
-```
+```python
 from multiprocessing import Process
 import os
 
@@ -2072,7 +2061,6 @@ if __name__=='__main__':
     p.start()
     p.join()
     print('Child process end.')
-
 ```
 
 执行结果如下：
@@ -2082,7 +2070,6 @@ Parent process 928.
 Process will start.
 Run child process test (929)...
 Process end.
-
 ```
 
 创建子进程时，只需要传入一个执行函数和函数的参数，创建一个`Process`实例，用`start()`方法启动，这样创建进程比`fork()`还要简单。
@@ -2093,7 +2080,7 @@ Process end.
 
 如果要启动大量的子进程，可以用进程池的方式批量创建子进程：
 
-```
+```python
 from multiprocessing import Pool
 import os, time, random
 
@@ -2113,7 +2100,6 @@ if __name__=='__main__':
     p.close()
     p.join()
     print('All subprocesses done.')
-
 ```
 
 执行结果如下：
@@ -2158,18 +2144,17 @@ p = Pool(5)
 
 下面的例子演示了如何在Python代码中运行命令`nslookup www.python.org`，这和命令行直接运行的效果是一样的：
 
-```
+```python
 import subprocess
 
 print('$ nslookup www.python.org')
 r = subprocess.call(['nslookup', 'www.python.org'])
 print('Exit code:', r)
-
 ```
 
 运行结果：
 
-```
+```python
 $ nslookup www.python.org
 Server:        192.168.19.4
 Address:    192.168.19.4#53
@@ -2180,12 +2165,11 @@ Name:    python.map.fastly.net
 Address: 199.27.79.223
 
 Exit code: 0
-
 ```
 
 如果子进程还需要输入，则可以通过`communicate()`方法输入：
 
-```
+```python
 import subprocess
 
 print('$ nslookup')
@@ -2193,21 +2177,19 @@ p = subprocess.Popen(['nslookup'], stdin=subprocess.PIPE, stdout=subprocess.PIPE
 output, err = p.communicate(b'set q=mx\npython.org\nexit\n')
 print(output.decode('utf-8'))
 print('Exit code:', p.returncode)
-
 ```
 
 上面的代码相当于在命令行执行命令`nslookup`，然后手动输入：
 
-```
+```python
 set q=mx
 python.org
 exit
-
 ```
 
 运行结果如下：
 
-```
+```python
 $ nslookup
 Server:        192.168.19.4
 Address:    192.168.19.4#53
@@ -2221,7 +2203,6 @@ mail.python.org    has AAAA address 2001:888:2000:d::a6
 
 
 Exit code: 0
-
 ```
 
 ### 进程间通信
@@ -2230,7 +2211,7 @@ Exit code: 0
 
 我们以`Queue`为例，在父进程中创建两个子进程，一个往`Queue`里写数据，一个从`Queue`里读数据：
 
-```
+```python
 from multiprocessing import Process, Queue
 import os, time, random
 
@@ -2262,7 +2243,6 @@ if __name__=='__main__':
     pw.join()
     # pr进程里是死循环，无法等待其结束，只能强行终止:
     pr.terminate()
-
 ```
 
 运行结果如下：
@@ -2276,7 +2256,6 @@ Put B to queue...
 Get B from queue.
 Put C to queue...
 Get C from queue.
-
 ```
 
 在Unix/Linux下，`multiprocessing`模块封装了`fork()`调用，使我们不需要关注`fork()`的细节。由于Windows没有`fork`调用，因此，`multiprocessing`需要“模拟”出`fork`的效果，父进程所有Python对象都必须通过pickle序列化再传到子进程去，所有，如果`multiprocessing`在Windows下调用失败了，要先考虑是不是pickle失败了。
@@ -2293,7 +2272,7 @@ Python的标准库提供了两个模块：`_thread`和`threading`，`_thread`是
 
 启动一个线程就是把一个函数传入并创建`Thread`实例，然后调用`start()`开始执行：
 
-```
+```python
 import time, threading
 
 # 新线程执行的代码:
@@ -2306,17 +2285,16 @@ def loop():
         time.sleep(1)
     print('thread %s ended.' % threading.current_thread().name)
 
-print('thread %s is running...' % threading.current_thread().name)
+print('thread %s is running...' % threading.current_thread().name)  
 t = threading.Thread(target=loop, name='LoopThread')
 t.start()
 t.join()
 print('thread %s ended.' % threading.current_thread().name)
-
 ```
 
 执行结果如下：
 
-```
+```python
 thread MainThread is running...
 thread LoopThread is running...
 thread LoopThread >>> 1
@@ -2326,7 +2304,6 @@ thread LoopThread >>> 4
 thread LoopThread >>> 5
 thread LoopThread ended.
 thread MainThread ended.
-
 ```
 
 由于任何进程默认就会启动一个线程，我们把该线程称为主线程，主线程又可以启动新的线程，Python的`threading`模块有个`current_thread()`函数，它永远返回当前线程的实例。主线程实例的名字叫`MainThread`，子线程的名字在创建时指定，我们用`LoopThread`命名子线程。名字仅仅在打印时用来显示，完全没有其他意义，如果不起名字Python就自动给线程命名为`Thread-1`，`Thread-2`……
@@ -2337,7 +2314,7 @@ thread MainThread ended.
 
 来看看多个线程同时操作一个变量怎么把内容给改乱了：
 
-```
+```python
 import time, threading
 
 # 假定这是你的银行存款:
@@ -2360,7 +2337,6 @@ t2.start()
 t1.join()
 t2.join()
 print(balance)
-
 ```
 
 我们定义了一个共享变量`balance`，初始值为`0`，并且启动两个线程，先存后取，理论上结果应该为`0`，但是，由于线程的调度是由操作系统决定的，当t1、t2交替执行时，只要循环次数足够多，`balance`的结果就不一定是`0`了。
@@ -2445,7 +2421,6 @@ def run_thread(n):
         finally:
             # 改完了一定要释放锁:
             lock.release()
-
 ```
 
 当多个线程同时执行`lock.acquire()`时，只有一个线程能成功地获取锁，然后继续执行代码，其他线程就继续等待直到获得锁为止。
@@ -2470,7 +2445,7 @@ def run_thread(n):
 
 试试用Python写个死循环：
 
-```
+```python
 import threading, multiprocessing
 
 def loop():
@@ -2481,7 +2456,6 @@ def loop():
 for i in range(multiprocessing.cpu_count()):
     t = threading.Thread(target=loop)
     t.start()
-
 ```
 
 启动与CPU核心数量相同的N个线程，在4核CPU上可以监控到CPU占用率仅有102%，也就是仅使用了一核。
@@ -2502,7 +2476,7 @@ GIL是Python解释器设计的历史遗留问题，通常我们用的解释器�
 
 但是局部变量也有问题，就是在函数调用的时候，传递起来很麻烦：
 
-```
+```python
 def process_student(name):
     std = Student(name)
     # std是局部变量，但是每个函数都要用它，因此必须传进去：
@@ -2516,14 +2490,13 @@ def do_task_1(std):
 def do_task_2(std):
     do_subtask_2(std)
     do_subtask_2(std)
-
 ```
 
 每个函数一层一层调用都这么传参数那还得了？用全局变量？也不行，因为每个线程处理不同的`Student`对象，不能共享。
 
 如果用一个全局`dict`存放所有的`Student`对象，然后以`thread`自身作为`key`获得线程对应的`Student`对象如何？
 
-```
+```python
 global_dict = {}
 
 def std_thread(name):
@@ -2542,7 +2515,6 @@ def do_task_2():
     # 任何函数都可以查找出当前线程的std变量：
     std = global_dict[threading.current_thread()]
     ...
-
 ```
 
 这种方式理论上是可行的，它最大的优点是消除了`std`对象在每层函数中的传递问题，但是，每个函数获取`std`的代码有点丑。
@@ -2551,7 +2523,7 @@ def do_task_2():
 
 `ThreadLocal`应运而生，不用查找`dict`，`ThreadLocal`帮你自动做这件事：
 
-```
+```python
 import threading
 
 # 创建全局ThreadLocal对象:
@@ -2573,7 +2545,6 @@ t1.start()
 t2.start()
 t1.join()
 t2.join()
-
 ```
 
 执行结果：
@@ -2654,7 +2625,7 @@ Python的`multiprocessing`模块不但支持多进程，其中`managers`子模�
 
 我们先看服务进程，服务进程负责启动`Queue`，把`Queue`注册到网络上，然后往`Queue`里面写入任务：
 
-```
+```python
 # task_master.py
 
 import random, time, queue
@@ -2692,14 +2663,13 @@ for i in range(10):
 # 关闭:
 manager.shutdown()
 print('master exit.')
-
 ```
 
 请注意，当我们在一台机器上写多进程程序时，创建的`Queue`可以直接拿来用，但是，在分布式多进程环境下，添加任务到`Queue`不可以直接对原始的`task_queue`进行操作，那样就绕过了`QueueManager`的封装，必须通过`manager.get_task_queue()`获得的`Queue`接口添加。
 
 然后，在另一台机器上启动任务进程（本机上启动也可以）：
 
-```
+```python
 # task_worker.py
 
 import time, sys, queue
@@ -2735,7 +2705,6 @@ for i in range(10):
         print('task queue is empty.')
 # 处理结束:
 print('worker exit.')
-
 ```
 
 任务进程要通过网络连接到服务进程，所以要指定服务进程的IP。
@@ -2863,76 +2832,68 @@ Queue对象存储在哪？注意到`task_worker.py`中根本没有创建Queue的
 
 有了准备知识，我们就可以在Python中使用正则表达式了。Python提供`re`模块，包含所有正则表达式的功能。由于Python的字符串本身也用`\`转义，所以要特别注意：
 
-```
+```python
 s = 'ABC\\-001' # Python的字符串
 # 对应的正则表达式字符串变成：
 # 'ABC\-001'
-
 ```
 
 因此我们强烈建议使用Python的`r`前缀，就不用考虑转义的问题了：
 
-```
+```python
 s = r'ABC\-001' # Python的字符串
 # 对应的正则表达式字符串不变：
 # 'ABC\-001'
-
 ```
 
 先看看如何判断正则表达式是否匹配：
 
-```
+```python
 >>> import re
 >>> re.match(r'^\d{3}\-\d{3,8}$', '010-12345')
 <_sre.SRE_Match object; span=(0, 9), match='010-12345'>
 >>> re.match(r'^\d{3}\-\d{3,8}$', '010 12345')
 >>>
-
 ```
 
 `match()`方法判断是否匹配，如果匹配成功，返回一个`Match`对象，否则返回`None`。常见的判断方法就是：
 
-```
+```python
 test = '用户输入的字符串'
 if re.match(r'正则表达式', test):
     print('ok')
 else:
     print('failed')
-
 ```
 
 ### 切分字符串
 
 用正则表达式切分字符串比用固定的字符更灵活，请看正常的切分代码：
 
-```
+```python
 >>> 'a b   c'.split(' ')
 ['a', 'b', '', '', 'c']
-
 ```
 
 嗯，无法识别连续的空格，用正则表达式试试：
 
-```
+```python
 >>> re.split(r'\s+', 'a b   c')
 ['a', 'b', 'c']
-
 ```
 
 无论多少个空格都可以正常分割。加入`,`试试：
 
-```
+```python
 >>> re.split(r'[\s\,]+', 'a,b, c  d')
 ['a', 'b', 'c', 'd']
-
 ```
 
 再加入`;`试试：
 
-```
+```python
 >>> re.split(r'[\s\,\;]+', 'a,b;; c  d')
 ['a', 'b', 'c', 'd']
-
 ```
 
 如果用户输入了一组标签，下次记得用正则表达式来把不规范的输入转化成正确的数组。
@@ -2943,7 +2904,7 @@ else:
 
 `^(\d{3})-(\d{3,8})$`分别定义了两个组，可以直接从匹配的字符串中提取出区号和本地号码：
 
-```
+```python
 >>> m = re.match(r'^(\d{3})-(\d{3,8})$', '010-12345')
 >>> m
 <_sre.SRE_Match object; span=(0, 9), match='010-12345'>
@@ -2953,7 +2914,6 @@ else:
 '010'
 >>> m.group(2)
 '12345'
-
 ```
 
 如果正则表达式中定义了组，就可以在`Match`对象上用`group()`方法提取出子串来。
@@ -2962,19 +2922,17 @@ else:
 
 提取子串非常有用。来看一个更凶残的例子：
 
-```
+```python
 >>> t = '19:05:30'
 >>> m = re.match(r'^(0[0-9]|1[0-9]|2[0-3]|[0-9])\:(0[0-9]|1[0-9]|2[0-9]|3[0-9]|4[0-9]|5[0-9]|[0-9])\:(0[0-9]|1[0-9]|2[0-9]|3[0-9]|4[0-9]|5[0-9]|[0-9])$', t)
 >>> m.groups()
 ('19', '05', '30')
-
 ```
 
 这个正则表达式可以直接识别合法的时间。但是有些时候，用正则表达式也无法做到完全验证，比如识别日期：
 
 ```
 '^(0[1-9]|1[0-2]|[0-9])-(0[1-9]|1[0-9]|2[0-9]|3[0-1]|[0-9])$'
-
 ```
 
 对于`'2-30'`，`'4-31'`这样的非法日期，用正则还是识别不了，或者说写出来非常困难，这时就需要程序配合识别了。
@@ -2983,20 +2941,18 @@ else:
 
 最后需要特别指出的是，正则匹配默认是贪婪匹配，也就是匹配尽可能多的字符。举例如下，匹配出数字后面的`0`：
 
-```
+```python
 >>> re.match(r'^(\d+)(0*)$', '102300').groups()
 ('102300', '')
-
 ```
 
 由于`\d+`采用贪婪匹配，直接把后面的`0`全部匹配了，结果`0*`只能匹配空字符串了。
 
 必须让`\d+`采用非贪婪匹配（也就是尽可能少匹配），才能把后面的`0`匹配出来，加个`?`就可以让`\d+`采用非贪婪匹配：
 
-```
+```python
 >>> re.match(r'^(\d+?)(0*)$', '102300').groups()
 ('1023', '00')
-
 ```
 
 ### 编译
@@ -3008,7 +2964,7 @@ else:
 
 如果一个正则表达式要重复使用几千次，出于效率的考虑，我们可以预编译该正则表达式，接下来重复使用时就不需要编译这个步骤了，直接匹配：
 
-```
+```python
 >>> import re
 # 编译:
 >>> re_telephone = re.compile(r'^(\d{3})-(\d{3,8})$')
@@ -3017,8 +2973,8 @@ else:
 ('010', '12345')
 >>> re_telephone.match('010-8086').groups()
 ('010', '8086')
-
 ```
 
 编译后生成Regular Expression对象，由于该对象自己包含了正则表达式，所以调用对应的方法时不用给出正则字符串。
 
+[所有代码 ](http://blog.idejie.com/code/python/hello.py)
