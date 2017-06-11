@@ -224,7 +224,8 @@ if __name__=='__main__':
         soup=BeautifulSoup(r,'html5lib')
         s='剩余电量'+ soup.h6.contents[1].string
         print('剩余电量', soup.h6.contents[1].string)
-        friend = bot.friends().search('idejie')[0]
+        chat=msg.sender.name
+        friend = bot.friends().search(chat)[0]
         friend.send(s)
         print(msg.sender)
 
