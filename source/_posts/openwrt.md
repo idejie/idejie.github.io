@@ -109,7 +109,7 @@ opkg install luci-i18n-base-zh-cn
 
 ## 挂载 U 盘
 
-你会发现装上几个软件包，overplay就快满了,所以挂载 U 盘吧
+你会发现装上几个软件包，就快满了,所以挂载 U 盘吧
 
 以 NTFS 盘为例
 
@@ -129,7 +129,7 @@ fdisk -l
 
 ![](https://ws1.sinaimg.cn/large/006tKfTcly1fhn9p1gda9j30bm00w0ss.jpg)
 
-- 挂载 /dev/sda1(可能是其他名字)到overplay
+- 挂载 /dev/sda1(可能是其他名字)到overlay
   ![](https://ws1.sinaimg.cn/large/006tKfTcly1fhn9p1gda9j30bm00w0ss.jpg)
 
 - 查看挂载是否成功
