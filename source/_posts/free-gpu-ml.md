@@ -1,5 +1,5 @@
 ---
-title: 利用 Google 资源进行机器学习
+title: 使用 Google 资源进行机器学习
 date: 2018-01-23 23:02:41
 tags: Google,Colab
 category: 教程
