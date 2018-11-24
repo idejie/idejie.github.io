@@ -111,7 +111,7 @@ b. 执行 (i) AND (iii) = (iv): 在AND运算符的情况下，合并记录表的
 c. 执行（iv）and（ii）：这是唯一剩下的合并的操作。
 ```
 
-![image-20181112095809168](/Users/idejie/Library/Application%20Support/typora-user-images/image-20181112095809168.png)
+![](https://ws1.sinaimg.cn/large/006tNbRwly1fxjojebbn7j31gc082wgw.jpg)
 
 ```
 令friends、romans和countrymen的文档频率分别为x、y、z。如果z极高，则将N-z作为NOT countrymen的长度估计值，然后按照x、y、N-z从小到大合并。如果z极低，则按照x、y、z从小到大合并。
@@ -216,7 +216,7 @@ d 大学和宇宙也是两个不同的概念
 
 ![](https://ws4.sinaimg.cn/large/006tNbRwly1fxj5ovmct8j312q0agwhf.jpg)
 
-![image-20181124145430651](/Users/idejie/Library/Application%20Support/typora-user-images/image-20181124145430651.png)
+![](https://ws1.sinaimg.cn/large/006tNbRwly1fxjoke1pczj31ee04edh3.jpg)
 
 
 
@@ -344,7 +344,7 @@ m为词项1的倒排索引表中文档记录长度，相应的n为词项2的
 
 ```
 
-![image-20181124153155600](/Users/idejie/Library/Application%20Support/typora-user-images/image-20181124153155600.png)
+![](https://ws4.sinaimg.cn/large/006tNbRwly1fxjokqxh5qj31hc01ut9j.jpg)
 
 ```
 
