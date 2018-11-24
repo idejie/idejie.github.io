@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNbRwly1fx4gk3q8oej30tu062di0.jpg">
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNbRwly1fx51emlwojj31gw02aq3e.jpg">
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNbRwly1fx51f2b54ij31g40hitc4.jpg">
-<meta property="og:image" content="https://blog.idejie.com/Users/idejie/Library/Application%20Support/typora-user-images/image-20181112095809168.png">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNbRwly1fxjojebbn7j31gc082wgw.jpg">
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNbRwly1fxceywovgbj30oi020jrv.jpg">
 <meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNbRwly1fxcf8r228aj31gi020aar.jpg">
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNbRwly1fxdnrqhu5dj31me04cgn4.jpg">
@@ -41,7 +41,7 @@
 <meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNbRwly1fxj5jiufxwj314y0b4gn3.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNbRwly1fxj5l33kkdj31go0cutbh.jpg">
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNbRwly1fxj5ovmct8j312q0agwhf.jpg">
-<meta property="og:image" content="https://blog.idejie.com/Users/idejie/Library/Application%20Support/typora-user-images/image-20181124145430651.png">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNbRwly1fxjoke1pczj31ee04edh3.jpg">
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNbRwly1fxj5w26klcj30ts01ywf0.jpg">
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNbRwly1fxj5xj26kkj31go0gc795.jpg">
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNbRwly1fxj61m2t02j31di0gcagi.jpg">
@@ -52,8 +52,8 @@
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNbRwly1fxj6r4eo7mj31h40a6n2c.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNbRwly1fxj6rem2gdj31gg0cedlc.jpg">
 <meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNbRwly1fxj6rrgqrtj31gq0egwki.jpg">
-<meta property="og:image" content="https://blog.idejie.com/Users/idejie/Library/Application%20Support/typora-user-images/image-20181124153155600.png">
-<meta property="og:updated_time" content="2018-11-24T17:41:03.229Z">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNbRwly1fxjokqxh5qj31hc01ut9j.jpg">
+<meta property="og:updated_time" content="2018-11-24T17:47:43.530Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《信息检索导论》课后习题">
 <meta name="twitter:description" content="目前进度：2/15 参考：《An Introduction to Information Retrieval》Preliminary draft ©2007 未经允许，不得转载或其他使用。 如有问题，请联系本文作者   第一章  forecast-&amp;gt;1home-&amp;gt;1-&amp;gt;2-&amp;gt;3-&amp;gt;4 in-&amp;gt;2-&amp;gt;3increase-&amp;gt;3 july-&amp;gt;2-&amp;">
@@ -241,7 +241,7 @@
 <p><img src="https://ws3.sinaimg.cn/large/006tNbRwly1fx51emlwojj31gw02aq3e.jpg" alt=""></p>
 <p><img src="https://ws3.sinaimg.cn/large/006tNbRwly1fx51f2b54ij31g40hitc4.jpg" alt=""></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">由于：</span><br><span class="line">(tangerine OR trees) ➔ 46653+316812 = 363465</span><br><span class="line">(marmalade OR skies)➔ 107913+271658 = 379571</span><br><span class="line">(kaleidoscope OR eyes）➔ 87009+213312 = 30321    </span><br><span class="line">所以推荐处理次序为：</span><br><span class="line">(kaleidoscope OR eyes）AND (tangerine OR trees) AND (marmalade OR skies)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">根据使用并集的列表长度的保守估计，建议的顺序是:(kaleidoscope OR eyes)（300,321）and (tangerine OR trees)（363,465）and (marmalade OR skies) （379,571）. 但是，取决于实际分布  (tangerine OR trees)可能比 (marmalade OR skies)更长，因为前者的两个组成部分更不对称。 例如，预计11和9990的并集比5000和5000的并集更长，尽管保守估计不然。</span><br><span class="line">S. Singh’s solution:</span><br><span class="line">执行时间 : </span><br><span class="line">(i) (tangerine OR trees) = O(46653+316812) = O(363465) </span><br><span class="line">(ii) (marmalade OR skies) = O(107913+271658) = O(379571) </span><br><span class="line">(iii) (kaleidoscope OR eyes) = O(46653+87009) = O(300321)</span><br><span class="line">执行顺序:</span><br><span class="line">a. 任意顺序执行(i), (ii), (iii)  (任何情况总的复杂度： O(363465+379571+300321) )</span><br><span class="line">b. 执行 (i) AND (iii) = (iv): 在AND运算符的情况下，合并记录表的复杂性取决于较短记录表的长度。 因此，记录表越小越短，花费的时间就越少。选择（i）而不是（ii）的原因是如果选择（i），则输出列表（iv）更可能更短。</span><br><span class="line">c. 执行（iv）and（ii）：这是唯一剩下的合并的操作。</span><br></pre></td></tr></table></figure>
-<p><img src="/Users/idejie/Library/Application%20Support/typora-user-images/image-20181112095809168.png" alt="image-20181112095809168"></p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNbRwly1fxjojebbn7j31gc082wgw.jpg" alt=""></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">令friends、romans和countrymen的文档频率分别为x、y、z。如果z极高，则将N-z作为NOT countrymen的长度估计值，然后按照x、y、N-z从小到大合并。如果z极低，则按照x、y、z从小到大合并。</span><br></pre></td></tr></table></figure>
 <p><img src="https://ws4.sinaimg.cn/large/006tNbRwly1fxceywovgbj30oi020jrv.jpg" alt=""></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">排序不保证是最佳的。 考虑三个词项，倒排记录表中s1 = 100，s2 = 105和s3 = 110.假设s1和s2的交集长度为100，s1和s3的交集长度为0.排序s1，s2，s3需要100 + 105 + 100 + 110 = 315步。更合理的顺序是s1,s3,s2此时需要100 + 110 + 0 + 0 = 210步。</span><br><span class="line"></span><br><span class="line">不一定。比如三个长度分别为x,y,z的倒排记录表进行合并，其中x&gt;y&gt;z，如果x和y的交集为空集，那么有可能先合并x、y效率更高</span><br></pre></td></tr></table></figure>
@@ -261,7 +261,7 @@
 <p><img src="https://ws1.sinaimg.cn/large/006tNbRwly1fxj5l33kkdj31go0cutbh.jpg" alt=""></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">c 不应该同样结果 营销和市场是两个概念</span><br><span class="line">d 大学和宇宙也是两个不同的概念</span><br></pre></td></tr></table></figure>
 <p><img src="https://ws4.sinaimg.cn/large/006tNbRwly1fxj5ovmct8j312q0agwhf.jpg" alt=""></p>
-<p><img src="/Users/idejie/Library/Application%20Support/typora-user-images/image-20181124145430651.png" alt="image-20181124145430651"></p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNbRwly1fxjoke1pczj31ee04edh3.jpg" alt=""></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">a.为了防止使用规则&apos;s&apos;-&gt;&apos;&apos;等错误干扰。</span><br><span class="line">b.circus-&gt;circu, canaries-&gt;canar, boss-&gt;boss</span><br><span class="line">c. y-&gt;i</span><br><span class="line">d.不会，因为查询也会进行词干还原，此时可以认为poni就是pony(ponies)</span><br></pre></td></tr></table></figure>
 <p><img src="https://ws3.sinaimg.cn/large/006tNbRwly1fxj5w26klcj30ts01ywf0.jpg" alt=""></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">这种情况需要对倒排索引的表都进行查询</span><br></pre></td></tr></table></figure>
@@ -282,7 +282,7 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p><img src="https://ws2.sinaimg.cn/large/006tNbRwly1fxj6rrgqrtj31gq0egwki.jpg" alt=""></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><img src="/Users/idejie/Library/Application%20Support/typora-user-images/image-20181124153155600.png" alt="image-20181124153155600"></p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNbRwly1fxjokqxh5qj31hc01ut9j.jpg" alt=""></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     
