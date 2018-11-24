@@ -23,7 +23,7 @@ home_nav:
     url: /project/
     target_blank: false #在新页面打开
   - name: Github
-    url: https://github.com/yangdejie
+    url: https://github.com/idejie
     target_blank: true
   - name: Zhihu
     url: https://www.zhihu.com/people/idejie
@@ -140,8 +140,8 @@ baidu_analytics: 57e94d016e201fba3603a8a2b0263af0
 # Comment service
 # disqus_shortname: idejie
 duoshuo_shortname: idejie
-github_id: YangDejie
-git_repo: yangdejie.github.io
+github_id: idejie
+git_repo: idejie.github.io
 client_id: 1f1de6e091e0ddb070a2
 client_secret: 9647e77652e4654e10549d1226c3b80300d65348
 busuanzi: true
@@ -172,7 +172,7 @@ about:
     icon: icon-github
     text_key: Github
     text_value: "@idejie"
-    text_value_url: https://github.com/yangdejie
+    text_value_url: https://github.com/idejie
   - type: wechat
     icon: icon-wechat
     text_value: "公众号：YuanCode"
@@ -225,7 +225,7 @@ project:
     intro: A minimalist design theme for hexo
   - type: personal
     name: Android Mall
-    url: https://github.com/YangDejie/Android-Mall
+    url: https://github.com/idejie/Android-Mall
     intro: Android商城
   - type: personal
     name: web-fontmin
@@ -233,17 +233,17 @@ project:
     intro: 字体子集化，在线提取你需要的字体
   - type: personal
     name: Light
-    url: https://github.com/YangDejie/Light
+    url: https://github.com/idejie/Light
     intro: Android Project for Lesson HMI--Light Sensor & Fingers Recognization
   - type: personal
     name: Manage
-    url: https://github.com/YangDejie/manage
+    url: https://github.com/idejie/manage
     intro: 基于Express的物业管理系统
   - type: personal
     name: Learning
-    url: https://github.com/YangDejie/learning
+    url: https://github.com/idejie/learning
     intro: An application for Android / iOS / Web ,Powered by Meteor 
   - type: personal
     name: Android Menu
-    url: https://github.com/YangDejie/Android-Menu
+    url: https://github.com/idejie/Android-Menu
     intro: A 3D menu on Android OS Pad
