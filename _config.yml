@@ -105,4 +105,4 @@ baidu_url_submit:
 #   repo: https://github.com/yangdejie/yangdejie.github.io
 #   branch: master
 deploy:
-  type: baidu_url_submitert
+  type: baidu_url_submitter
