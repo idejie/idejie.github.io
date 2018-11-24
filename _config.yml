@@ -1,0 +1,249 @@
+# Blog info
+blog_name: I ，Dejie
+slogan: 这世界太吵      多听听自己
+url: https://blog.idejie.com
+
+# Set avatar (Absolute url and relative url)
+avatar: https://avatars0.githubusercontent.com/u/12479824
+
+# Set favicon
+favicon: https://avatars0.githubusercontent.com/u/12479824
+
+# For seo
+keywords: 杨德杰,idejie,idejie.com,yangdejie,前端,后端,设计,安卓，IOS，Linux，Hexo主题,前端开发,用户体验,设计,frontend,design,nodejs,JavaScript
+
+home_nav:
+  # - name: Home
+  #   url: http://idejie.com
+  #   target_blank: false
+  - name: Blog
+    url: /archives
+    target_blank: false #不在新页面打开
+  - name: Project
+    url: /project/
+    target_blank: false #在新页面打开
+  - name: Github
+    url: https://github.com/yangdejie
+    target_blank: true
+  - name: Zhihu
+    url: https://www.zhihu.com/people/idejie
+    target_blank: true
+  - name: Link
+    url: /link/
+    target_blank: true
+  - name: About
+    url: /about
+    target_blank: false
+
+# config page nav
+page_nav:
+  - name: 目录
+    url: /archives/
+    target_blank: false # 不在新页面打开
+  - name: 分类
+    url: /category/
+    target_blank: false
+  - name: 标签
+    url: /tag/
+    target_blank: false
+  - name: 项目
+    url: /project/
+    target_blank: false
+  - name: 友链
+    url: /link/
+    target_blank: false
+  - name: 关于
+    url: /about/
+    target_blank: false
+  - name: 搜索
+    url: /search/
+    target_blank: false # 在新页面打开
+
+page_nav_style: CIRCLE  # CIRCLE|ROUND_RECT
+
+# 面包屑
+breadcrumb:
+  isShow: true # true|fase
+
+# 盒子
+toolbox:
+  isShow: true # true|fase
+  text: 菜单
+
+search_slogan:
+  isShow: true # true|fase
+  text: 人生如逆旅，你我皆行人
+
+link_slogan:
+  isShow: true # true|fase
+  text: 交换友链可以邮件 i@idejie.com
+
+# set backtop show or hide
+backtop:
+  home: false
+  archive: false
+  category: true
+  tag: true
+  post: true
+  link: false
+  about: false
+
+donation:
+  show: true
+  btn_text: 赞赏
+  tip: 支持一下
+  items:
+    - type: 微信
+      text: 微信扫一扫
+      imgUrl: https://ws1.sinaimg.cn/large/006tNbRwly1fxjlq29zkkj30f60f675t.jpg
+    - type: 支付宝
+      text: 支付宝扫一扫
+      imgUrl: https://ws2.sinaimg.cn/large/006tNbRwly1fxjlwikh27j30a20a2wfe.jpg
+    - type: QQ
+      text: QQ扫一扫
+      imgUrl: https://ws3.sinaimg.cn/large/006tNbRwly1fxjlztplu9j30jd0jeadu.jpg
+
+
+
+
+post:
+  header_align: CENTER # LEFTv|CENTER
+  showToc: true # true|false
+  showComments: true
+  open_in_new_window: false
+  show_prev_next: true
+
+# =========================================================
+# 个性化设置
+# =========================================================
+
+# Custom CSS style
+personal_style: /css/styles.css
+
+home_background_scheme: light # dark、light
+
+# custom font-family 暂时只支持这3种英文字体，你可以完全自定义字体(看文档)
+blog_name_font_familiy: calligraffittiregular
+# blog_name_font_familiy: Lobster-Regular
+# blog_name_font_familiy: PoiretOne-Regular
+
+init_page_content: HOME_NAV  # HOME_NAV | POST
+
+
+# =========================================================
+# 第三方服务
+# =========================================================
+# Stats
+google_analytics:
+baidu_analytics: 57e94d016e201fba3603a8a2b0263af0
+
+# Comment service
+# disqus_shortname: idejie
+duoshuo_shortname: idejie
+github_id: YangDejie
+git_repo: yangdejie.github.io
+client_id: 1f1de6e091e0ddb070a2
+client_secret: 9647e77652e4654e10549d1226c3b80300d65348
+busuanzi: true
+
+# ======================================
+# 打赏
+# ======================================
+# donate:
+#   enable: true
+#   text: 打赏我的人，运气都不会太差~
+#   wechat: http://7xsl28.com1.z0.glb.clouddn.com/wechatpay.png
+#   alipay: http://7xsl28.com1.z0.glb.clouddn.com/alipay.jpg
+#   web: true
+# =========================================================
+# 页面内容设置
+# =========================================================
+about:
+  - type: me
+    icon: icon-user
+    text_value: "I'm Dejie"
+  - type: dream
+    icon: icon-rss
+    text_value: "To be a better me."
+  - type: jineng
+    icon: icon-tag
+    text_value: "Give me 21 days , and I'll prove me."
+  - type: Github
+    icon: icon-github
+    text_key: Github
+    text_value: "@idejie"
+    text_value_url: https://github.com/yangdejie
+  - type: wechat
+    icon: icon-wechat
+    text_value: "公众号：YuanCode"
+  - type: mail
+    icon: icon-mail
+    text_key: 邮箱
+    text_value: "i@idejie.com"
+    text_value_url: "mailto:i@idejie.com"
+
+link:
+  - name: 碎 念
+    info: 赵帅个人博客
+    url: http://zhaoshuai.me/
+    avatar: https://qiniu.zhaoshuai.me/wp-content/uploads/2016/10/2picdiy201610111116373953-150x150.png
+  - name: Lewin-xu
+    info: 不积跬步，无以至千里。不积小流，无以成江海。
+    url: http://blog.lewinxu.com/
+    avatar: https://blog.lewinxu.com/images/lewin.JPG
+  - name: Evan You
+    info: Design, Code & Things in Between 
+    url: http://evanyou.me/
+    avatar: https://avatars3.githubusercontent.com/u/499550?v=3&s=100
+  - name: 题叶
+    info: FP, GUI, Writing
+    url: http://tiye.me/
+    avatar: https://avatars2.githubusercontent.com/u/449224?v=3&s=100
+  - name: idisfkj
+    info: Android成长分享
+    url: http://idisfkj.github.io
+    avatar: https://avatars1.githubusercontent.com/u/8677862?v=3&s=100
+
+
+
+project:
+  - type: personal
+    name: SE
+    url: https://se.idejie.com
+    intro: Software Engineering Reviewing
+  - type: personal
+    name: Nosql
+    url: https://nosql.idejie.com
+    intro: Nosql Reviewing
+  - type: personal
+    name: Web
+    url: https://blog.idejie.com/web-learning
+    intro: Web Learning
+  - type: company
+    name: Fexo
+    url: https://github.com/forsigner/fexo
+    intro: A minimalist design theme for hexo
+  - type: personal
+    name: Android Mall
+    url: https://github.com/YangDejie/Android-Mall
+    intro: Android商城
+  - type: personal
+    name: web-fontmin
+    url: https://github.com/forsigner/web-fontmin
+    intro: 字体子集化，在线提取你需要的字体
+  - type: personal
+    name: Light
+    url: https://github.com/YangDejie/Light
+    intro: Android Project for Lesson HMI--Light Sensor & Fingers Recognization
+  - type: personal
+    name: Manage
+    url: https://github.com/YangDejie/manage
+    intro: 基于Express的物业管理系统
+  - type: personal
+    name: Learning
+    url: https://github.com/YangDejie/learning
+    intro: An application for Android / iOS / Web ,Powered by Meteor 
+  - type: personal
+    name: Android Menu
+    url: https://github.com/YangDejie/Android-Menu
+    intro: A 3D menu on Android OS Pad
