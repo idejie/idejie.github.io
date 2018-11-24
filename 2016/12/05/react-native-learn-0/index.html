@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>React-Native学习（一）：了解React-Native | 杨德杰</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="">
+  
+
+  <meta name="description" content="LEARN ONCE, WRITE ANYWHERE: BUILD MOBILE APPS WITH REACT  以下为转载：Jag的技术博客 0.开篇React Native (简称RN)是Facebook于2015年4月开源的跨平台移动应用开发框架，是Facebook早先开源的UI框架 React 在原生移动应用平台的衍生产物，目前支持iOS和安卓两大平台。RN使用Javascript语言">
+<meta name="keywords" content="React-Native">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React-Native学习（一）：了解React-Native">
+<meta property="og:url" content="https://blog.idejie.com/2016/12/05/react-native-learn-0/index.html">
+<meta property="og:site_name" content="杨德杰">
+<meta property="og:description" content="LEARN ONCE, WRITE ANYWHERE: BUILD MOBILE APPS WITH REACT  以下为转载：Jag的技术博客 0.开篇React Native (简称RN)是Facebook于2015年4月开源的跨平台移动应用开发框架，是Facebook早先开源的UI框架 React 在原生移动应用平台的衍生产物，目前支持iOS和安卓两大平台。RN使用Javascript语言">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-11-24T16:32:27.556Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React-Native学习（一）：了解React-Native">
+<meta name="twitter:description" content="LEARN ONCE, WRITE ANYWHERE: BUILD MOBILE APPS WITH REACT  以下为转载：Jag的技术博客 0.开篇React Native (简称RN)是Facebook于2015年4月开源的跨平台移动应用开发框架，是Facebook早先开源的UI框架 React 在原生移动应用平台的衍生产物，目前支持iOS和安卓两大平台。RN使用Javascript语言">
+
+  
+
+  
+    <link rel="icon" href="https://avatars0.githubusercontent.com/u/12479824">
+  
+
+  <link href="/css/styles.css?v=d671a41f" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/styles.css">
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+<script src="//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0"></script>
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+ <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css">
+<script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+
+</head>
+<script src="http://pixijs.download/release/pixi.js"></script>
+</html>
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">菜单</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">菜单</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+            目录
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/category/" rel="noopener noreferrer" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/tag/" rel="noopener noreferrer" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/project/" rel="noopener noreferrer" target="_self">
+            项目
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#0-开篇"><span class="toc-text">0.开篇</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-起源"><span class="toc-text">1.起源</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-内容目录"><span class="toc-text">2.内容目录</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-其他资料"><span class="toc-text">3.其他资料</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-react-native-learn-0" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">React-Native学习（一）：了解React-Native</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2016.12.05</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>杨德杰</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/教程/">教程</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp 阅读量：<span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>
+        </span>
+      
+
+      
+        <i class="icon-comment"></i> 
+        <span class="ds-thread-count" data-thread-key="post-react-native-learn-0"><i class="fa fa-spinner fa-spin"></i></span> 
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <blockquote>
+<p>LEARN ONCE, WRITE ANYWHERE: BUILD MOBILE APPS WITH REACT</p>
+</blockquote>
+<p><em>以下为转载</em>：<a href="https://jaggerwang.net/react-native-cross-platform-mobile-app-develop-intro/" target="_blank" rel="noopener">Jag的技术博客</a></p>
+<h1 id="0-开篇"><a href="#0-开篇" class="headerlink" title="0.开篇"></a>0.开篇</h1><p><a href="//link.zhihu.com/?target=https%3A//facebook.github.io/react-native/">React Native</a> (简称RN)是Facebook于2015年4月开源的跨平台移动应用开发框架，是Facebook早先开源的UI框架 <a href="//link.zhihu.com/?target=https%3A//facebook.github.io/react/">React</a> 在原生移动应用平台的衍生产物，目前支持iOS和安卓两大平台。RN使用Javascript语言，类似于HTML的JSX，以及CSS来开发移动应用，因此熟悉Web前端开发的技术人员只需很少的学习就可以进入移动应用开发领域。</p>
+<p>RN运行时包含一个原生主线程和一个JS线程，JS线程执行JS代码，负责界面布局和业务逻辑处理，原生线程负责界面渲染和原生功能执行。RN尽量使用原生组件（现有原生组件经过封装后可在JS里调用），以避免重复造轮子。这样有很多好处，一是可以利用现有的大量的原生组件；二是可以达到跟原生组件一样的性能；三是通过JS封装过后的组件可以支持跨平台。</p>
+<p>JS在RN里面的作用类似于Python这样的支持调用原生C库的脚本语言，都是起着“胶水”的作用。复杂计算和系统功能通过调用原生接口来完成，流程控制和业务逻辑则在“胶水”语言里完成。这样既提高了开发效率，又兼顾了性能。</p>
+<h1 id="1-起源"><a href="#1-起源" class="headerlink" title="1.起源"></a>1.起源</h1><p>本文章系列是 <a href="//link.zhihu.com/?target=https%3A//jaggerwang.net/develop-and-deploy-api-service-with-go-and-docker-intro/">Go + Docker API服务开发和部署</a> 的姊妹篇，都是笔者在开发 <a href="//link.zhihu.com/?target=https%3A//www.zaiqiuchang.com/">在球场</a> 这款体育社交类应用过程中的技术总结。该应用已经发布到AppStore、GooglePlay和腾讯应用宝，覆盖iOS和安卓两大平台。平台之间的代码复用率超过90%，流畅度接近原生应用。相比而言iOS的体验更为流畅一些，毕竟RN最先支持的就是iOS平台，优化做得更好。</p>
+<p>经过这次的实际开发体验，笔者相信RN以后将成为绝大多数移动应用开发的首选技术。除开那些对性能要求非常苛刻的应用，比如游戏类。RN目前的短板在于代码的稳定性不够，经JS封装的原生组件还比较少。不过这些随着时间的发展将会很快解决，毕竟RN从开源到现在也才一年多时间就达到了目前的水平，发展速度非常之快。</p>
+<h1 id="2-内容目录"><a href="#2-内容目录" class="headerlink" title="2.内容目录"></a>2.内容目录</h1><p>简化版的代码已在GitHub开源，<a href="//link.zhihu.com/?target=https%3A//github.com/jaggerwang/zqc-app-demo">在球场开源版</a> 。网易云课堂上有讲解更详细的付费视频课程，<a href="//link.zhihu.com/?target=http%3A//study.163.com/course/courseMain.htm%3FcourseId%3D1003433016">React Native跨平台移动应用开发之基础篇</a> 。</p>
+<ol>
+<li>开篇</li>
+<li><a href="//link.zhihu.com/?target=https%3A//jaggerwang.net/react-native-cross-platform-mobile-app-develop-environment/">搭建开发和调试环境</a></li>
+<li><a href="//link.zhihu.com/?target=https%3A//jaggerwang.net/react-native-cross-platform-mobile-app-develop-techs">技术栈</a></li>
+<li><a href="//link.zhihu.com/?target=https%3A//jaggerwang.net/react-native-cross-platform-mobile-app-develop-layout">布局和导航</a></li>
+<li><a href="//link.zhihu.com/?target=https%3A//jaggerwang.net/react-native-cross-platform-mobile-app-develop-bootstrap">启动</a></li>
+<li><a href="//link.zhihu.com/?target=https%3A//jaggerwang.net/react-native-cross-platform-mobile-app-develop-data-sync/">数据同步</a></li>
+<li><a href="//link.zhihu.com/?target=https%3A//jaggerwang.net/react-native-cross-platform-mobile-app-develop-register-login/">登录注册</a></li>
+<li><a href="//link.zhihu.com/?target=https%3A//jaggerwang.net/react-native-cross-platform-mobile-app-develop-nearby/">首页</a></li>
+<li><a href="//link.zhihu.com/?target=https%3A//jaggerwang.net/react-native-cross-platform-mobile-app-develop-package-publish/">打包发布</a></li>
+</ol>
+<h1 id="3-其他资料"><a href="#3-其他资料" class="headerlink" title="3.其他资料"></a>3.其他资料</h1><ol>
+<li><a href="//link.zhihu.com/?target=http%3A//study.163.com/course/courseMain.htm%3FcourseId%3D1003433016">视频课程 - React Native跨平台移动应用开发之基础篇</a></li>
+<li><a href="//link.zhihu.com/?target=https%3A//github.com/jaggerwang/zqc-app-demo">在球场开源版</a></li>
+<li><a href="//link.zhihu.com/?target=https%3A//jaggerwang.net/develop-and-deploy-api-service-with-go-and-docker-intro/">技术文章 - Go + Docker API服务开发和部署</a></li>
+<li><a href="//link.zhihu.com/?target=https%3A//www.zaiqiuchang.com/">在球场官网</a></li>
+</ol>
+
+    
+  </div>
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation"><strong>赞赏</strong></span>
+      <div class="donation-body">
+        <div class="tip text-center"><strong>支持一下</strong></div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="https://ws1.sinaimg.cn/large/006tNbRwly1fxjlq29zkkj30f60f675t.jpg" alt="">
+            <a>微信扫一扫</a>
+          </li>
+        
+          <li class="item">
+            <img src="https://ws2.sinaimg.cn/large/006tNbRwly1fxjlwikh27j30a20a2wfe.jpg" alt="">
+            <a>支付宝扫一扫</a>
+          </li>
+        
+          <li class="item">
+            <img src="https://ws3.sinaimg.cn/large/006tNbRwly1fxjlztplu9j30jd0jeadu.jpg" alt="">
+            <a>QQ扫一扫</a>
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2016/12/05/react-native-learn-1/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2016/12/05/react-native-preview/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+              目录
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/category/" rel="noopener noreferrer" target="_self">
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/tag/" rel="noopener noreferrer" target="_self">
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/project/" rel="noopener noreferrer" target="_self">
+              项目
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+
+
+
+
+ <div id="container"></div>
+ <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+ <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+  <script>
+  var gitment = new Gitment({
+    id: 'https://blog.idejie.com/2016/12/05/react-native-learn-0/index.html', // 可选。默认为 location.href
+    owner: 'YangDejie',
+    repo: 'yangdejie.github.io',
+    oauth: {
+      client_id: '1f1de6e091e0ddb070a2',
+      client_secret: '9647e77652e4654e10549d1226c3b80300d65348',
+    },
+  })
+  gitment.render('container')
+  </script>
+
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

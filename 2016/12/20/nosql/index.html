@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>Nosql复习 | 杨德杰</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="">
+  
+
+  <meta name="description" content="CAP理论 CAP理论：一个分布式系统不可能满足一致性、可用性和分区容错性这三个需求，最多只能同时满足两个  强一致性(Consistency)：系统在执行过某项操作后仍然处于一致的状态。在分布式系统中，更新操作执行成功后所有的用户都应该读取到最新的值，这样的系统被认为具有强一致性。  可用性(Availability)：每一个操作总是能够在一定的时间内返回结果  “一定时间内”是指，系统的结果必">
+<meta name="keywords" content="Nosql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nosql复习">
+<meta property="og:url" content="https://blog.idejie.com/2016/12/20/nosql/index.html">
+<meta property="og:site_name" content="杨德杰">
+<meta property="og:description" content="CAP理论 CAP理论：一个分布式系统不可能满足一致性、可用性和分区容错性这三个需求，最多只能同时满足两个  强一致性(Consistency)：系统在执行过某项操作后仍然处于一致的状态。在分布式系统中，更新操作执行成功后所有的用户都应该读取到最新的值，这样的系统被认为具有强一致性。  可用性(Availability)：每一个操作总是能够在一定的时间内返回结果  “一定时间内”是指，系统的结果必">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://image20.it168.com/201310_240x180/1603/7035844281c268b0.png">
+<meta property="og:image" content="http://image20.it168.com/201310_500x375/1603/f7bae9d51a70402c.png">
+<meta property="og:image" content="http://image20.it168.com/201310_500x375/1603/b971a0348af33be8.png">
+<meta property="og:image" content="http://blog.idejie.com/pic/two-stages.png">
+<meta property="og:updated_time" content="2018-11-24T16:32:27.550Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Nosql复习">
+<meta name="twitter:description" content="CAP理论 CAP理论：一个分布式系统不可能满足一致性、可用性和分区容错性这三个需求，最多只能同时满足两个  强一致性(Consistency)：系统在执行过某项操作后仍然处于一致的状态。在分布式系统中，更新操作执行成功后所有的用户都应该读取到最新的值，这样的系统被认为具有强一致性。  可用性(Availability)：每一个操作总是能够在一定的时间内返回结果  “一定时间内”是指，系统的结果必">
+<meta name="twitter:image" content="http://image20.it168.com/201310_240x180/1603/7035844281c268b0.png">
+
+  
+
+  
+    <link rel="icon" href="https://avatars0.githubusercontent.com/u/12479824">
+  
+
+  <link href="/css/styles.css?v=d671a41f" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/styles.css">
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+<script src="//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0"></script>
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+ <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css">
+<script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+
+</head>
+<script src="http://pixijs.download/release/pixi.js"></script>
+</html>
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">菜单</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">菜单</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+            目录
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/category/" rel="noopener noreferrer" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/tag/" rel="noopener noreferrer" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/project/" rel="noopener noreferrer" target="_self">
+            项目
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CAP理论"><span class="toc-text">CAP理论</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数据一致性"><span class="toc-text">数据一致性</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-场景"><span class="toc-text">1.场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-强一致性"><span class="toc-text">2.强一致性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-弱一致性"><span class="toc-text">3.弱一致性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-最终一致性"><span class="toc-text">4.最终一致性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-其他一致性"><span class="toc-text">5.其他一致性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-实现技术"><span class="toc-text">6.实现技术</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#几种数据库比较"><span class="toc-text">几种数据库比较</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#HBase"><span class="toc-text">HBase</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-列存储"><span class="toc-text">1.列存储</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-简介"><span class="toc-text">2.简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-场景"><span class="toc-text">3.场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-区别"><span class="toc-text">4.区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-数据模型"><span class="toc-text">5.数据模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-视图"><span class="toc-text">6.视图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-系统结构"><span class="toc-text">7.系统结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-存储格式"><span class="toc-text">8.存储格式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis"><span class="toc-text">Redis</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-简介"><span class="toc-text">1.简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-数据模型"><span class="toc-text">2.数据模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-数据类型"><span class="toc-text">3.数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-其他管理命令"><span class="toc-text">4.其他管理命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-Redis事务"><span class="toc-text">5.Redis事务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-Redis分区"><span class="toc-text">6.Redis分区</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MongoDB"><span class="toc-text">MongoDB</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-简介-1"><span class="toc-text">1.简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-主要特点"><span class="toc-text">2.主要特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-适用场景"><span class="toc-text">3.适用场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Mongodb术语"><span class="toc-text">4.Mongodb术语</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-Mongodb操作"><span class="toc-text">5.Mongodb操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-复制与备份"><span class="toc-text">6.复制与备份</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-分片"><span class="toc-text">7.分片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-案例"><span class="toc-text">8.案例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Neo4j"><span class="toc-text">Neo4j</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-简介-2"><span class="toc-text">1.简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-概念"><span class="toc-text">2.概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-特点"><span class="toc-text">3.特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-例子"><span class="toc-text">4.例子</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结比较结果"><span class="toc-text">总结比较结果</span></a></li></ol></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-nosql" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">Nosql复习</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2016.12.20</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>杨德杰</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/课程复习/">课程复习</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp 阅读量：<span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>
+        </span>
+      
+
+      
+        <i class="icon-comment"></i> 
+        <span class="ds-thread-count" data-thread-key="post-nosql"><i class="fa fa-spinner fa-spin"></i></span> 
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h1 id="CAP理论"><a href="#CAP理论" class="headerlink" title="CAP理论"></a>CAP理论</h1><ul>
+<li><p>CAP理论：一个<strong>分布式系统</strong>不可能满足<strong>一致性</strong>、<strong>可用性</strong>和分区容错性这三<strong>个</strong>需求，最多只能<strong>同时</strong>满足<strong>两</strong>个</p>
+</li>
+<li><p><strong>强一致性(Consistency)</strong>：系统在执行过某项操作后仍然处于一致的状态。在分布式系统中，更新操作执行成功后所有的用户都应该读取到最新的值，这样的系统被认为具有强一致性。</p>
+</li>
+<li><p><strong>可用性(Availability)</strong>：每一个操作总是能够在一定的时间内返回结果</p>
+<ul>
+<li>“<strong>一定时间内</strong>”是指，系统的结果必须在给定时间内返回，如果超时则被认为不可用。这是至关重要的。比如通过网上银行的网络支付功能购买物品。当等待了很长时间，如15分钟，系统还是没有返回任务操作结果，购买者一直处于等待状态，那么购买者就不知道现在是否支付成功，还是需要进行其他操作。这样当下次购买者再次使用网络支付功能时必将心有余悸。</li>
+<li>“<strong>返回结果</strong>”同样非常重要。还是拿这个例子来说，假如购买者点击支付之后很快出现了结果，但是结果却是“Java.lang.error……”之类的错误信息。这对于普通购买者来说相当于没有返回任何结果。因为他仍旧不知道系统处于什么状态，是支付成功还是失败，或者需要重新操作。</li>
+</ul>
+</li>
+<li><p><strong>分区容错性(Partition Tolerance)：</strong>分区容错性可以理解为系统在存在网络分区的情况下仍然可以接受请求(满足一致性和可用性)。这里网络分区是指由于某种原因网络被分成若干个孤立的区域，而区域之间互不相通。还有一些人将分区容错性理解为系统对节点动态加入和离开的处理能力，因为节点的加入和离开可以认为是集群内部的网络分区。</p>
+</li>
+<li><p><strong>图解CAP</strong></p>
+<ul>
+<li><p>如下图所示，在网络中有两个节点分别为G1和G2，这两个节点上存储着同一数据的不同副本，现在数据是一致的，两个副本的值都为V0，A、B分别是运行在G1、G2上与数据交互的应用程序。</p>
+<p><img src="http://image20.it168.com/201310_240x180/1603/7035844281c268b0.png" alt=""></p>
+</li>
+<li><p>在正常情况下，操作过程如下(如下图所示)：</p>
+<p>　　(1)A将V0更新，数据值为V1;</p>
+<p>　　(2)G1发送消息m给G2，数据V0更新为V1;</p>
+<p>　　(3)B读取到G2中的数据V1。</p>
+<p><img src="http://image20.it168.com/201310_500x375/1603/f7bae9d51a70402c.png" alt=""></p>
+</li>
+<li><p>如果发生网络分区故障，那么在操作的步骤(2)将发生错误：G1发送的消息不能传送到G2上。这样数据就处于不一致的状态，B读取到的就不是最新的数据，如图所示。如果我们采用一些技术如阻塞、加锁、集中控制等来保证数据的一致，那么必然会影响到系统的可用性和分区容错性。</p>
+</li>
+</ul>
+<p><img src="http://image20.it168.com/201310_500x375/1603/b971a0348af33be8.png" alt=""></p>
+<ul>
+<li>CAP理论告诉我们如果系统具有较高的可用性和较小延迟，那么节点必须能够容忍网络分区，但这时候应用程序可能会得到不同的数据(B读取到的值为V1)。</li>
+<li>有人可能会想，如果我们对步骤(2)的操作加一个同步消息，问题会不会解决呢(同时满足CAP理论三个特性)?答案是否定的。不加同步的情况下，G1到G2的更新是不可知的，也就是说，B读取到得数据可能是V1也可能是V2，但是服务是可用的。即同时满足了“A”和“P”，但是不保证“C”一定满足。加了同步消息之后，将能够保证B读取到数据V1。但是这个同步操作必定要消耗一定的时间，尤其是在网络规模较大的情况下，当节点规模成百上千的时候，不一定能保证此时的服务是可用的。这种情况下只能满足“C”和“P”，而不能保证“A”一定满足。</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>选择</th>
+<th>放弃</th>
+<th>特点</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CA</td>
+<td>P</td>
+<td>两阶段提交、缓存验证协议</td>
+<td>传统数据库、集群数据库、LDAP、GFS文件系统</td>
+</tr>
+<tr>
+<td>CP</td>
+<td>A</td>
+<td>悲观加锁</td>
+<td>分布式数据库、分布式加锁</td>
+</tr>
+<tr>
+<td>AP</td>
+<td>C</td>
+<td>冲突处理、乐观</td>
+<td>分布式数据库、分布式加锁:    BASE</td>
+</tr>
+</tbody>
+</table>
+<h1 id="数据一致性"><a href="#数据一致性" class="headerlink" title="数据一致性"></a>数据一致性</h1><h2 id="1-场景"><a href="#1-场景" class="headerlink" title="1.场景"></a>1.场景</h2><ul>
+<li><ul>
+<li><p>存储系统</p>
+</li>
+<li><ul>
+<li>存储系统可以理解为一个黑盒子，它为我们提供了可用性和持久性的保证</li>
+</ul>
+</li>
+<li><p>Process A</p>
+</li>
+<li><ul>
+<li>ProcessA主要实现从存储系统write和read操作</li>
+</ul>
+</li>
+<li><p>Process B 和ProcessC </p>
+</li>
+<li><ul>
+<li>B和C独立于A，B和C也相互独立的</li>
+<li>B和C也实现对存储系统的write和read操作</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-强一致性"><a href="#2-强一致性" class="headerlink" title="2.强一致性"></a>2.强一致性</h2><ul>
+<li><ul>
+<li>也叫即时一致性</li>
+<li>假如A先写入了一个值到存储系统，存储系统保证后续A，B，C的读取操作都将返回最新值</li>
+<li>单副本数据容易保证强一致性</li>
+<li>多副本数据需要使用分布式事务协议</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-弱一致性"><a href="#3-弱一致性" class="headerlink" title="3.弱一致性"></a>3.弱一致性</h2><ul>
+<li><ul>
+<li><p>假如A先写入了一个值到存储系统，存储系统不能保证后续A，B，C的读取操作能读取到最新值</p>
+</li>
+<li><p>不一致性窗口</p>
+</li>
+<li><ul>
+<li>从A写入到后续操作A，B，C读取到最新值这一段时间</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-最终一致性"><a href="#4-最终一致性" class="headerlink" title="4.最终一致性"></a>4.最终一致性</h2><ul>
+<li><ul>
+<li>最终一致性是弱一致性的一种特例</li>
+<li>假如A首先write了一个值到存储系统，存储系统保证如果在A，B，C后续读取之前没有其它写操作更新同样的值的话，最终所有的读取操作都会读取到A写入的最新值</li>
+<li>此种情况下，如果没有失败发生的话，“不一致性窗口”的大小依赖于以下的几个因素：交互延迟，系统的负载，以及复制技术中replica的个数（这个可以理解为master/salve模式中，salve的个数）</li>
+<li>最终一致性方面最出名的系统可以说是DNS系统，当更新一个域名的IP以后，根据配置策略以及缓存控制策略的不同，最终所有的客户都会看到最新的值</li>
+</ul>
+</li>
+<li><p><em>注：</em> <strong>BASE模型（Basically Availble Soft-state Eventual-Consistency）</strong></p>
+</li>
+<li><ul>
+<li>BASE模型完全不同于ACID模型，牺牲高一致性，获得可用性或可靠性</li>
+<li>ACID：原子性（Atomicity）、一致性（Consistency）、隔离性（Isolation）、持久性（Durability）</li>
+</ul>
+</li>
+</ul>
+<h2 id="5-其他一致性"><a href="#5-其他一致性" class="headerlink" title="5.其他一致性"></a>5.其他一致性</h2><ul>
+<li><p>Causal consistency（因果一致性）</p>
+</li>
+<li><ul>
+<li>如果Process A通知Process B它已经更新了数据，那么Process B的后续读取操作则读取A写入的最新值，而与A没有因果关系的C则可以最终一致性</li>
+</ul>
+</li>
+<li><p>Read-your-writes consistency（读自写一致性）</p>
+</li>
+<li><ul>
+<li>如果Process A写入了最新的值，那么Process A的后续操作都会读取到最新值。但是其它用户可能要过一会才可以看到</li>
+</ul>
+</li>
+<li><p>Session consistency（会话一致性）</p>
+</li>
+<li><ul>
+<li>此种一致性要求客户端和存储系统交互的整个会话阶段保证Read-your-writes consistency，Hibernate的session提供的一致性保证就属于此种一致性4</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>Monotonic read consistency（单调读一致性）</p>
+</li>
+<li><ul>
+<li>此种一致性要求如果Process A已经读取了对象的某个值，那么后续操作将不会读取到更早的值</li>
+</ul>
+</li>
+<li><p>Monotonic write consistency（单调写一致性）</p>
+</li>
+<li><ul>
+<li>此种一致性保证系统会序列化执行一个Process中的所有写操作</li>
+</ul>
+</li>
+</ul>
+<h2 id="6-实现技术"><a href="#6-实现技术" class="headerlink" title="6.实现技术"></a>6.实现技术</h2><ul>
+<li><p>NWR模型</p>
+<ul>
+<li>N: 复制的节点数量</li>
+<li>R: 成功读操作的最小节点数</li>
+<li>W: 成功写操作的最小节点数</li>
+<li>只需W + R &gt; N，就可以保证强一致性，因为读取数据的节点和被同步写入的节点是有重叠的</li>
+</ul>
+<p><strong><em>注</em>：</strong></p>
+<ul>
+<li><p>在分布式系统中，一般都要有容错性，因此N大于3</p>
+</li>
+<li><p>根据CAP理论，一致性、可用性和分区容错 性最多只能满足两个，因此需要在一致性和可用性之间做一平衡</p>
+</li>
+<li><ul>
+<li>如果要高的一致性，那么就配置N=W，R=1,这个时候可用性特别是写操作的性能就会大大降低</li>
+<li>如果想要高的可用性，那么此时就需要放松一致性的要求，此时可以配置W=1，这样使得写操作延迟最低，同时通过异步的机制更新剩余的N-W个节点</li>
+</ul>
+</li>
+</ul>
+<p><strong><em>几种特殊情况</em></strong></p>
+<ul>
+<li><ul>
+<li>W = 1, R = N,对写操作要求高性能高可用</li>
+<li>R = 1, W = N , 对读操作要求高性能高可用，比如类似cache之类业务</li>
+<li>W = Q, R = Q where Q = N / 2 + 1 一般应用适用，读写性能之间取得平衡，如N=3,W=2,R=2</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>两阶段式提交</p>
+<ul>
+<li><p>两阶段提交协议是很常见的解决分布式事务的方式，可以保证分布式事务中，要么所有参与的进程都提交事务成功，要么都取消事务，这样做可以在分布式环境中保持ACID中A(原子性)</p>
+</li>
+<li><p>在两阶段提交协议中，包含了两种角色</p>
+</li>
+<li><ul>
+<li>参与者就是实际处理事务的机器</li>
+<li>协调者就是其中一台单独的处理分布式事务的机器</li>
+</ul>
+</li>
+<li><p><img src="http://blog.idejie.com/pic/two-stages.png" alt=""></p>
+</li>
+<li><p>​</p>
+</li>
+<li><p>该算法分为两个阶段</p>
+</li>
+<li><ul>
+<li><p>投票阶段</p>
+</li>
+<li><ul>
+<li>在请求阶段，协调者将通知事务参与者准备提交或取消事务，然后进入表决过程</li>
+<li>在表决过程中，参与者将告知协调者自己的决策：同意（事务参与者本地作业执行成功）或取消（本地作业执行故障）</li>
+</ul>
+</li>
+<li><p>提交阶段</p>
+</li>
+<li><ul>
+<li>协调者将基于第一个阶段的投票结果进行决策：提交或取消。当且仅当所有的参与者同意提交事务协调者才通知所有的参与者提交事务，否则协调者将通知所有的参与者取消事务</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>优点</p>
+<ul>
+<li>实现简单</li>
+</ul>
+</li>
+<li><p>缺点</p>
+<ul>
+<li>同步阻塞问题</li>
+</ul>
+</li>
+<li><ul>
+<li>执行过程中，所有参与节点都是事务阻塞型的。当参与者占有公共资源时，其他第三方节点访问公共资源不得不处于阻塞状态。</li>
+</ul>
+</li>
+<li><ul>
+<li><p>单点故障</p>
+<p>由于协调者的重要性，一旦协调者发生故障。参与者会一直阻塞下去。尤其在第二阶段，协调者发生故障，那么所有的参与者还都处于锁定事务资源的状态中，而无法继续完成事务操作。（如果是协调者挂掉，可以重新选举一个协调者，但是无法解决因为协调者宕机导致的参与者处于阻塞状态的问题）</p>
+</li>
+<li><p>数据不一致</p>
+<p>在二阶段提交的阶段二中，当协调者向参与者发送commit请求之后，发生了局部网络异常或者在发送commit请求过程中协调者发生了故障，这回导致只有一部分参与者接受到了commit请求。而在这部分参与者接到commit请求之后就会执行commit操作。但是其他部分未接到commit请求的机器则无法执行事务提交。于是整个分布式系统便出现了数据部一致性的现象    </p>
+</li>
+<li><p>二阶段无法解决的问题</p>
+<p>协调者再发出commit消息之后宕机，而唯一接收到这条消息的参与者同时也宕机了。那么即使协调者通过选举协议产生了新的协调者，这条事务的状态也是不确定的，没人知道事务是否被已经提交</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="几种数据库比较"><a href="#几种数据库比较" class="headerlink" title="几种数据库比较"></a>几种数据库比较</h1><table>
+<thead>
+<tr>
+<th>列存储</th>
+<th>文档存储</th>
+<th>KV存储</th>
+<th>图存储</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HBase</td>
+<td>MongoDB</td>
+<td>Redis</td>
+<td>Neo4j</td>
+</tr>
+<tr>
+<td>数据压缩，对一个或多个字段查询</td>
+<td>保证海量数据存储，同时查询良好。类json</td>
+<td>极高的并发读取写性能，用key查value，但只能用key</td>
+<td>图形关系的最佳存储</td>
+</tr>
+</tbody>
+</table>
+<h2 id="HBase"><a href="#HBase" class="headerlink" title="HBase"></a>HBase</h2><h3 id="1-列存储"><a href="#1-列存储" class="headerlink" title="1.列存储"></a>1.列存储</h3><ul>
+<li>对于任何记录，索引都可以快速地获取列上的数据</li>
+<li>Map-reduce的实现Hadoop的流数据处理效率非常高，列式存储的优点体现的淋漓极致</li>
+<li>关系类型的列标对数据分析效果不好，因此，用户经常将更复杂的数据存储在列式数据库中。这直接体现在Cassandra中，它引入的“column family”可以被认为是一个“super-column”</li>
+<li>列式存储支持行检索，但这需要从每个列获取匹配的列值，并重新组成行</li>
+</ul>
+<h3 id="2-简介"><a href="#2-简介" class="headerlink" title="2.简介"></a>2.简介</h3><ul>
+<li>HBase（Hadoop Database）是一个高可靠性、高性能、面向列、可伸缩的分布式存储系统，利用HBase技术可在廉价PC Server上搭建起大规模结构化存储集群</li>
+<li>HBase可以直接使用本地文件系统或者Hadoop作为数据存储方式，不过为了提高数据可靠性和系统的健壮性，发挥HBase处理大数据量等功能，需要使用Hadoop作为文件系统</li>
+</ul>
+<h3 id="3-场景"><a href="#3-场景" class="headerlink" title="3.场景"></a>3.场景</h3><p>在这个领域，HBase有3种主要使用场景（但不限于这3 种）</p>
+<p>1.抓取增量数据</p>
+<p>使用HBase 作为数据存储，抓取来自各种数据源的增量数据，如抓取用户交互数据，以备之后进行分析、处理</p>
+<p>2.内容服务</p>
+<p>传统数据库最主要的使用场合之一是为用户提供内容服务，如URL短链接服务，可以HBase为基础，存储大量的短链接以及和原始长链接的映射关系</p>
+<p>3.信息交换</p>
+<p>Facebook的短信平台每天交换数十亿条短信，HBase可以很好的满足该平台的需求：高的写吞吐量，极大的表，数据中心的强一致性</p>
+<h3 id="4-区别"><a href="#4-区别" class="headerlink" title="4.区别"></a>4.区别</h3><ul>
+<li>数据类型（传统数据库）<ul>
+<li>HBase只有简单的字符串类型，所有类型都由用户自己处理，它只保存字符串</li>
+<li>关系数据库有丰富的类型选择和存储方式</li>
+</ul>
+</li>
+<li>数据操作<ul>
+<li>HBase操作只有很简单的插入、查询、删除、清空等，表和表之间是分离的，没有复杂的表和表之间的关系，所以也不能也没有必要实现表和表之间的关联等操作</li>
+<li>传统的关系数据通常有各种各样的函数、连接操作</li>
+</ul>
+</li>
+<li>存储模式<ul>
+<li>HBase是基于列存储的，每个列族都有几个文件保存，不同列族的文件是分离的</li>
+<li>传统的关系数据库是基于表格结构和行模式保存的</li>
+</ul>
+</li>
+<li>数据维护<ul>
+<li>HBase的更新正确来说应该不叫更新，而且一个主键或者列对应的新的版本，而它旧有的版本仍然会保留，所以它实际上是插入了新的数据</li>
+<li>传统关系数据库里面是替换修改</li>
+</ul>
+</li>
+<li>可伸缩性<ul>
+<li>HBase和BigTable这类分布式数据库就是直接为了这个目的开发出来的，能够轻易的增加或者减少（在硬件错误的时候）硬件数量，而且对错误的兼容性比较高</li>
+<li>传统的关系数据库通常需要增加中间层才能实现类似的功能</li>
+</ul>
+</li>
+</ul>
+<h3 id="5-数据模型"><a href="#5-数据模型" class="headerlink" title="5.数据模型"></a>5.数据模型</h3><ul>
+<li><p>HBase的索引是行关键字、列关键字和时间戳</p>
+</li>
+<li><p>每个值是一个不解释的字符数组，数据都是字符串，没有类型</p>
+</li>
+<li><p>用户在表格中存储数据，每一行都有一个可排序的主键和任意多的列</p>
+</li>
+<li><p>由于是稀疏存储的，同一张表里面的每一行数据都可以有截然不同的列</p>
+</li>
+<li><p>列名字的格式是“\<family>:\<label>”，都是由字符串组成，每一张表有一个family集合，这个集合是固定不变的，相当于表的结构，只能通过改变表结构来改变，但是label值相对于每一行来说都是可以改变的</label></family></p>
+</li>
+<li><p>HBase把同一个family里面的数据存储在同一个目录底下，而HBase的写操作是锁行的，每一行都是一个原子元素，都可以加锁</p>
+</li>
+<li><p>所有数据库的更新都有一个时间戳标记，每个更新都是一个新的版本，而HBase会保留一定数量的版本，这个值是可以设定的</p>
+</li>
+<li><p>客户端可以选择获取距离某个时间最近的版本，或者一次获取所有版本</p>
+</li>
+<li><p>HBase数据模型中三个重要概念</p>
+</li>
+<li><ul>
+<li>行键（<strong>Row Key</strong>）：HBase表的主键，表中的记录按照行键排序。行键用来检索记录的主键</li>
+<li>时间戳（<strong>Timestamp</strong>）：每次数据操作对应的时间戳，可看作是数据的版本号，不同版本通过时间戳来进行索引</li>
+<li>列族（<strong>Column Family</strong>）：表在水平方向有一个或者多个列族组成，一个列族中可以由任意多个列组成，即列族支持动态扩展，无需预先定义列的数量以及类型，所有列均以二进制格式存储，用户需要自行进行类型转换</li>
+</ul>
+</li>
+</ul>
+<h3 id="6-视图"><a href="#6-视图" class="headerlink" title="6.视图"></a>6.视图</h3><ul>
+<li><p>概念视图</p>
+<p>稀疏的</p>
+</li>
+<li><p>物理视图</p>
+</li>
+</ul>
+<h3 id="7-系统结构"><a href="#7-系统结构" class="headerlink" title="7.系统结构"></a>7.系统结构</h3><ul>
+<li><p>client</p>
+<ul>
+<li>Client访问用户数据之前需要首先访问Zookeeper，然后访问-ROOT-表，接着访问.META.表，最后才能找到用户数据的位置去访问，中间需要多次网络操作，不过Client端会做cache缓存</li>
+<li>Client包含访问HBase的接口，Client维护着一些缓存来加快对HBase的访问，比如HRegion的位置信息</li>
+<li>HBase Client使用HBase的RPC机制与HMaster和HRegionServer进行通信，对于管理类操作，Client与HMaster进行RPC；对于数据读写类操作，Client与HRegionServer进行RPC</li>
+</ul>
+</li>
+<li><p>Zookeeper</p>
+<ul>
+<li><p>Zookeeper中除了存储-ROOT-表的地址和HMaster的地址，HRegionServer也会把自己以“Ephemeral”方式注册到Zookeeper中，使得HMaster可以随时感知到各个HRegionServer的健康状态</p>
+</li>
+<li><p>Zookeeper也避免了HMaster的单点问题</p>
+</li>
+<li><p>Zookeeper的作用</p>
+</li>
+<li><ul>
+<li>保证任何时候，集群中只有一个HMaster</li>
+<li>存储所有HRegion的寻址入口</li>
+<li>实时监控HRegionServer的状态，将HRegionServer的上线和下线信息实时通知给HMaster</li>
+<li>存储HBase的schema，包括有哪些表，每个表有哪些列族</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>HMaster</p>
+<ul>
+<li><p>HMaster没有单点问题，HBase中可以启动多个HMaster，通过Zookeeper的Master Election机制保证总有一个HMaster运行</p>
+</li>
+<li><p>HMaster在功能上主要负责表和HRegion的管理工作</p>
+</li>
+<li><ul>
+<li>管理用户对表的增、删、改、查操作</li>
+<li>管理HRegionServer的负载均衡，调整HRegion分布</li>
+<li>在HRegion分裂后，负责新HRegion的分配</li>
+<li>在HRegionServer停机后，负责失效HRegionServer上的HRegion的迁移</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>HRegionServer：主要负责响应用户I/O请求，向HDFS文件系统中读写数据，是HBase中最核心的模块</p>
+</li>
+<li><p>HStore：HStore存储是HBase存储的核心了，由两部分组成，一部分是HMemStore，一部分是HStoreFile</p>
+<ul>
+<li>用户写入的数据首先会放入HMemStore，当HMemStore满了以后会Flush成一个HStoreFile。当HStoreFile文件数量增长到一定阈值，会触发合并操作，将多个HStoreFile合并成一个HStoreFile</li>
+<li>合并会形成越来越大的HStoreFile，当单个HStoreFile大小超过一定阈值后，会触发分裂操作，同时把当前HRegion 分裂成2个Hregion</li>
+<li>在分布式系统环境中，无法避免系统出错或者宕机，因此一旦HRegionServer意外退出，HMemStore中的内存数据将会丢失。这就需要引入HLog，当HRegionServer重启后进行数据恢复</li>
+</ul>
+</li>
+<li><p>HRegion</p>
+<ul>
+<li>任何时刻，一个HRegion只能分配给一个HRegionServer</li>
+<li>HMaster记录了当前有哪些可用的HRegionServer，以及当前哪些HRegion分配给了哪些HRegionServer，哪些HRegion还没有分配</li>
+<li>当存在未分配的HRegion时，并且有一个HRegionServer上有可用空间时，HMaster就给这个HRegionServer发送一个装载请求，把HRegion分配给这个HRegionServer</li>
+<li>HRegionServer得到请求后，就开始对此HRegion提供服务</li>
+</ul>
+</li>
+<li><p>HRegionServer上线</p>
+<ul>
+<li>Master使用Zookeeper来跟踪HRegionServer的状态</li>
+<li>当某个HRegionServer启动时，会首先在Zookeeper上的server目录下建立代表自己的文件，并获得该文件的独占锁</li>
+<li>由于HMaster订阅了server目录上的变更消息，当server目录下的文件出现新增或删除操作时，HMaster可以得到来自Zookeeper的实时通知</li>
+<li>因此，一旦HRegionServer上线，HMaster能马上得到消息</li>
+</ul>
+</li>
+<li><p>HMaster下线</p>
+<ul>
+<li>由于HMaster只维护表和HRegion的元数据，而不参与表数据IO的过程，HMaster下线，仅导致所有元数据的修改被冻结(无法创建删除表，无法修改表的schema，无法进行HRegion的负载均衡，无法处理HRegion上下线，无法进行HRegion的合并，唯一例外的是HRegion的分裂可以正常进行，因为只有HRegionServer参与)，表的数据读写还可以正常进行</li>
+<li>因此，HMaster下线短时间内对整个HBase集群没有影响</li>
+<li>从上线过程可以看到，HMaster保存的信息全是可以冗余信息（都可以从系统其它地方收集到或者计算出来），因此，一般HBase集群中总是有一个HMaster在提供服务，还有一个以上的HMaster在等待时机抢占它的位置</li>
+</ul>
+</li>
+</ul>
+<h3 id="8-存储格式"><a href="#8-存储格式" class="headerlink" title="8.存储格式"></a>8.存储格式</h3><ul>
+<li><p>HBase中的所有数据文件都存储在Hadoop分布式文件系统HDFS上</p>
+</li>
+<li><p>两种文件类型</p>
+</li>
+<li><ul>
+<li><p><strong>HFile</strong>：HBase中KeyValue数据的存储格式，HFile是Hadoop的二进制格式文件，实际上HStoreFile就是对HFile做了轻量级包装，即HStoreFile底层就是HFile</p>
+<pre><code>HFile分为六部分
+</code></pre></li>
+<li><ul>
+<li><strong>Data Block</strong>：保存表中的数据，这部分可以被压缩</li>
+<li><strong>Meta Block</strong>(可选的)：保存用户自定义的key/value对，可被压缩。</li>
+<li><strong>File Info</strong>：HFile的元信息，不被压缩，用户可在这部分添加自己的元信息</li>
+<li><strong>Data Block Index</strong>：Data Block的索引</li>
+<li><strong>Meta Block Index</strong>(可选的)：Meta Block的索引</li>
+<li><strong>Trailer</strong>：读取HFile时会首先读取Trailer，Trailer保存了每个段的起始位置(Magic Number用来做安全check)，然后，DataBlockIndex会被读取到内存中，这样当检索某个key时，不需要扫描整个HFile，只需从内存中找到key所在的block，通过一次磁盘io将整个block读取到内存中，再找到需要的key</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>HLogFile</strong>：HBase中WAL（Write Ahead Log）的存储格式，物理上是Hadoop的顺序文件</p>
+<ul>
+<li>HLog又称WAL。WAL意为Write Ahead Log，类似Mysql中的binlog，用来做灾难恢复，HLog记录数据的所有变更，一旦数据修改，就可以从HLog中进行恢复</li>
+<li>每个HRegionServer维护一个HLog，而不是每个HRegion一个，这样不同HRegion(来自不同表)的日志会混在一起，这样做的目的是，不断追加单个文件相对于同时写多个文件而言，可以减少磁盘寻址次数，因此，可以提高对表的写性能。带来的麻烦是，如果一台HRegionServer下线，为了恢复其上的HRegion，需要将HRegionServer上的HLog进行拆分，然后分发到其它HRegionServer上进行恢复</li>
+</ul>
+</li>
+</ul>
+<h2 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h2><h3 id="1-简介"><a href="#1-简介" class="headerlink" title="1.简介"></a>1.简介</h3><ul>
+<li><p>Redis是一个开源的使用ANSI C语言编写、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API</p>
+</li>
+<li><p>支持的数据类型包括string、list、set、zset(有序集合)和hash</p>
+</li>
+<li><p>支持push/pop、add/remove及取交集并集和差集及更丰富的操作，而且操作都是原子性的，支持各种不同方式的排序</p>
+</li>
+<li><p>速度非常快，每秒可以执行大约110000设置操作，81000个/每秒的读取操作</p>
+</li>
+<li><p>Redis支持主从同步</p>
+</li>
+<li><ul>
+<li>数据可以从主服务器向任意数量的从服务器上同步</li>
+<li>从服务器可以是关联其他从服务器的主服务器，这使得Redis可执行单层树复制</li>
+<li>由于完全实现了发布/订阅机制，使得从数据库在任何地方同步树时，可订阅一个频道并接收主服务器完整的消息发布记录</li>
+<li>同步对读取操作的可扩展性和数据冗余很有帮助</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-数据模型"><a href="#2-数据模型" class="headerlink" title="2.数据模型"></a>2.数据模型</h3><ul>
+<li>Redis的key为字符串类型</li>
+<li>Redis支持丰富的value类型：string, list, hash, set, zset</li>
+<li>只能通过key对value进行操作</li>
+</ul>
+<h3 id="3-数据类型"><a href="#3-数据类型" class="headerlink" title="3.数据类型"></a>3.数据类型</h3><table>
+<thead>
+<tr>
+<th><strong>类型</strong></th>
+<th><strong>存储的值</strong></th>
+<th><strong>读写能力</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>STRING</td>
+<td>可以是字符串、整数或者浮点数</td>
+<td>对整个字符串或者字符串的其中一部分执行操作；对整数和浮点数执行自增（increment）或者自减（decrement）操作</td>
+</tr>
+<tr>
+<td>LIST</td>
+<td>一个链表，链表上的每个节点都包含了一个字符串</td>
+<td>从链表的两端推入或者弹出元素；根据偏移量对链表进行修剪（trim）；读取单个或者多个元素；根据值查找或者移除元素</td>
+</tr>
+<tr>
+<td>SET</td>
+<td>包含字符串的无序收集器（unordered collection），并且被包含的每个字符串都是独一无二、各不相同的</td>
+<td>添加、获取、移除单个元素；检查一个元素是否存在于集合中；计算交集、并集、差集；从集合里面随机获取元素</td>
+</tr>
+<tr>
+<td>HASH</td>
+<td>包含键值对的无序散列表</td>
+<td>添加、获取、移除单个键值对；获取所有键值对</td>
+</tr>
+<tr>
+<td>ZSET</td>
+<td>字符串成员（member）与浮点数分值（score）之间的有序映射，元素的排列顺序由分值的大小决定</td>
+<td>添加、获取、删除单个元素；根据分值范围（range）或者成员来获取元素</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>String<ul>
+<li>get</li>
+<li>set</li>
+<li>del</li>
+</ul>
+</li>
+<li>list<ul>
+<li>rpush</li>
+<li>lrange</li>
+<li>lindex</li>
+<li>lpop</li>
+</ul>
+</li>
+<li>set<ul>
+<li>SADD</li>
+<li>SMEMBERS</li>
+<li>SISMEMBERS</li>
+<li>SREM</li>
+<li>比如SINTER、SUNION、SDIFF这3个命令就可以分别执行常见的交集计算、并集计算和差集计算</li>
+</ul>
+</li>
+<li>Hash<ul>
+<li>HSET</li>
+<li>HGET</li>
+<li>HGETALL</li>
+<li>HDELL</li>
+</ul>
+</li>
+<li>ZSET<ul>
+<li>ZADD</li>
+<li>ZRANGE</li>
+<li>ZRANGESCORE</li>
+<li>ZREM</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-其他管理命令"><a href="#4-其他管理命令" class="headerlink" title="4.其他管理命令"></a>4.其他管理命令</h3><ul>
+<li>基数统计：Redis HyperLogLog 是用来做基数统计的</li>
+</ul>
+<h3 id="5-Redis事务"><a href="#5-Redis事务" class="headerlink" title="5.Redis事务"></a>5.Redis事务</h3><ul>
+<li><p>Redis事务允许一组命令在单一步骤中执行</p>
+</li>
+<li><p>事务有两个属性</p>
+</li>
+<li><ul>
+<li>在一个事务中的所有命令作为单个独立的操作顺序执行，在Redis事务中的执行过程中而另一客户机发出的请求，这是不可以的</li>
+<li>Redis事务是原子的，原子意味着要么所有的命令都执行，要么都不执行</li>
+</ul>
+</li>
+</ul>
+<h3 id="6-Redis分区"><a href="#6-Redis分区" class="headerlink" title="6.Redis分区"></a>6.Redis分区</h3><ul>
+<li><p>分区是将数据分割成多个 Redis 实例，使每个实例将只包含键子集的过程</p>
+</li>
+<li><p>分区的好处</p>
+</li>
+<li><ul>
+<li>它允许更大的数据库，使用多台计算机的内存总和。如果不分区，只是一台计算机有限的内存可以支持的数据存储</li>
+<li>它允许按比例在多内核和多个计算机计算，以及网络带宽向多台计算机和网络适配器</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>分区的劣势</strong></p>
+</li>
+<li><ul>
+<li>涉及多个键的操作通常不支持。例如，如果它们被存储在被映射到不同的 Redis 实例键，则不能在两个集合之间执行交集</li>
+<li>涉及多个键时，Redis事务无法使用</li>
+<li>分区粒度是一个键，所以它不可能使用一个键和一个非常大的有序集合分享一个数据集</li>
+<li>当使用分区，数据处理比较复杂，比如要处理多个RDB/AOF文件，使数据备份需要从多个实例和主机聚集持久性文件</li>
+<li>添加和删除的容量可能会很复杂。例如Redis的Cluster支持数据在运行时添加和删除节点是透明平衡的，但其他系统，如客户端的分区和代理服务器不支持此功能</li>
+</ul>
+</li>
+</ul>
+<h2 id="MongoDB"><a href="#MongoDB" class="headerlink" title="MongoDB"></a>MongoDB</h2><h3 id="1-简介-1"><a href="#1-简介-1" class="headerlink" title="1.简介"></a>1.简介</h3><ul>
+<li>MongoDB 是由C++语言编写的，是一个基于分布式文件存储的开源数据库系统</li>
+<li>在高负载的情况下，添加更多的节点，可以保证服务器性能</li>
+<li>MongoDB 旨在为WEB应用提供可扩展的高性能数据存储解决方案</li>
+<li>MongoDB 将数据存储为一个文档，数据结构由键值(key value)对组成</li>
+<li>MongoDB 文档类似于 JSON 对象（bson）</li>
+<li>字段值可以包含其他文档，数组及文档数组</li>
+</ul>
+<h3 id="2-主要特点"><a href="#2-主要特点" class="headerlink" title="2.主要特点"></a>2.主要特点</h3><ul>
+<li>面向集合存储，易存储对象类型的数据</li>
+<li>模式自由</li>
+<li>支持动态查询</li>
+<li>支持完全索引，包含内部对象</li>
+<li>支持查询</li>
+<li>支持复制和故障恢复</li>
+<li>使用高效的二进制数据存储，包括大型对象（如视频）</li>
+<li>自动处理碎片，以支持云计算层次的扩展性</li>
+<li>支持RUBY，PYTHON，JAVA，C++，PHP，C#等多种语言</li>
+<li>文件存储格式为BSON（一种JSON的扩展）</li>
+<li>可通过网络访问</li>
+</ul>
+<h3 id="3-适用场景"><a href="#3-适用场景" class="headerlink" title="3.适用场景"></a>3.适用场景</h3><ul>
+<li><p>网站数据</p>
+</li>
+<li><ul>
+<li>Mongo 非常适合实时的插入，更新与查询，并具备网站实时数据存储所需的复制及高度伸缩性</li>
+</ul>
+</li>
+<li><p>缓存</p>
+</li>
+<li><ul>
+<li>由于性能很高，Mongo 也适合作为信息基础设施的缓存层</li>
+<li>在系统重启之后，由Mongo 搭建的持久化缓存层可以避免下层的数据源过载</li>
+</ul>
+</li>
+<li><p>大尺寸、低价值的数据</p>
+</li>
+<li><ul>
+<li>使用传统的关系型数据库存储一些数据时可能会比较昂贵，在此之前，很多时候程序员往往会选择传统的文件进行存储</li>
+</ul>
+</li>
+<li><p>高伸缩性的场景</p>
+</li>
+<li><ul>
+<li>Mongo 非常适合由数十或数百台服务器组成的数据库，Mongo 的路线图中已经包含对MapReduce 引擎的内置支持</li>
+</ul>
+</li>
+<li><p>用于对象及JSON 数据的存储</p>
+</li>
+<li><ul>
+<li>Mongo 的BSON 数据格式非常适合文档化格式的存储及查询</li>
+</ul>
+</li>
+<li><p>高度事务性的系统</p>
+</li>
+<li><ul>
+<li>如银行或会计系统</li>
+<li>传统的关系型数据库目前还是更适用于需要大量原子性复杂事务的应用程序</li>
+</ul>
+</li>
+<li><p>传统的商业智能应用</p>
+</li>
+<li><ul>
+<li>针对特定问题的BI 数据库会产生高度优化的查询方式</li>
+<li>数据仓库可能是更合适的选择</li>
+</ul>
+</li>
+<li><p>需要SQL 的问题</p>
+</li>
+</ul>
+<h3 id="4-Mongodb术语"><a href="#4-Mongodb术语" class="headerlink" title="4.Mongodb术语"></a>4.Mongodb术语</h3><ul>
+<li>Mongodb中基本的概念是文档、集合、数据库</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>SQL术语/概念</th>
+<th>MongoDB术语/概念</th>
+<th>解释/说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>database</td>
+<td>database</td>
+<td>数据库</td>
+</tr>
+<tr>
+<td>table</td>
+<td>collection</td>
+<td>数据库表/集合</td>
+</tr>
+<tr>
+<td>row</td>
+<td>document</td>
+<td>数据记录行/文档</td>
+</tr>
+<tr>
+<td>column</td>
+<td>field</td>
+<td>数据字段/域</td>
+</tr>
+<tr>
+<td>index</td>
+<td>index</td>
+<td>索引</td>
+</tr>
+<tr>
+<td>table joins</td>
+<td></td>
+<td>表连接,MongoDB不支持</td>
+</tr>
+<tr>
+<td>primary key</td>
+<td>primary key</td>
+<td>主键,MongoDB自动将_id字段设置为主键</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>下表列出了 RDBMS 与 MongoDB 对应的术语：</p>
+<p>| RDBMS         | MongoDB                     |<br>| ————- | ————————— |<br>| 数据库           | 数据库                         |<br>| 表格            | 集合                          |<br>| 行             | 文档                          |<br>| 列             | 字段                          |<br>| 表联合           | 嵌入文档                        |<br>| 主键            | 主键 (MongoDB 提供了 key 为 _id ) |<br>| 数据库服务和客户端     |                             |<br>| Mysqld/Oracle | mongod                      |<br>| mysql/sqlplus | mongo                       |</p>
+</li>
+</ul>
+<h3 id="5-Mongodb操作"><a href="#5-Mongodb操作" class="headerlink" title="5.Mongodb操作"></a>5.Mongodb操作</h3><ul>
+<li><p>insert：单条和批量</p>
+</li>
+<li><p>Find：</p>
+<ul>
+<li>“$gt”（greater than）, “$gte”, “$lt”, “$lte”, “$ne”, “没有特殊关键字”</li>
+<li>“无关键字“, “$or”, “$in”，”$nin” 同样我也是举几个例子</li>
+<li>在mongodb中还有一个特殊的匹配，那就是“正则表达式”，这玩意威力很强的。</li>
+<li>有时查询很复杂，很蛋疼，不过没关系，mongodb给我们祭出了大招，它就是$where，为什么这么说，是因为$where中的value</li>
+</ul>
+</li>
+<li><p>Update：</p>
+<ul>
+<li>整体更新</li>
+<li>局部更新：$inc,$set</li>
+<li>upsert</li>
+<li>批量更新</li>
+</ul>
+</li>
+<li><p>Remove</p>
+</li>
+<li><p>聚合</p>
+<ul>
+<li><p>count</p>
+</li>
+<li><p>distinct</p>
+</li>
+<li><p>group</p>
+<ul>
+<li><p>key：  这个就是分组的key，我们这里是对年龄分组</p>
+</li>
+<li><p>initial: 每组都分享一个”初始化函数“，特别注意：是每一组，比如这个的age=20的value的list分享一个initial函数，age=22同样也分享一个initial函数。</p>
+</li>
+<li><p>$reduce: 这个函数的第一个参数是当前的文档对象，第二个参数是上一次function操作的累计对象，第一次</p>
+<p>为initial中的{”perosn“：[]}。有多少个文档， $reduce就会调用多少次。</p>
+</li>
+<li><p>condition:  这个就是过滤条件。</p>
+</li>
+<li><p>finalize:这是个函数，每一组文档执行完后，多会触发此方法，那么在每组集合里面加上count也就是它的活了。</p>
+</li>
+</ul>
+</li>
+<li><p>​ mapReduce</p>
+<pre><code>这玩意算是聚合函数中最复杂的了，不过复杂也好，越复杂就越灵活。
+</code></pre><p>  mapReduce其实是一种编程模型，用在分布式计算中，其中有一个“map”函数，一个”reduce“函数。</p>
+<p>   ① map：</p>
+<pre><code>这个称为映射函数，里面会调用emit(key,value)，集合会按照你指定的key进行映射分组。
+</code></pre><p>   ② reduce：</p>
+<pre><code>   这个称为简化函数，会对map分组后的数据进行分组简化，注意：在reduce(key,value)中的key就是
+
+emit中的key，vlaue为emit分组后的emit(value)的集合，这里也就是很多{&quot;count&quot;:1}的数组。
+</code></pre><p>   ③ mapReduce:</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="6-复制与备份"><a href="#6-复制与备份" class="headerlink" title="6.复制与备份"></a>6.复制与备份</h3><h3 id="7-分片"><a href="#7-分片" class="headerlink" title="7.分片"></a>7.分片</h3><ul>
+<li><p>Shard</p>
+</li>
+<li><ul>
+<li>用于存储实际的数据块，实际生产环境中一个shard server角色可由几台机器组个一个relica set承担，防止主机单点故障 </li>
+</ul>
+</li>
+<li><p>Config Server</p>
+</li>
+<li><ul>
+<li>mongod实例，存储了整个 ClusterMetadata，其中包括 chunk信息 </li>
+</ul>
+</li>
+<li><p>Query Routers</p>
+</li>
+<li><ul>
+<li>前端路由，客户端由此接入，且让整个集群看上去像单一数据库，前端应用可以透明使用</li>
+</ul>
+</li>
+</ul>
+<h3 id="8-案例"><a href="#8-案例" class="headerlink" title="8.案例"></a>8.案例</h3><ul>
+<li>用电信息采集<ul>
+<li>用电信息采集系统中采集终端上传用电信息至前置通信平台，前置通信平台负责将原始数据帧最终转换为存入应用系统生产数据库和分析数据库的业务数据</li>
+<li>启动<ul>
+<li>当数据采集服务和数据处理单元启动时，从前置通信平台关系数据库加载档案数据，用于数据帧解析和原始数据转存</li>
+<li>每隔15分钟同步更新一次</li>
+</ul>
+</li>
+<li>策略：<ul>
+<li>数据采集服务首先对原始数据进行本地缓存，然后再将文件上传至MongoDB私有云，而没有把原始数据直接以键值对形式写入MongoDB私有云</li>
+<li>一方面可以有效的保证原始数据的安全性，在很大程度上避免因网络中断，机房断电等异常造成的数据丢失</li>
+<li>另一方面，缓存后的文件写入MongoDB，与键值对写入MongoDB相比，前者速度快的多，能更好适应高速采集数据流的大数据处理</li>
+<li>利用多台服务器以MongoDB为基础构建了原始采集数据的云存储架构</li>
+<li>通过复制集的应用，利用多台机器之间的异步复制达到故障转移和冗余。每三个Mongo服务构成一组复制集，彼此相互进行“心跳”检测，实现数据的高可用性</li>
+<li>海量数据的读写分离：通过云存储技术的使用，结合复制集技术的应用，复制的数据库能很好的适用于读扩展</li>
+<li>可以将查询路由到更多的副本上，这样查询就会发送到从节点上执行，从而实现将“读写请求”按实际负载情况进行均衡分布的效果、增大吞吐量</li>
+<li>海量数据的均衡分布： 众多服务器构建的私有云利用自动分片机制，各数据片段均衡写入到各工作节点的存储系统中</li>
+<li>对均衡策略进行了优化，通过路由mongos获取分片所在节点负载，在迁移源分片与目标分片选取等环节加入负载因素的考虑，从数据量和负载两方面实现均衡</li>
+</ul>
+</li>
+<li>人社大数据平台</li>
+</ul>
+</li>
+</ul>
+<h2 id="Neo4j"><a href="#Neo4j" class="headerlink" title="Neo4j"></a>Neo4j</h2><h3 id="1-简介-2"><a href="#1-简介-2" class="headerlink" title="1.简介"></a>1.简介</h3><ul>
+<li>Neo4j 是一个高性能的 NoSQL 图形数据库</li>
+<li>Neo4j 使用图（graph）相关的概念来描述数据模型，把数据保存为图中的节点以及节点之间的关系</li>
+<li><a href="https://neo4j.com/" target="_blank" rel="noopener">https://neo4j.com/</a></li>
+</ul>
+<h3 id="2-概念"><a href="#2-概念" class="headerlink" title="2.概念"></a>2.概念</h3><ul>
+<li><p>Neo4j 中两个最基本的概念是节点和边</p>
+</li>
+<li><ul>
+<li>节点表示实体，边则表示实体之间的关系</li>
+<li>节点和边都可以有自己的属性</li>
+<li>不同实体通过各种不同的关系关联起来，形成复杂的对象图</li>
+</ul>
+</li>
+<li><p>Neo4j 提供了在对象图上进行查找和遍历的功能</p>
+</li>
+<li><ul>
+<li>深度搜索</li>
+<li>广度搜索</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-特点"><a href="#3-特点" class="headerlink" title="3.特点"></a>3.特点</h3><ul>
+<li>完整的ACID支持 </li>
+<li>高可用性 </li>
+<li>轻易扩展到上亿级别的节点和关系 </li>
+<li>通过遍历工具高速检索数据</li>
+</ul>
+<h3 id="4-例子"><a href="#4-例子" class="headerlink" title="4.例子"></a>4.例子</h3><ul>
+<li>社交网络</li>
+<li>文件系统</li>
+<li>​</li>
+</ul>
+<h2 id="总结比较结果"><a href="#总结比较结果" class="headerlink" title="总结比较结果"></a>总结比较结果</h2><p>我在知乎上简答了一下<a href="https://www.zhihu.com/question/30219620/answer/137775181" target="_blank" rel="noopener">传送门</a></p>
+<ul>
+<li><a href="http://lib.csdn.net/base/hbase" target="_blank" rel="noopener">Hbase</a>，<a href="http://lib.csdn.net/base/mongodb" target="_blank" rel="noopener">MongoDB</a>，<a href="http://lib.csdn.net/base/redis" target="_blank" rel="noopener">Redis</a>都属于nosql型存储方案。在实际的项目实践上看，他们的系统存储及处理的数量由大到小。</li>
+<li>HBase基于列存储，提供\&lt;key, family:qualifier, timestamp&gt;三项坐标方式定位数据，由于其qualifier的动态可扩展型（无需schema设计，可存储任意多的qualifier），特别适合存储稀疏表结构的数据（比如互联网网页类）。HBase不支持二级索引，读取数据方面只支持通过key或者key范围读取，或者全表扫描。</li>
+<li>MongoDb在类SQL语句操作方面目前比HBase具备更多一些优势，有二级索引，支持相比于HBase更复杂的集合查找等。BSON的数据结构使得处理文档型数据更为直接。MongoDb也支持mapreduce，但由于HBase跟Hadoop的结合更为紧密，Mongo在数据分片等mapreduce必须的属性上不如HBase这么直接，需要额外处理。</li>
+<li>HBase与Mongodb的读写性能正好相反，HBase写优于随机读，MongoDB似乎写性能不如读性能。</li>
+<li>Redis为内存型KV系统，处理的数据量要小于HBase与MongoDB</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><strong>分类</strong></th>
+<th>Example</th>
+<th><strong>典型应用场景</strong></th>
+<th><strong>数据模型</strong></th>
+<th><strong>优点</strong></th>
+<th><strong>缺点</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>键值（key-value）</td>
+<td>Tokyo Cabinet/Tyrant, Redis, Voldemort, Oracle BDB</td>
+<td>内容缓存，主要用于处理大量数据的高访问负载，也用于一些日志系统等等。</td>
+<td>Key 指向 Value 的键值对，通常用hash table来实现</td>
+<td>查找速度快</td>
+<td>数据无结构化，通常只被当作字符串或者二进制数据</td>
+</tr>
+<tr>
+<td>列存储数据库</td>
+<td>Cassandra, HBase, Riak</td>
+<td>分布式的文件系统</td>
+<td>以列簇式存储，将同一列数据存在一起</td>
+<td>查找速度快，可扩展性强，更容易进行分布式扩展</td>
+<td>功能相对局限</td>
+</tr>
+<tr>
+<td>文档型数据库</td>
+<td>CouchDB, MongoDb</td>
+<td>Web应用（与Key-Value类似，Value是结构化的，不同的是数据库能够了解Value的内容）</td>
+<td>Key-Value对应的键值对，Value为结构化数据</td>
+<td>数据结构要求不严格，表结构可变，不需要像关系型数据库一样需要预先定义表结构</td>
+<td>查询性能不高，而且缺乏统一的查询语法</td>
+</tr>
+<tr>
+<td>图形(Graph)数据库</td>
+<td>Neo4J, InfoGrid, Infinite Graph</td>
+<td>社交网络，推荐系统等，专注于构建关系图谱</td>
+<td>图结构</td>
+<td>利用图结构相关算法。比如最短路径寻址，N度关系查找等</td>
+<td>很多时候需要对整个图做计算才能得出需要的信息，而且这种结构不太好做分布式的集群方案</td>
+</tr>
+</tbody>
+</table>
+
+    
+  </div>
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation"><strong>赞赏</strong></span>
+      <div class="donation-body">
+        <div class="tip text-center"><strong>支持一下</strong></div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="https://ws1.sinaimg.cn/large/006tNbRwly1fxjlq29zkkj30f60f675t.jpg" alt="">
+            <a>微信扫一扫</a>
+          </li>
+        
+          <li class="item">
+            <img src="https://ws2.sinaimg.cn/large/006tNbRwly1fxjlwikh27j30a20a2wfe.jpg" alt="">
+            <a>支付宝扫一扫</a>
+          </li>
+        
+          <li class="item">
+            <img src="https://ws3.sinaimg.cn/large/006tNbRwly1fxjlztplu9j30jd0jeadu.jpg" alt="">
+            <a>QQ扫一扫</a>
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2016/12/20/network/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2016/12/18/idea/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+              目录
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/category/" rel="noopener noreferrer" target="_self">
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/tag/" rel="noopener noreferrer" target="_self">
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/project/" rel="noopener noreferrer" target="_self">
+              项目
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+
+
+
+
+ <div id="container"></div>
+ <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+ <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+  <script>
+  var gitment = new Gitment({
+    id: 'https://blog.idejie.com/2016/12/20/nosql/index.html', // 可选。默认为 location.href
+    owner: 'YangDejie',
+    repo: 'yangdejie.github.io',
+    oauth: {
+      client_id: '1f1de6e091e0ddb070a2',
+      client_secret: '9647e77652e4654e10549d1226c3b80300d65348',
+    },
+  })
+  gitment.render('container')
+  </script>
+
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

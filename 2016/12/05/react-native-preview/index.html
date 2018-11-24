@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>【转载】我对Raeact-Native的理解和看法 | 杨德杰</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="">
+  
+
+  <meta name="description" content="原作者：雷志兴 发布时间：1 年前 原地址：http://div.io/topic/851?page=1#3453  React native出来也快一周了，我写了几个demo，简单看了看objc代码并和开源前的我们的一些结论（见后文）交叉验证。简单地从前端工程师和系统整体角度说一下React native的特点和优劣吧。 react native充分利用了Facebook的现有轮子，是一个很优">
+<meta name="keywords" content="React-Native">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【转载】我对Raeact-Native的理解和看法">
+<meta property="og:url" content="https://blog.idejie.com/2016/12/05/react-native-preview/index.html">
+<meta property="og:site_name" content="杨德杰">
+<meta property="og:description" content="原作者：雷志兴 发布时间：1 年前 原地址：http://div.io/topic/851?page=1#3453  React native出来也快一周了，我写了几个demo，简单看了看objc代码并和开源前的我们的一些结论（见后文）交叉验证。简单地从前端工程师和系统整体角度说一下React native的特点和优劣吧。 react native充分利用了Facebook的现有轮子，是一个很优">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-11-24T16:32:27.556Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【转载】我对Raeact-Native的理解和看法">
+<meta name="twitter:description" content="原作者：雷志兴 发布时间：1 年前 原地址：http://div.io/topic/851?page=1#3453  React native出来也快一周了，我写了几个demo，简单看了看objc代码并和开源前的我们的一些结论（见后文）交叉验证。简单地从前端工程师和系统整体角度说一下React native的特点和优劣吧。 react native充分利用了Facebook的现有轮子，是一个很优">
+
+  
+
+  
+    <link rel="icon" href="https://avatars0.githubusercontent.com/u/12479824">
+  
+
+  <link href="/css/styles.css?v=d671a41f" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/styles.css">
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+<script src="//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0"></script>
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+ <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css">
+<script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+
+</head>
+<script src="http://pixijs.download/release/pixi.js"></script>
+</html>
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">菜单</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">菜单</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+            目录
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/category/" rel="noopener noreferrer" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/tag/" rel="noopener noreferrer" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/project/" rel="noopener noreferrer" target="_self">
+            项目
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#背景和调研手段"><span class="toc-text">背景和调研手段</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#React-Native的设计考虑："><span class="toc-text">React Native的设计考虑：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#React-Native的优势和劣势：（非最终结论，可能会更新）："><span class="toc-text">React Native的优势和劣势：（非最终结论，可能会更新）：</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-react-native-preview" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">【转载】我对Raeact-Native的理解和看法</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2016.12.05</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>杨德杰</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/教程/">教程</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp 阅读量：<span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>
+        </span>
+      
+
+      
+        <i class="icon-comment"></i> 
+        <span class="ds-thread-count" data-thread-key="post-react-native-preview"><i class="fa fa-spinner fa-spin"></i></span> 
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <blockquote>
+<p>原作者：<a href="https://www.zhihu.com/people/berg" target="_blank" rel="noopener">雷志兴</a></p>
+<p>发布时间：1 年前</p>
+<p>原地址：<a href="http://div.io/topic/851?page=1#3453" target="_blank" rel="noopener">http://div.io/topic/851?page=1#3453</a></p>
+</blockquote>
+<p>React native出来也快一周了，我写了几个demo，简单看了看objc代码并和开源前的我们的一些结论（见后文）交叉验证。简单地从前端工程师和系统整体角度说一下React native的特点和优劣吧。</p>
+<p>react native充分利用了Facebook的现有轮子，是一个很优秀的集成作品，并且我相信这个团队对前端的了解很深刻，否则不可能让Native code「退居二线」。</p>
+<p>对应到前端开发，整个系统结构是这样：</p>
+<ul>
+<li>JSX vs HTML</li>
+<li>CSS-layout vs css</li>
+<li>ECMAScript 6 vs ECMAScript 5</li>
+<li>React native View vs DOM</li>
+</ul>
+<hr>
+<ol>
+<li>无需编译，我在第一次编译了ipa装好以后，就再也没更新过app，只要更新云端的js代码，reload一下，整个界面就全变了。</li>
+<li>多数布局代码都是<a href="https://facebook.github.io/react/docs/jsx-in-depth.html" target="_blank" rel="noopener">JSX</a>，所有Native组件都是标签化的XML，这对于前端程序员来说，降低了不少学习成本，也大大减少了代码量，不信你可以看看JSX编译后的代码。</li>
+<li>复用React系统，也减少了一定学习和开发成本，更重要的是利用了React里面的分层和diff机制。js层传给Native层的是一个diff后的json，然后由Native将这个数据映射成真正的布局视图。</li>
+<li>css-layout也是点睛之笔，前端可以继续用熟悉的类css方式来编写布局，通过这个工具转换成constrain布局。</li>
+<li>系统只有js-objc的单向调用，就是把原生UI组件的方法通过javascritcore或者webview（低版本iOS）映射到js中来，整个调用过程是异步的，这样的设计令React native可以让js运行在桌面chrome中，通过websocket连接Native code和桌面chrome，极大地方便了调试。对其中的机制Bang的一篇文章写得很详细，我就不拾人牙慧了：<a href="http://blog.cnbang.net/tech/2698/" target="_blank" rel="noopener">http://blog.cnbang.net/tech/2698/</a> 。但这样设计也会带来一些问题，后面说。</li>
+<li>点按操作也被抽象成了一组组件（TouchableXXX），这种抽象方式是我在之前做类似工作中没有想到的。facebook还列出Native为什么和web「手感」不同的原因：实时的点按反馈和取消能力。<a href="http://facebook.github.io/react-native/docs/gesture-responder-system.html#content" target="_blank" rel="noopener">http://facebook.github.io/react-native/docs/gesture-responder-system.html#content</a> 这套相应机制设计得很完善，能像Native code那样控制整个点按操作的所有过程。</li>
+<li>Debug相当方便！修改了js以后，通过内建的nodejs watcher编译成bundle，在模拟器里面按cmd+r就可以看到效果。而且按cmd+d，可以打开一个chrome窗口，所有的js都移到了chrome里面运行，所以什么断点单步打调用栈，都不在话下。</li>
+</ol>
+<p>上面的既是特点也是优点，下面说说缺点，或者应该说：「仍然遗留的问题」，在我看来，这个方案已经超越了Hybird方案。</p>
+<ol>
+<li>系统仍然（不得不）依赖原生组件暴露出来的组件和方法。举两个例子，ScrollView这个组件，在Native层是有大量事件的，scrollViewWillBeginDragging， scrollViewWillEndDragging，scrollViewDidEndDragging等等，这些事件在现有的版本都没有暴露，基本上做不了组件联动效果。另外，这个版本中有大量组件是iOS only的：ActivityIndicatorIOS、DatePickerIOS、NavigatorIOS、PickerIOS、SliderIOS、SwitchIOS、TabBarIOS、AlertIOS、AppStateIOS、LinkingIOS、PushNotificationIOS、StatusBarIOS、VibrationIOS，反过来看，剩余的都是一些抽象程度极强的基本组件。这样，用户必须在不同的平台下写两套代码，而且所有能力仍然强烈依赖 React native 开发人员暴露的接口。</li>
+<li>由于最外层是React，初次学习成本高，不像往常的Hybird方案，只要多学几个JS API就可以开始干活了。当然，React的确让后续开发变得简单了一些，这么一套外来的（基于iOS）、残缺不全的（css-layout）在React的包装下，的确显得不那么面目可憎了。</li>
+</ol>
+<p>另外，React Native仍然很不完善。文档还不全，我基本上是看着他的示例代码完成的demo，集成到已有app的文档也是今天才出来。按照官方的说法，Android版本要到半年后才发布： <a href="http://facebook.github.io/react/blog/#when-is-react-native-android-coming" target="_blank" rel="noopener">http://facebook.github.io/react/blog/#when-is-react-native-android-coming</a> ，届时整个系统设计可能还会有很大的变化。</p>
+<p>PS，在使用Tabbar的时候，我惊喜的发现他们居然用了iconfont方案，我现在手头的项目中也有同样的实现，不过API怎么设计一直很头疼。结果，我发现他是这么写的：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;TabBarItemIOS</span><br><span class="line">                name=&quot;blueTab&quot;</span><br><span class="line">                icon=&#123;_ix_DEPRECATED(&apos;favorites&apos;)&#125;</span><br><span class="line">....&gt;</span><br></pre></td></tr></table></figure>
+<p>在 <code>_ix_DEPRECATED</code> 的定义处，有一句注释： <code>// TODO(nicklockwood): How can this fit our require system?</code></p>
+<p>HOW?</p>
+<p>以上。</p>
+<p>下面是一周前，在React native还没开源的时候，通过反解ipa的一些分析过程，有兴趣的可以看看。</p>
+<hr>
+<h1 id="背景和调研手段"><a href="#背景和调研手段" class="headerlink" title="背景和调研手段"></a>背景和调研手段</h1><p>React Native还没开源，最近和组里兄弟反编译了Facebook Group（这个应用是用React Native实现的）的ipa代码，出来几百个JS文件，格式化一下，花了几天时间读了一下源码，对React Native的内部核心机制算是有了一个基本了解。</p>
+<p>React Native的核心实现：</p>
+<p>先简单说几点，详细的等回头更新。</p>
+<ol>
+<li>React Native里面没有webview，这货<strong>不是Hybrid app</strong>。</li>
+<li>再说React Native的核心，iOS Native code提供了十来个最<strong>核心的类</strong>（RCTDeviceEventEmitter、RCTRenderingPerf等）、<strong>或组件</strong>（RCTView、RCTTextField、RCTTextView、RCTModalFullscreenView等），然后由React Native的JS部分，组成二十来个<strong>基本组件</strong>（Popover、Listview等），交由上层的<strong>业务方</strong>来使用（THGroupView）。</li>
+<li>就如他们在宣传时所说，他们实现了一套<strong>类似css的子集</strong>，用来解决样式问题，相当复杂和强大，靠这个才能将Native的核心组件组成JS层的基本组件再组成业务端的业务组件，个人猜测是采用CSSLayout的C语言版本实现的。</li>
+<li>在React Native中，写JS的工程师解决的是「<strong>将基本组件拼装成可用的React组件</strong>」的问题，写Native Code的工程师解决的是「<strong>提供核心组件，提供足够的扩展性、灵活性和性能</strong>」的问题。</li>
+</ol>
+<h1 id="React-Native的设计考虑："><a href="#React-Native的设计考虑：" class="headerlink" title="React Native的设计考虑："></a>React Native的设计考虑：</h1><p>ReactJS对React Native有着直接的影响（我没真正在生产环境中用过React，只用过Angular，下面的观点可能有偏差）</p>
+<p>ReactJS是这么设计的：<br>\1. ReactJS 通过createElement返回的不是某个实体DOM对象，而只是一个数组<br>\2. 通过源码中 ui/browser/ 目录中的代码，将这个数组转换成DOM</p>
+<p>另外，Facebook自己有JSX，CSSLayout等开源项目（自己去github上找介绍吧）</p>
+<p>有了React再考虑React Native，很自然就想到了一套最有效率的搞法：<br>\1. 将 ui/browser 里面的代码替换成一套 Native 的桥接JS（实际上，iOS版是通过<br>injectGenericComponentClass方法，将核心组件的方法注入到JS里面 ），不就用上React的MVVM，自动将数据映射到Native了么<br>\2. Native code里面实现三组核心API，一组提供核心组件的API（create、update、delete），一组事件方法（ReactJS里面的EventEmitter ），一组对Style进行解析（貌似是用的CSSLayout的C语言版本）以及返回Style的ComputedStyle（React Native里面叫meatureStyle）</p>
+<p>这样，用上了ReactJS本身的所有核心功能和设计思路，Native的开发也足够简单。</p>
+<h1 id="React-Native的优势和劣势：（非最终结论，可能会更新）："><a href="#React-Native的优势和劣势：（非最终结论，可能会更新）：" class="headerlink" title="React Native的优势和劣势：（非最终结论，可能会更新）："></a>React Native的优势和劣势：（非最终结论，可能会更新）：</h1><p>React Native的优势：<br>相对Hybird app或者Webapp：</p>
+<ol>
+<li>不用Webview，彻底摆脱了Webview让人不爽的交互和性能问题</li>
+<li>有较强的扩展性，这是因为Native端提供的是基本控件，JS可以自由组合使用</li>
+<li>可以直接使用Native原生的「牛逼」动画（在FB Group这个app里面，面板滑出带一点果冻弹动，面板基于某个点展开这种动画随处可见，这种动画用Native code来做小菜一碟，但是用Web来做就难上加难）。</li>
+</ol>
+<p>相对于Native app：</p>
+<ol>
+<li>可以通过更新远端JS，直接更新app，不过这快成为各家大型Native app的标配了…</li>
+</ol>
+<p>劣势：</p>
+<ol>
+<li>扩展性仍然远远不如web，也远远不如直接写Native code（这个不用废话解释了吧）</li>
+<li>从Native到Web，要做很多概念转换，势必造成双方都要妥协。最终web要用一套CSS的阉割版，Native要费劲地把这个阉割版转换成native原生的表达方式（比如iOS的Constraint\origin\Center等属性），两边都会不爽。</li>
+</ol>
+
+    
+  </div>
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation"><strong>赞赏</strong></span>
+      <div class="donation-body">
+        <div class="tip text-center"><strong>支持一下</strong></div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="https://ws1.sinaimg.cn/large/006tNbRwly1fxjlq29zkkj30f60f675t.jpg" alt="">
+            <a>微信扫一扫</a>
+          </li>
+        
+          <li class="item">
+            <img src="https://ws2.sinaimg.cn/large/006tNbRwly1fxjlwikh27j30a20a2wfe.jpg" alt="">
+            <a>支付宝扫一扫</a>
+          </li>
+        
+          <li class="item">
+            <img src="https://ws3.sinaimg.cn/large/006tNbRwly1fxjlztplu9j30jd0jeadu.jpg" alt="">
+            <a>QQ扫一扫</a>
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2016/12/05/react-native-learn-0/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2016/11/25/vue-learn-1/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+              目录
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/category/" rel="noopener noreferrer" target="_self">
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/tag/" rel="noopener noreferrer" target="_self">
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/project/" rel="noopener noreferrer" target="_self">
+              项目
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+
+
+
+
+ <div id="container"></div>
+ <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+ <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+  <script>
+  var gitment = new Gitment({
+    id: 'https://blog.idejie.com/2016/12/05/react-native-preview/index.html', // 可选。默认为 location.href
+    owner: 'YangDejie',
+    repo: 'yangdejie.github.io',
+    oauth: {
+      client_id: '1f1de6e091e0ddb070a2',
+      client_secret: '9647e77652e4654e10549d1226c3b80300d65348',
+    },
+  })
+  gitment.render('container')
+  </script>
+
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

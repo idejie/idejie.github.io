@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>面向对象复习（五） | 杨德杰</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="">
+  
+
+  <meta name="description" content="设计原则1.设计目标 可扩展性(Extensibility):新功能易加入系统。   灵活性(Flexibility):允许代码修改平稳发生，不会涉及很多其他模块。   可插入性(Pluggability):容易将一个类换为另一个具有同样接口的类。  2.软件复用的重要性 较高的生产率 较高的软件质量 恰当使用复用,可改善系统的可维护性  3.方法 使一个系统可在更高的层次上提供了可复用性 抽象化">
+<meta name="keywords" content="面向对象">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面向对象复习（五）">
+<meta property="og:url" content="https://blog.idejie.com/2016/06/21/review-oo-rule/index.html">
+<meta property="og:site_name" content="杨德杰">
+<meta property="og:description" content="设计原则1.设计目标 可扩展性(Extensibility):新功能易加入系统。   灵活性(Flexibility):允许代码修改平稳发生，不会涉及很多其他模块。   可插入性(Pluggability):容易将一个类换为另一个具有同样接口的类。  2.软件复用的重要性 较高的生产率 较高的软件质量 恰当使用复用,可改善系统的可维护性  3.方法 使一个系统可在更高的层次上提供了可复用性 抽象化">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-11-24T16:32:27.559Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="面向对象复习（五）">
+<meta name="twitter:description" content="设计原则1.设计目标 可扩展性(Extensibility):新功能易加入系统。   灵活性(Flexibility):允许代码修改平稳发生，不会涉及很多其他模块。   可插入性(Pluggability):容易将一个类换为另一个具有同样接口的类。  2.软件复用的重要性 较高的生产率 较高的软件质量 恰当使用复用,可改善系统的可维护性  3.方法 使一个系统可在更高的层次上提供了可复用性 抽象化">
+
+  
+
+  
+    <link rel="icon" href="https://avatars0.githubusercontent.com/u/12479824">
+  
+
+  <link href="/css/styles.css?v=d671a41f" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/styles.css">
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+<script src="//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0"></script>
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+ <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css">
+<script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+
+</head>
+<script src="http://pixijs.download/release/pixi.js"></script>
+</html>
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">菜单</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">菜单</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+            目录
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/category/" rel="noopener noreferrer" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/tag/" rel="noopener noreferrer" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/project/" rel="noopener noreferrer" target="_self">
+            项目
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#设计原则"><span class="toc-text">设计原则</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-设计目标"><span class="toc-text">1.设计目标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-软件复用的重要性"><span class="toc-text">2.软件复用的重要性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-方法"><span class="toc-text">3.方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-七大原则"><span class="toc-text">4.七大原则</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-开闭原则OCP-Open-ClosedPrinciple"><span class="toc-text">1.开闭原则OCP:Open-ClosedPrinciple</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-依赖倒转原则DIP-DependencyInversion-Principle"><span class="toc-text">2.依赖倒转原则DIP:DependencyInversion Principle</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-单一职责原则（SRP"><span class="toc-text">3.单一职责原则（SRP)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-里氏替换原则LSP-LiskovSubstitution-Principle"><span class="toc-text">4.里氏替换原则LSP:LiskovSubstitution Principle</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-组合复用原则CRP-CompositoinResuse-Principle"><span class="toc-text">5.组合复用原则CRP:CompositoinResuse Principle</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6-迪米特法则LoD-Lawof-Demeter"><span class="toc-text">6.迪米特法则LoD:Lawof Demeter</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#7-接口隔离原则ISP-InterfaceSegregation-Principle"><span class="toc-text">7.接口隔离原则ISP:InterfaceSegregation Principle</span></a></li></ol></li></ol></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-review-oo-rule" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">面向对象复习（五）</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2016.06.21</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>杨德杰</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/课程复习/">课程复习</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp 阅读量：<span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>
+        </span>
+      
+
+      
+        <i class="icon-comment"></i> 
+        <span class="ds-thread-count" data-thread-key="post-review-oo-rule"><i class="fa fa-spinner fa-spin"></i></span> 
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h2 id="设计原则"><a href="#设计原则" class="headerlink" title="设计原则"></a>设计原则</h2><h3 id="1-设计目标"><a href="#1-设计目标" class="headerlink" title="1.设计目标"></a>1.设计目标</h3><ul>
+<li>可扩展性(Extensibility):新功能易加入系统。</li>
+</ul>
+<ul>
+<li>灵活性(Flexibility):允许代码修改平稳发生，不会涉及很多其他模块。</li>
+</ul>
+<ul>
+<li>可插入性(Pluggability):容易将一个类换为另一个具有同样接口的类。</li>
+</ul>
+<h3 id="2-软件复用的重要性"><a href="#2-软件复用的重要性" class="headerlink" title="2.软件复用的重要性"></a>2.软件复用的重要性</h3><ul>
+<li>较高的生产率</li>
+<li>较高的软件质量</li>
+<li>恰当使用复用,可改善系统的可维护性</li>
+</ul>
+<h3 id="3-方法"><a href="#3-方法" class="headerlink" title="3.方法"></a>3.方法</h3><ul>
+<li>使一个系统可在更高的层次上提供了可复用性</li>
+<li>抽象化和继承:使概念和定义可复用</li>
+<li>多态:使实现和应用可复用</li>
+<li>抽象化和封装:可保持和促进系统的可维护性</li>
+</ul>
+<h3 id="4-七大原则"><a href="#4-七大原则" class="headerlink" title="4.七大原则"></a>4.七大原则</h3><h5 id="1-开闭原则OCP-Open-ClosedPrinciple"><a href="#1-开闭原则OCP-Open-ClosedPrinciple" class="headerlink" title="1.开闭原则OCP:Open-ClosedPrinciple"></a>1.开闭原则OCP:Open-ClosedPrinciple</h5><p>   软件组成实体应该是对扩展开放的，但是对修改是关闭的。</p>
+<p>  “开”，是允许对其进行功能扩展的；</p>
+<p>  “闭”，是指对于原有代码的修改是封闭的，即不应该修改原有的代码。</p>
+<p>优点：</p>
+<p>​    可复用性好：提高适应性 、 灵活性</p>
+<p>​    可维护性好： </p>
+<h5 id="2-依赖倒转原则DIP-DependencyInversion-Principle"><a href="#2-依赖倒转原则DIP-DependencyInversion-Principle" class="headerlink" title="2.依赖倒转原则DIP:DependencyInversion Principle"></a>2.依赖倒转原则DIP:DependencyInversion Principle</h5><p>​    抽象不应当依赖于细节，细节应当依赖于抽象。</p>
+<p>​    针对接口编程</p>
+<p>​    要针对接口编程</p>
+<p>​    不要针对实现编程</p>
+<h5 id="3-单一职责原则（SRP"><a href="#3-单一职责原则（SRP" class="headerlink" title="3.单一职责原则（SRP)"></a>3.单一职责原则（SRP)</h5><p>​    一个类只负责一项职责。</p>
+<h5 id="4-里氏替换原则LSP-LiskovSubstitution-Principle"><a href="#4-里氏替换原则LSP-LiskovSubstitution-Principle" class="headerlink" title="4.里氏替换原则LSP:LiskovSubstitution Principle"></a>4.里氏替换原则LSP:LiskovSubstitution Principle</h5><p>​    一个软件如果使用的是一个父类的话，如果把该父类换成子类，它不能察觉出父类对象和子类对象的区别</p>
+<p>​    也就是凡是父类适用的地方子类也适用</p>
+<p>​    继承只有满足里氏代换原则才是合理的</p>
+<h5 id="5-组合复用原则CRP-CompositoinResuse-Principle"><a href="#5-组合复用原则CRP-CompositoinResuse-Principle" class="headerlink" title="5.组合复用原则CRP:CompositoinResuse Principle"></a>5.组合复用原则CRP:CompositoinResuse Principle</h5><p>​    优先使用(对象)组合，而非(类)继承</p>
+<h5 id="6-迪米特法则LoD-Lawof-Demeter"><a href="#6-迪米特法则LoD-Lawof-Demeter" class="headerlink" title="6.迪米特法则LoD:Lawof Demeter"></a>6.迪米特法则LoD:Lawof Demeter</h5><p>​    一个对象应该对其他对象尽可能少的了解</p>
+<h5 id="7-接口隔离原则ISP-InterfaceSegregation-Principle"><a href="#7-接口隔离原则ISP-InterfaceSegregation-Principle" class="headerlink" title="7.接口隔离原则ISP:InterfaceSegregation Principle"></a>7.接口隔离原则ISP:InterfaceSegregation Principle</h5><p>​    使用多个专门的接口比使用单一的总接口好。</p>
+<p>​    一个类对另一个类的依赖性应建立在最小的接口上</p>
+<p>   ​</p>
+
+    
+  </div>
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation"><strong>赞赏</strong></span>
+      <div class="donation-body">
+        <div class="tip text-center"><strong>支持一下</strong></div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="https://ws1.sinaimg.cn/large/006tNbRwly1fxjlq29zkkj30f60f675t.jpg" alt="">
+            <a>微信扫一扫</a>
+          </li>
+        
+          <li class="item">
+            <img src="https://ws2.sinaimg.cn/large/006tNbRwly1fxjlwikh27j30a20a2wfe.jpg" alt="">
+            <a>支付宝扫一扫</a>
+          </li>
+        
+          <li class="item">
+            <img src="https://ws3.sinaimg.cn/large/006tNbRwly1fxjlztplu9j30jd0jeadu.jpg" alt="">
+            <a>QQ扫一扫</a>
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2016/06/21/review-oo-model/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2016/06/21/review-oo-class/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+              目录
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/category/" rel="noopener noreferrer" target="_self">
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/tag/" rel="noopener noreferrer" target="_self">
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/project/" rel="noopener noreferrer" target="_self">
+              项目
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+
+
+
+
+ <div id="container"></div>
+ <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+ <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+  <script>
+  var gitment = new Gitment({
+    id: 'https://blog.idejie.com/2016/06/21/review-oo-rule/index.html', // 可选。默认为 location.href
+    owner: 'YangDejie',
+    repo: 'yangdejie.github.io',
+    oauth: {
+      client_id: '1f1de6e091e0ddb070a2',
+      client_secret: '9647e77652e4654e10549d1226c3b80300d65348',
+    },
+  })
+  gitment.render('container')
+  </script>
+
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

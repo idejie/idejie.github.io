@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>面向对象复习（二） | 杨德杰</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="">
+  
+
+  <meta name="description" content="六 继承和替换1.扩展和简化​    这种把继承作为一种扩展同时也作为一种收缩的思想,正是面向对象技术强大的原因,同时也会在正常的部署中引起混淆 。​    继承总是向下传递的。​    继承的作用是代码复用和概念复用，以及共享方法的定义。​    静态类型的语言中，子类必须要有父类的所有数据成员。子类的实例必须至少通过继承实现父类所定义的所有功能。​    替换原则：如果B是A的子类，那么在任何">
+<meta name="keywords" content="面向对象">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面向对象复习（二）">
+<meta property="og:url" content="https://blog.idejie.com/2016/06/04/review-oo-2/index.html">
+<meta property="og:site_name" content="杨德杰">
+<meta property="og:description" content="六 继承和替换1.扩展和简化​    这种把继承作为一种扩展同时也作为一种收缩的思想,正是面向对象技术强大的原因,同时也会在正常的部署中引起混淆 。​    继承总是向下传递的。​    继承的作用是代码复用和概念复用，以及共享方法的定义。​    静态类型的语言中，子类必须要有父类的所有数据成员。子类的实例必须至少通过继承实现父类所定义的所有功能。​    替换原则：如果B是A的子类，那么在任何">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-11-24T16:32:27.558Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="面向对象复习（二）">
+<meta name="twitter:description" content="六 继承和替换1.扩展和简化​    这种把继承作为一种扩展同时也作为一种收缩的思想,正是面向对象技术强大的原因,同时也会在正常的部署中引起混淆 。​    继承总是向下传递的。​    继承的作用是代码复用和概念复用，以及共享方法的定义。​    静态类型的语言中，子类必须要有父类的所有数据成员。子类的实例必须至少通过继承实现父类所定义的所有功能。​    替换原则：如果B是A的子类，那么在任何">
+
+  
+
+  
+    <link rel="icon" href="https://avatars0.githubusercontent.com/u/12479824">
+  
+
+  <link href="/css/styles.css?v=d671a41f" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/styles.css">
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+<script src="//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0"></script>
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+ <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css">
+<script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+
+</head>
+<script src="http://pixijs.download/release/pixi.js"></script>
+</html>
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">菜单</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">菜单</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+            目录
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/category/" rel="noopener noreferrer" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/tag/" rel="noopener noreferrer" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/project/" rel="noopener noreferrer" target="_self">
+            项目
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#六-继承和替换"><span class="toc-text">六 继承和替换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-扩展和简化"><span class="toc-text">1.扩展和简化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-改写"><span class="toc-text">2.改写</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-接口和抽象类"><span class="toc-text">3.接口和抽象类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-继承形式"><span class="toc-text">4.继承形式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#特殊化继承"><span class="toc-text">特殊化继承</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#规范化继承"><span class="toc-text">规范化继承</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#泛化子类化"><span class="toc-text">泛化子类化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#扩展继承"><span class="toc-text">扩展继承</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#限制"><span class="toc-text">限制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#变体"><span class="toc-text">变体</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#合并（多重继承）"><span class="toc-text">合并（多重继承）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-可替换性"><span class="toc-text">5.可替换性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七、静态行为和动态行为"><span class="toc-text">七、静态行为和动态行为</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-静态类和动态类"><span class="toc-text">1.静态类和动态类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-方法绑定"><span class="toc-text">2.方法绑定</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#八、替换的本质"><span class="toc-text">八、替换的本质</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-内存布局"><span class="toc-text">1.内存布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-复制和克隆"><span class="toc-text">2.复制和克隆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-相同和同一"><span class="toc-text">3.相同和同一</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#九、多重继承"><span class="toc-text">九、多重继承</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-分类化继承"><span class="toc-text">1.分类化继承</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-名称歧义："><span class="toc-text">1.名称歧义：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-对替换的影响："><span class="toc-text">2.对替换的影响：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-接口的多重继承"><span class="toc-text">2.接口的多重继承</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-另一种方法"><span class="toc-text">3.另一种方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-继承公共祖先"><span class="toc-text">4.继承公共祖先</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-构造函数与析构函数"><span class="toc-text">5.构造函数与析构函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-虚基类"><span class="toc-text">6.虚基类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十、多态及软件复用"><span class="toc-text">十、多态及软件复用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-多态"><span class="toc-text">1.多态</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#（1）-重载（专用多态）"><span class="toc-text">（1）.重载（专用多态）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#（2）-改写（包含多态）"><span class="toc-text">（2）.改写（包含多态）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#（3）-多态变量（赋值多态）"><span class="toc-text">（3）.多态变量（赋值多态）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#（4）-泛型（模板）"><span class="toc-text">（4）.泛型（模板）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-复用"><span class="toc-text">2.复用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十一、重载"><span class="toc-text">十一、重载</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-重载"><span class="toc-text">1.重载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-类型签名"><span class="toc-text">2.类型签名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-范畴"><span class="toc-text">3.范畴</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-基于类型签名的重载"><span class="toc-text">4.基于类型签名的重载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-基于范畴的重载"><span class="toc-text">5.基于范畴的重载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-强制、转换、造型"><span class="toc-text">6.强制、转换、造型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-重定义"><span class="toc-text">7.重定义</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十二、改写"><span class="toc-text">十二、改写</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-改写与重载"><span class="toc-text">1.改写与重载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-标识改写"><span class="toc-text">2.标识改写</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-代替和改进"><span class="toc-text">3.代替和改进</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-延迟方法"><span class="toc-text">4.延迟方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-改写和遮蔽"><span class="toc-text">5.改写和遮蔽</span></a></li></ol></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-review-oo-2" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">面向对象复习（二）</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2016.06.04</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>杨德杰</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/课程复习/">课程复习</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp 阅读量：<span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>
+        </span>
+      
+
+      
+        <i class="icon-comment"></i> 
+        <span class="ds-thread-count" data-thread-key="post-review-oo-2"><i class="fa fa-spinner fa-spin"></i></span> 
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h2 id="六-继承和替换"><a href="#六-继承和替换" class="headerlink" title="六 继承和替换"></a>六 继承和替换</h2><h3 id="1-扩展和简化"><a href="#1-扩展和简化" class="headerlink" title="1.扩展和简化"></a>1.扩展和简化</h3><p>​    这种把继承作为一种扩展同时也作为一种收缩的思想,正是面向对象技术强大的原因,同时也会在正常的部署中引起混淆 。<br>​    继承总是向下传递的。<br>​    继承的作用是代码复用和概念复用，以及共享方法的定义。<br>​    静态类型的语言中，子类必须要有父类的所有数据成员。子类的实例必须至少通过继承实现父类所定义的所有功能。<br>​    替换原则：如果B是A的子类，那么在任何情况下都可以用B来替换A，且无影响。</p>
+<p>​    子类型：符合替换原则的子类关系，区别于一般的可能不符合替换原则的子类关系</p>
+<h3 id="2-改写"><a href="#2-改写" class="headerlink" title="2.改写"></a>2.改写</h3><p>子类为了避免与父类方法的冲突，需要对父类进行改写。</p>
+<p>​    语法上：子类定义一个与父类有着相同名称且类型签名相同的方法。</p>
+<p>​    运行时：变量声明为一个类，它所含有的值来自于子类，与给定消息对应的方法同时出现于父类和子类。</p>
+<p>​    改写机制：java等只需要改写统一签名的父类方法。C++则需要父类使用<strong>Virtual</strong>来表明这一含义。</p>
+<h3 id="3-接口和抽象类"><a href="#3-接口和抽象类" class="headerlink" title="3.接口和抽象类"></a>3.接口和抽象类</h3><p>接口也可以相互继承</p>
+<p>抽象方法：定义在类和接口之间的方法，并不直接实现。创建实例时，子类必须实现父类的抽象方法。</p>
+<h3 id="4-继承形式"><a href="#4-继承形式" class="headerlink" title="4.继承形式"></a>4.继承形式</h3><h4 id="特殊化继承"><a href="#特殊化继承" class="headerlink" title="特殊化继承"></a>特殊化继承</h4><ul>
+<li>很多情况下,都是为了特殊化才使用继承。</li>
+<li>在这种形式下,新类是基类的一种特定类型,它能满足基类的所有规范。</li>
+<li>用这种方式创建的总是子类型,并明显符合可替换性原则。</li>
+<li>与规范化继承一起,这两种方式构成了继承最理想的方式,也是一个好的设计所应追求的目标。</li>
+</ul>
+<h4 id="规范化继承"><a href="#规范化继承" class="headerlink" title="规范化继承"></a>规范化继承</h4><ul>
+<li>规范化继承用于保证派生类和基类具有某个共同的接又,即所有的派生类实现了具有相同方法界面的方法。</li>
+<li>基类中既有已实现的方法,也有只定义了方法接又、留待派生类去实现的方法。</li>
+<li>派生类只是实现了那些定义在基类却又没有实现的方法。派生类并没有重新定义已有的类型,而是去实现一个未完成的抽象规范。也就是说,基类定义了某些操作,但并没有去实现它。只有派生类才能实现这些操作。在这种情况下,基类有时也被称为抽象规范类。<br>​</li>
+<li>在Java中,关键字abstract确保了必须要构建派生 类。声明为abstract的类必须被派生类化,不可能 用new运算符创建这种类的实例。除此之外,方法 也能被声明为abstract,同样在创建实例之前,必 须覆盖类中所有的抽象方法。<br>​</li>
+<li>规范化继承可以通过以下方式辨认:基类中只是提供了方法界面,并没有实现具体的行为,具体的行为必须在派生类中实现。<br>​</li>
+<li>GraphicalObject没有实现关于描绘对象的方法,因 此它是一个抽象类。其子类Ball,Wall和Hole通过 规范子类化实现这些方法。</li>
+</ul>
+<p>####构造继承</p>
+<p>一个类可以从其基类中继承几乎所有需要的功能,只是改变一些用作类接又的方法名,或是修改方法中的参数列表。</p>
+<p>当继承的目的只是用于代码复用时,新创建的子类通常都不是子类型。这称为构造子类化。一般为了继承而继承,如利用一些工具类已有的方法。</p>
+<p>构造子类化<strong>经常违反替换原则</strong>(形成的子类并不是子类型)</p>
+<h4 id="泛化子类化"><a href="#泛化子类化" class="headerlink" title="泛化子类化"></a>泛化子类化</h4><p>派生类扩展基类的行为,形成一种更泛化的抽象。</p>
+<p>泛化子类化通常用于基于数据值的整体设计,其次才是基于行为的设计。</p>
+<h4 id="扩展继承"><a href="#扩展继承" class="headerlink" title="扩展继承"></a>扩展继承</h4><p>如果派生类只是往基类中添加新行为,并不修改从基类继承来的任何属性,即是扩展继承。</p>
+<p>由于基类的功能仍然可以使用,而且 并没有被修改,因此扩展继承<strong>并不违 反可替换性原则,</strong>用这种方式构建的 派生类还是派生类型 。</p>
+<h4 id="限制"><a href="#限制" class="headerlink" title="限制"></a>限制</h4><p>如果派生类的行为比基类的少或是更严格时,就是限制继承。常常出现于基类不应该、也不能被修改时。限制继承可描述成这么一种技术:它先接收那些继承来的方法,然后使它们无效。双向队列-〉堆栈</p>
+<p>由于限制继承<strong>违反了可替换性原则</strong>,用它创建的派生类已不是派生类型,因此应该尽可能不用。</p>
+<h4 id="变体"><a href="#变体" class="headerlink" title="变体"></a>变体</h4><p>两个或多个类需要实现类似的功能,但他们的抽象概念之间似乎并不存在层次关系。控制机械鼠标=控制轨迹球 但是,在概念上,任何一个类作为另一个类的子类都不合适 因此,可以选择其中任何一个类作为父 类,并改写与设备相关的代码</p>
+<h4 id="合并（多重继承）"><a href="#合并（多重继承）" class="headerlink" title="合并（多重继承）"></a>合并（多重继承）</h4><p>可以通过合并两个或者更多的抽象特性来形成新的抽象。一个类可以继承自多个基类的能力被 称为多重继承 。</p>
+<p>Java语言中的匿名类创建匿名类的条件 ：    只能创建一个匿名类的实例 匿名类必须继承于父类或接又,并且不 需要构造函数进行初始化。<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">p.add(<span class="keyword">new</span> ButtonAdapter(“Quit”)&#123; </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">pressed</span><span class="params">()</span></span>&#123;</span><br><span class="line">    System.exit(<span class="number">0</span>);</span><br><span class="line">  &#125; </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>继承使得构造函数这个过程变得复杂 由于父类和子类都有待执行的初始化代 码,在创建新对象时都要执行Java等语言 只要父类构造函数不需要参数,父类的构造  函数和子类的构造函数都会自动地执行。  当父类需要参数时,子类必须显示地提供参数。在java中通过super这个关键字来实现</p>
+<h3 id="5-可替换性"><a href="#5-可替换性" class="headerlink" title="5.可替换性"></a>5.可替换性</h3><p>可替换性是面向对象编程中一种强大的软件开发技术。</p>
+<p>可替换性的意思是:变量声明时指定的类型不必与它所容纳的值类型相一致。</p>
+<p>这在传统的编程语言中是不允许的,但在面向对象的编程语言中却常常出现。</p>
+<h2 id="七、静态行为和动态行为"><a href="#七、静态行为和动态行为" class="headerlink" title="七、静态行为和动态行为"></a>七、静态行为和动态行为</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//术语静态总是用来表示在编译时绑定于对象并且不允许以后对其进行修改的属性或特征。</span></span><br><span class="line"><span class="comment">//术语动态用来表示直到运行时绑定于 对象的属性或特征。</span></span><br></pre></td></tr></table></figure>
+<h3 id="1-静态类和动态类"><a href="#1-静态类和动态类" class="headerlink" title="1.静态类和动态类"></a>1.静态类和动态类</h3><p>变量的静态类是指用于<strong>声明变量</strong>的类。  </p>
+<p>静态类在编译时就确定下来,并且再也不会改变。</p>
+<p>变量的动态类指<strong>与变量所表示的当前数值相关</strong>的类。</p>
+<p>动态类在程序的执行过程中,当对变量赋新值时可以改变。</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">//对于静态类型面向对象编程语言,在编译时消息传递表达式的合法性不是基于接收器的当前动态数值,而是基 //于接收器的静态类来决定的。</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-方法绑定"><a href="#2-方法绑定" class="headerlink" title="2.方法绑定"></a>2.方法绑定</h3><p>静态方法绑定/动态方法绑定</p>
+<p>响应消息时对哪个方法进行绑定是由接收器当前所包含的动态数值来决定的。</p>
+<h2 id="八、替换的本质"><a href="#八、替换的本质" class="headerlink" title="八、替换的本质"></a>八、替换的本质</h2><h3 id="1-内存布局"><a href="#1-内存布局" class="headerlink" title="1.内存布局"></a>1.内存布局</h3><p>分配方案：只分配基类的内存空间    </p>
+<p>最小静态空间分配c++ </p>
+<ul>
+<li>对于指针（引用）变量：当消息调用可能被改写的成员函数时，选择哪个成员函数取决于接收器的动态数值。</li>
+<li>对于其他变量：关于调用虚拟成员函数的绑定方式取决于静态类（变量声明时的类），而不取决于动态类（变量所包含的实际数值的类）</li>
+</ul>
+<p>解释</p>
+<p>​    变量赋值过程中，数值从子类表示的类型转换为弗雷所表示的类型。</p>
+<p>​    类似于将整形变量赋值给浮点型变量。</p>
+<p>​    对于基于堆栈的变量，可以确保动态类总是等同于静态类</p>
+<p>​    所以不能对对象中的不存在字段进行存取。不必考虑赋值过程中的内存数据丢失。</p>
+<p>最大静态空间分配：分配变量值可能使用的最大存储空间</p>
+<p>​    堆栈中不保存对象值。堆栈通过指针大小空间来保存标识变量，数据值保存在堆中。</p>
+<p>​    指针变量都具有恒定不变的大小，变量赋值时，不会有任何问题。</p>
+<p>内存分配方法影响赋值的含义：</p>
+<p>​    1.复制语义:变量值独立</p>
+<p>​    2.指针语义:同一(Java)</p>
+<h3 id="2-复制和克隆"><a href="#2-复制和克隆" class="headerlink" title="2.复制和克隆"></a>2.复制和克隆</h3><p>​    <strong>浅复制</strong>：共享实例变量</p>
+<p>​    <strong>深复制</strong>：建立实例变量的新副本（C++拷贝构造函数；java改写clone方法）</p>
+<p>clone要说明的有两点：</p>
+<p>​    一是拷贝对象返回的是一个新对象，而不是一个引用。</p>
+<p>​    二是拷贝对象与用new操作符返回的新对象的区别就是这个拷贝已经包含了一些原来对象的信息，而不是对象的初始信息。</p>
+<p>影子clone的话：cloneB b2 =b1.clone（）； b2不会改变b1 但会改变b1通过clone的对象</p>
+<h3 id="3-相同和同一"><a href="#3-相同和同一" class="headerlink" title="3.相同和同一"></a>3.相同和同一</h3><p>相同是指不同对象相同值</p>
+<p>同一是指同一内存对象</p>
+<h2 id="九、多重继承"><a href="#九、多重继承" class="headerlink" title="九、多重继承"></a>九、多重继承</h2><h3 id="1-分类化继承"><a href="#1-分类化继承" class="headerlink" title="1.分类化继承"></a>1.分类化继承</h3><p>​    多重继承是指同一个类可以有多个不同的父类，并且可以继承每个父类的行为和数据</p>
+<p>​    问题：</p>
+<h4 id="1-名称歧义："><a href="#1-名称歧义：" class="headerlink" title="1.名称歧义："></a>1.名称歧义：</h4><p>​    （1）使用全限定名</p>
+<p>​    （2）使用重定义和重命名</p>
+<h4 id="2-对替换的影响："><a href="#2-对替换的影响：" class="headerlink" title="2.对替换的影响："></a>2.对替换的影响：</h4><p>​        引入两个辅助类（c++）    </p>
+<h3 id="2-接口的多重继承"><a href="#2-接口的多重继承" class="headerlink" title="2.接口的多重继承"></a>2.接口的多重继承</h3><p>​    java C#都不支持类的多重继承，但他们都支持接口的多重继承</p>
+<h3 id="3-另一种方法"><a href="#3-另一种方法" class="headerlink" title="3.另一种方法"></a>3.另一种方法</h3><p>内部类 可以避免很多语义问题<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ClassGraphicalCardDeck extends CardDeck &#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">draw</span> <span class="params">( )</span> </span>&#123; </span><br><span class="line">    <span class="comment">//外部类改写CardDeck方法</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> drawingClass drawer= <span class="keyword">new</span> drawingClass();</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> GraphicalObject <span class="title">myDrawingObject</span> <span class="params">()</span> </span>&#123;<span class="keyword">return</span> drawer;&#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">drawingClass</span> <span class="keyword">extends</span> <span class="title">GraphicalObject</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">draw</span> <span class="params">( )</span> </span>&#123;</span><br><span class="line">    	<span class="comment">//内部类改写GraphicalObject方法</span></span><br><span class="line">  	&#125;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="4-继承公共祖先"><a href="#4-继承公共祖先" class="headerlink" title="4.继承公共祖先"></a>4.继承公共祖先</h3><p>eg1:</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Link</span>&#123;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"></span><br><span class="line">  Link *nextLink;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CardDeck</span>:</span>publicLink&#123;..&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GraphicalObject</span>:</span>publicLink&#123;..&#125;</span><br></pre></td></tr></table></figure>
+<p>当创建同时继承自CardDeck类和GraphicalObject类的子类时，这个子类应该包含多少个nextLink字段？</p>
+<p>假如纸牌列表和图形对象列表是不同的，那么每种类型的列表都应该有各自的链接。因此，子类用于两个独立的链接字段看起来更为恰当。</p>
+<p>eg2:</p>
+<ul>
+<li>输入输出流既是输入流的派生，也是输出流的派生。</li>
+<li>但是，只存在一个对象，两个文件指针引用相同的数值。即指需要公共祖先的一份拷贝。</li>
+<li>在c++语言中，这个问题通过在父类列表中使用virtual修饰符来解决。</li>
+<li>关键字virtual意味着在当前派生类中，超类可以出现多次，但只包含超类的一份拷贝。</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Stream</span>&#123;</span></span><br><span class="line">	File *fid;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">InStream</span> :</span> <span class="keyword">public</span> <span class="keyword">virtual</span> Stream&#123;</span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">open</span><span class="params">(File *)</span></span>;</span><br><span class="line">..&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">OutStream</span> :</span> <span class="keyword">public</span> <span class="keyword">virtual</span> Stream&#123;</span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">open</span><span class="params">(File *)</span></span>;</span><br><span class="line">..&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">InOutStream</span> :</span> <span class="keyword">public</span> InStream, <span class="keyword">public</span> OutStream &#123;</span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">open</span><span class="params">(File *)</span></span>;</span><br><span class="line">..&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="5-构造函数与析构函数"><a href="#5-构造函数与析构函数" class="headerlink" title="5.构造函数与析构函数"></a>5.构造函数与析构函数</h3><p>​    构造函数也遵从先祖先(基类)，再客人(成员对象)，后自己(派生类)的原则，有多个基类之间则严格按照派生定义时从左到右的顺序来排列先后。</p>
+<p>​    析构函数调用正好相反。</p>
+<h3 id="6-虚基类"><a href="#6-虚基类" class="headerlink" title="6.虚基类"></a>6.虚基类</h3><h2 id="十、多态及软件复用"><a href="#十、多态及软件复用" class="headerlink" title="十、多态及软件复用"></a>十、多态及软件复用</h2><h3 id="1-多态"><a href="#1-多态" class="headerlink" title="1.多态"></a>1.多态</h3><h4 id="（1）-重载（专用多态）"><a href="#（1）-重载（专用多态）" class="headerlink" title="（1）.重载（专用多态）"></a>（1）.重载（专用多态）</h4><p>​    类型签名区分</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">overloader</span></span>&#123;</span><br><span class="line">	<span class="comment">//three overloaded meanings for the same name</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">example</span> <span class="params">(<span class="keyword">int</span> x)</span></span>&#123;……&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">example</span> <span class="params">(<span class="keyword">int</span> x,<span class="keyword">double</span> y)</span></span>&#123;……&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">example</span> <span class="params">(String x)</span></span>&#123;……&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="（2）-改写（包含多态）"><a href="#（2）-改写（包含多态）" class="headerlink" title="（2）.改写（包含多态）"></a>（2）.改写（包含多态）</h4><p>​    层次关系中相同类型签名</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">parent</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">example</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;……&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">child</span> <span class="keyword">extends</span> <span class="title">parent</span></span>&#123;</span><br><span class="line">	<span class="comment">//same name,different method body</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">example</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;……&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="（3）-多态变量（赋值多态）"><a href="#（3）-多态变量（赋值多态）" class="headerlink" title="（3）.多态变量（赋值多态）"></a>（3）.多态变量（赋值多态）</h4><p>​    声明与包含不同</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Parent p=<span class="keyword">new</span> child();<span class="comment">//declared as parent,holdingchild value</span></span><br></pre></td></tr></table></figure>
+<h4 id="（4）-泛型（模板）"><a href="#（4）-泛型（模板）" class="headerlink" title="（4）.泛型（模板）"></a>（4）.泛型（模板）</h4><p>​    创建通用工具</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">Template&lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt; <span class="title">T</span> <span class="title">max</span>(<span class="title">T</span> <span class="title">left</span>,<span class="title">Tright</span>)</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">//return largest argument</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (left&lt;right) <span class="keyword">return</span> right;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> left;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-复用"><a href="#2-复用" class="headerlink" title="2.复用"></a>2.复用</h3><p>继承和组合</p>
+<ul>
+<li>如果A类有一个B类，那么自然地，B类的数据字段也应该是一个A类实例的一部分。另一方面，如果A类是一个B类，那么使用继承是正确的编码方式。</li>
+</ul>
+<ul>
+<li><p>通过继承，新的类可以声明为已存在类的子类。通过这种方式，与初始类相关的所有数据字段和函数都自动地与新的数据抽象建立联系。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">set</span>:</span><span class="keyword">public</span> List&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line"></span><br><span class="line">  <span class="comment">//constructor</span></span><br><span class="line"></span><br><span class="line">  Set();</span><br><span class="line"></span><br><span class="line">  <span class="comment">//operations</span></span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span>)</span></span>;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">int</span> <span class="title">size</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>二者比较</p>
+<ul>
+<li>组合是较为简单的一种技术。优点是在特定的数据结构中需要执行哪些操作。无需考虑列表类所定义的所有操作。</li>
+<li>继承无法知道一个方法是否可以合法地应用于集合。</li>
+<li>使用继承构建数据抽象的代码的简洁性是继承的一个优点</li>
+<li>继承无法防止用户使用父类的方法来操纵新的数据结构：FirstElement</li>
+</ul>
+<h2 id="十一、重载"><a href="#十一、重载" class="headerlink" title="十一、重载"></a>十一、重载</h2><h3 id="1-重载"><a href="#1-重载" class="headerlink" title="1.重载"></a>1.重载</h3><ul>
+<li>重载是在编译时执行的，而改写是在运行时选择的。</li>
+<li>重载是多态的一种很强大的形式。</li>
+<li>非面向对象语言也支持。</li>
+</ul>
+<h3 id="2-类型签名"><a href="#2-类型签名" class="headerlink" title="2.类型签名"></a>2.类型签名</h3><ul>
+<li>函数类型签名是关于函数参数类型、参数顺序和返回值类型的描述。</li>
+<li>类型签名通常不包括接收器类型</li>
+<li>因此，父类中方法的类型签名可以与子类中方法的类型签名相同。</li>
+</ul>
+<h3 id="3-范畴"><a href="#3-范畴" class="headerlink" title="3.范畴"></a>3.范畴</h3><ul>
+<li>范畴定义了能够使名称有效使用的一段程序，或者能够使名称有效使用的方式。(局部变量/public成员)</li>
+<li>通过继承创建的新类将同时创建新的名称范畴，该范畴是对父类的名称范畴的扩展。</li>
+<li>对于一个程序代码中的任何位置，都存在着多个活动的范畴。(类成员方法同时具有类范畴和本地范畴)</li>
+<li>通过类型签名和范畴可以对重载进行两种分类：基于具有不同范畴的方法；基于具有不同类型签名的方法。</li>
+</ul>
+<h3 id="4-基于类型签名的重载"><a href="#4-基于类型签名的重载" class="headerlink" title="4.基于类型签名的重载"></a>4.基于类型签名的重载</h3><p>多个过程（或函数、方法）允许共享同一名称，且通过该过程所需的参数数目、顺序和类型来对它们进行区分。即使函数处于同一上下文，这也是合法的。<br><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Example</span>&#123;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">//same name,threedifferent methods</span></span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">int</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span> a)</span></span>&#123;<span class="keyword">return</span> a;&#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">int</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;<span class="keyword">return</span> a+b;&#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">int</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b,<span class="keyword">int</span> c)</span></span>&#123;<span class="keyword">return</span> a+b+c;&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="5-基于范畴的重载"><a href="#5-基于范畴的重载" class="headerlink" title="5.基于范畴的重载"></a>5.基于范畴的重载</h3><ul>
+<li>相同的名称可以在不引起歧义且不造成精度损失的情况下出现于多个不同的范畴。</li>
+<li>并不一定语义要相关：如继承</li>
+</ul>
+<h3 id="6-强制、转换、造型"><a href="#6-强制、转换、造型" class="headerlink" title="6.强制、转换、造型"></a>6.强制、转换、造型</h3><ul>
+<li><p>强制是一种隐式的类型转换，它发生在无需显式引用的程序中。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">double</span> x=<span class="number">2.8</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> i=<span class="number">3</span>;</span><br><span class="line"></span><br><span class="line">x=i+x;<span class="comment">//integer i will be  converted to real</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>转换表示程序员所进行的显式类型转换。在许多语言里这种转换操作称为“造型”。</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">x=((<span class="keyword">double</span>)i)+x;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>造型和转换既可以实现基本含义的改变；也可以实现类型的转换，而保持含义不变（子类指针转换为父类指针）。</p>
+<ul>
+<li>上溯造型</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">X a=<span class="keyword">new</span> X();    </span><br><span class="line">Y b=<span class="keyword">new</span> Y();    </span><br><span class="line">a=b;  <span class="comment">//将子类对象造型成父类对象，相当做了个隐式造型：a = (X)b;</span></span><br></pre></td></tr></table></figure>
+<p>​</p>
+<ul>
+<li>下溯造型</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">X a=<span class="keyword">new</span> X(); </span><br><span class="line"></span><br><span class="line">Y b=<span class="keyword">new</span> Y(); </span><br><span class="line"></span><br><span class="line">X a1=b;</span><br><span class="line"></span><br><span class="line">Y b1=(Y)a1;</span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+</ul>
+<h3 id="7-重定义"><a href="#7-重定义" class="headerlink" title="7.重定义"></a>7.重定义</h3><ul>
+<li><p>当子类定义了一个与父类具有相同名称但类型签名不同的方法时，发生重定义。</p>
+</li>
+<li><p>类型签名的变化是重定义区别于改写的主要依据。</p>
+</li>
+<li><p>两种不同的技术解析重定义：融和模型和分级模型。</p>
+<ul>
+<li><p>JAVA使用融和模型</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Parent</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">example</span> <span class="params">(<span class="keyword">int</span> a)</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">    System.out.println(“inparent method”);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="keyword">extends</span> <span class="title">Parent</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">example</span> <span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">    System.out.println(“inchild method”);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//使用时</span></span><br><span class="line"></span><br><span class="line">Child aChild= <span class="keyword">new</span> Child();</span><br><span class="line"></span><br><span class="line">aChild.example(<span class="number">3</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//对于C++语言来说，则会产生编译错误</span></span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p>C++每个范畴都维护自己独立的列表。</p>
+<p>为了使名称与方法匹配，需要依次对各个范畴进行检查，因此将其标识为分级的。</p>
+<p>通过在子类中重定义两个方法来实现与Java模型相同的效果</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Parent</span> &#123;</span></span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">example</span> <span class="params">(inta)</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">  System.out.println(“inparent method”);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="title">extends</span> <span class="title">Parent</span> &#123;</span></span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">example</span> <span class="params">(<span class="keyword">int</span> a)</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">  Parent::example(a);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">example</span> <span class="params">(nt b)</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">  System.out.println(“inchild method”);</span><br><span class="line">  &#125; </span><br><span class="line">  <span class="keyword">int</span> a,i;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="十二、改写"><a href="#十二、改写" class="headerlink" title="十二、改写"></a>十二、改写</h2><ul>
+<li>如果子类的方法具有与父类的方法相同的名称和类型签名，称子类的方法改写了父类的方法。</li>
+</ul>
+<ul>
+<li>与替换原则结合使用。</li>
+</ul>
+<ul>
+<li>改写可看成是重载的一种特殊情况。由于重载也涉及一个方法名称和两个或更多个方法体</li>
+</ul>
+<h3 id="1-改写与重载"><a href="#1-改写与重载" class="headerlink" title="1.改写与重载"></a>1.改写与重载</h3><ol>
+<li>对于改写来说，方法所在的类之间必须符合父类/子类继承关系，而对于简单的重载来说，并无此要求。</li>
+<li>如果发生改写，两个方法的类型签名必须匹配。</li>
+<li>重载方法总是独立的，而对于改写的两个方法，有时会结合起来一起实现某种行为。</li>
+<li>重载通常是在编译时解析的，而改写则是一种运行时机制。对于任何给定的消息，都无法预言将会执行何种行为，而只有到程序实际运行的时候才能对其进行确定。</li>
+</ol>
+<h3 id="2-标识改写"><a href="#2-标识改写" class="headerlink" title="2.标识改写"></a>2.标识改写</h3><p>各种语言在如何通过代码实现标识改写这方面存在着差异。(Java不需要，C++需要virtual)</p>
+<p>改写并不能改变方法的可存取性。</p>
+<p>如果一个方法在父类中为public，那么不允许在子类中将该方法声明为private。反之亦然。</p>
+<h3 id="3-代替和改进"><a href="#3-代替和改进" class="headerlink" title="3.代替和改进"></a>3.代替和改进</h3><p>两种不同的关于改写的解释方式：</p>
+<p>1.代替（replacement）：在程序执行时，实现代替的方法完全覆盖父类的方法。即，当操作子类实例时，父类的代码完全不会执行。</p>
+<p>2.改进(refinement)：实现改进的方法将继承自父类的方法的执行作为其行为的一部分。这样父类的行为得以保留且扩充。</p>
+<p>这两种形式的改写都很有用，并且经常在一种编程语言内同时出现</p>
+<p>如：几乎所有的语言在构造函数中都使用改进语义。</p>
+<h3 id="4-延迟方法"><a href="#4-延迟方法" class="headerlink" title="4.延迟方法"></a>4.延迟方法</h3><ul>
+<li>如果方法在父类中定义，但并没有对其进行实现，那么我们称这个方法为延迟方法。</li>
+</ul>
+<ul>
+<li>延迟方法有时也称为抽象方法，并且在C++语言中通常称之为纯虚方法。</li>
+</ul>
+<ul>
+<li>延迟方法的一个优点就是可以使程序员在比实际对象的抽象层次更高的级别上考虑与之相关的活动。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Shape</span></span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">abstract</span> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">draw</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  Circle、Square、Triangle</span><br></pre></td></tr></table></figure>
+<ul>
+<li>延迟方法更具实际意义的原因：在静态类型面向对象语言中，对于给定对象，只有当编译器可以确认与给定消息选择器相匹配的响应方法时，才允许程序员发送消息给这个对象。</li>
+</ul>
+<h3 id="5-改写和遮蔽"><a href="#5-改写和遮蔽" class="headerlink" title="5.改写和遮蔽"></a>5.改写和遮蔽</h3><ul>
+<li>改写与遮蔽存在着外在的语法相似性</li>
+</ul>
+<ul>
+<li>类似于重载，改写区别于遮蔽的最重要的特征就是，遮蔽是在编译时基于静态类型解析的，并且不需要运行时机制。</li>
+</ul>
+<ul>
+<li>几种语言需要对改写显式声明，如果不使用关键字，将产生遮蔽。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Parent p = <span class="keyword">new</span> Parent();</span><br><span class="line">Child c =<span class="keyword">new</span> Parent();</span><br><span class="line">p.x=<span class="number">12</span>;</span><br><span class="line">c.x=<span class="number">42</span>;</span><br><span class="line">p=c;</span><br><span class="line">p.x=<span class="number">12</span>;</span><br></pre></td></tr></table></figure>
+
+    
+  </div>
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation"><strong>赞赏</strong></span>
+      <div class="donation-body">
+        <div class="tip text-center"><strong>支持一下</strong></div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="https://ws1.sinaimg.cn/large/006tNbRwly1fxjlq29zkkj30f60f675t.jpg" alt="">
+            <a>微信扫一扫</a>
+          </li>
+        
+          <li class="item">
+            <img src="https://ws2.sinaimg.cn/large/006tNbRwly1fxjlwikh27j30a20a2wfe.jpg" alt="">
+            <a>支付宝扫一扫</a>
+          </li>
+        
+          <li class="item">
+            <img src="https://ws3.sinaimg.cn/large/006tNbRwly1fxjlztplu9j30jd0jeadu.jpg" alt="">
+            <a>QQ扫一扫</a>
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2016/06/05/review-oo-3/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2016/06/03/review-oo-1/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+              目录
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/category/" rel="noopener noreferrer" target="_self">
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/tag/" rel="noopener noreferrer" target="_self">
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/project/" rel="noopener noreferrer" target="_self">
+              项目
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+
+
+
+
+ <div id="container"></div>
+ <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+ <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+  <script>
+  var gitment = new Gitment({
+    id: 'https://blog.idejie.com/2016/06/04/review-oo-2/index.html', // 可选。默认为 location.href
+    owner: 'YangDejie',
+    repo: 'yangdejie.github.io',
+    oauth: {
+      client_id: '1f1de6e091e0ddb070a2',
+      client_secret: '9647e77652e4654e10549d1226c3b80300d65348',
+    },
+  })
+  gitment.render('container')
+  </script>
+
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

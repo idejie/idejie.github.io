@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>软件测试技术 | 杨德杰</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="">
+  
+
+  <meta name="description" content="一、基本概念1.软件测试的定义（IEEE） 在特定的条件下运行系统或构件，观察或记录结果，对系统的某个方面做出评价；分析某个软件项以发现现存的和要求的条件之差别（即错误）并评价此软件项的特性  2.为什么要进行软件测试为了保证软件的质量只有通过测试，才可以发现软件缺陷缺陷给我们带来的损失是巨大的测试人员水平越高，找到软件问题的时间就越早，软件就越容易更正 3.软件测试的发展过程以功能验证为导向，测">
+<meta name="keywords" content="软件测试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="软件测试技术">
+<meta property="og:url" content="https://blog.idejie.com/2017/06/14/software-testing/index.html">
+<meta property="og:site_name" content="杨德杰">
+<meta property="og:description" content="一、基本概念1.软件测试的定义（IEEE） 在特定的条件下运行系统或构件，观察或记录结果，对系统的某个方面做出评价；分析某个软件项以发现现存的和要求的条件之差别（即错误）并评价此软件项的特性  2.为什么要进行软件测试为了保证软件的质量只有通过测试，才可以发现软件缺陷缺陷给我们带来的损失是巨大的测试人员水平越高，找到软件问题的时间就越早，软件就越容易更正 3.软件测试的发展过程以功能验证为导向，测">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNbRwly1fgnfpq3iirj3091052dfy.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNbRwly1fgnfqxkxtaj30d905g74z.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNbRwly1fgnfrgenjvj30ad03xq3c.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNbRwly1fgnfryloorj30ec040aae.jpg">
+<meta property="og:updated_time" content="2018-11-24T16:32:27.560Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="软件测试技术">
+<meta name="twitter:description" content="一、基本概念1.软件测试的定义（IEEE） 在特定的条件下运行系统或构件，观察或记录结果，对系统的某个方面做出评价；分析某个软件项以发现现存的和要求的条件之差别（即错误）并评价此软件项的特性  2.为什么要进行软件测试为了保证软件的质量只有通过测试，才可以发现软件缺陷缺陷给我们带来的损失是巨大的测试人员水平越高，找到软件问题的时间就越早，软件就越容易更正 3.软件测试的发展过程以功能验证为导向，测">
+<meta name="twitter:image" content="https://ws4.sinaimg.cn/large/006tNbRwly1fgnfpq3iirj3091052dfy.jpg">
+
+  
+
+  
+    <link rel="icon" href="https://avatars0.githubusercontent.com/u/12479824">
+  
+
+  <link href="/css/styles.css?v=d671a41f" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/styles.css">
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+<script src="//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0"></script>
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+ <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css">
+<script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+
+</head>
+<script src="http://pixijs.download/release/pixi.js"></script>
+</html>
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">菜单</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">菜单</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+            目录
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/category/" rel="noopener noreferrer" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/tag/" rel="noopener noreferrer" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/project/" rel="noopener noreferrer" target="_self">
+            项目
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、基本概念"><span class="toc-text">一、基本概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、章节要点"><span class="toc-text">二、章节要点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、17个重点问题"><span class="toc-text">三、17个重点问题</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-software-testing" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">软件测试技术</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2017.06.14</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>杨德杰</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/课程复习/">课程复习</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp 阅读量：<span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>
+        </span>
+      
+
+      
+        <i class="icon-comment"></i> 
+        <span class="ds-thread-count" data-thread-key="post-software-testing"><i class="fa fa-spinner fa-spin"></i></span> 
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h2 id="一、基本概念"><a href="#一、基本概念" class="headerlink" title="一、基本概念"></a>一、基本概念</h2><p>1.<strong>软件测试的定义（IEEE）</strong></p>
+<p>在特定的条件下运行系统或构件，观察或记录结果，对系统的某个方面做出评价；分析某个软件项以发现现存的和要求的条件之差别（即错误）并评价此软件项的特性 </p>
+<p>2.<strong>为什么要进行软件测试</strong><br>为了保证软件的质量<br>只有通过测试，才可以发现软件缺陷<br>缺陷给我们带来的损失是巨大的<br>测试人员水平越高，找到软件问题的时间就越早，软件就越容易更正</p>
+<p>3.<strong>软件测试的发展过程</strong><br>以功能验证为导向，测试是证明软件是正确的（正向思维）。<br>以破坏性检测为导向，测试是为了找到软件中的错误（逆向思维）。<br>以质量评估为导向，测试是提供产品的评估和质量度量。<br>以缺陷预防为导向，测试是为了展示软件符合设计要求，发现缺陷、预防缺陷。</p>
+<p>4.<strong>其他观点</strong></p>
+<p>风险观点：软件测试被认为是对软件系统中潜在的各种质量风险进行评估的活动</p>
+<p>经济观点：就是以最小的代价获得最高的软件产品质量</p>
+<p>5.<strong>测试和开发的关系（V模型）</strong></p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNbRwly1fgnfpq3iirj3091052dfy.jpg" alt=""></p>
+<p>6.<strong>测试和质量保证的关系</strong></p>
+<p>SQA和软件测试之间相辅相成，既有包含又有交叉的关系。SQA指导、监督软件测试的计划和执行，督促测试工作的结果客观、准确和有效，并协助测试流程的改进。软件测试是SQA重要手段之一，为SQA提供所需的数据，作为质量评价的客观依据。</p>
+<p>相同点：都是贯穿整个软件开发生命周期的流程</p>
+<p>不同点：SQA是一项管理工作，侧重于对流程的评审和监控。</p>
+<p>测试是一项技术性的工作，侧重对产品进行评估和验证</p>
+<p>7.<strong>什么是软件缺陷</strong></p>
+<p>从产品内部看，软件缺陷是软件产品开发或维护过程中所存在的错误、毛病等各种问题；</p>
+<p>从外部看，软件缺陷是系统所需要实现的某种功能的失效或违背。</p>
+<p>8.<strong>什么是软件质量：</strong></p>
+<p>  产品或服务所满足明示或暗示需求能力的固有特性和特征的集合<br>9.<strong>缺陷产生的原因</strong></p>
+<p>技术问题（算法错误，语法错误，计算和精度问题，接口参数传递不匹配）</p>
+<p>团队工作（沟通不充分，误解）</p>
+<p>软件本身（文档错误、用户使用场合不正确、时间上不协调）</p>
+<p>10.<strong>缺陷的构成：</strong>需求41%，设计24%，代码23%，初步设计12%<br>11.<strong>软件测试的分类</strong></p>
+<p>按测试阶段：单元测试、集成测试、系统测试、验收测试</p>
+<p>按目标/特性：功能测试、性能测试、适用性测试、安全性测试、可靠性测试</p>
+<p>按测试方法：白盒测试、黑盒测试</p>
+<p>12.<strong>静态测试、动态测试的定义，包含的内容</strong></p>
+<p>静态测试：包括对软件产品的需求和设计规格说明书的评审、对程序代码的审查以及静态分析等等</p>
+<p>动态测试：通过真正运行程序发现错误，通过观察代码运行过程，来获取系统行为、变量实时结果、内存、堆栈、线程以及测试覆盖度等各方面的信息，来判断系统是否存在问题，或者通过有效的测试用例，对应的输入输出关系来分析被测程序的运行情况，来发现缺陷</p>
+<p>13.<strong>验证和确认的关系</strong></p>
+<p>验证：检验软件是否已正确地实现了产品规格说明书所定义的系统功能和特性</p>
+<p>确认：软件是否真正满足客户的需求</p>
+<p>关系：验证是检验开发出来的软件产品和设计规格说明书的一致性，即是否满足软件厂商的生产要求。但设计规格说明书本身就可能存在错误，所以仅进行验证测试还是不充分的，还要进行确认测试。确认就是检验产品功能的有效性，即是否满足用户的真正需求</p>
+<p>14.<strong>黑盒测试、白盒测试的概念，使用情况</strong></p>
+<p>黑盒测试：也叫数据驱动测试方法，在不考虑程序内部结构和内部特征的情况下，测试人员针对软件直接进行测试</p>
+<p>白盒测试：也叫结构化测试、逻辑驱动测试，已知产品内部的工作过程，按照程序内部的结构测试程序，测试程序内部的变量状态、逻辑结构、运行路径等，检验程序中的每条通路是否都能按预定要求正确工作，检查程序内部动作或运行是否符合设计规格要求</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNbRwly1fgnfqxkxtaj30d905g74z.jpg" alt=""></p>
+<p>15.<strong>测试级别（单元、集合…的概念）</strong></p>
+<p>单元测试：针对程序系统中的最小单元—模块或组件进行测试，一般和编码同步进行。主要采用白盒测试方法</p>
+<p>集成测试：也称组装测试、联合测试，在单元测试的基础上，将模块按照设计要求组装起来同时进行测试，主要目标是发现与接口有关的模块之间问题</p>
+<p>系统测试：一般须在完成集成测试后进行，而且是针对应用系统进行测试。系统功能测试是基于产品功能说明书，是在已知产品所应具有的功能，从用户角度来进行功能验证，以确认每个功能是否都能正常使用</p>
+<p>验收测试：向未来的用户表明系统能够像预定要求那样工作，验证软件的功能和性能如同用户所合理期待的那样</p>
+<p>安装测试：按照软件产品安装手册或相应的文档，在一个和用户使用该产品完全一样的环境中或相当于用户使用环境中，进行一步一步的安装操作性的测试</p>
+<p>16.<strong>单元测试的目标/要求，任务</strong></p>
+<p>单元测试是对软件基本的组成单元进行独立的测试</p>
+<p>目标：（确保模块被正确地编码）</p>
+<p>①尽早发现错误</p>
+<p>错误发现越早，成本越低</p>
+<p>发现问题比较容易 </p>
+<p>修正问题更容易</p>
+<p>②测试为了找出代码中存在的缺陷，调试为了修正已发现的缺陷</p>
+<p>③验证代码与软件系统设计的一致性</p>
+<p>④对单元的代码规范性，正确性，安全性等进行验证 </p>
+<p>要求：</p>
+<ol>
+<li>软件单元功能与设计需求一致。</li>
+<li>软件单元接口与设计需求一致。</li>
+<li>能够正确处理输入和运行中的错误。</li>
+<li>在单元测试中发现的错误已经得到修改并且通过了测试。</li>
+<li>达到了相关的覆盖率要求。</li>
+<li>完成软件单元测试报告。</li>
+</ol>
+<p>任务：</p>
+<p>①独立路径的测试：检查每一条独立执行路径的测试，并保证每条语句被至少执行一次</p>
+<p>②局部数据结构：检查局部数据结构完整性</p>
+<p>③单元接口：检查模块接口是否正确 </p>
+<p>④边界条件：检查临界数据处理的正确性 </p>
+<p>⑤容错性测试：预设的各种出错处理是否正确有效</p>
+<p>⑥内存分析</p>
+<p>17.<strong>代码评审的形式、特点、概念</strong></p>
+<p>代码评审：互查、走查、会议评审（审查）</p>
+<p>走查：采用讲解、讨论和模拟运行的方式进行的查找错误的活动</p>
+<p>会批评审：以会议形式，制定目标、流程和规则，按缺陷检查表（不断完善）逐项检查。发现问题适当记录，避免现场修改，发现重大缺陷，改正后会议需要重开</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNbRwly1fgnfrgenjvj30ad03xq3c.jpg" alt=""></p>
+<p>18.<strong>驱动程序、桩程序的概念</strong></p>
+<p>（运行单元程序有时需要基于被测单元的接口，开发相应的驱动模块和桩模块）</p>
+<p>驱动模块（drive）:对底层或子层模块进行测试所编写的调用这些模块的程序</p>
+<p>桩模块（stub）：对顶层或上层模块进行测试时所编写的替代下层模块的程序</p>
+<p>19.<strong>单元测试工具有哪些</strong></p>
+<p>C：C++ Test、CppUnit</p>
+<p>Java：Juni、Jtest</p>
+<p>其他：CodeCheck、Nunit、XMLUnit</p>
+<p>20.<strong>什么是JUnit（了解）：</strong>是一个开放源代码的Java测试框架（单元测试框架体系xUnit的一个实例），用在编写和运行可重复的的测试上</p>
+<p>21.<strong>系统集成的模式和方法（3种）</strong></p>
+<p>模式：</p>
+<p>非渐增式测试模式：先分别测试每个模块，再把所有模块按设计要求放在一起结合成所要的程序，如大棒模式</p>
+<p>渐增式测试模式：把下一个要测试的模块同已经测试好的模块结合起来进行测试，测试完以后再把下一个应该测试的模块结合进来测试</p>
+<p>方法：</p>
+<p>自顶向下法：从主控模块（“主程序”）开始，沿着软件的控制层次向下移动，从而逐渐把各个模块结合起来</p>
+<p>自底向上法：从“原子”模块（即在软件结构最底层的模块）开始集成以进行测试</p>
+<p>混合策略：上层“自顶向下”，下层“自底向上”</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNbRwly1fgnfryloorj30ec040aae.jpg" alt=""></p>
+<p>22.<strong>功能测试的要求</strong></p>
+<p>功能逻辑清楚，符合使用者习惯</p>
+<p>系统的各种状态按照业务流程而变化，并保持稳定</p>
+<p>每项功能符合实际要求</p>
+<p>23.<strong>回归测试的概念、目的、策略和方法</strong></p>
+<p>概念：回归测试是指在发生修改之后重新测试先前的测试以保证修改的正确性</p>
+<p>目的：在程序有修改的情况下保证原有功能正常的一种策略和方法 </p>
+<p>方法：</p>
+<ol>
+<li>再测试全部用例：成本高    </li>
+<li>基于风险选择测试：修改部分影响的可能性 </li>
+<li>基于操作剖面选择测试：测试用例是基于操作剖面开发，测试用例的分布情况反映了系统的实际使用情况；选择那些针对重要功能或用户频繁使用功能的测试用例</li>
+<li>再测试修改的部分：效率最高，风险最大 </li>
+<li>更智能的选择方法：综合，2,3</li>
+</ol>
+<p>24.<strong>性能测试的概念：</strong></p>
+<p>​     为了发现系统性能问题或获取系统性能相关指标而进行的测试</p>
+<ol start="25">
+<li><strong>系统性能的指标（P152）</strong></li>
+</ol>
+<ol start="25">
+<li><strong>性能测试的基本过程（P154图）</strong></li>
+<li><strong>压力测试的概念：</strong>也称为强度测试、负载测试。压力测试是模拟实际应用的软硬件环境及用户使用过程的系统负荷，长时间或超大负荷地运行测试软件，来测试被测系统的性能、可靠性、稳定性等</li>
+<li><strong>容量测试的概念：</strong>预先分析出反应软件系统应用特征的某项指标的极限值，系统在其极限值状态下没有出现任何软件故障或还能保持主要功能正常运行。</li>
+<li><strong>安全性测试的概念、两种级别</strong></li>
+</ol>
+<p>安全性测试：全面检验软件在需求规格说明书中规定的防止危险状态措施的有效性和在每一个危险状态下的反应。安全功能测试、安全漏洞测试（从攻击者角度发现安全漏洞为目的）</p>
+<p>应用程序级别的安全性：核实只有具备系统和应用程序访问权限的操作者才能访问系统和应用程序</p>
+<p>系统级别的安全性：操作者只能访问其所属用户类型已被授权访问的功能或数据</p>
+<p>30.<strong>安全性测试的方法（知道名字）：</strong>静待代码分析方法、动态的渗透测试、基于漏洞的方法、基于威胁的方法</p>
+<p>31.<strong>容错性测试的概念、2方面</strong></p>
+<p>概念：主要检查系统的容错能力，检查软件在异常条件下自身是否具有防护性的措施或者某种灾难性恢复的手段</p>
+<p>包括两方面：①输入异常数据或进行异常操作，以检测系统的保护性</p>
+<p>②灾难恢复性测试</p>
+<p>32.<strong>可靠性测试的概念：</strong>产品在规定的条件下和规定的时间内完成规定功能的能力</p>
+<p>33.<strong>验收测试的概念：</strong>在软件产品完成了系统功能和非功能测试之后、产品发布之前所进行的软件测试活动它是技术测试的最后一个阶段，也称为交付测试</p>
+<p>34.<strong>验收测试的过程、测试步骤</strong></p>
+<p>过程：和用户一起来验收软件系统，在真实环境下运行软件系统，看是否存在和用户要求不一致的问题，或违背产品规格的要求；发现测试人员不能预见的问题 </p>
+<p>测试步骤：</p>
+<ol>
+<li>制定测试计划及验收通过准则，通过客户评审（需求阶段） </li>
+<li>设计测试用例并通过评审 </li>
+<li>准备测试环境与数据，执行测试用例，记录测试结果 </li>
+<li>分析测试结果，根据验收通过准则分析测试结果，作出验收是否通过及测试评价。</li>
+</ol>
+<p>测试项目通过；</p>
+<p>测试项目没有通过，但存在变通方法，在维护后期或下一个版本改进； </p>
+<p>测试项目没有通过，并且不存在变通方法，需要很大的修改；</p>
+<p>测试项目无法评估或者无法给出完整的评估。此时须给出原因 </p>
+<p>提交测试报告 </p>
+<p>35.<strong>文档测试：</strong>对文档的测试，包括产品规格说明书的验证好后续的安装文档的测试。</p>
+<p>36.<strong>什么是软件本地化、国际化、全球化</strong></p>
+<p>软件国际化（I18N）：是借助功能设计和代码实现中软件系统有能力处理多种语言和不同文化，使创建不同语言版本时，不需要重新编写代码的软件工程方法</p>
+<p>软件本地化（L10N）：是将一个软件产品按特定国家/地区或语言市场的需要进行加工，使之满足特定市场上的用户对语言和文化的特殊要求的软件生产活动</p>
+<p>软件全球化（G11N）：I18N + L10N</p>
+<p>37.<strong>软件本地化的基本步骤</strong></p>
+<p>首先要建立在软件国际化的基础上</p>
+<ol>
+<li>建立配置管理体系，跟踪目标语言各个版本的源代码</li>
+<li>创造和维护术语表 </li>
+<li>源语言代码和资源文件分离、或提取需要本地化的文本</li>
+<li>把分离或提取的文本、图片等翻译成目标语言</li>
+<li>把翻译好的文本、图片重新检入目标语言的源代码版本</li>
+<li>如果需要，编译目标语言的源代码 </li>
+<li>测试翻译后的软件，调整UI 以适应翻译后的文本</li>
+<li>测试本地化后的软件，确保格式和内容都正确</li>
+</ol>
+<p>38.<strong>软件本地化测试怎么进行</strong></p>
+<p>在源语言版本通过了国际化验证之后，才开始进行本地化的测试。本地化测试的版本是待发布的特定语言的真实版本，而该特定的语言版本是在源语言版本的基础上，经过本地化工作之后得到的</p>
+<p>包括：</p>
+<ol>
+<li>功能性测试，所有基本功能、安装、升级等测试；</li>
+<li>翻译测试，包括语言完整性、术语准确性等的检查；</li>
+<li>可用性测试，包括用户界面、度量衡和时区等；</li>
+<li>兼容性调试，包括硬件兼容性、版本兼容性等测试；</li>
+<li>文化、宗教、喜好等适用性测试</li>
+<li>手册验证，包括联机文件、在线帮助、PDF文件等测试</li>
+</ol>
+<p>39.<strong>测试自动化的概念：</strong>测试自动化是相对手工测试而存在的一个概念，一切可以由计算机系统自动完成的测试任务都已经由计算机系统或软件工具、程序来承担并自动执行<br>40.<strong>测试自动化实现的步骤</strong></p>
+<p>代码分析-对象识别-脚本技术-自动比较技术</p>
+<p>41.<strong>脚本技术有哪几种（每个一句话总结）</strong></p>
+<p>线性脚本：是录制手工执行的测试用例得到的脚本，这种脚本包含所有的击键、移动、输入数据等，所有录制的测试用例都可以得到完整的回放<strong> </strong><br>结构化脚本：类似于结构化程序设计，具有各种逻辑结构、函数调用功能<br>数据驱动脚本：将测试输入存储在独立的（数据）文件中，而不是存储在脚本中<br>关键字驱动脚本：脚本用一个简单的表格表示 ，是数据驱动脚本的逻辑扩张，实际封装了各自基本操作，每个操作由相应函数实现 </p>
+<h2 id="二、章节要点"><a href="#二、章节要点" class="headerlink" title="二、章节要点"></a>二、章节要点</h2><p>见另一份 Doc</p>
+<h2 id="三、17个重点问题"><a href="#三、17个重点问题" class="headerlink" title="三、17个重点问题"></a>三、17个重点问题</h2>
+    
+  </div>
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation"><strong>赞赏</strong></span>
+      <div class="donation-body">
+        <div class="tip text-center"><strong>支持一下</strong></div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="https://ws1.sinaimg.cn/large/006tNbRwly1fxjlq29zkkj30f60f675t.jpg" alt="">
+            <a>微信扫一扫</a>
+          </li>
+        
+          <li class="item">
+            <img src="https://ws2.sinaimg.cn/large/006tNbRwly1fxjlwikh27j30a20a2wfe.jpg" alt="">
+            <a>支付宝扫一扫</a>
+          </li>
+        
+          <li class="item">
+            <img src="https://ws3.sinaimg.cn/large/006tNbRwly1fxjlztplu9j30jd0jeadu.jpg" alt="">
+            <a>QQ扫一扫</a>
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2017/06/14/threejs/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2017/06/14/software-management/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+              目录
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/category/" rel="noopener noreferrer" target="_self">
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/tag/" rel="noopener noreferrer" target="_self">
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/project/" rel="noopener noreferrer" target="_self">
+              项目
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+
+
+
+
+ <div id="container"></div>
+ <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+ <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+  <script>
+  var gitment = new Gitment({
+    id: 'https://blog.idejie.com/2017/06/14/software-testing/index.html', // 可选。默认为 location.href
+    owner: 'YangDejie',
+    repo: 'yangdejie.github.io',
+    oauth: {
+      client_id: '1f1de6e091e0ddb070a2',
+      client_secret: '9647e77652e4654e10549d1226c3b80300d65348',
+    },
+  })
+  gitment.render('container')
+  </script>
+
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
