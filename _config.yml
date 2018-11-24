@@ -161,7 +161,7 @@ busuanzi: true
 about:
   - type: me
     icon: icon-user
-    text_value: "I'm Dejie"
+    text_value: "I'm Dejie."
   - type: dream
     icon: icon-rss
     text_value: "To be a better me."
