@@ -101,8 +101,6 @@ baidu_url_submit:
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type: git
+  type: baidu_url_submit
   repo: https://github.com/yangdejie/yangdejie.github.io
   branch: master
-deploy:  
-  type: baidu_url_submiter
