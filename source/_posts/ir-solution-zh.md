@@ -6,9 +6,9 @@ category: 信息检索
 ---
 
 >目前进度：2/15
->
->参考：[《An Introduction to Information Retrieval》Preliminary draft (c)2007]( http://www.informationretrieval.org/)
->
+
+
+
 >未经允许，不得转载或其他使用。
 >
 >如有问题，请联系[本文作者](mailto:i@idejie.com)
@@ -350,3 +350,4 @@ m为词项1的倒排索引表中文档记录长度，相应的n为词项2的
 
 ```
 
+**参考：[《An Introduction to Information Retrieval》Preliminary draft (c)2007]( http://www.informationretrieval.org/)**
