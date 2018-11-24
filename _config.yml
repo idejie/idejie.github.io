@@ -104,4 +104,5 @@ deploy:
   type: git
   repo: https://github.com/yangdejie/yangdejie.github.io
   branch: master
-  - type: baidu_url_submiter
+deploy:  
+  type: baidu_url_submiter
