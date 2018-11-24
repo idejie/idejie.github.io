@@ -10,3 +10,4 @@ Allow: /fonts/*
 Allow: /fancybox/*
 
 Sitemap: http://blog.idejie.com/sitemap.xml
+Sitemap: http://blog.idejie.com/baidusitemap.xml
