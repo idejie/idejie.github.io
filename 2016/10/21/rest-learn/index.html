@@ -15,13 +15,13 @@
     <meta name="keywords" content="">
   
 
-  <meta name="description" content="@Ivony 老师的一句话概括很精辟：URL定位资源，用HTTP动词（GET,POST,DELETE,DETC）描述操作。 — 简洁版 —  REST不是”rest”这个单词，而是几个单词缩写。但即使那几个单词说出来，也无法理解在说什么 -_-!! （不是要贬低人，是我自己也理解困难）； REST描述的是在网络中client和server的一种交互形式；REST本身不实用，实用的是如何设计 RES">
+  <meta name="description" content="@Ivony 老师的一句话概括很精辟： URL定位资源，用HTTP动词（GET,POST,DELETE,DETC）描述操作。 — 简洁版 —  REST不是&amp;quot;rest&amp;quot;这个单词，而是几个单词缩写。但即使那几个单词说出来，也无法理解在说什么 -_-!! （不是要贬低人，是我自己也理解困难）； REST描述的是在网络中client和server的一种交互形式；REST本身不实用，实">
 <meta name="keywords" content="REST">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何理解REST架构">
 <meta property="og:url" content="https://blog.idejie.com/2016/10/21/rest-learn/index.html">
 <meta property="og:site_name" content="杨德杰">
-<meta property="og:description" content="@Ivony 老师的一句话概括很精辟：URL定位资源，用HTTP动词（GET,POST,DELETE,DETC）描述操作。 — 简洁版 —  REST不是”rest”这个单词，而是几个单词缩写。但即使那几个单词说出来，也无法理解在说什么 -_-!! （不是要贬低人，是我自己也理解困难）； REST描述的是在网络中client和server的一种交互形式；REST本身不实用，实用的是如何设计 RES">
+<meta property="og:description" content="@Ivony 老师的一句话概括很精辟： URL定位资源，用HTTP动词（GET,POST,DELETE,DETC）描述操作。 — 简洁版 —  REST不是&amp;quot;rest&amp;quot;这个单词，而是几个单词缩写。但即使那几个单词说出来，也无法理解在说什么 -_-!! （不是要贬低人，是我自己也理解困难）； REST描述的是在网络中client和server的一种交互形式；REST本身不实用，实">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://blog.idejie.com/pic/rest3.jpg">
 <meta property="og:image" content="http://blog.idejie.com/pic/rest.jpg">
@@ -29,7 +29,7 @@
 <meta property="og:updated_time" content="2018-11-24T16:32:27.556Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何理解REST架构">
-<meta name="twitter:description" content="@Ivony 老师的一句话概括很精辟：URL定位资源，用HTTP动词（GET,POST,DELETE,DETC）描述操作。 — 简洁版 —  REST不是”rest”这个单词，而是几个单词缩写。但即使那几个单词说出来，也无法理解在说什么 -_-!! （不是要贬低人，是我自己也理解困难）； REST描述的是在网络中client和server的一种交互形式；REST本身不实用，实用的是如何设计 RES">
+<meta name="twitter:description" content="@Ivony 老师的一句话概括很精辟： URL定位资源，用HTTP动词（GET,POST,DELETE,DETC）描述操作。 — 简洁版 —  REST不是&amp;quot;rest&amp;quot;这个单词，而是几个单词缩写。但即使那几个单词说出来，也无法理解在说什么 -_-!! （不是要贬低人，是我自己也理解困难）； REST描述的是在网络中client和server的一种交互形式；REST本身不实用，实">
 <meta name="twitter:image" content="http://blog.idejie.com/pic/rest3.jpg">
 
   
@@ -187,37 +187,93 @@
 
   <div class="article-content">
     
-      <p><a href="//www.zhihu.com/people/6ef2e77274cb0719253a577665cf690e">@Ivony</a> 老师的一句话概括很精辟：<br><strong>URL定位资源，用HTTP动词（GET,POST,DELETE,DETC）描述操作。</strong></p>
+      <p><a href="//www.zhihu.com/people/6ef2e77274cb0719253a577665cf690e">@Ivony</a> 老师的一句话概括很精辟：<br>
+<strong>URL定位资源，用HTTP动词（GET,POST,DELETE,DETC）描述操作。</strong></p>
 <p><strong>— 简洁版 —</strong></p>
 <ol start="0">
-<li>REST不是”rest”这个单词，而是几个单词缩写。但即使那几个单词说出来，也无法理解在说什么 -_-!! （不是要贬低人，是我自己也理解困难）；</li>
+<li>REST不是&quot;rest&quot;这个单词，而是几个单词缩写。但即使那几个单词说出来，也无法理解在说什么 -_-!! （不是要贬低人，是我自己也理解困难）；</li>
 <li>REST描述的是在网络中client和server的一种交互形式；REST本身不实用，实用的是如何设计 RESTful API（REST风格的网络接口）；</li>
-<li>Server提供的RESTful API中，URL中只使用名词来指定资源，原则上不使用动词。“资源”是REST架构或者说整个网络处理的核心。比如：<br><a href="//link.zhihu.com/?target=http%3A//api.qc.com/v1/newsfeed">http://api.qc.com/v1/newsfeed**</a>: 获取某人的新鲜;<br><a href="//link.zhihu.com/?target=http%3A//api.qc.com/v1/friends">http://api.qc.com/v1/friends**</a>: 获取某人的好友列表;<br><a href="//link.zhihu.com/?target=http%3A//api.qc.com/v1/profile">http://api.qc.com/v1/profile**</a>: 获取某人的详细信息;3. 用HTTP协议里的动词来实现资源的添加，修改，删除等操作。即通过HTTP动词来实现资源的状态扭转：<br>GET 用来获取资源，<br>POST 用来新建资源（也可以用于更新资源），<br>PUT 用来更新资源，<br>DELETE 用来删除资源。比如：<br>DELETE <a href="//link.zhihu.com/?target=http%3A//api.qc.com/v1/friends">http://api.qc.com/v1/**</a>friends: 删除某人的好友 （在http parameter指定好友id）<br>POST <a href="//link.zhihu.com/?target=http%3A//api.qc.com/v1/friends">http://api.qc.com/v1/**</a>friends: 添加好友<br>UPDATE <a href="//link.zhihu.com/?target=http%3A//api.qc.com/v1/profile">http://api.qc.com/v1/profile**</a>: 更新个人资料</li>
+<li>Server提供的RESTful API中，URL中只使用名词来指定资源，原则上不使用动词。“资源”是REST架构或者说整个网络处理的核心。比如：<br>
+<a href="//link.zhihu.com/?target=http%3A//api.qc.com/v1/newsfeed">http://api.qc.com/v1/newsfeed**</a>: 获取某人的新鲜;<br>
+<a href="//link.zhihu.com/?target=http%3A//api.qc.com/v1/friends">http://api.qc.com/v1/friends**</a>: 获取某人的好友列表;<br>
+<a href="//link.zhihu.com/?target=http%3A//api.qc.com/v1/profile">http://api.qc.com/v1/profile**</a>: 获取某人的详细信息;3. 用HTTP协议里的动词来实现资源的添加，修改，删除等操作。即通过HTTP动词来实现资源的状态扭转：<br>
+GET 用来获取资源，<br>
+POST 用来新建资源（也可以用于更新资源），<br>
+PUT 用来更新资源，<br>
+DELETE 用来删除资源。比如：<br>
+DELETE <a href="//link.zhihu.com/?target=http%3A//api.qc.com/v1/friends">http://api.qc.com/v1/**</a>friends: 删除某人的好友 （在http parameter指定好友id）<br>
+POST <a href="//link.zhihu.com/?target=http%3A//api.qc.com/v1/friends">http://api.qc.com/v1/**</a>friends: 添加好友<br>
+UPDATE <a href="//link.zhihu.com/?target=http%3A//api.qc.com/v1/profile">http://api.qc.com/v1/profile**</a>: 更新个人资料</li>
 </ol>
-<p>禁止使用： GET <a href="//link.zhihu.com/?target=http%3A//api.qc.com/v1/deleteFriend">http://api.qc.com/v1/deleteFriend**</a>图例：<br><img src="http://blog.idejie.com/pic/rest3.jpg" alt="img"></p>
-<ol start="4">
-<li>Server和Client之间传递某资源的一个表现形式，比如用JSON，XML传输文本，或者用JPG，WebP传输图片等。当然还可以压缩HTTP传输时的数据（on-wire data compression）。</li>
-<li>用 HTTP Status Code传递Server的状态信息。比如最常用的 200 表示成功，500 表示Server内部错误等。</li>
-</ol>
+<p>禁止使用： GET <a href="//link.zhihu.com/?target=http%3A//api.qc.com/v1/deleteFriend">http://api.qc.com/v1/deleteFriend**</a>图例：<br>
+<img src="http://blog.idejie.com/pic/rest3.jpg" alt="img"><br>
+4. Server和Client之间传递某资源的一个表现形式，比如用JSON，XML传输文本，或者用JPG，WebP传输图片等。当然还可以压缩HTTP传输时的数据（on-wire data compression）。<br>
+5. 用 HTTP Status Code传递Server的状态信息。比如最常用的 200 表示成功，500 表示Server内部错误等。</p>
 <p>主要信息就这么点。最后是要解放思想，Web端不再用之前典型的PHP或JSP架构，而是改为前段渲染和附带处理简单的商务逻辑（比如AngularJS或者BackBone的一些样例）。Web端和Server只使用上述定义的API来传递数据和改变数据状态。格式一般是JSON。iOS和Android同理可得。由此可见，Web，iOS，Android和第三方开发者变为平等的角色通过一套API来共同消费Server提供的服务。</p>
 <p><strong>— 详细版 —</strong></p>
-<p><strong>先说REST名称</strong><br>REST：REpresentational State Transfer = 直接翻译：表现层状态转移。这个中文直译经常出现在很多博客中。尼玛谁听得懂“表现层状态转移”？这是人话吗？<br>首先，之所以晦涩是因为前面主语被去掉了，全称是 Resource Representational State Transfer：通俗来讲就是：资源在网络中以某种表现形式进行状态转移。分解开来：<br>Resource：资源，即数据（前面说过网络的核心）。比如 newsfeed，friends等；<br>Representational：某种表现形式，比如用JSON，XML，JPEG等；<br>State Transfer：状态变化。通过HTTP动词实现。<br><strong>REST的出处</strong><br>Roy Fielding的毕业论文。这哥们参与设计HTTP协议，也是Apache Web Server项目（可惜现在已经是 nginx 的天下）的co-founder。PhD的毕业学校是 UC Irvine，Irvine在加州，有着充裕的阳光和美丽的海滩，是著名的富人区。Oculus VR 的总部就坐落于此（虚拟现实眼镜，被FB收购，CTO为Quake和Doom的作者 John Carmack）。<br>众说周知，论文都是晦涩难懂的。当年在CMU读书的时候，很多课程都会安排每周两篇的Paper review。现在回想起来每次写Paper review都是我最为痛苦的时候。REST这篇博士论文毫无疑问更甚。<br>论文地址：<a href="//link.zhihu.com/?target=http%3A//www.ics.uci.edu/%7Efielding/pubs/dissertation/top.htm">Architectural Styles and the Design of Network-based Software Architectures**</a><br>REST章节：<a href="//link.zhihu.com/?target=http%3A//www.ics.uci.edu/%7Efielding/pubs/dissertation/rest_arch_style.htm">Fielding Dissertation: CHAPTER 5: Representational State Transfer (REST)**</a><br>REST那章我初读了，整个论文没有读完 =_=<br><img src="http://blog.idejie.com/pic/rest.jpg" alt="img"><br><strong>RESTful API</strong><br>实用的是如何正确地理解 RESTful架构和设计好RESTful API。</p>
-<p><strong>首先为什么要用RESTful结构呢？</strong><br>大家都知道”古代”网页都是前端后端融在一起的，比如之前的PHP，JSP等。在之前的桌面时代问题不大，但是近年来移动互联网的发展，各种类型的Client层出不穷，RESTful可以通过一套统一的接口为 Web，iOS和Android提供服务。另外对于广大平台来说，比如Facebook platform，微博开放平台，微信公共平台等，它们不需要有显式的前端，只需要一套提供服务的接口，于是RESTful更是它们最好的选择。在RESTful架构下：<br><img src="http://blog.idejie.com/pic/rest2.jpg" alt="img"><br><strong>Server的API如何设计才满足RESTful要求?</strong><br>首先是简洁版里面的那几点。外加一些附带的 best practices：</p>
+<p><strong>先说REST名称</strong><br>
+REST：REpresentational State Transfer = 直接翻译：表现层状态转移。这个中文直译经常出现在很多博客中。尼玛谁听得懂“表现层状态转移”？这是人话吗？<br>
+首先，之所以晦涩是因为前面主语被去掉了，全称是 Resource Representational State Transfer：通俗来讲就是：资源在网络中以某种表现形式进行状态转移。分解开来：<br>
+Resource：资源，即数据（前面说过网络的核心）。比如 newsfeed，friends等；<br>
+Representational：某种表现形式，比如用JSON，XML，JPEG等；<br>
+State Transfer：状态变化。通过HTTP动词实现。<br>
+<strong>REST的出处</strong><br>
+Roy Fielding的毕业论文。这哥们参与设计HTTP协议，也是Apache Web Server项目（可惜现在已经是 nginx 的天下）的co-founder。PhD的毕业学校是 UC Irvine，Irvine在加州，有着充裕的阳光和美丽的海滩，是著名的富人区。Oculus VR 的总部就坐落于此（虚拟现实眼镜，被FB收购，CTO为Quake和Doom的作者 John Carmack）。<br>
+众说周知，论文都是晦涩难懂的。当年在CMU读书的时候，很多课程都会安排每周两篇的Paper review。现在回想起来每次写Paper review都是我最为痛苦的时候。REST这篇博士论文毫无疑问更甚。<br>
+论文地址：<a href="//link.zhihu.com/?target=http%3A//www.ics.uci.edu/%7Efielding/pubs/dissertation/top.htm">Architectural Styles and the Design of Network-based Software Architectures**</a><br>
+REST章节：<a href="//link.zhihu.com/?target=http%3A//www.ics.uci.edu/%7Efielding/pubs/dissertation/rest_arch_style.htm">Fielding Dissertation: CHAPTER 5: Representational State Transfer (REST)**</a><br>
+REST那章我初读了，整个论文没有读完 =_=<br>
+<img src="http://blog.idejie.com/pic/rest.jpg" alt="img"><br>
+<strong>RESTful API</strong><br>
+实用的是如何正确地理解 RESTful架构和设计好RESTful API。</p>
+<p><strong>首先为什么要用RESTful结构呢？</strong><br>
+大家都知道&quot;古代&quot;网页都是前端后端融在一起的，比如之前的PHP，JSP等。在之前的桌面时代问题不大，但是近年来移动互联网的发展，各种类型的Client层出不穷，RESTful可以通过一套统一的接口为 Web，iOS和Android提供服务。另外对于广大平台来说，比如Facebook platform，微博开放平台，微信公共平台等，它们不需要有显式的前端，只需要一套提供服务的接口，于是RESTful更是它们最好的选择。在RESTful架构下：<br>
+<img src="http://blog.idejie.com/pic/rest2.jpg" alt="img"><br>
+<strong>Server的API如何设计才满足RESTful要求?</strong><br>
+首先是简洁版里面的那几点。外加一些附带的 best practices：</p>
 <ol>
-<li>URL root:<br><a href="//link.zhihu.com/?target=https%3A//example.org/api/v1/">https://example.org/api/v1/**</a><em><br><a href="//link.zhihu.com/?target=https%3A//api.example.com/v1/">https://api.example.com/v1/**</a></em>2. API versioning:<br>可以放在URL里面，也可以用HTTP的header：<br>/api/v1/</li>
-<li>URI使用名词而不是动词，且推荐用复数。<br>BAD<br>/getProducts/listOrders/retrieveClientByOrder?orderId=1GOOD<br>GET /products : will return the list of all productsPOST /products : will add a product to the collectionGET /products/4 : will retrieve product #4PATCH/PUT /products/4 : will update product #44. 保证 HEAD 和 GET 方法是安全的，不会对资源状态有所改变（污染）。比如严格杜绝如下情况：<br>GET /deleteProduct?id=1</li>
-<li>资源的地址推荐用嵌套结构。比如：<br>GET /friends/10375923/profile<br>UPDATE /profile/primaryAddress/city6. 警惕返回结果的大小。如果过大，及时进行分页（pagination）或者加入限制（limit）。HTTP协议支持分页（Pagination）操作，在Header中使用 Link 即可。</li>
+<li>URL root:<br>
+<a href="//link.zhihu.com/?target=https%3A//example.org/api/v1/">https://example.org/api/v1/**</a>*<br>
+<a href="//link.zhihu.com/?target=https%3A//api.example.com/v1/">https://api.example.com/v1/**</a>*2. API versioning:<br>
+可以放在URL里面，也可以用HTTP的header：<br>
+/api/v1/</li>
+<li>URI使用名词而不是动词，且推荐用复数。<br>
+BAD<br>
+/getProducts/listOrders/retrieveClientByOrder?orderId=1GOOD<br>
+GET /products : will return the list of all productsPOST /products : will add a product to the collectionGET /products/4 : will retrieve product #4PATCH/PUT /products/4 : will update product #44. 保证 HEAD 和 GET 方法是安全的，不会对资源状态有所改变（污染）。比如严格杜绝如下情况：<br>
+GET /deleteProduct?id=1</li>
+<li>资源的地址推荐用嵌套结构。比如：<br>
+GET /friends/10375923/profile<br>
+UPDATE /profile/primaryAddress/city6. 警惕返回结果的大小。如果过大，及时进行分页（pagination）或者加入限制（limit）。HTTP协议支持分页（Pagination）操作，在Header中使用 Link 即可。</li>
 <li>使用正确的HTTP Status Code表示访问状态：<a href="//link.zhihu.com/?target=http%3A//www.w3.org/Protocols/rfc2616/rfc2616-sec10.html">HTTP/1.1: Status Code Definitions**</a></li>
 <li>在返回结果用明确易懂的文本（String。注意返回的错误是要给人看的，避免用 1001 这种错误信息），而且适当地加入注释。</li>
-<li>关于安全：自己的接口就用https，加上一个key做一次hash放在最后即可。考虑到国情，HTTPS在无线网络里不稳定，可以使用Application Level的加密手段把整个HTTP的payload加密。有兴趣的朋友可以用手机连上电脑的共享Wi-Fi，然后用Charles监听微信的网络请求（发照片或者刷朋友圈）。<br>如果是平台的API，可以用成熟但是复杂的OAuth2，新浪微博这篇：<a href="//link.zhihu.com/?target=http%3A//open.weibo.com/wiki/%25E6%258E%2588%25E6%259D%2583%25E6%259C%25BA%25E5%2588%25B6%25E8%25AF%25B4%25E6%2598%258E">授权机制说明**</a></li>
+<li>关于安全：自己的接口就用https，加上一个key做一次hash放在最后即可。考虑到国情，HTTPS在无线网络里不稳定，可以使用Application Level的加密手段把整个HTTP的payload加密。有兴趣的朋友可以用手机连上电脑的共享Wi-Fi，然后用Charles监听微信的网络请求（发照片或者刷朋友圈）。<br>
+如果是平台的API，可以用成熟但是复杂的OAuth2，新浪微博这篇：<a href="//link.zhihu.com/?target=http%3A//open.weibo.com/wiki/%25E6%258E%2588%25E6%259D%2583%25E6%259C%25BA%25E5%2588%25B6%25E8%25AF%25B4%25E6%2598%258E">授权机制说明**</a></li>
 </ol>
-<p><strong>各端的具体实现</strong><br>如上面的图所示，Server统一提供一套RESTful API，web+ios+android作为同等公民调用API。各端发展到现在，都有一套比较成熟的框架来帮开发者事半功倍。</p>
-<p>– Server –<br>推荐： Spring MVC 或者 Jersey 或者 Play Framework<br>教程：<br><a href="//link.zhihu.com/?target=https%3A//spring.io/guides/gs/rest-service/">Getting Started · Building a RESTful Web Service**</a></p>
-<p>– Android –<br>推荐： RetroFit ( <a href="//link.zhihu.com/?target=http%3A//square.github.io/retrofit/">Retrofit</a> ) 或者 Volley ( <a href="//link.zhihu.com/?target=https%3A//github.com/mcxiaoke/android-volley">mcxiaoke/android-volley · GitHub</a> Google官方的被block，就不贴了 )<br>教程：<br><a href="//link.zhihu.com/?target=https%3A//futurestud.io/blog/retrofit-getting-started-and-android-client/">Retrofit โ Getting Started and Create an Android Client</a><br><a href="//link.zhihu.com/?target=http%3A//www.cnblogs.com/angeldevil/p/3757335.html">快速Android开发系列网络篇之Retrofit</a></p>
-<p>– iOS –<br>推荐：RestKit ( <a href="//link.zhihu.com/?target=https%3A//github.com/RestKit/RestKit">RestKit/RestKit · GitHub</a> )<br>教程：<br><a href="//link.zhihu.com/?target=http%3A//code.tutsplus.com/tutorials/restkit_ios-sdk--mobile-4524">Developing RESTful iOS Apps with RestKit</a></p>
-<p>– Web –<br>推荐随便搞！可以用重量级的AngularJS，也可以用轻量级 Backbone + jQuery 等。<br>教程：<a href="//link.zhihu.com/?target=http%3A//blog.javachen.com/2015/01/06/build-app-with-spring-boot-and-gradle/">http://blog.javachen.com/2015/01/06/build-app-with-spring-boot-and-gradle/</a></p>
-<p>参考：<br>[1]: <a href="//link.zhihu.com/?target=http%3A//bourgeois.me/rest/">Some REST best practices</a><br>[2]: <a href="//link.zhihu.com/?target=https%3A//developer.github.com/v3/">GitHub API v3</a><br>[3]: <a href="//link.zhihu.com/?target=https%3A//github.com/tlhunter/consumer-centric-api-design">tlhunter/consumer-centric-api-design · GitHub</a></p>
-<p>最后附带一个彩蛋：<br>Facebook台球表演: <a href="//link.zhihu.com/?target=http%3A//v.youku.com/v_show/id_XMzYyOTIxMTI4.html%3Ffrom%3Dy1.7-2">台球1—在线播放</a></p>
+<p><strong>各端的具体实现</strong><br>
+如上面的图所示，Server统一提供一套RESTful API，web+ios+android作为同等公民调用API。各端发展到现在，都有一套比较成熟的框架来帮开发者事半功倍。</p>
+<p>– Server –<br>
+推荐： Spring MVC 或者 Jersey 或者 Play Framework<br>
+教程：<br>
+<a href="//link.zhihu.com/?target=https%3A//spring.io/guides/gs/rest-service/">Getting Started · Building a RESTful Web Service**</a></p>
+<p>– Android –<br>
+推荐： RetroFit ( <a href="//link.zhihu.com/?target=http%3A//square.github.io/retrofit/">Retrofit</a> ) 或者 Volley ( <a href="//link.zhihu.com/?target=https%3A//github.com/mcxiaoke/android-volley">mcxiaoke/android-volley · GitHub</a> Google官方的被block，就不贴了 )<br>
+教程：<br>
+<a href="//link.zhihu.com/?target=https%3A//futurestud.io/blog/retrofit-getting-started-and-android-client/">Retrofit โ Getting Started and Create an Android Client</a><br>
+<a href="//link.zhihu.com/?target=http%3A//www.cnblogs.com/angeldevil/p/3757335.html">快速Android开发系列网络篇之Retrofit</a></p>
+<p>– iOS –<br>
+推荐：RestKit ( <a href="//link.zhihu.com/?target=https%3A//github.com/RestKit/RestKit">RestKit/RestKit · GitHub</a> )<br>
+教程：<br>
+<a href="//link.zhihu.com/?target=http%3A//code.tutsplus.com/tutorials/restkit_ios-sdk--mobile-4524">Developing RESTful iOS Apps with RestKit</a></p>
+<p>– Web –<br>
+推荐随便搞！可以用重量级的AngularJS，也可以用轻量级 Backbone + jQuery 等。<br>
+教程：<a href="//link.zhihu.com/?target=http%3A//blog.javachen.com/2015/01/06/build-app-with-spring-boot-and-gradle/">http://blog.javachen.com/2015/01/06/build-app-with-spring-boot-and-gradle/</a></p>
+<p>参考：<br>
+[1]: <a href="//link.zhihu.com/?target=http%3A//bourgeois.me/rest/">Some REST best practices</a><br>
+[2]: <a href="//link.zhihu.com/?target=https%3A//developer.github.com/v3/">GitHub API v3</a><br>
+[3]: <a href="//link.zhihu.com/?target=https%3A//github.com/tlhunter/consumer-centric-api-design">tlhunter/consumer-centric-api-design · GitHub</a></p>
+<p>最后附带一个彩蛋：<br>
+Facebook台球表演: <a href="//link.zhihu.com/?target=http%3A//v.youku.com/v_show/id_XMzYyOTIxMTI4.html%3Ffrom%3Dy1.7-2">台球1—在线播放</a></p>
 
     
   </div>

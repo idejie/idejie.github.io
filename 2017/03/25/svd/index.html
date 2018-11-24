@@ -15,13 +15,13 @@
     <meta name="keywords" content="">
   
 
-  <meta name="description" content="MovieLens数据集给了三个信息：ratings/movies/users，是6000名用户对4000部电影的评分。内容如下：  ratings.dat #=======================================================================#             UserID::MovieID::Rating::Timestamp#">
+  <meta name="description" content="MovieLens 数据集给了三个信息：ratings/movies/users，是6000名用户对4000部电影的评分。内容如下：   ratings.dat #=======================================================================#             UserID::MovieID::Rating::Timesta">
 <meta name="keywords" content="推荐系统">
 <meta property="og:type" content="article">
 <meta property="og:title" content="基于MovieLens数据集的电影推荐系统（简易版）">
 <meta property="og:url" content="https://blog.idejie.com/2017/03/25/svd/index.html">
 <meta property="og:site_name" content="杨德杰">
-<meta property="og:description" content="MovieLens数据集给了三个信息：ratings/movies/users，是6000名用户对4000部电影的评分。内容如下：  ratings.dat #=======================================================================#             UserID::MovieID::Rating::Timestamp#">
+<meta property="og:description" content="MovieLens 数据集给了三个信息：ratings/movies/users，是6000名用户对4000部电影的评分。内容如下：   ratings.dat #=======================================================================#             UserID::MovieID::Rating::Timesta">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://ww3.sinaimg.cn/large/006tKfTcly1fdzd5ari8bj30jq08iq3h.jpg">
 <meta property="og:image" content="https://ww4.sinaimg.cn/large/006tKfTcly1fdzdjr4aaqj30df049aab.jpg">
@@ -72,7 +72,7 @@
 <meta property="og:updated_time" content="2018-11-24T16:32:27.561Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于MovieLens数据集的电影推荐系统（简易版）">
-<meta name="twitter:description" content="MovieLens数据集给了三个信息：ratings/movies/users，是6000名用户对4000部电影的评分。内容如下：  ratings.dat #=======================================================================#             UserID::MovieID::Rating::Timestamp#">
+<meta name="twitter:description" content="MovieLens 数据集给了三个信息：ratings/movies/users，是6000名用户对4000部电影的评分。内容如下：   ratings.dat #=======================================================================#             UserID::MovieID::Rating::Timesta">
 <meta name="twitter:image" content="https://ww3.sinaimg.cn/large/006tKfTcly1fdzd5ari8bj30jq08iq3h.jpg">
 
   
@@ -184,7 +184,7 @@
 
   <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#MovieLens"><span class="toc-text">MovieLens</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#算法"><span class="toc-text">算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#0-常用算法对比"><span class="toc-text">0.常用算法对比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-关联规则（啤酒和尿布）"><span class="toc-text">1.关联规则（啤酒和尿布）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Slope-One"><span class="toc-text">2.Slope One</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-SVD"><span class="toc-text">3.SVD</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#一些补充知识"><span class="toc-text">一些补充知识</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-正交矩阵"><span class="toc-text">1.正交矩阵</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-EVD"><span class="toc-text">2.EVD</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#奇异值分解——SVD"><span class="toc-text">奇异值分解——SVD</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SVD在推荐系统中的应用"><span class="toc-text">SVD在推荐系统中的应用</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#movielens"><span class="toc-text"> MovieLens</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#算法"><span class="toc-text"> 算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#0常用算法对比"><span class="toc-text"> 0.常用算法对比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1关联规则啤酒和尿布"><span class="toc-text"> 1.关联规则（啤酒和尿布）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2slope-one"><span class="toc-text"> 2.Slope One</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3svd"><span class="toc-text"> 3.SVD</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#一些补充知识"><span class="toc-text"> 一些补充知识</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1正交矩阵"><span class="toc-text"> 1.正交矩阵</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2evd"><span class="toc-text"> 2.EVD</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#奇异值分解svd"><span class="toc-text"> 奇异值分解——SVD</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#svd在推荐系统中的应用"><span class="toc-text"> SVD在推荐系统中的应用</span></a></li></ol>
   </div>
 
 
@@ -235,44 +235,59 @@
 
   <div class="article-content">
     
-      <h2 id="MovieLens"><a href="#MovieLens" class="headerlink" title="MovieLens"></a>MovieLens</h2><p>数据集给了三个信息：ratings/movies/users，是6000名用户对4000部电影的评分。内容如下：</p>
+      <h2 id="movielens"><a class="markdownIt-Anchor" href="#movielens"></a> MovieLens</h2>
+<p>数据集给了三个信息：ratings/movies/users，是6000名用户对4000部电影的评分。内容如下：</p>
 <ul>
-<li><p>ratings.dat</p>
+<li>
+<p>ratings.dat</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#=======================================================================</span><br><span class="line">#             UserID::MovieID::Rating::Timestamp</span><br><span class="line">#=======================================================================</span><br><span class="line">	- UserIDs range between 1 and 6040 </span><br><span class="line">	- MovieIDs range between 1 and 3952</span><br><span class="line">	- Ratings are made on a 5-star scale (whole-star ratings only)</span><br><span class="line">	- Timestamp is represented in seconds since the epoch as returned by time(2)</span><br><span class="line">	- Each user has at least 20 ratings</span><br></pre></td></tr></table></figure>
 <p>​</p>
 </li>
-<li><p>users.dat</p>
+<li>
+<p>users.dat</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#=======================================================================</span><br><span class="line">#         UserID::Gender::Age::Occupation::Zip-code</span><br><span class="line">#=======================================================================</span><br><span class="line">	- Gender is denoted by a &quot;M&quot; for male and &quot;F&quot; for female</span><br><span class="line">	- Age is chosen from the following ranges:</span><br><span class="line">		*  1:  &quot;Under 18&quot;</span><br><span class="line">		* 18:  &quot;18-24&quot;</span><br><span class="line">		* 25:  &quot;25-34&quot;</span><br><span class="line">		* 35:  &quot;35-44&quot;</span><br><span class="line">		* 45:  &quot;45-49&quot;</span><br><span class="line">		* 50:  &quot;50-55&quot;</span><br><span class="line">		* 56:  &quot;56+&quot;</span><br><span class="line">	- Occupation is chosen from the following choices:</span><br><span class="line">		*  0:  &quot;other&quot; or not specified</span><br><span class="line">		*  1:  &quot;academic/educator&quot;</span><br><span class="line">		*  2:  &quot;artist&quot;</span><br><span class="line">		*  3:  &quot;clerical/admin&quot;</span><br><span class="line">		*  4:  &quot;college/grad student&quot;</span><br><span class="line">		* ...........</span><br><span class="line">		* 19:  &quot;unemployed&quot;</span><br><span class="line">		* 20:  &quot;writer&quot;</span><br></pre></td></tr></table></figure>
 <p>​</p>
 </li>
-<li><p>movies.dat</p>
+<li>
+<p>movies.dat</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#=======================================================================</span><br><span class="line">#             MovieID::Title::Genres</span><br><span class="line">#=======================================================================</span><br><span class="line">	- Titles are identical to titles provided by the IMDB (includingyear of release)</span><br><span class="line">	- Genres are pipe-separated and are selected from the following genres:</span><br><span class="line">  		* Action</span><br><span class="line">  		* Adventure</span><br><span class="line">  		* Animation</span><br><span class="line">  		* Children&apos;s</span><br><span class="line">  		* Comedy</span><br><span class="line">  		* Crime</span><br><span class="line">  		* Documentary</span><br><span class="line">  		* ......</span><br><span class="line">  		* Western</span><br><span class="line">	- Some MovieIDs do not correspond to a movie due to accidental duplicate entries and/or test entries</span><br><span class="line">	- Movies are mostly entered by hand, so errors and inconsistencies may exist</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><h3 id="0-常用算法对比"><a href="#0-常用算法对比" class="headerlink" title="0.常用算法对比"></a>0.<a href="http://blog.jobbole.com/72373/" target="_blank" rel="noopener">常用算法对比</a></h3><h3 id="1-关联规则（啤酒和尿布）"><a href="#1-关联规则（啤酒和尿布）" class="headerlink" title="1.关联规则（啤酒和尿布）"></a>1.关联规则（啤酒和尿布）</h3><ul>
+<h2 id="算法"><a class="markdownIt-Anchor" href="#算法"></a> 算法</h2>
+<h3 id="0常用算法对比"><a class="markdownIt-Anchor" href="#0常用算法对比"></a> 0.<a href="http://blog.jobbole.com/72373/" target="_blank" rel="noopener">常用算法对比</a></h3>
+<h3 id="1关联规则啤酒和尿布"><a class="markdownIt-Anchor" href="#1关联规则啤酒和尿布"></a> 1.关联规则（啤酒和尿布）</h3>
+<ul>
 <li>关联规则是形如X→Y的蕴涵式。其中，X和Y分别称为关联规则的先导和后继。</li>
 </ul>
 <p><img src="https://ww3.sinaimg.cn/large/006tKfTcly1fdzd5ari8bj30jq08iq3h.jpg" alt=""></p>
-<h3 id="2-Slope-One"><a href="#2-Slope-One" class="headerlink" title="2.Slope One"></a>2.Slope One</h3><p>举个例子</p>
+<h3 id="2slope-one"><a class="markdownIt-Anchor" href="#2slope-one"></a> 2.Slope One</h3>
+<p>举个例子</p>
 <p><img src="https://ww4.sinaimg.cn/large/006tKfTcly1fdzdjr4aaqj30df049aab.jpg" alt=""></p>
 <p>？=4-（（5-3）+（4-3））/2</p>
 <ul>
-<li><p>基本的想法来自于简单的一元线性模型<img src="https://ww2.sinaimg.cn/large/006tKfTcly1fdzd7bb284j303100oq2s.jpg" alt="">已知一组训练点<img src="https://ww1.sinaimg.cn/large/006tKfTcly1fdzd7xwj4kj301q00vdfo.jpg" alt=""> 利用此线性模型最小化预测误差的平方和，我们可以获得<img src="https://ww2.sinaimg.cn/large/006tKfTcly1fdzd8vvdjfj304c01bq2t.jpg" alt=""></p>
+<li>
+<p>基本的想法来自于简单的一元线性模型<img src="https://ww2.sinaimg.cn/large/006tKfTcly1fdzd7bb284j303100oq2s.jpg" alt="">已知一组训练点<img src="https://ww1.sinaimg.cn/large/006tKfTcly1fdzd7xwj4kj301q00vdfo.jpg" alt=""> 利用此线性模型最小化预测误差的平方和，我们可以获得<img src="https://ww2.sinaimg.cn/large/006tKfTcly1fdzd8vvdjfj304c01bq2t.jpg" alt=""></p>
 </li>
-<li><p>当我们要预测新点的时候，带入原来的一元线性模型就好了</p>
+<li>
+<p>当我们要预测新点的时候，带入原来的一元线性模型就好了</p>
 </li>
-<li><p>误差多大？<img src="https://ww4.sinaimg.cn/large/006tKfTcly1fdzdb17cn7j307501rjrc.jpg" alt=""></p>
-<p>​    其中 Sj,i() 表示同时对item i 和 j 给予了评分的用户集合，而 card()表示集合包含的元素数量。</p>
+<li>
+<p>误差多大？<img src="https://ww4.sinaimg.cn/large/006tKfTcly1fdzdb17cn7j307501rjrc.jpg" alt=""></p>
+<p>​	其中 Sj,i() 表示同时对item i 和 j 给予了评分的用户集合，而 card()表示集合包含的元素数量。</p>
 </li>
-<li><p>将</p>
+<li>
+<p>将</p>
 </li>
 </ul>
 <p><img src="https://ww4.sinaimg.cn/large/006tKfTcly1fdzddmfcsuj302f00ot8k.jpg" alt="">作为新的item的预测值</p>
 <p><em>注</em>：这个没有考虑到使用不同用户数量平均值。假设有2000个用户同时评论了item j和k，而只有20个用户评分了item j和item l，那么显然用dev(j,k)比dev(j,l)更有权威</p>
-<h3 id="3-SVD"><a href="#3-SVD" class="headerlink" title="3.SVD"></a>3.SVD</h3><p><a href="http://blog.sina.com.cn/s/blog_628cc2b70102w4t3.html" target="_blank" rel="noopener">推荐阅读文章</a></p>
+<h3 id="3svd"><a class="markdownIt-Anchor" href="#3svd"></a> 3.SVD</h3>
+<p><a href="http://blog.sina.com.cn/s/blog_628cc2b70102w4t3.html" target="_blank" rel="noopener">推荐阅读文章</a></p>
 <p>简单的说就是把高维稀疏矩阵进行分解：</p>
 <p><img src="https://ww3.sinaimg.cn/large/006tNbRwly1fe6g3vhavtj30nz0bxmxp.jpg" alt=""></p>
-<h4 id="一些补充知识"><a href="#一些补充知识" class="headerlink" title="一些补充知识"></a>一些补充知识</h4><h5 id="1-正交矩阵"><a href="#1-正交矩阵" class="headerlink" title="1.正交矩阵"></a>1.正交矩阵</h5><p><img src="https://ww1.sinaimg.cn/large/006tNbRwly1fe6g5y0n80j30ov0giab6.jpg" alt=""></p>
+<h4 id="一些补充知识"><a class="markdownIt-Anchor" href="#一些补充知识"></a> 一些补充知识</h4>
+<h5 id="1正交矩阵"><a class="markdownIt-Anchor" href="#1正交矩阵"></a> 1.正交矩阵</h5>
+<p><img src="https://ww1.sinaimg.cn/large/006tNbRwly1fe6g5y0n80j30ov0giab6.jpg" alt=""></p>
 <p>假设二维空间中的一个向量OA，它在标准坐标系也即e1、e2表示的坐标是中表示为(a,b)’（用’表示转置），现在把它用另一组坐标e1’、e2’表示为(a’,b’)’，存在矩阵U使得(a’,b’)’=U(a,b)’，则U即为正交矩阵。从图中可以看到，正交变换只是将变换向量用另一组正交基表示，在这个过程中并没有对向量做拉伸，也不改变向量的空间位置，加入对两个向量同时做正交变换，那么变换前后这两个向量的夹角显然不会改变。上面的例子只是正交变换的一个方面，即旋转变换，可以把e1’、e2’坐标系看做是e1、e2坐标系经过旋转某个斯塔角度得到，怎么样得到该旋转矩阵U呢？如下：</p>
 <p><img src="https://ww4.sinaimg.cn/large/006tNbRwly1fe6g73syd7j30as0793yl.jpg" alt=""></p>
 <p>a’和b’实际上是x在e1’和e2’轴上的投影大小，所以直接做内积可得，then</p>
@@ -285,7 +300,8 @@
 <p>如图，如果我选择了e1’、e2’作为新的标准坐标系，那么在新坐标系中OA（原标准坐标系的表示）就变成了OA’，这样看来就好像坐标系不动，把OA往顺时针方向旋转了“斯塔”角度，这个操作实现起来很简单：将变换后的向量坐标仍然表示在当前坐标系中。</p>
 <p>旋转变换是正交变换的一个方面，这个挺有用的，比如在开发中需要实现某种旋转效果，直接可以用旋转变换实现。正交变换的另一个方面是反射变换，也即e1’的方向与图中方向相反，这个不再讨论。</p>
 <p>总结：正交矩阵的行（列）向量都是两两正交的单位向量，正交矩阵对应的变换为正交变换，它有两种表现：旋转和反射。正交矩阵将标准正交基映射为标准正交基（即图中从e1、e2到e1’、e2’）</p>
-<h5 id="2-EVD"><a href="#2-EVD" class="headerlink" title="2.EVD"></a>2.EVD</h5><p>  在讨论SVD之前先讨论矩阵的特征值分解（EVD），在这里，选择一种特殊的矩阵——对称阵（酉空间中叫hermite矩阵即厄米阵）。对称阵有一个很优美的性质：它总能相似对角化，对称阵不同特征值对应的特征向量两两正交。一个矩阵能相似对角化即说明其特征子空间即为其列空间，若不能对角化则其特征子空间为列空间的子空间。现在假设存在mxm的满秩对称矩阵A，它有m个不同的特征值，设特征值为<img src="https://ww2.sinaimg.cn/large/006tNbRwly1fe6gazmlosj301c01g0sk.jpg" alt=""></p>
+<h5 id="2evd"><a class="markdownIt-Anchor" href="#2evd"></a> 2.EVD</h5>
+<p>在讨论SVD之前先讨论矩阵的特征值分解（EVD），在这里，选择一种特殊的矩阵——对称阵（酉空间中叫hermite矩阵即厄米阵）。对称阵有一个很优美的性质：它总能相似对角化，对称阵不同特征值对应的特征向量两两正交。一个矩阵能相似对角化即说明其特征子空间即为其列空间，若不能对角化则其特征子空间为列空间的子空间。现在假设存在mxm的满秩对称矩阵A，它有m个不同的特征值，设特征值为<img src="https://ww2.sinaimg.cn/large/006tNbRwly1fe6gazmlosj301c01g0sk.jpg" alt=""></p>
 <p>对应的单位特征向量为<img src="http://img.blog.csdn.net/20150123145830171" alt="img"></p>
 <p>则有</p>
 <p>​                                                                 <img src="http://img.blog.csdn.net/20150123150002344" alt="img"></p>
@@ -310,8 +326,9 @@
 <p>根据对称阵A的特征向量，如果A是2*2的，那么就可以在二维平面中找到这样一个矩形，是的这个矩形经过A变换后还是矩形：</p>
 <p>​                                      <img src="http://img.blog.csdn.net/20150123155218277" alt="img"></p>
 <p>这个矩形的选择就是让其边都落在A的特征向量方向上，如果选择其他矩形的话变换后的图形就不是矩形了！</p>
-<h4 id="奇异值分解——SVD"><a href="#奇异值分解——SVD" class="headerlink" title="奇异值分解——SVD"></a>奇异值分解——SVD</h4><p>   上面的特征值分解的A矩阵是对称阵，根据EVD可以找到一个（超）矩形使得变换后还是（超）矩形，也即A可以将一组正交基映射到另一组正交基！那么现在来分析：对任意M*N的矩阵，能否找到一组正交基使得经过它变换后还是正交基？答案是肯定的，它就是SVD分解的精髓所在。</p>
-<p>   现在假设存在M*N矩阵A，事实上，A矩阵将n维空间中的向量映射到k（k&lt;=m）维空间中，k=Rank(A)。现在的目标就是：在n维空间中找一组正交基，使得经过A变换后还是正交的。假设已经找到这样一组正交基：</p>
+<h4 id="奇异值分解svd"><a class="markdownIt-Anchor" href="#奇异值分解svd"></a> 奇异值分解——SVD</h4>
+<p>上面的特征值分解的A矩阵是对称阵，根据EVD可以找到一个（超）矩形使得变换后还是（超）矩形，也即A可以将一组正交基映射到另一组正交基！那么现在来分析：对任意M*N的矩阵，能否找到一组正交基使得经过它变换后还是正交基？答案是肯定的，它就是SVD分解的精髓所在。</p>
+<p>现在假设存在M*N矩阵A，事实上，A矩阵将n维空间中的向量映射到k（k&lt;=m）维空间中，k=Rank(A)。现在的目标就是：在n维空间中找一组正交基，使得经过A变换后还是正交的。假设已经找到这样一组正交基：</p>
 <p>​                                                               <img src="http://img.blog.csdn.net/20150123160515876" alt="img"></p>
 <p>则A矩阵将这组基映射为：</p>
 <p>​                                                            <img src="http://img.blog.csdn.net/20150123160626263" alt="img"></p>
@@ -352,7 +369,8 @@
 <p>则A=XY即是A的满秩分解。</p>
 <p>整个SVD的推导过程就是这样，后面会介绍SVD在推荐系统中的具体应用，也就是复现Koren论文中的<a href="http://lib.csdn.net/base/datastructure" target="_blank" rel="noopener">算法</a>以及其推导过程。</p>
 <p>参考文献：<a href="http://www-users.math.umn.edu/~lerman/math5467/svd.pdf" target="_blank" rel="noopener">A Singularly Valuable Decomposition The SVD of a Matrix</a></p>
-<h2 id="SVD在推荐系统中的应用"><a href="#SVD在推荐系统中的应用" class="headerlink" title="SVD在推荐系统中的应用"></a>SVD在推荐系统中的应用</h2>
+<h2 id="svd在推荐系统中的应用"><a class="markdownIt-Anchor" href="#svd在推荐系统中的应用"></a> SVD在推荐系统中的应用</h2>
+
     
   </div>
 </article>

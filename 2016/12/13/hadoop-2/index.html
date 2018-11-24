@@ -15,18 +15,18 @@
     <meta name="keywords" content="">
   
 
-  <meta name="description" content="1.创建本地文件mdkir filecd fileecho &quot;hello world&quot;&amp;gt;file1.txtecho &quot;hello hadoop&quot;&amp;gt;file2.txt 2.创建输入文件夹hadoop fs -mkdir /input 3.上传本地文件hadoop fs -put ./file/file*.txt /input 4.运行WordCounthadoop jar ./libex">
+  <meta name="description" content="1.创建本地文件 mdkir filecd fileecho &quot;hello world&quot;&amp;gt;file1.txtecho &quot;hello hadoop&quot;&amp;gt;file2.txt  2.创建输入文件夹 hadoop fs -mkdir /input  3.上传本地文件 hadoop fs -put ./file/file*.txt /input  4.运行WordCount hadoop jar">
 <meta name="keywords" content="Hadoop">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hadoop学习（二）：运行WordCount">
 <meta property="og:url" content="https://blog.idejie.com/2016/12/13/hadoop-2/index.html">
 <meta property="og:site_name" content="杨德杰">
-<meta property="og:description" content="1.创建本地文件mdkir filecd fileecho &quot;hello world&quot;&amp;gt;file1.txtecho &quot;hello hadoop&quot;&amp;gt;file2.txt 2.创建输入文件夹hadoop fs -mkdir /input 3.上传本地文件hadoop fs -put ./file/file*.txt /input 4.运行WordCounthadoop jar ./libex">
+<meta property="og:description" content="1.创建本地文件 mdkir filecd fileecho &quot;hello world&quot;&amp;gt;file1.txtecho &quot;hello hadoop&quot;&amp;gt;file2.txt  2.创建输入文件夹 hadoop fs -mkdir /input  3.上传本地文件 hadoop fs -put ./file/file*.txt /input  4.运行WordCount hadoop jar">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2018-11-24T16:32:27.542Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hadoop学习（二）：运行WordCount">
-<meta name="twitter:description" content="1.创建本地文件mdkir filecd fileecho &quot;hello world&quot;&amp;gt;file1.txtecho &quot;hello hadoop&quot;&amp;gt;file2.txt 2.创建输入文件夹hadoop fs -mkdir /input 3.上传本地文件hadoop fs -put ./file/file*.txt /input 4.运行WordCounthadoop jar ./libex">
+<meta name="twitter:description" content="1.创建本地文件 mdkir filecd fileecho &quot;hello world&quot;&amp;gt;file1.txtecho &quot;hello hadoop&quot;&amp;gt;file2.txt  2.创建输入文件夹 hadoop fs -mkdir /input  3.上传本地文件 hadoop fs -put ./file/file*.txt /input  4.运行WordCount hadoop jar">
 
   
 
@@ -137,7 +137,7 @@
 
   <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-创建本地文件"><span class="toc-text">1.创建本地文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-创建输入文件夹"><span class="toc-text">2.创建输入文件夹</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-上传本地文件"><span class="toc-text">3.上传本地文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-运行WordCount"><span class="toc-text">4.运行WordCount</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-查看结果"><span class="toc-text">5.查看结果</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1创建本地文件"><span class="toc-text"> 1.创建本地文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2创建输入文件夹"><span class="toc-text"> 2.创建输入文件夹</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3上传本地文件"><span class="toc-text"> 3.上传本地文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4运行wordcount"><span class="toc-text"> 4.运行WordCount</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5查看结果"><span class="toc-text"> 5.查看结果</span></a></li></ol>
   </div>
 
 
@@ -188,11 +188,16 @@
 
   <div class="article-content">
     
-      <h1 id="1-创建本地文件"><a href="#1-创建本地文件" class="headerlink" title="1.创建本地文件"></a>1.创建本地文件</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mdkir file</span><br><span class="line"><span class="built_in">cd</span> file</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"hello world"</span>&gt;file1.txt</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"hello hadoop"</span>&gt;file2.txt</span><br></pre></td></tr></table></figure>
-<h1 id="2-创建输入文件夹"><a href="#2-创建输入文件夹" class="headerlink" title="2.创建输入文件夹"></a>2.创建输入文件夹</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hadoop fs -mkdir /input</span><br></pre></td></tr></table></figure>
-<h1 id="3-上传本地文件"><a href="#3-上传本地文件" class="headerlink" title="3.上传本地文件"></a>3.上传本地文件</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hadoop fs -put ./file/file*.txt /input</span><br></pre></td></tr></table></figure>
-<h1 id="4-运行WordCount"><a href="#4-运行WordCount" class="headerlink" title="4.运行WordCount"></a>4.运行WordCount</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hadoop jar ./libexec/share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.3.jar wordcount /input /output</span><br></pre></td></tr></table></figure>
-<h1 id="5-查看结果"><a href="#5-查看结果" class="headerlink" title="5.查看结果"></a>5.查看结果</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hadoop fs -cat /output/part-r-00000</span><br></pre></td></tr></table></figure>
+      <h1 id="1创建本地文件"><a class="markdownIt-Anchor" href="#1创建本地文件"></a> 1.创建本地文件</h1>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mdkir file</span><br><span class="line"><span class="built_in">cd</span> file</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"hello world"</span>&gt;file1.txt</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"hello hadoop"</span>&gt;file2.txt</span><br></pre></td></tr></table></figure>
+<h1 id="2创建输入文件夹"><a class="markdownIt-Anchor" href="#2创建输入文件夹"></a> 2.创建输入文件夹</h1>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hadoop fs -mkdir /input</span><br></pre></td></tr></table></figure>
+<h1 id="3上传本地文件"><a class="markdownIt-Anchor" href="#3上传本地文件"></a> 3.上传本地文件</h1>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hadoop fs -put ./file/file*.txt /input</span><br></pre></td></tr></table></figure>
+<h1 id="4运行wordcount"><a class="markdownIt-Anchor" href="#4运行wordcount"></a> 4.运行WordCount</h1>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hadoop jar ./libexec/share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.3.jar wordcount /input /output</span><br></pre></td></tr></table></figure>
+<h1 id="5查看结果"><a class="markdownIt-Anchor" href="#5查看结果"></a> 5.查看结果</h1>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hadoop fs -cat /output/part-r-00000</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hadoop	1</span><br><span class="line">hello	2</span><br><span class="line">world	1</span><br></pre></td></tr></table></figure>
 
     

@@ -15,18 +15,18 @@
     <meta name="keywords" content="">
   
 
-  <meta name="description" content="设计原则1.设计目标 可扩展性(Extensibility):新功能易加入系统。   灵活性(Flexibility):允许代码修改平稳发生，不会涉及很多其他模块。   可插入性(Pluggability):容易将一个类换为另一个具有同样接口的类。  2.软件复用的重要性 较高的生产率 较高的软件质量 恰当使用复用,可改善系统的可维护性  3.方法 使一个系统可在更高的层次上提供了可复用性 抽象化">
+  <meta name="description" content="设计原则  1.设计目标   可扩展性(Extensibility):新功能易加入系统。   灵活性(Flexibility):允许代码修改平稳发生，不会涉及很多其他模块。   可插入性(Pluggability):容易将一个类换为另一个具有同样接口的类。    2.软件复用的重要性  较高的生产率 较高的软件质量 恰当使用复用,可改善系统的可维护性   3.方法  使一个系统可在更高的层次上提">
 <meta name="keywords" content="面向对象">
 <meta property="og:type" content="article">
 <meta property="og:title" content="面向对象复习（五）">
 <meta property="og:url" content="https://blog.idejie.com/2016/06/21/review-oo-rule/index.html">
 <meta property="og:site_name" content="杨德杰">
-<meta property="og:description" content="设计原则1.设计目标 可扩展性(Extensibility):新功能易加入系统。   灵活性(Flexibility):允许代码修改平稳发生，不会涉及很多其他模块。   可插入性(Pluggability):容易将一个类换为另一个具有同样接口的类。  2.软件复用的重要性 较高的生产率 较高的软件质量 恰当使用复用,可改善系统的可维护性  3.方法 使一个系统可在更高的层次上提供了可复用性 抽象化">
+<meta property="og:description" content="设计原则  1.设计目标   可扩展性(Extensibility):新功能易加入系统。   灵活性(Flexibility):允许代码修改平稳发生，不会涉及很多其他模块。   可插入性(Pluggability):容易将一个类换为另一个具有同样接口的类。    2.软件复用的重要性  较高的生产率 较高的软件质量 恰当使用复用,可改善系统的可维护性   3.方法  使一个系统可在更高的层次上提">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2018-11-24T16:32:27.559Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面向对象复习（五）">
-<meta name="twitter:description" content="设计原则1.设计目标 可扩展性(Extensibility):新功能易加入系统。   灵活性(Flexibility):允许代码修改平稳发生，不会涉及很多其他模块。   可插入性(Pluggability):容易将一个类换为另一个具有同样接口的类。  2.软件复用的重要性 较高的生产率 较高的软件质量 恰当使用复用,可改善系统的可维护性  3.方法 使一个系统可在更高的层次上提供了可复用性 抽象化">
+<meta name="twitter:description" content="设计原则  1.设计目标   可扩展性(Extensibility):新功能易加入系统。   灵活性(Flexibility):允许代码修改平稳发生，不会涉及很多其他模块。   可插入性(Pluggability):容易将一个类换为另一个具有同样接口的类。    2.软件复用的重要性  较高的生产率 较高的软件质量 恰当使用复用,可改善系统的可维护性   3.方法  使一个系统可在更高的层次上提">
 
   
 
@@ -137,7 +137,7 @@
 
   <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#设计原则"><span class="toc-text">设计原则</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-设计目标"><span class="toc-text">1.设计目标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-软件复用的重要性"><span class="toc-text">2.软件复用的重要性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-方法"><span class="toc-text">3.方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-七大原则"><span class="toc-text">4.七大原则</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-开闭原则OCP-Open-ClosedPrinciple"><span class="toc-text">1.开闭原则OCP:Open-ClosedPrinciple</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-依赖倒转原则DIP-DependencyInversion-Principle"><span class="toc-text">2.依赖倒转原则DIP:DependencyInversion Principle</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-单一职责原则（SRP"><span class="toc-text">3.单一职责原则（SRP)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-里氏替换原则LSP-LiskovSubstitution-Principle"><span class="toc-text">4.里氏替换原则LSP:LiskovSubstitution Principle</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-组合复用原则CRP-CompositoinResuse-Principle"><span class="toc-text">5.组合复用原则CRP:CompositoinResuse Principle</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6-迪米特法则LoD-Lawof-Demeter"><span class="toc-text">6.迪米特法则LoD:Lawof Demeter</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#7-接口隔离原则ISP-InterfaceSegregation-Principle"><span class="toc-text">7.接口隔离原则ISP:InterfaceSegregation Principle</span></a></li></ol></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#设计原则"><span class="toc-text"> 设计原则</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1设计目标"><span class="toc-text"> 1.设计目标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2软件复用的重要性"><span class="toc-text"> 2.软件复用的重要性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3方法"><span class="toc-text"> 3.方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4七大原则"><span class="toc-text"> 4.七大原则</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1开闭原则ocpopen-closedprinciple"><span class="toc-text"> 1.开闭原则OCP:Open-ClosedPrinciple</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2依赖倒转原则dipdependencyinversion-principle"><span class="toc-text"> 2.依赖倒转原则DIP:DependencyInversion Principle</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3单一职责原则srp"><span class="toc-text"> 3.单一职责原则（SRP)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4里氏替换原则lspliskovsubstitution-principle"><span class="toc-text"> 4.里氏替换原则LSP:LiskovSubstitution Principle</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5组合复用原则crpcompositoinresuse-principle"><span class="toc-text"> 5.组合复用原则CRP:CompositoinResuse Principle</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6迪米特法则lodlawof-demeter"><span class="toc-text"> 6.迪米特法则LoD:Lawof Demeter</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#7接口隔离原则ispinterfacesegregation-principle"><span class="toc-text"> 7.接口隔离原则ISP:InterfaceSegregation Principle</span></a></li></ol></li></ol></li></ol>
   </div>
 
 
@@ -188,45 +188,59 @@
 
   <div class="article-content">
     
-      <h2 id="设计原则"><a href="#设计原则" class="headerlink" title="设计原则"></a>设计原则</h2><h3 id="1-设计目标"><a href="#1-设计目标" class="headerlink" title="1.设计目标"></a>1.设计目标</h3><ul>
-<li>可扩展性(Extensibility):新功能易加入系统。</li>
-</ul>
+      <h2 id="设计原则"><a class="markdownIt-Anchor" href="#设计原则"></a> 设计原则</h2>
+<h3 id="1设计目标"><a class="markdownIt-Anchor" href="#1设计目标"></a> 1.设计目标</h3>
 <ul>
-<li>灵活性(Flexibility):允许代码修改平稳发生，不会涉及很多其他模块。</li>
+<li>
+<p>可扩展性(Extensibility):新功能易加入系统。</p>
+</li>
+<li>
+<p>灵活性(Flexibility):允许代码修改平稳发生，不会涉及很多其他模块。</p>
+</li>
+<li>
+<p>可插入性(Pluggability):容易将一个类换为另一个具有同样接口的类。</p>
+</li>
 </ul>
+<h3 id="2软件复用的重要性"><a class="markdownIt-Anchor" href="#2软件复用的重要性"></a> 2.软件复用的重要性</h3>
 <ul>
-<li>可插入性(Pluggability):容易将一个类换为另一个具有同样接口的类。</li>
-</ul>
-<h3 id="2-软件复用的重要性"><a href="#2-软件复用的重要性" class="headerlink" title="2.软件复用的重要性"></a>2.软件复用的重要性</h3><ul>
 <li>较高的生产率</li>
 <li>较高的软件质量</li>
 <li>恰当使用复用,可改善系统的可维护性</li>
 </ul>
-<h3 id="3-方法"><a href="#3-方法" class="headerlink" title="3.方法"></a>3.方法</h3><ul>
+<h3 id="3方法"><a class="markdownIt-Anchor" href="#3方法"></a> 3.方法</h3>
+<ul>
 <li>使一个系统可在更高的层次上提供了可复用性</li>
 <li>抽象化和继承:使概念和定义可复用</li>
 <li>多态:使实现和应用可复用</li>
 <li>抽象化和封装:可保持和促进系统的可维护性</li>
 </ul>
-<h3 id="4-七大原则"><a href="#4-七大原则" class="headerlink" title="4.七大原则"></a>4.七大原则</h3><h5 id="1-开闭原则OCP-Open-ClosedPrinciple"><a href="#1-开闭原则OCP-Open-ClosedPrinciple" class="headerlink" title="1.开闭原则OCP:Open-ClosedPrinciple"></a>1.开闭原则OCP:Open-ClosedPrinciple</h5><p>   软件组成实体应该是对扩展开放的，但是对修改是关闭的。</p>
-<p>  “开”，是允许对其进行功能扩展的；</p>
-<p>  “闭”，是指对于原有代码的修改是封闭的，即不应该修改原有的代码。</p>
+<h3 id="4七大原则"><a class="markdownIt-Anchor" href="#4七大原则"></a> 4.七大原则</h3>
+<h5 id="1开闭原则ocpopen-closedprinciple"><a class="markdownIt-Anchor" href="#1开闭原则ocpopen-closedprinciple"></a> 1.开闭原则OCP:Open-ClosedPrinciple</h5>
+<p>软件组成实体应该是对扩展开放的，但是对修改是关闭的。</p>
+<p>“开”，是允许对其进行功能扩展的；</p>
+<p>“闭”，是指对于原有代码的修改是封闭的，即不应该修改原有的代码。</p>
 <p>优点：</p>
-<p>​    可复用性好：提高适应性 、 灵活性</p>
-<p>​    可维护性好： </p>
-<h5 id="2-依赖倒转原则DIP-DependencyInversion-Principle"><a href="#2-依赖倒转原则DIP-DependencyInversion-Principle" class="headerlink" title="2.依赖倒转原则DIP:DependencyInversion Principle"></a>2.依赖倒转原则DIP:DependencyInversion Principle</h5><p>​    抽象不应当依赖于细节，细节应当依赖于抽象。</p>
-<p>​    针对接口编程</p>
-<p>​    要针对接口编程</p>
-<p>​    不要针对实现编程</p>
-<h5 id="3-单一职责原则（SRP"><a href="#3-单一职责原则（SRP" class="headerlink" title="3.单一职责原则（SRP)"></a>3.单一职责原则（SRP)</h5><p>​    一个类只负责一项职责。</p>
-<h5 id="4-里氏替换原则LSP-LiskovSubstitution-Principle"><a href="#4-里氏替换原则LSP-LiskovSubstitution-Principle" class="headerlink" title="4.里氏替换原则LSP:LiskovSubstitution Principle"></a>4.里氏替换原则LSP:LiskovSubstitution Principle</h5><p>​    一个软件如果使用的是一个父类的话，如果把该父类换成子类，它不能察觉出父类对象和子类对象的区别</p>
-<p>​    也就是凡是父类适用的地方子类也适用</p>
-<p>​    继承只有满足里氏代换原则才是合理的</p>
-<h5 id="5-组合复用原则CRP-CompositoinResuse-Principle"><a href="#5-组合复用原则CRP-CompositoinResuse-Principle" class="headerlink" title="5.组合复用原则CRP:CompositoinResuse Principle"></a>5.组合复用原则CRP:CompositoinResuse Principle</h5><p>​    优先使用(对象)组合，而非(类)继承</p>
-<h5 id="6-迪米特法则LoD-Lawof-Demeter"><a href="#6-迪米特法则LoD-Lawof-Demeter" class="headerlink" title="6.迪米特法则LoD:Lawof Demeter"></a>6.迪米特法则LoD:Lawof Demeter</h5><p>​    一个对象应该对其他对象尽可能少的了解</p>
-<h5 id="7-接口隔离原则ISP-InterfaceSegregation-Principle"><a href="#7-接口隔离原则ISP-InterfaceSegregation-Principle" class="headerlink" title="7.接口隔离原则ISP:InterfaceSegregation Principle"></a>7.接口隔离原则ISP:InterfaceSegregation Principle</h5><p>​    使用多个专门的接口比使用单一的总接口好。</p>
-<p>​    一个类对另一个类的依赖性应建立在最小的接口上</p>
-<p>   ​</p>
+<p>​	可复用性好：提高适应性 、 灵活性</p>
+<p>​	可维护性好：</p>
+<h5 id="2依赖倒转原则dipdependencyinversion-principle"><a class="markdownIt-Anchor" href="#2依赖倒转原则dipdependencyinversion-principle"></a> 2.依赖倒转原则DIP:DependencyInversion Principle</h5>
+<p>​	抽象不应当依赖于细节，细节应当依赖于抽象。</p>
+<p>​	针对接口编程</p>
+<p>​	要针对接口编程</p>
+<p>​	不要针对实现编程</p>
+<h5 id="3单一职责原则srp"><a class="markdownIt-Anchor" href="#3单一职责原则srp"></a> 3.单一职责原则（SRP)</h5>
+<p>​	一个类只负责一项职责。</p>
+<h5 id="4里氏替换原则lspliskovsubstitution-principle"><a class="markdownIt-Anchor" href="#4里氏替换原则lspliskovsubstitution-principle"></a> 4.里氏替换原则LSP:LiskovSubstitution Principle</h5>
+<p>​	一个软件如果使用的是一个父类的话，如果把该父类换成子类，它不能察觉出父类对象和子类对象的区别</p>
+<p>​	也就是凡是父类适用的地方子类也适用</p>
+<p>​	继承只有满足里氏代换原则才是合理的</p>
+<h5 id="5组合复用原则crpcompositoinresuse-principle"><a class="markdownIt-Anchor" href="#5组合复用原则crpcompositoinresuse-principle"></a> 5.组合复用原则CRP:CompositoinResuse Principle</h5>
+<p>​	优先使用(对象)组合，而非(类)继承</p>
+<h5 id="6迪米特法则lodlawof-demeter"><a class="markdownIt-Anchor" href="#6迪米特法则lodlawof-demeter"></a> 6.迪米特法则LoD:Lawof Demeter</h5>
+<p>​	一个对象应该对其他对象尽可能少的了解</p>
+<h5 id="7接口隔离原则ispinterfacesegregation-principle"><a class="markdownIt-Anchor" href="#7接口隔离原则ispinterfacesegregation-principle"></a> 7.接口隔离原则ISP:InterfaceSegregation Principle</h5>
+<p>​	使用多个专门的接口比使用单一的总接口好。</p>
+<p>​	一个类对另一个类的依赖性应建立在最小的接口上</p>
+<p>​</p>
 
     
   </div>

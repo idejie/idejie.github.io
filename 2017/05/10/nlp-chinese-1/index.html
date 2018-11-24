@@ -147,7 +147,7 @@
 
   <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1文本基本处理"><span class="toc-text">1文本基本处理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-中文分词"><span class="toc-text">1.中文分词</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-语言模型"><span class="toc-text">2. 语言模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-Term-Weighting"><span class="toc-text">3. Term Weighting</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Term重要性"><span class="toc-text">Term重要性</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#核心词、关键词提取"><span class="toc-text">核心词、关键词提取</span></a></li></ol></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1文本基本处理"><span class="toc-text"> 1文本基本处理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1中文分词"><span class="toc-text"> 1.中文分词</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-语言模型"><span class="toc-text"> 2. 语言模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-term-weighting"><span class="toc-text"> 3. Term Weighting</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#term重要性"><span class="toc-text"> Term重要性</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#核心词-关键词提取"><span class="toc-text"> 核心词、关键词提取</span></a></li></ol></li></ol></li></ol>
   </div>
 
 
@@ -202,16 +202,21 @@
 <p>工作这几年，陆陆续续实践过一些项目，有搜索广告，社交广告，微博广告，品牌广告，内容广告等。要使我们广告平台效益最大化，首先需要理解用户，Context(将展示广告的上下文)和广告，才能将最合适的广告展示给用户。而这其中，就离不开对用户，对上下文，对广告的语义分析，由此催生了一些子项目，例如文本语义分析，图片语义理解，语义索引，短串语义关联，用户广告语义匹配等。</p>
 <p>接下来我将写一写我所认识的语义分析的一些方法，虽说我们在做的时候，效果导向居多，方法理论理解也许并不深入，不过权当个人知识点总结，有任何不当之处请指正，谢谢。</p>
 <p>本文主要由以下四部分组成：文本基本处理，文本语义分析，图片语义分析，语义分析小结。先讲述文本处理的基本方法，这构成了语义分析的基础。接着分文本和图片两节讲述各自语义分析的一些方法，值得注意的是，虽说分为两节，但文本和图片在语义分析方法上有很多共通与关联。最后我们简单介绍下语义分析在广点通“用户广告匹配”上的应用，并展望一下未来的语义分析方法。</p>
-<h3 id="1文本基本处理"><a href="#1文本基本处理" class="headerlink" title="1文本基本处理"></a>1文本基本处理</h3><p>在讲文本语义分析之前，我们先说下文本基本处理，因为它构成了语义分析的基础。而文本处理有很多方面，考虑到本文主题，这里只介绍中文分词以及Term Weighting。</p>
-<h4 id="1-中文分词"><a href="#1-中文分词" class="headerlink" title="1.中文分词"></a>1.中文分词</h4><p>拿到一段文本后，通常情况下，首先要做分词。分词的方法一般有如下几种：</p>
+<h3 id="1文本基本处理"><a class="markdownIt-Anchor" href="#1文本基本处理"></a> 1文本基本处理</h3>
+<p>在讲文本语义分析之前，我们先说下文本基本处理，因为它构成了语义分析的基础。而文本处理有很多方面，考虑到本文主题，这里只介绍中文分词以及Term Weighting。</p>
+<h4 id="1中文分词"><a class="markdownIt-Anchor" href="#1中文分词"></a> 1.中文分词</h4>
+<p>拿到一段文本后，通常情况下，首先要做分词。分词的方法一般有如下几种：</p>
 <ul>
 <li>基于字符串匹配的分词方法。此方法按照不同的扫描方式，逐个查找词库进行分词。根据扫描方式可细分为：正向最大匹配，反向最大匹配，双向最大匹配，最小切分(即最短路径)；总之就是各种不同的启发规则。</li>
-<li>全切分方法。它首先切分出与词库匹配的所有可能的词，再运用统计语言模型决定最优的切分结果。它的优点在于可以解决分词中的歧义问题。下图是一个示例，对于文本串“南京市长江大桥”，首先进行词条检索(一般用Trie存储)，找到匹配的所有词条（南京，市，长江，大桥，南京市，长江大桥，市长，江大桥，江大，桥），以词网格(word lattices)形式表示，接着做路径搜索，基于统计语言模型(例如n-gram)[18]找到最优路径，最后可能还需要命名实体识别。下图中“南京市 长江 大桥”的语言模型得分，即P(南京市，长江，大桥)最高，则为最优切分。<br><a href="http://dataunion.org/wp-content/uploads/2015/02/rnnlm1.png" target="_blank" rel="noopener"><img src="http://dataunion.org/wp-content/uploads/2015/02/rnnlm1.png" alt="rnnlm1"></a>图1. “南京市长江大桥”语言模型得分</li>
-<li>由字构词的分词方法。可以理解为字的分类问题，也就是自然语言处理中的sequence labeling问题，通常做法里利用HMM，MAXENT，MEMM，CRF等预测文本串每个字的tag[62]，譬如B，E，I，S，这四个tag分别表示：beginning, inside, ending, single，也就是一个词的开始，中间，结束，以及单个字的词。 例如“南京市长江大桥”的标注结果可能为：“南(B)京(I)市(E)长(B)江(E)大(B)桥(E)”。由于CRF既可以像最大熵模型一样加各种领域feature，又避免了HMM的齐次马尔科夫假设，所以基于CRF的分词目前是效果最好的，具体请参考文献[61,62,63]。除了HMM，CRF等模型，分词也可以基于深度学习方法来做，如文献[9][10]所介绍，也取得了state-of-the-art的结果。<br><a href="http://dataunion.org/wp-content/uploads/2015/02/word_segmentation1.png" target="_blank" rel="noopener"><img src="http://dataunion.org/wp-content/uploads/2015/02/word_segmentation1.png" alt="word_segmentation"></a>图2. 基于<a href="http://lib.csdn.net/base/deeplearning" target="_blank" rel="noopener">深度学习</a>的中文分词上图是一个基于深度学习的分词示例图。我们从上往下看，首先对每一个字进行Lookup Table，映射到一个固定长度的特征向量(这里可以利用词向量，boundary entropy，accessor variety等)；接着经过一个标准的神经网络，分别是linear，sigmoid，linear层，对于每个字，预测该字属于B,E,I,S的概率；最后输出是一个矩阵，矩阵的行是B,E,I,S 4个tag，利用viterbi<a href="http://lib.csdn.net/base/datastructure" target="_blank" rel="noopener">算法</a>就可以完成标注推断，从而得到分词结果。</li>
+<li>全切分方法。它首先切分出与词库匹配的所有可能的词，再运用统计语言模型决定最优的切分结果。它的优点在于可以解决分词中的歧义问题。下图是一个示例，对于文本串“南京市长江大桥”，首先进行词条检索(一般用Trie存储)，找到匹配的所有词条（南京，市，长江，大桥，南京市，长江大桥，市长，江大桥，江大，桥），以词网格(word lattices)形式表示，接着做路径搜索，基于统计语言模型(例如n-gram)[18]找到最优路径，最后可能还需要命名实体识别。下图中“南京市 长江 大桥”的语言模型得分，即P(南京市，长江，大桥)最高，则为最优切分。<br>
+<a href="http://dataunion.org/wp-content/uploads/2015/02/rnnlm1.png" target="_blank" rel="noopener"><img src="http://dataunion.org/wp-content/uploads/2015/02/rnnlm1.png" alt="rnnlm1"></a>图1. “南京市长江大桥”语言模型得分</li>
+<li>由字构词的分词方法。可以理解为字的分类问题，也就是自然语言处理中的sequence labeling问题，通常做法里利用HMM，MAXENT，MEMM，CRF等预测文本串每个字的tag[62]，譬如B，E，I，S，这四个tag分别表示：beginning, inside, ending, single，也就是一个词的开始，中间，结束，以及单个字的词。 例如“南京市长江大桥”的标注结果可能为：“南(B)京(I)市(E)长(B)江(E)大(B)桥(E)”。由于CRF既可以像最大熵模型一样加各种领域feature，又避免了HMM的齐次马尔科夫假设，所以基于CRF的分词目前是效果最好的，具体请参考文献[61,62,63]。除了HMM，CRF等模型，分词也可以基于深度学习方法来做，如文献[9][10]所介绍，也取得了state-of-the-art的结果。<br>
+<a href="http://dataunion.org/wp-content/uploads/2015/02/word_segmentation1.png" target="_blank" rel="noopener"><img src="http://dataunion.org/wp-content/uploads/2015/02/word_segmentation1.png" alt="word_segmentation"></a>图2. 基于<a href="http://lib.csdn.net/base/deeplearning" target="_blank" rel="noopener">深度学习</a>的中文分词上图是一个基于深度学习的分词示例图。我们从上往下看，首先对每一个字进行Lookup Table，映射到一个固定长度的特征向量(这里可以利用词向量，boundary entropy，accessor variety等)；接着经过一个标准的神经网络，分别是linear，sigmoid，linear层，对于每个字，预测该字属于B,E,I,S的概率；最后输出是一个矩阵，矩阵的行是B,E,I,S 4个tag，利用viterbi<a href="http://lib.csdn.net/base/datastructure" target="_blank" rel="noopener">算法</a>就可以完成标注推断，从而得到分词结果。</li>
 </ul>
 <p>一个文本串除了分词，还需要做词性标注，命名实体识别，新词发现等。通常有两种方案，一种是pipeline approaches，就是先分词，再做词性标注；另一种是joint approaches，就是把这些任务用一个模型来完成。有兴趣可以参考文献[9][62]等。</p>
 <p>一般而言，方法一和方法二在工业界用得比较多，方法三因为采用复杂的模型，虽准确率相对高，但耗时较大。</p>
-<h4 id="2-语言模型"><a href="#2-语言模型" class="headerlink" title="2. 语言模型"></a>2. 语言模型</h4><p>前面在讲“全切分分词”方法时，提到了语言模型，并且通过语言模型，还可以引出词向量，所以这里把语言模型简单阐述一下。</p>
+<h4 id="2-语言模型"><a class="markdownIt-Anchor" href="#2-语言模型"></a> 2. 语言模型</h4>
+<p>前面在讲“全切分分词”方法时，提到了语言模型，并且通过语言模型，还可以引出词向量，所以这里把语言模型简单阐述一下。</p>
 <p>语言模型是用来计算一个句子产生概率的概率模型，即P(w_1,w_2,w_3…w_m)，m表示词的总个数。根据贝叶斯公式：P(w_1,w_2,w_3 … w_m) = P(w_1)P(w_2|w_1)P(w_3|w_1,w_2) … P(w_m|w_1,w_2 … w_{m-1})。</p>
 <p>最简单的语言模型是N-Gram，它利用马尔科夫假设，认为句子中每个单词只与其前n–1个单词有关，即假设产生w_m这个词的条件概率只依赖于前n–1个词，则有P(w_m|w_1,w_2…w_{m-1}) = P(w_m|w_{m-n+1},w_{m-n+2} … w_{m-1})。其中n越大，模型可区别性越强，n越小，模型可靠性越高。</p>
 <p>N-Gram语言模型简单有效，但是它只考虑了词的位置关系，没有考虑词之间的相似度，词语法和词语义，并且还存在数据稀疏的问题，所以后来，又逐渐提出更多的语言模型，例如Class-based ngram model，topic-based ngram model，cache-based ngram model，skipping ngram model，指数语言模型（最大熵模型，条件随机域模型）等。若想了解更多请参考文章[18]。</p>
@@ -232,11 +237,17 @@
 <p><img src="http://dataunion.org/wp-content/uploads/2015/02/lstm_unit.png" alt="lstm_unit"></p>
 <p>图5. LSTM memory cell</p>
 <p>如上图所示，是一个LSTM unit。如果是传统的神经网络unit，output activation bi = activation_function(ai)，但LSTM unit的计算相对就复杂些了，它保存了该神经元上一次计算的结果，通过input gate，output gate，forget gate来计算输出，具体过程请参考文献[53，54]。</p>
-<h4 id="3-Term-Weighting"><a href="#3-Term-Weighting" class="headerlink" title="3. Term Weighting"></a>3. Term Weighting</h4><h5 id="Term重要性"><a href="#Term重要性" class="headerlink" title="Term重要性"></a>Term重要性</h5><p>对文本分词后，接下来需要对分词后的每个term计算一个权重，重要的term应该给与更高的权重。举例来说，“什么产品对减肥帮助最大？”的term weighting结果可能是: “什么 0.1，产品 0.5，对 0.1，减肥 0.8，帮助 0.3，最大 0.2”。Term weighting在文本检索，文本相关性，核心词提取等任务中都有重要作用。</p>
+<h4 id="3-term-weighting"><a class="markdownIt-Anchor" href="#3-term-weighting"></a> 3. Term Weighting</h4>
+<h5 id="term重要性"><a class="markdownIt-Anchor" href="#term重要性"></a> Term重要性</h5>
+<p>对文本分词后，接下来需要对分词后的每个term计算一个权重，重要的term应该给与更高的权重。举例来说，“什么产品对减肥帮助最大？”的term weighting结果可能是: “什么 0.1，产品 0.5，对 0.1，减肥 0.8，帮助 0.3，最大 0.2”。Term weighting在文本检索，文本相关性，核心词提取等任务中都有重要作用。</p>
 <ul>
-<li><p>Term weighting的打分公式一般由三部分组成：local，global和normalization [1,2]。即<br>TermWeight=L_{i,j} G_i N_j。L_{i,j}是term i在document j中的local weight，G_i是term i的global weight，N_j是document j的归一化因子。<br>常见的local，global，normalization weight公式[2]有：<a href="http://dataunion.org/wp-content/uploads/2015/02/local_weight.png" target="_blank" rel="noopener"><img src="http://dataunion.org/wp-content/uploads/2015/02/local_weight.png" alt="local_weight"></a>图6. Local weight formulas<a href="http://dataunion.org/wp-content/uploads/2015/02/global_weight.png" target="_blank" rel="noopener"><img src="http://dataunion.org/wp-content/uploads/2015/02/global_weight.png" alt="global_weight"></a>图7. Global weight formulas<a href="http://dataunion.org/wp-content/uploads/2015/02/normlization_weight.png" target="_blank" rel="noopener"><img src="http://dataunion.org/wp-content/uploads/2015/02/normlization_weight.png" alt="normlization_weight"></a>图8. Normalization factorsTf-Idf是一种最常见的term weighting方法。在上面的公式体系里，Tf-Idf的local weight是FREQ，glocal weight是IDFB，normalization是None。tf是词频，表示这个词出现的次数。df是文档频率，表示这个词在多少个文档中出现。idf则是逆文档频率，idf=log(TD/df)，TD表示总文档数。Tf-Idf在很多场合都很有效，但缺点也比较明显，以“词频”度量重要性，不够全面，譬如在搜索广告的关键词匹配时就不够用。除了TF-IDF外，还有很多其他term weighting方法，例如Okapi，MI，LTU，ATC，TF-ICF[59]等。通过local，global，normalization各种公式的组合，可以生成不同的term weighting计算方法。不过上面这些方法都是无监督计算方法，有一定程度的通用性，但在一些特定场景里显得不够灵活，不够准确，所以可以基于有监督机器学习方法来拟合term weighting结果。<a href="http://dataunion.org/wp-content/uploads/2015/02/okapi.png" target="_blank" rel="noopener"><img src="http://dataunion.org/wp-content/uploads/2015/02/okapi.png" alt="okapi"></a>图9. Okapi计算公式</p>
+<li>
+<p>Term weighting的打分公式一般由三部分组成：local，global和normalization [1,2]。即<br>
+TermWeight=L_{i,j} G_i N_j。L_{i,j}是term i在document j中的local weight，G_i是term i的global weight，N_j是document j的归一化因子。<br>
+常见的local，global，normalization weight公式[2]有：<a href="http://dataunion.org/wp-content/uploads/2015/02/local_weight.png" target="_blank" rel="noopener"><img src="http://dataunion.org/wp-content/uploads/2015/02/local_weight.png" alt="local_weight"></a>图6. Local weight formulas<a href="http://dataunion.org/wp-content/uploads/2015/02/global_weight.png" target="_blank" rel="noopener"><img src="http://dataunion.org/wp-content/uploads/2015/02/global_weight.png" alt="global_weight"></a>图7. Global weight formulas<a href="http://dataunion.org/wp-content/uploads/2015/02/normlization_weight.png" target="_blank" rel="noopener"><img src="http://dataunion.org/wp-content/uploads/2015/02/normlization_weight.png" alt="normlization_weight"></a>图8. Normalization factorsTf-Idf是一种最常见的term weighting方法。在上面的公式体系里，Tf-Idf的local weight是FREQ，glocal weight是IDFB，normalization是None。tf是词频，表示这个词出现的次数。df是文档频率，表示这个词在多少个文档中出现。idf则是逆文档频率，idf=log(TD/df)，TD表示总文档数。Tf-Idf在很多场合都很有效，但缺点也比较明显，以“词频”度量重要性，不够全面，譬如在搜索广告的关键词匹配时就不够用。除了TF-IDF外，还有很多其他term weighting方法，例如Okapi，MI，LTU，ATC，TF-ICF[59]等。通过local，global，normalization各种公式的组合，可以生成不同的term weighting计算方法。不过上面这些方法都是无监督计算方法，有一定程度的通用性，但在一些特定场景里显得不够灵活，不够准确，所以可以基于有监督机器学习方法来拟合term weighting结果。<a href="http://dataunion.org/wp-content/uploads/2015/02/okapi.png" target="_blank" rel="noopener"><img src="http://dataunion.org/wp-content/uploads/2015/02/okapi.png" alt="okapi"></a>图9. Okapi计算公式</p>
 </li>
-<li><p>利用有监督机器学习方法来预测weight。这里类似于机器学习的分类任务，对于文本串的每个term，预测一个[0,1]的得分，得分越大则term重要性越高。既然是有监督学习，那么就需要训练数据。如果采用人工标注的话，极大耗费人力，所以可以采用训练数据自提取的方法，利用程序从搜索日志里自动挖掘。从海量日志数据里提取隐含的用户对于term重要性的标注，得到的训练数据将综合亿级用户的“标注结果”，覆盖面更广，且来自于真实搜索数据，训练结果与标注的目标集分布接近，训练数据更精确。下面列举三种方法(除此外，还有更多可以利用的方法)：</p>
+<li>
+<p>利用有监督机器学习方法来预测weight。这里类似于机器学习的分类任务，对于文本串的每个term，预测一个[0,1]的得分，得分越大则term重要性越高。既然是有监督学习，那么就需要训练数据。如果采用人工标注的话，极大耗费人力，所以可以采用训练数据自提取的方法，利用程序从搜索日志里自动挖掘。从海量日志数据里提取隐含的用户对于term重要性的标注，得到的训练数据将综合亿级用户的“标注结果”，覆盖面更广，且来自于真实搜索数据，训练结果与标注的目标集分布接近，训练数据更精确。下面列举三种方法(除此外，还有更多可以利用的方法)：</p>
 <ul>
 <li>从搜索session数据里提取训练数据，用户在一个检索会话中的检索核心意图是不变的，提取出核心意图所对应的term，其重要性就高。</li>
 <li>从历史短串关系资源库里提取训练数据，短串扩展关系中，一个term出现的次数越多，则越重要。</li>
@@ -250,9 +261,11 @@
 </ul>
 </li>
 </ul>
-<h5 id="核心词、关键词提取"><a href="#核心词、关键词提取" class="headerlink" title="核心词、关键词提取"></a>核心词、关键词提取</h5><ul>
+<h5 id="核心词-关键词提取"><a class="markdownIt-Anchor" href="#核心词-关键词提取"></a> 核心词、关键词提取</h5>
+<ul>
 <li>短文本串的核心词提取。对短文本串分词后，利用上面介绍的term weighting方法，获取term weight后，取一定的阈值，就可以提取出短文本串的核心词。</li>
-<li>长文本串(譬如web page)的关键词提取。这里简单介绍几种方法。想了解更多，请参考文献[69]。<ul>
+<li>长文本串(譬如web page)的关键词提取。这里简单介绍几种方法。想了解更多，请参考文献[69]。
+<ul>
 <li>采用基于规则的方法。考虑到位置特征，网页特征等。</li>
 <li>基于广告主购买的bidword和高频query建立多模式匹配树，在长文本串中进行全字匹配找出候选关键词，再结合关键词weight，以及某些规则找出优质的关键词。</li>
 <li>类似于有监督的term weighting方法，也可以训练关键词weighting的模型。</li>

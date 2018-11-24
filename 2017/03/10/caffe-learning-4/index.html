@@ -15,20 +15,20 @@
     <meta name="keywords" content="">
   
 
-  <meta name="description" content="第四天：准备Caffe环境1.Mac 安装homebrew  安装caffe   下载Caffe源码   修改config #CPU_ONLY :=1前面的#去掉 注： ​    主要是因为我的机器不是N卡    我是黑苹果TnT           A卡 ​    其实还是关了吧，caffe就是入门，用不到GPU加速  编译 make -j   2.Ubuntu 由于本人用的是黑苹果，并没有下载">
+  <meta name="description" content="第四天：准备Caffe环境  1.Mac   安装homebrew   安装caffe    下载Caffe源码    修改config #CPU_ONLY :=1前面的#去掉 注： ​	主要是因为我的机器不是N卡    我是黑苹果TnT           A卡 ​	其实还是关了吧，caffe就是入门，用不到GPU加速   编译 make -j    2.Ubuntu  由于本人用的是黑苹果，">
 <meta name="keywords" content="Caffe">
 <meta property="og:type" content="article">
 <meta property="og:title" content="21天实战Caffe：第四天">
 <meta property="og:url" content="https://blog.idejie.com/2017/03/10/caffe-learning-4/index.html">
 <meta property="og:site_name" content="杨德杰">
-<meta property="og:description" content="第四天：准备Caffe环境1.Mac 安装homebrew  安装caffe   下载Caffe源码   修改config #CPU_ONLY :=1前面的#去掉 注： ​    主要是因为我的机器不是N卡    我是黑苹果TnT           A卡 ​    其实还是关了吧，caffe就是入门，用不到GPU加速  编译 make -j   2.Ubuntu 由于本人用的是黑苹果，并没有下载">
+<meta property="og:description" content="第四天：准备Caffe环境  1.Mac   安装homebrew   安装caffe    下载Caffe源码    修改config #CPU_ONLY :=1前面的#去掉 注： ​	主要是因为我的机器不是N卡    我是黑苹果TnT           A卡 ​	其实还是关了吧，caffe就是入门，用不到GPU加速   编译 make -j    2.Ubuntu  由于本人用的是黑苹果，">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://ww4.sinaimg.cn/large/006tNc79ly1fdi2slop2xj30hv02laaj.jpg">
 <meta property="og:image" content="https://ww1.sinaimg.cn/large/006tNc79ly1fdi2uf32i2j30el020glw.jpg">
 <meta property="og:updated_time" content="2018-11-24T16:32:27.530Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="21天实战Caffe：第四天">
-<meta name="twitter:description" content="第四天：准备Caffe环境1.Mac 安装homebrew  安装caffe   下载Caffe源码   修改config #CPU_ONLY :=1前面的#去掉 注： ​    主要是因为我的机器不是N卡    我是黑苹果TnT           A卡 ​    其实还是关了吧，caffe就是入门，用不到GPU加速  编译 make -j   2.Ubuntu 由于本人用的是黑苹果，并没有下载">
+<meta name="twitter:description" content="第四天：准备Caffe环境  1.Mac   安装homebrew   安装caffe    下载Caffe源码    修改config #CPU_ONLY :=1前面的#去掉 注： ​	主要是因为我的机器不是N卡    我是黑苹果TnT           A卡 ​	其实还是关了吧，caffe就是入门，用不到GPU加速   编译 make -j    2.Ubuntu  由于本人用的是黑苹果，">
 <meta name="twitter:image" content="https://ww4.sinaimg.cn/large/006tNc79ly1fdi2slop2xj30hv02laaj.jpg">
 
   
@@ -140,7 +140,7 @@
 
   <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#第四天：准备Caffe环境"><span class="toc-text">第四天：准备Caffe环境</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Mac"><span class="toc-text">1.Mac</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Ubuntu"><span class="toc-text">2.Ubuntu</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-CentOS、Windows等"><span class="toc-text">3.CentOS、Windows等</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#第四天准备caffe环境"><span class="toc-text"> 第四天：准备Caffe环境</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1mac"><span class="toc-text"> 1.Mac</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2ubuntu"><span class="toc-text"> 2.Ubuntu</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3centos-windows等"><span class="toc-text"> 3.CentOS、Windows等</span></a></li></ol></li></ol>
   </div>
 
 
@@ -191,38 +191,49 @@
 
   <div class="article-content">
     
-      <h1 id="第四天：准备Caffe环境"><a href="#第四天：准备Caffe环境" class="headerlink" title="第四天：准备Caffe环境"></a>第四天：准备Caffe环境</h1><h2 id="1-Mac"><a href="#1-Mac" class="headerlink" title="1.Mac"></a>1.Mac</h2><ul>
-<li><p>安装<code>homebrew</code></p>
+      <h1 id="第四天准备caffe环境"><a class="markdownIt-Anchor" href="#第四天准备caffe环境"></a> 第四天：准备Caffe环境</h1>
+<h2 id="1mac"><a class="markdownIt-Anchor" href="#1mac"></a> 1.Mac</h2>
+<ul>
+<li>
+<p>安装<code>homebrew</code></p>
 </li>
-<li><p>安装<code>caffe</code></p>
+<li>
+<p>安装<code>caffe</code></p>
 <p><img src="https://ww4.sinaimg.cn/large/006tNc79ly1fdi2slop2xj30hv02laaj.jpg" alt=""></p>
 </li>
-<li><p>下载Caffe源码</p>
+<li>
+<p>下载Caffe源码</p>
 <p><img src="https://ww1.sinaimg.cn/large/006tNc79ly1fdi2uf32i2j30el020glw.jpg" alt=""></p>
 </li>
-<li><p>修改config</p>
+<li>
+<p>修改config</p>
 <p><code>#CPU_ONLY :=1</code>前面的<code>#</code>去掉</p>
 <p><em>注：</em></p>
-<p>​    主要是因为我的机器不是N卡    我是黑苹果TnT           A卡</p>
-<p>​    其实还是关了吧，caffe就是入门，用不到GPU加速</p>
+<p>​	主要是因为我的机器不是N卡    我是黑苹果TnT           A卡</p>
+<p>​	其实还是关了吧，caffe就是入门，用不到GPU加速</p>
 </li>
-<li><p>编译</p>
+<li>
+<p>编译</p>
 <p><code>make -j</code></p>
 </li>
 </ul>
-<h2 id="2-Ubuntu"><a href="#2-Ubuntu" class="headerlink" title="2.Ubuntu"></a>2.Ubuntu</h2><blockquote>
+<h2 id="2ubuntu"><a class="markdownIt-Anchor" href="#2ubuntu"></a> 2.Ubuntu</h2>
+<blockquote>
 <p>由于本人用的是黑苹果，并没有下载Xcode这种与我无关 <code>“TnT”</code> 的App</p>
 <p>故选择Ubuntu了</p>
 </blockquote>
 <ul>
-<li><p>apt-get</p>
+<li>
+<p>apt-get</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo apt-get git</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo apt-get install libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libhdf5-serial-dev protobuf-compiler</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo apt-get install -no-install-recommends libboost-all-dev</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo apt-get install libatlas-base-dev</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo apt-get install python-dev</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo apt-get install libflags-dev libgoogle-glog-dev liblmdb-dev</span></span><br></pre></td></tr></table></figure>
 <p>​</p>
 </li>
-<li><p>下载源码、修改config、编译同上</p>
+<li>
+<p>下载源码、修改config、编译同上</p>
 </li>
 </ul>
-<h2 id="3-CentOS、Windows等"><a href="#3-CentOS、Windows等" class="headerlink" title="3.CentOS、Windows等"></a>3.CentOS、Windows等</h2><p>请移步搜索引擎 今天太累了，周五想休息休息，不想写了QwQ</p>
+<h2 id="3centos-windows等"><a class="markdownIt-Anchor" href="#3centos-windows等"></a> 3.CentOS、Windows等</h2>
+<p>请移步搜索引擎 今天太累了，周五想休息休息，不想写了QwQ</p>
 
     
   </div>

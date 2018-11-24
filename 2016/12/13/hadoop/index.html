@@ -15,18 +15,18 @@
     <meta name="keywords" content="">
   
 
-  <meta name="description" content="1.安装brew install hadoop 2.配置 查看安装目录  brew list hadoop  core-site.xml  cd /usr/local/Cellar/hadoop/2.7.3/libexec/etc/hadoopvi core-site.xmlvi hdfs-site.xmlvi mapred-site.xml &amp;lt;?xml version=&quot;1.0&quot; enco">
+  <meta name="description" content="1.安装 brew install hadoop  2.配置  查看安装目录  brew list hadoop  core-site.xml  cd /usr/local/Cellar/hadoop/2.7.3/libexec/etc/hadoopvi core-site.xmlvi hdfs-site.xmlvi mapred-site.xml &amp;lt;?xml version=&quot;1.0&quot;">
 <meta name="keywords" content="Hadoop">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hadoop学习（一）：安装">
 <meta property="og:url" content="https://blog.idejie.com/2016/12/13/hadoop/index.html">
 <meta property="og:site_name" content="杨德杰">
-<meta property="og:description" content="1.安装brew install hadoop 2.配置 查看安装目录  brew list hadoop  core-site.xml  cd /usr/local/Cellar/hadoop/2.7.3/libexec/etc/hadoopvi core-site.xmlvi hdfs-site.xmlvi mapred-site.xml &amp;lt;?xml version=&quot;1.0&quot; enco">
+<meta property="og:description" content="1.安装 brew install hadoop  2.配置  查看安装目录  brew list hadoop  core-site.xml  cd /usr/local/Cellar/hadoop/2.7.3/libexec/etc/hadoopvi core-site.xmlvi hdfs-site.xmlvi mapred-site.xml &amp;lt;?xml version=&quot;1.0&quot;">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2018-11-24T16:32:27.543Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hadoop学习（一）：安装">
-<meta name="twitter:description" content="1.安装brew install hadoop 2.配置 查看安装目录  brew list hadoop  core-site.xml  cd /usr/local/Cellar/hadoop/2.7.3/libexec/etc/hadoopvi core-site.xmlvi hdfs-site.xmlvi mapred-site.xml &amp;lt;?xml version=&quot;1.0&quot; enco">
+<meta name="twitter:description" content="1.安装 brew install hadoop  2.配置  查看安装目录  brew list hadoop  core-site.xml  cd /usr/local/Cellar/hadoop/2.7.3/libexec/etc/hadoopvi core-site.xmlvi hdfs-site.xmlvi mapred-site.xml &amp;lt;?xml version=&quot;1.0&quot;">
 
   
 
@@ -137,7 +137,7 @@
 
   <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-安装"><span class="toc-text">1.安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-配置"><span class="toc-text">2.配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-启动"><span class="toc-text">3.启动</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-查看"><span class="toc-text">4.查看</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-停止"><span class="toc-text">5.停止</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1安装"><span class="toc-text"> 1.安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2配置"><span class="toc-text"> 2.配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3启动"><span class="toc-text"> 3.启动</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4查看"><span class="toc-text"> 4.查看</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5停止"><span class="toc-text"> 5.停止</span></a></li></ol>
   </div>
 
 
@@ -188,8 +188,10 @@
 
   <div class="article-content">
     
-      <h1 id="1-安装"><a href="#1-安装" class="headerlink" title="1.安装"></a>1.安装</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">brew install hadoop</span><br></pre></td></tr></table></figure>
-<h1 id="2-配置"><a href="#2-配置" class="headerlink" title="2.配置"></a>2.配置</h1><ul>
+      <h1 id="1安装"><a class="markdownIt-Anchor" href="#1安装"></a> 1.安装</h1>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">brew install hadoop</span><br></pre></td></tr></table></figure>
+<h1 id="2配置"><a class="markdownIt-Anchor" href="#2配置"></a> 2.配置</h1>
+<ul>
 <li>查看安装目录</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">brew list hadoop</span><br></pre></td></tr></table></figure>
@@ -218,10 +220,13 @@
 <li>format</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hadoop namenode -format</span><br></pre></td></tr></table></figure>
-<h1 id="3-启动"><a href="#3-启动" class="headerlink" title="3.启动"></a>3.启动</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd /usr/local/Cellar/hadoop/2.7.3/sbin</span><br><span class="line">./start-all.sh</span><br></pre></td></tr></table></figure>
-<h1 id="4-查看"><a href="#4-查看" class="headerlink" title="4.查看"></a>4.查看</h1><p><a href="http://localhost:8088/cluster" target="_blank" rel="noopener">http://localhost:8088/cluster</a></p>
+<h1 id="3启动"><a class="markdownIt-Anchor" href="#3启动"></a> 3.启动</h1>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd /usr/local/Cellar/hadoop/2.7.3/sbin</span><br><span class="line">./start-all.sh</span><br></pre></td></tr></table></figure>
+<h1 id="4查看"><a class="markdownIt-Anchor" href="#4查看"></a> 4.查看</h1>
+<p><a href="http://localhost:8088/cluster" target="_blank" rel="noopener">http://localhost:8088/cluster</a></p>
 <p><a href="http://localhost:50070/" target="_blank" rel="noopener">http://localhost:50070/</a></p>
-<h1 id="5-停止"><a href="#5-停止" class="headerlink" title="5.停止"></a>5.停止</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./stop-all.sh</span><br></pre></td></tr></table></figure>
+<h1 id="5停止"><a class="markdownIt-Anchor" href="#5停止"></a> 5.停止</h1>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./stop-all.sh</span><br></pre></td></tr></table></figure>
 
     
   </div>

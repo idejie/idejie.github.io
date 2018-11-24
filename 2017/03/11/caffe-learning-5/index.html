@@ -15,18 +15,18 @@
     <meta name="keywords" content="">
   
 
-  <meta name="description" content="第五天：Caffe依赖包解析1.ProtoBufferprotoBuffer 是Google开发的一种可以实现内存和非易失存储介质交换的协议接口。 caffe大量使用它作为权值和模型参数的载体。 2.BoostCaffe主要是使用它的只能指针，避免共享指针时造成内存泄漏或者多次释放 3.GFlags起到命令行参数解析的作用，与protoBuffer相似，但是输入源不同 4.GLogGooglr开发">
+  <meta name="description" content="第五天：Caffe依赖包解析  1.ProtoBuffer protoBuffer 是Google开发的一种可以实现内存和非易失存储介质交换的协议接口。 caffe大量使用它作为权值和模型参数的载体。  2.Boost Caffe主要是使用它的只能指针，避免共享指针时造成内存泄漏或者多次释放  3.GFlags 起到命令行参数解析的作用，与protoBuffer相似，但是输入源不同  4.GLo">
 <meta name="keywords" content="Caffe">
 <meta property="og:type" content="article">
 <meta property="og:title" content="21天实战Caffe：第五天">
 <meta property="og:url" content="https://blog.idejie.com/2017/03/11/caffe-learning-5/index.html">
 <meta property="og:site_name" content="杨德杰">
-<meta property="og:description" content="第五天：Caffe依赖包解析1.ProtoBufferprotoBuffer 是Google开发的一种可以实现内存和非易失存储介质交换的协议接口。 caffe大量使用它作为权值和模型参数的载体。 2.BoostCaffe主要是使用它的只能指针，避免共享指针时造成内存泄漏或者多次释放 3.GFlags起到命令行参数解析的作用，与protoBuffer相似，但是输入源不同 4.GLogGooglr开发">
+<meta property="og:description" content="第五天：Caffe依赖包解析  1.ProtoBuffer protoBuffer 是Google开发的一种可以实现内存和非易失存储介质交换的协议接口。 caffe大量使用它作为权值和模型参数的载体。  2.Boost Caffe主要是使用它的只能指针，避免共享指针时造成内存泄漏或者多次释放  3.GFlags 起到命令行参数解析的作用，与protoBuffer相似，但是输入源不同  4.GLo">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2018-11-24T16:32:27.538Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="21天实战Caffe：第五天">
-<meta name="twitter:description" content="第五天：Caffe依赖包解析1.ProtoBufferprotoBuffer 是Google开发的一种可以实现内存和非易失存储介质交换的协议接口。 caffe大量使用它作为权值和模型参数的载体。 2.BoostCaffe主要是使用它的只能指针，避免共享指针时造成内存泄漏或者多次释放 3.GFlags起到命令行参数解析的作用，与protoBuffer相似，但是输入源不同 4.GLogGooglr开发">
+<meta name="twitter:description" content="第五天：Caffe依赖包解析  1.ProtoBuffer protoBuffer 是Google开发的一种可以实现内存和非易失存储介质交换的协议接口。 caffe大量使用它作为权值和模型参数的载体。  2.Boost Caffe主要是使用它的只能指针，避免共享指针时造成内存泄漏或者多次释放  3.GFlags 起到命令行参数解析的作用，与protoBuffer相似，但是输入源不同  4.GLo">
 
   
 
@@ -137,7 +137,7 @@
 
   <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#第五天：Caffe依赖包解析"><span class="toc-text">第五天：Caffe依赖包解析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-ProtoBuffer"><span class="toc-text">1.ProtoBuffer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Boost"><span class="toc-text">2.Boost</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-GFlags"><span class="toc-text">3.GFlags</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-GLog"><span class="toc-text">4.GLog</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-BLAS"><span class="toc-text">5.BLAS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-HDF5"><span class="toc-text">6.HDF5</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-OpenCV"><span class="toc-text">7.OpenCV</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-LMDB和LevelDB"><span class="toc-text">8.LMDB和LevelDB</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-Snappy"><span class="toc-text">9.Snappy</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#第五天caffe依赖包解析"><span class="toc-text"> 第五天：Caffe依赖包解析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1protobuffer"><span class="toc-text"> 1.ProtoBuffer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2boost"><span class="toc-text"> 2.Boost</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3gflags"><span class="toc-text"> 3.GFlags</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4glog"><span class="toc-text"> 4.GLog</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5blas"><span class="toc-text"> 5.BLAS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6hdf5"><span class="toc-text"> 6.HDF5</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7opencv"><span class="toc-text"> 7.OpenCV</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8lmdb和leveldb"><span class="toc-text"> 8.LMDB和LevelDB</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9snappy"><span class="toc-text"> 9.Snappy</span></a></li></ol></li></ol>
   </div>
 
 
@@ -188,19 +188,29 @@
 
   <div class="article-content">
     
-      <h1 id="第五天：Caffe依赖包解析"><a href="#第五天：Caffe依赖包解析" class="headerlink" title="第五天：Caffe依赖包解析"></a>第五天：Caffe依赖包解析</h1><h2 id="1-ProtoBuffer"><a href="#1-ProtoBuffer" class="headerlink" title="1.ProtoBuffer"></a>1.ProtoBuffer</h2><p><code>protoBuffer</code> 是Google开发的一种可以实现内存和非易失存储介质交换的协议接口。</p>
+      <h1 id="第五天caffe依赖包解析"><a class="markdownIt-Anchor" href="#第五天caffe依赖包解析"></a> 第五天：Caffe依赖包解析</h1>
+<h2 id="1protobuffer"><a class="markdownIt-Anchor" href="#1protobuffer"></a> 1.ProtoBuffer</h2>
+<p><code>protoBuffer</code> 是Google开发的一种可以实现内存和非易失存储介质交换的协议接口。</p>
 <p>caffe大量使用它作为权值和模型参数的载体。</p>
-<h2 id="2-Boost"><a href="#2-Boost" class="headerlink" title="2.Boost"></a>2.Boost</h2><p>Caffe主要是使用它的只能指针，避免共享指针时造成内存泄漏或者多次释放</p>
-<h2 id="3-GFlags"><a href="#3-GFlags" class="headerlink" title="3.GFlags"></a>3.GFlags</h2><p>起到命令行参数解析的作用，与<code>protoBuffer</code>相似，但是输入源不同</p>
-<h2 id="4-GLog"><a href="#4-GLog" class="headerlink" title="4.GLog"></a>4.GLog</h2><p>Googlr开发的用于记录应用程序日志的使用库，提供基于C++标准输入输出流形式的接口</p>
-<h2 id="5-BLAS"><a href="#5-BLAS" class="headerlink" title="5.BLAS"></a>5.BLAS</h2><p>卷积神经网络中用到数学计算。BLAS。OpenBLAS在Caffe中主要负责CPU端的数值计算</p>
-<h2 id="6-HDF5"><a href="#6-HDF5" class="headerlink" title="6.HDF5"></a>6.HDF5</h2><p>NCSA 为了满足各种科研领域需求而研制的一种高效存储和分发科学数据的新型数据形式。他可以存储不同类型的图像和数码数据的文件，并且可以在不同类型的机器上传输，同时还有统一的文件格式的函数库。</p>
-<h2 id="7-OpenCV"><a href="#7-OpenCV" class="headerlink" title="7.OpenCV"></a>7.OpenCV</h2><p>开源计算机视觉库。</p>
-<h2 id="8-LMDB和LevelDB"><a href="#8-LMDB和LevelDB" class="headerlink" title="8.LMDB和LevelDB"></a>8.LMDB和LevelDB</h2><ul>
+<h2 id="2boost"><a class="markdownIt-Anchor" href="#2boost"></a> 2.Boost</h2>
+<p>Caffe主要是使用它的只能指针，避免共享指针时造成内存泄漏或者多次释放</p>
+<h2 id="3gflags"><a class="markdownIt-Anchor" href="#3gflags"></a> 3.GFlags</h2>
+<p>起到命令行参数解析的作用，与<code>protoBuffer</code>相似，但是输入源不同</p>
+<h2 id="4glog"><a class="markdownIt-Anchor" href="#4glog"></a> 4.GLog</h2>
+<p>Googlr开发的用于记录应用程序日志的使用库，提供基于C++标准输入输出流形式的接口</p>
+<h2 id="5blas"><a class="markdownIt-Anchor" href="#5blas"></a> 5.BLAS</h2>
+<p>卷积神经网络中用到数学计算。BLAS。OpenBLAS在Caffe中主要负责CPU端的数值计算</p>
+<h2 id="6hdf5"><a class="markdownIt-Anchor" href="#6hdf5"></a> 6.HDF5</h2>
+<p>NCSA 为了满足各种科研领域需求而研制的一种高效存储和分发科学数据的新型数据形式。他可以存储不同类型的图像和数码数据的文件，并且可以在不同类型的机器上传输，同时还有统一的文件格式的函数库。</p>
+<h2 id="7opencv"><a class="markdownIt-Anchor" href="#7opencv"></a> 7.OpenCV</h2>
+<p>开源计算机视觉库。</p>
+<h2 id="8lmdb和leveldb"><a class="markdownIt-Anchor" href="#8lmdb和leveldb"></a> 8.LMDB和LevelDB</h2>
+<ul>
 <li>LMDB—— 闪电般的内存映射型数据管理器，在 Caffe 的作用主要是提供数据管理，将形形色色的原始数据转换成统一的 Key-Value存储。</li>
 <li>LevelDB 是 Caffe 早期版本使用的数据存储方式，由 Google 开发。他是一种持续的键值对存储方式</li>
 </ul>
-<h2 id="9-Snappy"><a href="#9-Snappy" class="headerlink" title="9.Snappy"></a>9.Snappy</h2><p>Snappy 是一个用来压缩和解压缩的 C++库</p>
+<h2 id="9snappy"><a class="markdownIt-Anchor" href="#9snappy"></a> 9.Snappy</h2>
+<p>Snappy 是一个用来压缩和解压缩的 C++库</p>
 
     
   </div>

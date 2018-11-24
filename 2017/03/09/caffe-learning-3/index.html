@@ -15,18 +15,18 @@
     <meta name="keywords" content="">
   
 
-  <meta name="description" content="第三天：深度学习工具汇总1.Caffe 实现了前馈卷积神经网络架构 速度快，因为用了MKL，openBLAS、cuBLAS，支持GPU加速 特别适合做特征提取，实际上适合做二维图像数据的特征提取 caffe完全开源  2.Torch &amp;amp; Overfeat 支持嵌入式设备：Android、iOS、FPGA 内置8个包：torch、lab&amp;amp;plot、qt、nn、image、optim、">
+  <meta name="description" content="第三天：深度学习工具汇总  1.Caffe  实现了前馈卷积神经网络架构 速度快，因为用了MKL，openBLAS、cuBLAS，支持GPU加速 特别适合做特征提取，实际上适合做二维图像数据的特征提取 caffe完全开源   2.Torch &amp;amp; Overfeat  支持嵌入式设备：Android、iOS、FPGA 内置8个包：torch、lab&amp;amp;plot、qt、nn、image、">
 <meta name="keywords" content="Caffe">
 <meta property="og:type" content="article">
 <meta property="og:title" content="21天实战Caffe：第三天">
 <meta property="og:url" content="https://blog.idejie.com/2017/03/09/caffe-learning-3/index.html">
 <meta property="og:site_name" content="杨德杰">
-<meta property="og:description" content="第三天：深度学习工具汇总1.Caffe 实现了前馈卷积神经网络架构 速度快，因为用了MKL，openBLAS、cuBLAS，支持GPU加速 特别适合做特征提取，实际上适合做二维图像数据的特征提取 caffe完全开源  2.Torch &amp;amp; Overfeat 支持嵌入式设备：Android、iOS、FPGA 内置8个包：torch、lab&amp;amp;plot、qt、nn、image、optim、">
+<meta property="og:description" content="第三天：深度学习工具汇总  1.Caffe  实现了前馈卷积神经网络架构 速度快，因为用了MKL，openBLAS、cuBLAS，支持GPU加速 特别适合做特征提取，实际上适合做二维图像数据的特征提取 caffe完全开源   2.Torch &amp;amp; Overfeat  支持嵌入式设备：Android、iOS、FPGA 内置8个包：torch、lab&amp;amp;plot、qt、nn、image、">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2018-11-24T16:32:27.530Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="21天实战Caffe：第三天">
-<meta name="twitter:description" content="第三天：深度学习工具汇总1.Caffe 实现了前馈卷积神经网络架构 速度快，因为用了MKL，openBLAS、cuBLAS，支持GPU加速 特别适合做特征提取，实际上适合做二维图像数据的特征提取 caffe完全开源  2.Torch &amp;amp; Overfeat 支持嵌入式设备：Android、iOS、FPGA 内置8个包：torch、lab&amp;amp;plot、qt、nn、image、optim、">
+<meta name="twitter:description" content="第三天：深度学习工具汇总  1.Caffe  实现了前馈卷积神经网络架构 速度快，因为用了MKL，openBLAS、cuBLAS，支持GPU加速 特别适合做特征提取，实际上适合做二维图像数据的特征提取 caffe完全开源   2.Torch &amp;amp; Overfeat  支持嵌入式设备：Android、iOS、FPGA 内置8个包：torch、lab&amp;amp;plot、qt、nn、image、">
 
   
 
@@ -137,7 +137,7 @@
 
   <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#第三天：深度学习工具汇总"><span class="toc-text">第三天：深度学习工具汇总</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Caffe"><span class="toc-text">1.Caffe</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Torch-amp-Overfeat"><span class="toc-text">2.Torch &amp; Overfeat</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-MxNet"><span class="toc-text">3.MxNet</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-TensorFlow"><span class="toc-text">4.TensorFlow</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Theano"><span class="toc-text">5.Theano</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-CNTK"><span class="toc-text">6.CNTK</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#第三天深度学习工具汇总"><span class="toc-text"> 第三天：深度学习工具汇总</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1caffe"><span class="toc-text"> 1.Caffe</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2torch-overfeat"><span class="toc-text"> 2.Torch &amp; Overfeat</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3mxnet"><span class="toc-text"> 3.MxNet</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4tensorflow"><span class="toc-text"> 4.TensorFlow</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5theano"><span class="toc-text"> 5.Theano</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6cntk"><span class="toc-text"> 6.CNTK</span></a></li></ol></li></ol>
   </div>
 
 
@@ -188,26 +188,33 @@
 
   <div class="article-content">
     
-      <h1 id="第三天：深度学习工具汇总"><a href="#第三天：深度学习工具汇总" class="headerlink" title="第三天：深度学习工具汇总"></a>第三天：深度学习工具汇总</h1><h2 id="1-Caffe"><a href="#1-Caffe" class="headerlink" title="1.Caffe"></a>1.Caffe</h2><ul>
+      <h1 id="第三天深度学习工具汇总"><a class="markdownIt-Anchor" href="#第三天深度学习工具汇总"></a> 第三天：深度学习工具汇总</h1>
+<h2 id="1caffe"><a class="markdownIt-Anchor" href="#1caffe"></a> 1.Caffe</h2>
+<ul>
 <li>实现了前馈卷积神经网络架构</li>
 <li>速度快，因为用了MKL，openBLAS、cuBLAS，支持GPU加速</li>
 <li>特别适合做特征提取，实际上适合做二维图像数据的特征提取</li>
 <li>caffe完全开源</li>
 </ul>
-<h2 id="2-Torch-amp-Overfeat"><a href="#2-Torch-amp-Overfeat" class="headerlink" title="2.Torch &amp; Overfeat"></a>2.Torch &amp; Overfeat</h2><ul>
+<h2 id="2torch-overfeat"><a class="markdownIt-Anchor" href="#2torch-overfeat"></a> 2.Torch &amp; Overfeat</h2>
+<ul>
 <li>支持嵌入式设备：Android、iOS、FPGA</li>
 <li>内置8个包：torch、lab&amp;plot、qt、nn、image、optim、unsup、third-party</li>
 <li>overfea是在imageNet数据集中使用Torch7训练的特征提取器</li>
 </ul>
-<h2 id="3-MxNet"><a href="#3-MxNet" class="headerlink" title="3.MxNet"></a>3.MxNet</h2><ul>
+<h2 id="3mxnet"><a class="markdownIt-Anchor" href="#3mxnet"></a> 3.MxNet</h2>
+<ul>
 <li>N维数组接口</li>
 <li>符合接口</li>
 </ul>
-<h2 id="4-TensorFlow"><a href="#4-TensorFlow" class="headerlink" title="4.TensorFlow"></a>4.TensorFlow</h2><ul>
+<h2 id="4tensorflow"><a class="markdownIt-Anchor" href="#4tensorflow"></a> 4.TensorFlow</h2>
+<ul>
 <li>大规模机器学习框架、移植性好、支持多种深度学习模型</li>
 </ul>
-<h2 id="5-Theano"><a href="#5-Theano" class="headerlink" title="5.Theano"></a>5.Theano</h2><p>基于Python的一款</p>
-<h2 id="6-CNTK"><a href="#6-CNTK" class="headerlink" title="6.CNTK"></a>6.CNTK</h2><p>微软旗下的，单机4GPU性能强</p>
+<h2 id="5theano"><a class="markdownIt-Anchor" href="#5theano"></a> 5.Theano</h2>
+<p>基于Python的一款</p>
+<h2 id="6cntk"><a class="markdownIt-Anchor" href="#6cntk"></a> 6.CNTK</h2>
+<p>微软旗下的，单机4GPU性能强</p>
 
     
   </div>
