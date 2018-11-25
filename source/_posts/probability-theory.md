@@ -59,7 +59,7 @@ category: 概率论
 - 交、互不相容
 - 差
 - 德摩根定理，对偶定理
-  - $\overline{A \cap B} = \overline{A}\cup \overline{B}  $
+  - $\overline{A \cap B} = \overline{A}\cup \overline{B}$
   - $\overline{A \cup B} = \overline{A}\cap \overline{B}$
 - 交换律、结合律、分配律
 
