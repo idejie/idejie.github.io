@@ -162,12 +162,6 @@ about:
   - type: me
     icon: icon-user
     text_value: "I'm Dejie."
-  - type: dream
-    icon: icon-rss
-    text_value: "To be a better me."
-  - type: jineng
-    icon: icon-tag
-    text_value: "Give me 21 days , and I'll prove me."
   - type: Github
     icon: icon-github
     text_key: Github
