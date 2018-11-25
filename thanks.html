@@ -1,33 +1,34 @@
 <!DOCTYPE html>
 
 
-  <html class="light page-post">
+  <html class="light page-page">
 
 
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   <meta name="google-site-verification" content="rEUG6A2SLvgx5-OW-Q2fuuC4q9qNnwo62YXM9KhQlPg">
   
-  <title>Mac下快速安装MySQL | idejie</title>
+  <title>idejie</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="">
+    <meta name="keywords" content="idejie,idejie.com,前端,后端,设计,安卓，IOS，Linux，Hexo主题,前端开发,用户体验,设计,frontend,design,nodejs,JavaScript">
   
 
-  <meta name="description" content="在 Mac 下用 Homebrew 安装 MySQL, 网上的教程倒是很多，不过大多数都很默契地雷同。如果稍有点定制要求，就无从下手了。 我先也不免俗，从基本的开始：  一、首先安装 Homebrew $ ruby -e &amp;quot;$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)&amp;quot;$ brew install git$ brew">
-<meta name="keywords" content="MySQL">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Mac下快速安装MySQL">
-<meta property="og:url" content="https://blog.idejie.com/2016/11/16/mac-mysql/index.html">
+  <meta name="description" content="赞赏 | idejie                                                                              var _hmt = _hmt || [];     (function() {       var hm = document.createElement(&quot;script&quot;);">
+<meta property="og:type" content="website">
+<meta property="og:title" content="idejie">
+<meta property="og:url" content="https://blog.idejie.com/thanks.html">
 <meta property="og:site_name" content="idejie">
-<meta property="og:description" content="在 Mac 下用 Homebrew 安装 MySQL, 网上的教程倒是很多，不过大多数都很默契地雷同。如果稍有点定制要求，就无从下手了。 我先也不免俗，从基本的开始：  一、首先安装 Homebrew $ ruby -e &amp;quot;$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)&amp;quot;$ brew install git$ brew">
+<meta property="og:description" content="赞赏 | idejie                                                                              var _hmt = _hmt || [];     (function() {       var hm = document.createElement(&quot;script&quot;);">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-24T16:32:27.544Z">
+<meta property="og:image" content="https://avatars0.githubusercontent.com/u/12479824">
+<meta property="og:updated_time" content="2018-11-25T06:43:44.976Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mac下快速安装MySQL">
-<meta name="twitter:description" content="在 Mac 下用 Homebrew 安装 MySQL, 网上的教程倒是很多，不过大多数都很默契地雷同。如果稍有点定制要求，就无从下手了。 我先也不免俗，从基本的开始：  一、首先安装 Homebrew $ ruby -e &amp;quot;$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)&amp;quot;$ brew install git$ brew">
+<meta name="twitter:title" content="idejie">
+<meta name="twitter:description" content="赞赏 | idejie                                                                              var _hmt = _hmt || [];     (function() {       var hm = document.createElement(&quot;script&quot;);">
+<meta name="twitter:image" content="https://avatars0.githubusercontent.com/u/12479824">
 
   
 
@@ -148,20 +149,22 @@
 
   <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-首先安装-homebrew"><span class="toc-text"> 一、首先安装 Homebrew</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-安装-mysql"><span class="toc-text"> 二、安装 MySQL</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-配置文件"><span class="toc-text"> 三、配置文件</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-text">
+        I ，Dejie
+      </span></a></li></ol>
   </div>
 
 
 
 <div class="content content-post CENTER">
-   <article id="post-mac-mysql" class="article article-type-post" itemprop="blogPost">
+   <article id="page-undefined" class="article article-type-page" itemprop="blogPost">
   <header class="article-header">
-    <h1 class="post-title">Mac下快速安装MySQL</h1>
+    <h1 class="post-title">(no title)</h1>
 
     <div class="article-meta">
       <span>
         <i class="icon-calendar"></i>
-        <span>2016.11.16</span>
+        <span>2018.11.25</span>
       </span>
 
       
@@ -172,11 +175,6 @@
       
 
       
-  <span class="article-category">
-    <i class="icon-list"></i>
-    <a class="article-category-link" href="/categories/教程/">教程</a>
-  </span>
-
 
 
       
@@ -196,38 +194,258 @@
 
   <div class="article-content">
     
-      <p>在 Mac 下用 Homebrew 安装 MySQL, 网上的教程倒是很多，不过大多数都很默契地雷同。如果稍有点定制要求，就无从下手了。</p>
-<p>我先也不免俗，从基本的开始：</p>
-<h1 id="一-首先安装-homebrew"><a class="markdownIt-Anchor" href="#一-首先安装-homebrew"></a> 一、首先安装 Homebrew</h1>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ ruby -e &quot;$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)&quot;</span><br><span class="line">$ brew install git</span><br><span class="line">$ brew update</span><br></pre></td></tr></table></figure>
-<h1 id="二-安装-mysql"><a class="markdownIt-Anchor" href="#二-安装-mysql"></a> 二、安装 MySQL</h1>
-<p>用下面的命令就可以自动安装了：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ brew install mysql</span><br></pre></td></tr></table></figure>
-<p>如果想让 MySQL 开机自动启动，可以如下操作：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ mkdir -p ~/Library/LaunchAgents</span><br><span class="line">$ ln -sfv /usr/local/opt/mysql/*.plist ~/Library/LaunchAgents</span><br><span class="line">$ find /usr/local/Cellar/mysql/ -name &quot;homebrew.mxcl.mysql.plist&quot; -exec cp &#123;&#125; ~/Library/LaunchAgents/ \;</span><br><span class="line">$ launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist</span><br></pre></td></tr></table></figure>
-<p>设置 MySQL 用户以及数据存放地址</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ unset TMPDIR$ mysql_install_db --verbose --user=`whoami` --basedir=&quot;$(brew --prefix mysql)&quot; --datadir=/usr/local/var/mysql --tmpdir=/tmp</span><br></pre></td></tr></table></figure>
-<p>好了，可以启动了</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ mysql.server start</span><br></pre></td></tr></table></figure>
-<p>另外的参数还有 <code>{start|stop|restart|reload|force-reload|status}</code></p>
-<p>大部分的介绍就在此结束了。</p>
-<h1 id="三-配置文件"><a class="markdownIt-Anchor" href="#三-配置文件"></a> 三、配置文件</h1>
-<p>作为用惯了 Linux 的人， 一定会去 <code>/etc</code> 下找 <code>my.cnf</code>, 让你失望了，这个文件要自己建立。如果看一下帮助</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ mysqld --help --verbose</span><br></pre></td></tr></table></figure>
-<p>就会发现系统会按这个顺序去找 my.cnf</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1. /etc/my.cnf</span><br><span class="line">2. /etc/mysql/my.cnf</span><br><span class="line">3. /usr/local/etc/my.cnf</span><br><span class="line">4. ~/.my.cnf</span><br></pre></td></tr></table></figure>
-<p>一般网上大虾都会这么教小白建立 <code>my.cnf</code>, 其实这个默认的文件里面几乎没什么内容。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ sudo cp $(brew --prefix mysql)/support-files/my-default.cnf /etc/my.cnf</span><br></pre></td></tr></table></figure>
-<p>所以，还是自己老老实实参考 linux 下的配置文件吧。</p>
-<p>##错误日志</p>
-<p>错误日志默认会存在数据目录下，也就是上面所定义的 <code>/usr/local/var/mysql/</code>，如果 Mac 电脑名字是 MacBook，那日志的全路径就是 <code>/usr/local/var/mysql/MacBook.local.err</code></p>
-<p>##让别的电脑访问数据库</p>
-<p>取消下面两个文件中关于绑定 127.0.0.1 的语句<br>
-/etc/my.cnf</p>
-<p><code>bind-address = 127.0.0.1</code></p>
-<p>~/Library/LaunchAgents/homebrew.mxcl.mysql.plist</p>
-<p><code>--bind-address=127.0.0.1</code></p>
-<p>就我个人而言，不需要 MySQL 自启动，所以只要在 <code>/etc/my.cnf</code> 改一下就好了。</p>
+      <!DOCTYPE html>
+
+
+  <html class="light page-404">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>赞赏 | idejie</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="idejie,idejie.com,AI,前端,后端,设计,安卓，IOS，Linux，Hexo主题,前端开发,用户体验,设计,frontend,design,nodejs,JavaScript">
+  
+
+  <meta name="description" content="idejie">
+<meta property="og:type" content="website">
+<meta property="og:title" content="404">
+<meta property="og:url" content="http://blog.idejie.com/404/index.html">
+<meta property="og:site_name" content="idejie">
+<meta property="og:description" content="idejie">
+<meta property="og:updated_time" content="2016-10-24T10:33:29.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="404">
+<meta name="twitter:description" content="idejie">
+
+  
+
+  
+    <link rel="icon" href="https://avatars0.githubusercontent.com/u/12479824">
+  
+
+  <link href="/css/styles.css?v=028c63b1" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/styles.css">
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">菜单</span>
+  
+
+  <div class="content content-about">
+  <div class="page-header">
+
+  
+    <div class="breadcrumb">
+      <div class="location">赞赏</div>
+      <i class="icon-location"></i>
+    </div>
+  
+
+  
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">菜单</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/archives/" target="_self">
+            目录
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/category/" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/tag/" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/project/" target="_self">
+            项目
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/link/" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/about/" target="_self">
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/search/" target="_self">
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+
+  <div class="box-blog-info">
+    <a class="avatar" href="/">
+      <img src="https://avatars0.githubusercontent.com/u/12479824" alt="">
+    </a>
+    <div class="info">
+      <h3 class="name" style="font-family: calligraffittiregular">
+        I ，Dejie
+      </h3>
+      <div class="slogan">
+        这世界太吵      多听听自己
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+  <ul class="about-list">
+    找不到网页
+  </ul>
+
+</div>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/archives/" target="_self">
+              目录
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/category/" target="_self">
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/tag/" target="_self">
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/project/" target="_self">
+              项目
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/link/" target="_self">
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/about/" target="_self">
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/search/" target="_self">
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>
 
     
   </div>
@@ -265,10 +483,10 @@
 
    
   <div class="box-prev-next clearfix">
-    <a class="show pull-left" href="/2016/11/18/review-jsxw/">
+    <a class="hide pull-left" href="/">
         <i class="icon icon-angle-left"></i>
     </a>
-    <a class="show pull-right" href="/2016/11/11/diy-hbase/">
+    <a class="hide pull-right" href="/">
         <i class="icon icon-angle-right"></i>
     </a>
   </div>
@@ -347,7 +565,7 @@
 
 
   
-      <div class="fexo-comments comments-post">
+      <div class="fexo-comments comments-page">
     
 
     
