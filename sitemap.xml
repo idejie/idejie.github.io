@@ -4,7 +4,7 @@
   <url>
     <loc>https://blog.idejie.com/404.html</loc>
     
-    <lastmod>2018-11-25T06:36:09.844Z</lastmod>
+    <lastmod>2018-11-25T06:38:02.193Z</lastmod>
     
   </url>
   
@@ -44,14 +44,14 @@
   </url>
   
   <url>
-    <loc>https://blog.idejie.com/tag/index.html</loc>
+    <loc>https://blog.idejie.com/search/index.html</loc>
     
     <lastmod>2018-11-24T16:32:27.597Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.idejie.com/search/index.html</loc>
+    <loc>https://blog.idejie.com/tag/index.html</loc>
     
     <lastmod>2018-11-24T16:32:27.597Z</lastmod>
     
@@ -72,7 +72,7 @@
   </url>
   
   <url>
-    <loc>https://blog.idejie.com/private/love-not-lovely.html</loc>
+    <loc>https://blog.idejie.com/private/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95.html</loc>
     
     <lastmod>2018-11-24T16:32:27.596Z</lastmod>
     
@@ -86,21 +86,21 @@
   </url>
   
   <url>
-    <loc>https://blog.idejie.com/private/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95.html</loc>
+    <loc>https://blog.idejie.com/private/love-not-lovely.html</loc>
     
     <lastmod>2018-11-24T16:32:27.596Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.idejie.com/private/hmi.html</loc>
+    <loc>https://blog.idejie.com/private/exam-jsxw-2016.html</loc>
     
     <lastmod>2018-11-24T16:32:27.595Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.idejie.com/private/exam-jsxw-2016.html</loc>
+    <loc>https://blog.idejie.com/private/hmi.html</loc>
     
     <lastmod>2018-11-24T16:32:27.595Z</lastmod>
     
@@ -114,7 +114,7 @@
   </url>
   
   <url>
-    <loc>https://blog.idejie.com/about/index.html</loc>
+    <loc>https://blog.idejie.com/category/index.html</loc>
     
     <lastmod>2018-11-24T16:32:27.563Z</lastmod>
     
@@ -128,16 +128,9 @@
   </url>
   
   <url>
-    <loc>https://blog.idejie.com/category/index.html</loc>
+    <loc>https://blog.idejie.com/about/index.html</loc>
     
     <lastmod>2018-11-24T16:32:27.563Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.idejie.com/2017/07/15/word-embedding/</loc>
-    
-    <lastmod>2018-11-24T16:32:27.562Z</lastmod>
     
   </url>
   
@@ -163,28 +156,14 @@
   </url>
   
   <url>
+    <loc>https://blog.idejie.com/2017/07/15/word-embedding/</loc>
+    
+    <lastmod>2018-11-24T16:32:27.562Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.idejie.com/2017/06/05/summer-summary/</loc>
-    
-    <lastmod>2018-11-24T16:32:27.561Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.idejie.com/2017/03/25/svd/</loc>
-    
-    <lastmod>2018-11-24T16:32:27.561Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.idejie.com/2017/06/14/threejs/</loc>
-    
-    <lastmod>2018-11-24T16:32:27.561Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.idejie.com/2016/12/05/sublime-text-3/</loc>
     
     <lastmod>2018-11-24T16:32:27.561Z</lastmod>
     
@@ -198,14 +177,28 @@
   </url>
   
   <url>
-    <loc>https://blog.idejie.com/2017/02/21/software-testing-0/</loc>
+    <loc>https://blog.idejie.com/2016/12/05/sublime-text-3/</loc>
     
-    <lastmod>2018-11-24T16:32:27.560Z</lastmod>
+    <lastmod>2018-11-24T16:32:27.561Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.idejie.com/2017/06/14/software-testing/</loc>
+    <loc>https://blog.idejie.com/2017/06/14/threejs/</loc>
+    
+    <lastmod>2018-11-24T16:32:27.561Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.idejie.com/2017/03/25/svd/</loc>
+    
+    <lastmod>2018-11-24T16:32:27.561Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.idejie.com/2017/02/21/software-testing-0/</loc>
     
     <lastmod>2018-11-24T16:32:27.560Z</lastmod>
     
@@ -219,21 +212,21 @@
   </url>
   
   <url>
-    <loc>https://blog.idejie.com/2016/12/09/se-review-0/</loc>
+    <loc>https://blog.idejie.com/2017/06/14/software-testing/</loc>
     
-    <lastmod>2018-11-24T16:32:27.559Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.idejie.com/2016/06/21/review-oo-model/</loc>
-    
-    <lastmod>2018-11-24T16:32:27.559Z</lastmod>
+    <lastmod>2018-11-24T16:32:27.560Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://blog.idejie.com/2016/06/22/review-oo-zexam2015-2016/</loc>
+    
+    <lastmod>2018-11-24T16:32:27.559Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.idejie.com/2016/12/09/se-review-0/</loc>
     
     <lastmod>2018-11-24T16:32:27.559Z</lastmod>
     
@@ -247,9 +240,9 @@
   </url>
   
   <url>
-    <loc>https://blog.idejie.com/2016/06/04/review-oo-2/</loc>
+    <loc>https://blog.idejie.com/2016/06/21/review-oo-model/</loc>
     
-    <lastmod>2018-11-24T16:32:27.558Z</lastmod>
+    <lastmod>2018-11-24T16:32:27.559Z</lastmod>
     
   </url>
   
@@ -268,7 +261,14 @@
   </url>
   
   <url>
-    <loc>https://blog.idejie.com/2016/11/18/review-jsxw/</loc>
+    <loc>https://blog.idejie.com/2016/06/04/review-oo-2/</loc>
+    
+    <lastmod>2018-11-24T16:32:27.558Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.idejie.com/2016/06/03/review-oo-1/</loc>
     
     <lastmod>2018-11-24T16:32:27.557Z</lastmod>
     
@@ -282,7 +282,7 @@
   </url>
   
   <url>
-    <loc>https://blog.idejie.com/2016/06/03/review-oo-1/</loc>
+    <loc>https://blog.idejie.com/2016/11/18/review-jsxw/</loc>
     
     <lastmod>2018-11-24T16:32:27.557Z</lastmod>
     
@@ -303,13 +303,6 @@
   </url>
   
   <url>
-    <loc>https://blog.idejie.com/2016/12/05/react-native-preview/</loc>
-    
-    <lastmod>2018-11-24T16:32:27.556Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.idejie.com/2016/12/05/react-native-learn-1/</loc>
     
     <lastmod>2018-11-24T16:32:27.556Z</lastmod>
@@ -324,9 +317,9 @@
   </url>
   
   <url>
-    <loc>https://blog.idejie.com/2017/06/04/python3-module/</loc>
+    <loc>https://blog.idejie.com/2016/12/05/react-native-preview/</loc>
     
-    <lastmod>2018-11-24T16:32:27.555Z</lastmod>
+    <lastmod>2018-11-24T16:32:27.556Z</lastmod>
     
   </url>
   
@@ -338,16 +331,16 @@
   </url>
   
   <url>
-    <loc>https://blog.idejie.com/2017/04/30/python3-basic/</loc>
+    <loc>https://blog.idejie.com/2017/06/04/python3-module/</loc>
     
-    <lastmod>2018-11-24T16:32:27.554Z</lastmod>
+    <lastmod>2018-11-24T16:32:27.555Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.idejie.com/2017/06/11/python-sdu-ele/</loc>
+    <loc>https://blog.idejie.com/2017/04/30/python3-basic/</loc>
     
-    <lastmod>2018-11-24T16:32:27.553Z</lastmod>
+    <lastmod>2018-11-24T16:32:27.554Z</lastmod>
     
   </url>
   
@@ -366,6 +359,13 @@
   </url>
   
   <url>
+    <loc>https://blog.idejie.com/2017/06/11/python-sdu-ele/</loc>
+    
+    <lastmod>2018-11-24T16:32:27.553Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.idejie.com/2016/12/10/preview-2017/</loc>
     
     <lastmod>2018-11-24T16:32:27.553Z</lastmod>
@@ -373,14 +373,14 @@
   </url>
   
   <url>
-    <loc>https://blog.idejie.com/2016/06/24/os-review-2/</loc>
+    <loc>https://blog.idejie.com/2016/06/25/os-review-3/</loc>
     
     <lastmod>2018-11-24T16:32:27.552Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.idejie.com/2016/06/25/os-review-3/</loc>
+    <loc>https://blog.idejie.com/2016/06/24/os-review-2/</loc>
     
     <lastmod>2018-11-24T16:32:27.552Z</lastmod>
     
@@ -450,14 +450,14 @@
   </url>
   
   <url>
-    <loc>https://blog.idejie.com/private/nlp-chinese-4.html</loc>
+    <loc>https://blog.idejie.com/private/nlp-chinese-5.html</loc>
     
     <lastmod>2018-11-24T16:32:27.549Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.idejie.com/private/nlp-chinese-5.html</loc>
+    <loc>https://blog.idejie.com/private/nlp-chinese-4.html</loc>
     
     <lastmod>2018-11-24T16:32:27.549Z</lastmod>
     
@@ -478,7 +478,14 @@
   </url>
   
   <url>
-    <loc>https://blog.idejie.com/2017/06/11/my-college/</loc>
+    <loc>https://blog.idejie.com/2016/12/25/music/</loc>
+    
+    <lastmod>2018-11-24T16:32:27.547Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.idejie.com/2017/01/27/mfc/</loc>
     
     <lastmod>2018-11-24T16:32:27.547Z</lastmod>
     
@@ -499,14 +506,7 @@
   </url>
   
   <url>
-    <loc>https://blog.idejie.com/2016/12/25/music/</loc>
-    
-    <lastmod>2018-11-24T16:32:27.547Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.idejie.com/2017/01/27/mfc/</loc>
+    <loc>https://blog.idejie.com/2017/06/11/my-college/</loc>
     
     <lastmod>2018-11-24T16:32:27.547Z</lastmod>
     
@@ -527,6 +527,20 @@
   </url>
   
   <url>
+    <loc>https://blog.idejie.com/2017/04/21/java-interview/</loc>
+    
+    <lastmod>2018-11-24T16:32:27.544Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.idejie.com/2016/12/18/idea/</loc>
+    
+    <lastmod>2018-11-24T16:32:27.544Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.idejie.com/2016/11/16/mac-mysql/</loc>
     
     <lastmod>2018-11-24T16:32:27.544Z</lastmod>
@@ -541,35 +555,7 @@
   </url>
   
   <url>
-    <loc>https://blog.idejie.com/2016/12/18/idea/</loc>
-    
-    <lastmod>2018-11-24T16:32:27.544Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.idejie.com/2017/04/21/java-interview/</loc>
-    
-    <lastmod>2018-11-24T16:32:27.544Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.idejie.com/2016/09/13/hexo-blog/</loc>
-    
-    <lastmod>2018-11-24T16:32:27.543Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.idejie.com/2016/05/20/hello-hexo/</loc>
-    
-    <lastmod>2018-11-24T16:32:27.543Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.idejie.com/2016/12/13/hadoop/</loc>
     
     <lastmod>2018-11-24T16:32:27.543Z</lastmod>
     
@@ -597,16 +583,16 @@
   </url>
   
   <url>
-    <loc>https://blog.idejie.com/2016/12/09/git-flow/</loc>
+    <loc>https://blog.idejie.com/2016/12/13/hadoop/</loc>
     
-    <lastmod>2018-11-24T16:32:27.542Z</lastmod>
+    <lastmod>2018-11-24T16:32:27.543Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.idejie.com/2016/12/09/git-note/</loc>
+    <loc>https://blog.idejie.com/2016/09/13/hexo-blog/</loc>
     
-    <lastmod>2018-11-24T16:32:27.542Z</lastmod>
+    <lastmod>2018-11-24T16:32:27.543Z</lastmod>
     
   </url>
   
@@ -625,14 +611,28 @@
   </url>
   
   <url>
-    <loc>https://blog.idejie.com/2016/10/21/express-blog-2/</loc>
+    <loc>https://blog.idejie.com/2016/12/09/git-flow/</loc>
+    
+    <lastmod>2018-11-24T16:32:27.542Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.idejie.com/2016/12/09/git-note/</loc>
+    
+    <lastmod>2018-11-24T16:32:27.542Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.idejie.com/2016/10/21/express-blog-3/</loc>
     
     <lastmod>2018-11-24T16:32:27.541Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.idejie.com/2016/10/21/express-blog-3/</loc>
+    <loc>https://blog.idejie.com/2016/10/21/express-blog-2/</loc>
     
     <lastmod>2018-11-24T16:32:27.541Z</lastmod>
     
@@ -660,7 +660,14 @@
   </url>
   
   <url>
-    <loc>https://blog.idejie.com/2018/01/16/data-science-1/</loc>
+    <loc>https://blog.idejie.com/2016/12/27/data-science/</loc>
+    
+    <lastmod>2018-11-24T16:32:27.539Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.idejie.com/2018/01/23/colab/</loc>
     
     <lastmod>2018-11-24T16:32:27.539Z</lastmod>
     
@@ -681,13 +688,6 @@
   </url>
   
   <url>
-    <loc>https://blog.idejie.com/2016/12/27/data-science/</loc>
-    
-    <lastmod>2018-11-24T16:32:27.539Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.idejie.com/2017/03/14/caffe-learning-7/</loc>
     
     <lastmod>2018-11-24T16:32:27.539Z</lastmod>
@@ -695,7 +695,7 @@
   </url>
   
   <url>
-    <loc>https://blog.idejie.com/2018/01/23/colab/</loc>
+    <loc>https://blog.idejie.com/2018/01/16/data-science-1/</loc>
     
     <lastmod>2018-11-24T16:32:27.539Z</lastmod>
     
@@ -709,21 +709,7 @@
   </url>
   
   <url>
-    <loc>https://blog.idejie.com/2017/03/10/caffe-learning-4/</loc>
-    
-    <lastmod>2018-11-24T16:32:27.530Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.idejie.com/2016/08/24/baiduyun-crack/</loc>
-    
-    <lastmod>2018-11-24T16:32:27.530Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.idejie.com/2017/03/07/caffe-learning-1/</loc>
     
     <lastmod>2018-11-24T16:32:27.530Z</lastmod>
     
@@ -738,6 +724,20 @@
   
   <url>
     <loc>https://blog.idejie.com/2017/03/09/caffe-learning-3/</loc>
+    
+    <lastmod>2018-11-24T16:32:27.530Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.idejie.com/2017/03/10/caffe-learning-4/</loc>
+    
+    <lastmod>2018-11-24T16:32:27.530Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.idejie.com/2017/03/07/caffe-learning-1/</loc>
     
     <lastmod>2018-11-24T16:32:27.530Z</lastmod>
     
