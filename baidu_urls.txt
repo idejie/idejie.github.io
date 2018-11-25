@@ -42,8 +42,8 @@ https://blog.idejie.com/2016/12/31/sum2016/
 https://blog.idejie.com/2016/12/27/data-science/
 https://blog.idejie.com/2016/12/25/music/
 https://blog.idejie.com/2016/12/24/alipay/
-https://blog.idejie.com/2016/12/20/nosql/
 https://blog.idejie.com/2016/12/20/network/
+https://blog.idejie.com/2016/12/20/nosql/
 https://blog.idejie.com/2016/12/18/idea/
 https://blog.idejie.com/2016/12/13/hadoop-3/
 https://blog.idejie.com/2016/12/13/hadoop-2/
