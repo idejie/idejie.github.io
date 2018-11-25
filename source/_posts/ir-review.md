@@ -273,7 +273,150 @@ iii. 半结构化数据:没有数据是完全无结构的，比如网页就是�
 
 ## 3-Tolerant Retrieval
 
+### （1）词典搜索的数据结构
 
+- 区分：
+  - 倒排索引：词典+倒排记录表
+  - 词典是指存储词项词汇表的数据结构
+  - 词项词汇表(Term vocabulary): 指的是具体数据
+  - 词典(Dictionary): 指的是数据结构
+- 形式：
+  - 定长数组：空间消耗大
+  - 用于词项定位的即查词典：哈希表、树
+- 采用哈希表或树的准则:
+  - 词项数目是否固定或者说词项数目是否持续增长？
+  - 词项的相对访问频率如何？
+  - 词项的数目有多少？
+- 哈希表：
+  - 每个词项通过哈希函数映射成一个整数，尽可能避免冲突，查询处理时： 对查询词项进行哈希，如果有冲突，则解决冲突，最后在定长数组中定位
+  - 优点: 
+    - 在哈希表中的定位速度快于树中的定位速度，查询时间是常数
+  - 缺点：
+    - 无法处理词项的微小变形 (resume vs. résumé)
+    - 不支持前缀搜索 (比如所有以automat开头的词项)
+    - 如果词汇表不断增大，需要定期对所有词项重新哈希
+- 树：
+  - 树可以支持前缀查找(相当于对词典再建一层索引)
+  - 最简单的树结构：二叉树
+  - 搜索速度略低于哈希表方式： O(logM), 其中 M 是词汇表大小，即所有词项的数目O(logM) 仅仅对平衡树成，使二叉树重新保持平衡开销很大
+  - B-树 能够减轻上述问题
+    B-树定义：每个内部节点的子节点数目在 [a, b]之间，其中 a, b 为合适的正整数, e.g., [2, 4].
+
+### （2）通配查询
+
+- 找出所有某个前缀开头的单词或者某个后缀结尾的单词
+
+- 这个时候比较适合用树（B树）
+
+  ![](https://ws4.sinaimg.cn/large/006tNbRwly1fxkhjgv0ntj30x00fmgsz.jpg)
+
+- 词项中间的 *号处理：轮排索引
+
+- 轮排索引的基本思想：
+
+  - 将每个通配查询旋转，使*出现在末尾
+  - 将每个旋转后的结果存放在词典中，即B-树中
+
+- 轮排索引的一个示例：
+
+  ![](https://ws2.sinaimg.cn/large/006tNbRwly1fxkhmvvjcfj30oq0e6q54.jpg)
+
+- 查找过程：
+
+- - 将查询进行旋转，将通配符旋转到右部
+
+- - 同以往一样查找B-树，得到匹配的所有词项，将这些词项对应的倒排记录表取出
+
+- - 问题：相对于通常的B-树，轮排索引(轮排树)的空间要大4倍以上 (经验值)
+
+- 为了解决轮排索引空间大的问题，又出现了**k-gram**
+
+- k-gram
+
+  - 需要注意的是，这里有两个倒排索引：词项-文档、**k-gram**-词项![](https://ws3.sinaimg.cn/large/006tNbRwly1fxkhrb8nluj30l402074f.jpg)
+
+  - 这个时候就需要把通配查询转换成布尔查询了
+
+    ![](https://ws3.sinaimg.cn/large/006tNbRwly1fxkhsk5gi7j30ni0aeq6x.jpg)
+
+- k-gram索引 vs. 轮排索引
+
+  - k-gram索引的空间消耗小
+  - 轮排索引不需要进行后过滤
+
+- 问题: 为什么Google对通配查询并不充分支持？
+
+```
+问题 1: 一条通配符查询往往相当于执行非常多的布尔查询
+对于 [gen* universit*]: geneva university OR geneva université OR genève university OR genève université OR general universities OR . . .
+开销非常大
+
+问题 2: 用户不愿意敲击更多的键盘
+如果允许[pyth* theo*]代替 [pythagoras’ theorem]的话，用户会倾向于使用前者
+这样会大大加重搜索引擎的负担
+Google Suggest是一种减轻用户输入负担的好方法
+```
+
+### （3）编辑距离
+
+- 主要用途是拼写校正（纠正文档【一般不会这么做】、纠正用户查询）
+
+- 拼写校正的方法：
+
+  - 词独立(Isolated word)法
+
+    - 只检查每个单词本身的拼写错误
+    - 如果某个单词拼写错误后变成另外一个单词，则无法查出, e.g., an asteroid that fell form the sky
+
+    上下文敏感(Context-sensitive)法
+
+    - 纠错时要考虑周围的单词
+    - 能纠正上例中的错误 form/from
+
+- 编辑距离属于词独立法
+
+- 简单的词独立法：根据词汇表
+
+- 复杂的就是：编辑距离法、k-gram重叠率
+
+- 编辑距离
+
+  - Levenshtein距离: 采用的基本操作是插入(insert)、删除(delete)和替换(replace)
+  - Damerau-Levenshtein距离：除了上述三种基本操作外，还包括两个字符之间的交换（transposition）操作
+  - 带权重的编辑距离：比如键盘上，相比起p错写为q的代价要高于错写成o
+
+- k-gram
+
+  - 例子：采用2-gram索引, 错误拼写的单词为bordroom     2-gram: *bo, or, rd, dr, ro, oo, om*
+  - ![](https://ws4.sinaimg.cn/large/006tNbRwly1fxkjantc06j30f7056q38.jpg)
+
+- 基于上下文的
+
+  - 一种方法: 基于命中数(hit-based) 的拼写校正![](https://ws1.sinaimg.cn/large/006tNbRwly1fxkjbs8zeaj30lm09egog.jpg)
+
+  - 从查询库(比如历史查询)中搜索而不是从文档库中搜索（大家经常写错的一个库）
+
+    ![](https://ws2.sinaimg.cn/large/006tNbRwly1fxkjcdxx8gj307m0240sy.jpg)
+
+- ![](https://ws4.sinaimg.cn/large/006tNbRwly1fxkjd8e8htj30ns0gy797.jpg)
+
+- Peter-Noring工具
+
+  对用户输入的单词进行编辑距离≤2的变换，包括插入、删除、修改以及它们的组合操作，这样我们就得到了若干个与原始输入编辑距离≤2的字符串，然后分别用它们在字典中进行查询。
+
+  这个方法虽然比朴素的拼写校正算法好了许多，但仍然有很高的复杂度，而且与具体的语言相关。例如在英语中只有26个字母，变换得到字符串个数还不是很多。而汉语有几千个常用字，这种方法就不可行了。
+
+### （4）soundex
+
+- Soundex是寻找发音相似的单词的方法
+- 具体算法:
+  - 将词典中每个词项转换成一个4字符缩减形式
+  - 对查询词项做同样的处理
+  - 基于4-字符缩减形式进行索引和搜索
+
+![](https://ws1.sinaimg.cn/large/006tNbRwly1fxkkqdsab8j30o00cejux.jpg)
+
+![](https://ws1.sinaimg.cn/large/006tNbRwly1fxkkqkxg92j30o00eu0v9.jpg)
 
 ## 4-Index Construction
 
