@@ -161,7 +161,7 @@ busuanzi: true
 about:
   - type: me
     icon: icon-user
-    text_value: "I'm Dejie."x
+    text_value: "I'm Dejie."
   - type: Github
     icon: icon-github
     text_key: Github
