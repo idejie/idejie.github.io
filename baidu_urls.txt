@@ -69,8 +69,8 @@ https://blog.idejie.com/2016/10/21/rest-learn/
 https://blog.idejie.com/2016/10/21/express-blog-3/
 https://blog.idejie.com/2016/10/21/express-blog-2/
 https://blog.idejie.com/2016/10/21/express-blog-1/
-https://blog.idejie.com/2016/09/13/hmi/
 https://blog.idejie.com/2016/09/13/hexo-blog/
+https://blog.idejie.com/2016/09/13/hmi/
 https://blog.idejie.com/2016/08/24/baiduyun-crack/
 https://blog.idejie.com/2016/08/23/mac-tips/
 https://blog.idejie.com/2016/06/29/mayuan/
