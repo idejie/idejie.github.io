@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="google-site-verification" content="rEUG6A2SLvgx5-OW-Q2fuuC4q9qNnwo62YXM9KhQlPg">
+  
+  <title>Vue学习笔记（二） | idejie</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="">
+  
+
+  <meta name="description" content="兼容性 Vue.js 不支持 IE8 及其以下版本，因为 Vue.js 使用了 IE8 不能模拟的 ECMAScript 5 特性。 Vue.js 支持所有兼容 ECMAScript 5 的浏览器。  更新日志 每个版本的更新日志见 GitHub。  独立版本 直接下载并用 `` 标签引入，Vue 会被注册为一个全局变量。重要提示：在开发时请用开发版本，遇到常见错误它会给出友好的警告。 开发环境">
+<meta name="keywords" content="Vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue学习笔记（二）">
+<meta property="og:url" content="https://blog.idejie.com/2016/11/25/vue-learn-1/index.html">
+<meta property="og:site_name" content="idejie">
+<meta property="og:description" content="兼容性 Vue.js 不支持 IE8 及其以下版本，因为 Vue.js 使用了 IE8 不能模拟的 ECMAScript 5 特性。 Vue.js 支持所有兼容 ECMAScript 5 的浏览器。  更新日志 每个版本的更新日志见 GitHub。  独立版本 直接下载并用 `` 标签引入，Vue 会被注册为一个全局变量。重要提示：在开发时请用开发版本，遇到常见错误它会给出友好的警告。 开发环境">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-11-24T16:32:27.562Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vue学习笔记（二）">
+<meta name="twitter:description" content="兼容性 Vue.js 不支持 IE8 及其以下版本，因为 Vue.js 使用了 IE8 不能模拟的 ECMAScript 5 特性。 Vue.js 支持所有兼容 ECMAScript 5 的浏览器。  更新日志 每个版本的更新日志见 GitHub。  独立版本 直接下载并用 `` 标签引入，Vue 会被注册为一个全局变量。重要提示：在开发时请用开发版本，遇到常见错误它会给出友好的警告。 开发环境">
+
+  
+
+  
+    <link rel="icon" href="https://avatars0.githubusercontent.com/u/12479824">
+  
+
+  <link href="/css/styles.css?v=d671a41f" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/styles.css">
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+<script src="//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0"></script>
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+ <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css">
+<script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/github-markdown-css/2.2.1/github-markdown.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+
+    <!-- The loading of KaTeX is deferred to speed up page rendering -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+
+    <!-- To automatically render math in text elements, include the auto-render extension: -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+</head>
+<script src="//pixijs.download/release/pixi.js"></script>
+</html>
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">菜单</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">菜单</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+            目录
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/category/" rel="noopener noreferrer" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/tag/" rel="noopener noreferrer" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/project/" rel="noopener noreferrer" target="_self">
+            项目
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#兼容性"><span class="toc-text"> 兼容性</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#更新日志"><span class="toc-text"> 更新日志</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#独立版本"><span class="toc-text"> 独立版本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cdn"><span class="toc-text"> CDN</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#独立构建-vs-运行时构建"><span class="toc-text"> 独立构建 vs 运行时构建</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#csp-环境"><span class="toc-text"> CSP 环境</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#命令行工具"><span class="toc-text"> 命令行工具</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#开发版本"><span class="toc-text"> 开发版本</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#bower"><span class="toc-text"> Bower</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#amd-模块加载器"><span class="toc-text"> AMD 模块加载器</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-vue-learn-1" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">Vue学习笔记（二）</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2016.11.25</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>idejie</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/教程/">教程</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp 阅读量：<span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>
+        </span>
+      
+
+     
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h1 id="兼容性"><a class="markdownIt-Anchor" href="#兼容性"></a> 兼容性</h1>
+<p>Vue.js 不支持 IE8 及其以下版本，因为 Vue.js 使用了 IE8 不能模拟的 ECMAScript 5 特性。 Vue.js 支持所有<a href="http://caniuse.com/#feat=es5" target="_blank" rel="noopener">兼容 ECMAScript 5 的浏览器</a>。</p>
+<h2 id="更新日志"><a class="markdownIt-Anchor" href="#更新日志"></a> 更新日志</h2>
+<p>每个版本的更新日志见 <a href="https://github.com/vuejs/vue/releases" target="_blank" rel="noopener">GitHub</a>。</p>
+<h2 id="独立版本"><a class="markdownIt-Anchor" href="#独立版本"></a> 独立版本</h2>
+<p>直接下载并用 `` 标签引入，<code>Vue</code> 会被注册为一个全局变量。<strong>重要提示：在开发时请用开发版本，遇到常见错误它会给出友好的警告。</strong></p>
+<p>开发环境不要用最小压缩版，不然就失去了错误提示和警告!</p>
+<p><a href="http://vuejs.org/js/vue.js" target="_blank" rel="noopener">开发版本</a>包含完整的警告和调试模式<br>
+<a href="http://vuejs.org/js/vue.min.js" target="_blank" rel="noopener">生产版本</a>删除了警告</p>
+<h2 id="cdn"><a class="markdownIt-Anchor" href="#cdn"></a> CDN</h2>
+<p>推荐：<a href="https://unpkg.com/vue/dist/vue.js" target="_blank" rel="noopener">unpkg</a>, 会保持和 npm 发布的最新的版本一致。可以在 <a href="https://unpkg.com/vue/" target="_blank" rel="noopener">unpkg.com/vue/</a> 浏览 npm 包资源。</p>
+<p>也可以从 <a href="http://cdn.jsdelivr.net/vue//vue.js" target="_blank" rel="noopener">jsdelivr</a> 或 <a href="http://cdnjs.cloudflare.com/ajax/libs/vue//vue.js" target="_blank" rel="noopener">cdnjs</a> 获取，不过这两个服务版本更新可能略滞后。</p>
+<p>##NPM</p>
+<p>在用 Vue.js 构建大型应用时推荐使用 NPM 安装， NPM 能很好地和诸如 <a href="http://webpack.github.io/" target="_blank" rel="noopener">Webpack</a> 或 <a href="http://browserify.org/" target="_blank" rel="noopener">Browserify</a> 模块打包器配合使用。 Vue.js 也提供配套工具来开发<a href="http://blog.idejie.com/2016/11/25/vue-learn-1/single-file-components.html">单文件组件</a>。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 最新稳定版</span><br><span class="line">$ npm install vue</span><br></pre></td></tr></table></figure>
+<h1 id="独立构建-vs-运行时构建"><a class="markdownIt-Anchor" href="#独立构建-vs-运行时构建"></a> 独立构建 vs 运行时构建</h1>
+<p>有两种构建方式，独立构建和运行构建。它们的区别在于前者包含<strong>模板编译器</strong>而后者不包含。</p>
+<p>模板编译用于编译 Vue 模板字符串成纯 JavaScript 渲染函数。如果你想用 <code>template</code> 选项， 你需要编译。</p>
+<p>模板编译器的职责是将模板字符串编译为纯 JavaScript 的渲染函数。如果你想要在组件中使用 <code>template</code> 选项，你就需要编译器。</p>
+<ul>
+<li>独立构建包含模板编译器并支持 <code>template</code> 选项。 <strong>它也依赖于浏览器的接口的存在，所以你不能使用它来为服务器端渲染。</strong></li>
+<li>运行时构建不包含模板编译器，因此不支持 <code>template</code> 选项，只能用 <code>render</code> 选项，但即使使用运行时构建，在单文件组件中也依然可以写模板，因为单文件组件的模板会在构建时预编译为 <code>render</code> 函数。运行时构建比独立构建要轻量30%，只有 Kb min+gzip大小。</li>
+</ul>
+<p>默认 NPM 包导出的是 <strong>运行时</strong> 构建。为了使用独立构建，在 webpack 配置中添加下面的别名：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">resolve: &#123;</span><br><span class="line">  alias: &#123;</span><br><span class="line">    &apos;vue$&apos;: &apos;vue/dist/vue.js&apos;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>对于Browserify，可以用 <a href="https://github.com/benbria/aliasify" target="_blank" rel="noopener">aliasify</a></p>
+<p>不要用 <code>import Vue from 'vue/dist/vue.js'</code> - 用一些工具或第三方库引入 Vue ，这可能会导致应用程序在同一时间加载运行时和独立构建并造成错误。</p>
+<h1 id="csp-环境"><a class="markdownIt-Anchor" href="#csp-环境"></a> CSP 环境</h1>
+<p>有些环境，如 Google Chrome Apps ，强制应用内容安全策略 (CSP) ，不能使用 new Function() 对表达式求值。这时可以用 CSP 兼容版本。独立的构建取决于该功能编译模板，所以无法使用这些环境。</p>
+<p>另一方面，运行时构建的是完全兼容 CSP 的。当通过 <a href="https://github.com/vuejs-templates/webpack-simple" target="_blank" rel="noopener">Webpack + vue-loader</a> 或者 <a href="https://github.com/vuejs-templates/browserify-simple" target="_blank" rel="noopener">Browserify + vueify</a> 构建时，在 CSP 环境中模板将被完美预编译到 <code>render</code> 函数中。</p>
+<h1 id="命令行工具"><a class="markdownIt-Anchor" href="#命令行工具"></a> 命令行工具</h1>
+<p>Vue.js 提供一个<a href="https://github.com/vuejs/vue-cli" target="_blank" rel="noopener">官方命令行工具</a>，可用于快速搭建大型单页应用。该工具提供开箱即用的构建工具配置，带来现代化的前端开发流程。只需一分钟即可启动带热重载、保存时静态检查以及可用于生产环境的构建配置的项目：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 全局安装 vue-cli</span><br><span class="line">$ npm install --global vue-cli</span><br><span class="line"># 创建一个基于 webpack 模板的新项目</span><br><span class="line">$ vue init webpack my-project</span><br><span class="line"># 安装依赖，走你</span><br><span class="line">$ cd my-project</span><br><span class="line">$ npm install</span><br><span class="line">$ npm run dev</span><br></pre></td></tr></table></figure>
+<p>The CLI assumes prior knowledge of Node.js and the associated build tools. If you are new to Vue or front-end build tools, we strongly suggest going through <a href="http://blog.idejie.com/2016/11/25/vue-learn-1/">the guide</a> without any build tools before using the CLI.</p>
+<p>CLI 默认了用户对 Node.js 和相关构建工具有一定程度的了解。如果你是新手，我们强烈建议先在不用构建工具的情况下通读<a href="http://blog.idejie.com/guide/">指南</a>，熟悉 Vue 本身之后再研究 CLI。</p>
+<p>对于大陆用户，建议将 npm 的注册表源<a href="http://riny.net/2014/cnpm/" target="_blank" rel="noopener">设置为国内的镜像</a>，可以大幅提升安装速度。</p>
+<h1 id="开发版本"><a class="markdownIt-Anchor" href="#开发版本"></a> 开发版本</h1>
+<p><strong>重要</strong>: Github 仓库的 <code>/dist</code> 文件夹只有在新版本发布时才会更新。如果想要使用 Github 上 Vue 最新的源码，你需要自己构建。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/vuejs/vue.git node_modules/vue</span><br><span class="line">cd node_modules/vue</span><br><span class="line">npm install</span><br><span class="line">npm run build</span><br></pre></td></tr></table></figure>
+<h1 id="bower"><a class="markdownIt-Anchor" href="#bower"></a> Bower</h1>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 最新稳定版本</span><br><span class="line">$ bower install vue</span><br></pre></td></tr></table></figure>
+<h1 id="amd-模块加载器"><a class="markdownIt-Anchor" href="#amd-模块加载器"></a> AMD 模块加载器</h1>
+<p>独立下载版本或通过 Bower 安装的版本已用 UMD 包装，因此它们可以直接用作 AMD 模块。</p>
+<hr>
+<blockquote>
+<p>原文：<a href="http://vuejs.org/guide/installation.html" target="_blank" rel="noopener">http://vuejs.org/guide/installation.html</a></p>
+</blockquote>
+<hr>
+
+    
+  </div>
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation"><strong><a href="#" style="color: #999;">赞赏</a></strong></span>
+      <div class="donation-body">
+        <div class="tip text-center"><strong>支持一下</strong></div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="https://ws1.sinaimg.cn/large/006tNbRwly1fxjlq29zkkj30f60f675t.jpg" alt="">
+            <a>微信扫一扫</a>
+          </li>
+        
+          <li class="item">
+            <img src="https://ws2.sinaimg.cn/large/006tNbRwly1fxjlwikh27j30a20a2wfe.jpg" alt="">
+            <a>支付宝扫一扫</a>
+          </li>
+        
+          <li class="item">
+            <img src="https://ws3.sinaimg.cn/large/006tNbRwly1fxjlztplu9j30jd0jeadu.jpg" alt="">
+            <a>QQ扫一扫</a>
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2016/12/05/react-native-preview/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2016/11/18/KMeans-VS-KNN/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+              目录
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/category/" rel="noopener noreferrer" target="_self">
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/tag/" rel="noopener noreferrer" target="_self">
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/project/" rel="noopener noreferrer" target="_self">
+              项目
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+
+
+
+
+  <div id="vcomments"></div>
+    <script>
+        new Valine({
+            el: '#vcomments',
+            appId: 'm2JW5otJtf3PU6V2F3ORdsVl-gzGzoHsz',
+            appKey: 'sT0JdEoQA7RJThLQ7z6xiT0c'
+        })
+    </script>
+
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+
+</body>
+</html>

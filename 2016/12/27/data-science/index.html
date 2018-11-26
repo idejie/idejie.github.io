@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="google-site-verification" content="rEUG6A2SLvgx5-OW-Q2fuuC4q9qNnwo62YXM9KhQlPg">
+  
+  <title>数据科学复习 | idejie</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="">
+  
+
+  <meta name="description" content="1.基本的数据分析算法  关联分析 X→Y的关联分析主要靠下面几个度量值：   支持度：同时包含X和Y的事务数/总事务数 P(AUB)   置信度：同时包含X和Y的事务数/包含X的事务数 P(A|B)   提升度：在X发生的条件下，Y发生的概率/Y发生的总概率（&amp;gt;1是才是有效强关联，&amp;lt;=1都不是有效的）P(B|A)/P(B) 判断提升度是否可靠还有以下两个参数  KULC = 0.5">
+<meta name="keywords" content="数据科学">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据科学复习">
+<meta property="og:url" content="https://blog.idejie.com/2016/12/27/data-science/index.html">
+<meta property="og:site_name" content="idejie">
+<meta property="og:description" content="1.基本的数据分析算法  关联分析 X→Y的关联分析主要靠下面几个度量值：   支持度：同时包含X和Y的事务数/总事务数 P(AUB)   置信度：同时包含X和Y的事务数/包含X的事务数 P(A|B)   提升度：在X发生的条件下，Y发生的概率/Y发生的总概率（&amp;gt;1是才是有效强关联，&amp;lt;=1都不是有效的）P(B|A)/P(B) 判断提升度是否可靠还有以下两个参数  KULC = 0.5">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-11-24T16:32:27.539Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据科学复习">
+<meta name="twitter:description" content="1.基本的数据分析算法  关联分析 X→Y的关联分析主要靠下面几个度量值：   支持度：同时包含X和Y的事务数/总事务数 P(AUB)   置信度：同时包含X和Y的事务数/包含X的事务数 P(A|B)   提升度：在X发生的条件下，Y发生的概率/Y发生的总概率（&amp;gt;1是才是有效强关联，&amp;lt;=1都不是有效的）P(B|A)/P(B) 判断提升度是否可靠还有以下两个参数  KULC = 0.5">
+
+  
+
+  
+    <link rel="icon" href="https://avatars0.githubusercontent.com/u/12479824">
+  
+
+  <link href="/css/styles.css?v=d671a41f" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/styles.css">
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+<script src="//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0"></script>
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+ <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css">
+<script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/github-markdown-css/2.2.1/github-markdown.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+
+    <!-- The loading of KaTeX is deferred to speed up page rendering -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+
+    <!-- To automatically render math in text elements, include the auto-render extension: -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+</head>
+<script src="//pixijs.download/release/pixi.js"></script>
+</html>
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">菜单</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">菜单</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+            目录
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/category/" rel="noopener noreferrer" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/tag/" rel="noopener noreferrer" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/project/" rel="noopener noreferrer" target="_self">
+            项目
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1基本的数据分析算法"><span class="toc-text"> 1.基本的数据分析算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#关联分析"><span class="toc-text"> 关联分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分类与预测"><span class="toc-text"> 分类与预测</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#聚类"><span class="toc-text"> 聚类</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2mapreduce"><span class="toc-text"> 2.MapReduce</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#分布式并行编程"><span class="toc-text"> 分布式并行编程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模型简介"><span class="toc-text"> 模型简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#map"><span class="toc-text"> Map</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#reduce"><span class="toc-text"> Reduce</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#工作流程"><span class="toc-text"> 工作流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#shufflef过程详解"><span class="toc-text"> Shufflef过程详解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#例子"><span class="toc-text"> 例子</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3网络数据计算"><span class="toc-text"> 3.网络数据计算</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#社交网络计算"><span class="toc-text"> 社交网络计算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#搜索引擎计算"><span class="toc-text"> 搜索引擎计算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#市场分配计算"><span class="toc-text"> 市场分配计算</span></a></li></ol></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-data-science" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">数据科学复习</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2016.12.27</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>idejie</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/课程复习/">课程复习</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp 阅读量：<span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>
+        </span>
+      
+
+     
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h1 id="1基本的数据分析算法"><a class="markdownIt-Anchor" href="#1基本的数据分析算法"></a> 1.基本的数据分析算法</h1>
+<h2 id="关联分析"><a class="markdownIt-Anchor" href="#关联分析"></a> 关联分析</h2>
+<p>X→Y的关联分析主要靠下面几个度量值：</p>
+<ul>
+<li>
+<p>支持度：同时包含X和Y的事务数/总事务数 P(AUB)</p>
+</li>
+<li>
+<p>置信度：同时包含X和Y的事务数/包含X的事务数 P(A|B)</p>
+</li>
+<li>
+<p>提升度：在X发生的条件下，Y发生的概率/Y发生的总概率（&gt;1是才是有效强关联，&lt;=1都不是有效的）P(B|A)/P(B)</p>
+<p>判断提升度是否可靠还有以下两个参数</p>
+<ul>
+<li>KULC = 0.5 * P(X|Y) + 0.5 * P(Y|X)</li>
+<li>IR = P(Y|X) / P(X|Y)</li>
+</ul>
+</li>
+<li>
+<p><a href="http://www.cnblogs.com/michael-xiang/p/4598150.html" target="_blank" rel="noopener">http://www.cnblogs.com/michael-xiang/p/4598150.html</a></p>
+</li>
+<li>
+<p>Apriori</p>
+<ul>
+<li>遍历购物车，统计单个商品出现的次数，过滤掉次数小于一定阈值（最小支持度）的商品，得到频繁单项集；</li>
+<li>遍历购物车，两两组合其中商品，如果一个商品对中的两个商品都在频繁单项集中，则统计商品对的出现次数，否则跳过，过滤掉小于最小支持度的，得到频繁2项集；</li>
+<li>……….</li>
+<li>N. 如果频繁N-1项集不为空，则进行第N次遍历，从每个购物车中取任意N个商品的组合，如果这N项的所有N-1项子集都在频繁N-1项集中，则统计其出现次数，否则跳过，过滤掉小于最小支持度的，得到频繁N项集。当频繁项集为空时停止循环。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Ck: 长度为k的候选项集</span><br><span class="line">Lk :长度为k的频繁项集</span><br><span class="line">L1 = &#123;frequent items&#125;;</span><br><span class="line">    for (k = 1; Lk !=∅; k++) do </span><br><span class="line">    begin</span><br><span class="line">        Ck+1 = 从Lk 生成候选项集;   </span><br><span class="line">        对于数据集中的任一交易 t   do</span><br><span class="line">       如果 t 中包含 Ck+1中所包含的项集，则计数加 1</span><br><span class="line">        Lk+1  = Ck+1 中超过最小支持度的频繁项集</span><br><span class="line">    end</span><br><span class="line">  return ∪k Lk;</span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+</ul>
+<h2 id="分类与预测"><a class="markdownIt-Anchor" href="#分类与预测"></a> 分类与预测</h2>
+<ul>
+<li>ID3:经验熵
+<ul>
+<li>H（D）=-pi*log2（pi）</li>
+<li>g（D，Ai）=H（D）-（Σ Pi*H（Di）</li>
+</ul>
+</li>
+<li>KNN</li>
+</ul>
+<h2 id="聚类"><a class="markdownIt-Anchor" href="#聚类"></a> 聚类</h2>
+<ul>
+<li>K-Means</li>
+</ul>
+<h1 id="2mapreduce"><a class="markdownIt-Anchor" href="#2mapreduce"></a> 2.MapReduce</h1>
+<h2 id="分布式并行编程"><a class="markdownIt-Anchor" href="#分布式并行编程"></a> 分布式并行编程</h2>
+<ul>
+<li>分布式程序运行在大规模计算机集群上，集群中包括大量廉价服务器，可以并行执行大规模数据处理任务，从而获得海量的计算能力</li>
+</ul>
+<h2 id="模型简介"><a class="markdownIt-Anchor" href="#模型简介"></a> 模型简介</h2>
+<ul>
+<li>MapReduce将复杂的、运行于大规模集群上的<strong>并行计算过程高度地抽象到了两个函数：Map和Reduce</strong></li>
+<li>在MapReduce中，一个存储在分布式文件系统中的大规模数据集，会<strong>被切分成许多独立的小数据块</strong>，这些小数据块可以<strong>被多个Map任务并行处理</strong></li>
+<li>MapReduce框架会为每个Map任务输入一个数据子集，Map任务生成的结果会继续作为Reduce任务的输入，最终由Reduce任务输出最后结果，并写入到分布式文件系统中</li>
+<li>MapReduce设计的一个理念就是“计算向数据靠拢”，而不是“数据向计算靠拢”，因为，移动数据需要大量的网络传输开销</li>
+<li>MapReduce框架采用了<strong>Master/Slave</strong>架构，包括一个Master和若干个Slave。Master上运行JobTracker，Slave上运行TaskTracker</li>
+<li>Hadoop框架是用Java实现的，但是，MapReduce应用程序则不一定要用Java来写</li>
+</ul>
+<h2 id="map"><a class="markdownIt-Anchor" href="#map"></a> Map</h2>
+<ul>
+<li>输入：&lt;k1,v1&gt;</li>
+<li>输出：List(&lt;k2,v2&gt;)</li>
+<li>将小数据进一步分析成一批&lt;key,value&gt;对，输入Map函数进行处理；每一个输入的&lt;k1,v1&gt;会输出一批&lt;k2,v2&gt;</li>
+</ul>
+<h2 id="reduce"><a class="markdownIt-Anchor" href="#reduce"></a> Reduce</h2>
+<ul>
+<li>输入：&lt;k2,List(v2)&gt;</li>
+<li>输出：&lt;k3,v3&gt;</li>
+<li>输入的结果&lt;k2,List(v2)&gt;中的List(v2)表示是同一批属于同一个v2的value</li>
+</ul>
+<h2 id="工作流程"><a class="markdownIt-Anchor" href="#工作流程"></a> 工作流程</h2>
+<p><em>以下摘自：<a href="http://blog.csdn.net/lifuxiangcaohui/article/details/22675437" target="_blank" rel="noopener">用通俗易懂的大白话讲解Map/Reduce原理</a></em></p>
+<p><strong>我问妻子</strong>：“你真的想要弄懂什么是<code>MapReduce</code>？” 她很坚定的回答说“是的”。 因此我问道：</p>
+<p><strong>我</strong>： 你是如何准备洋葱辣椒酱的？（以下并非准确食谱，请勿在家尝试）</p>
+<p><strong>妻子</strong>： 我会取一个洋葱，把它切碎，然后拌入盐和水，最后放进混合研磨机里研磨。这样就能得到洋葱辣椒酱了。</p>
+<p><strong>妻子</strong>： 但这和<code>MapReduce</code>有什么关系？</p>
+<p><strong>我</strong>： 你等一下。让我来编一个完整的情节，这样你肯定可以在15分钟内弄懂<code>MapReduce</code>.</p>
+<p><strong>妻子</strong>： 好吧。</p>
+<p><strong>我</strong>：现在，假设你想用薄荷、洋葱、番茄、辣椒、大蒜弄一瓶混合辣椒酱。你会怎么做呢？</p>
+<p><strong>妻子</strong>： 我会取薄荷叶一撮，洋葱一个，番茄一个，辣椒一根，大蒜一根，切碎后加入适量的盐和水，再放入混合研磨机里研磨，这样你就可以得到一瓶混合辣椒酱了。</p>
+<p><strong>我</strong>： 没错，让我们把<code>MapReduce</code>的概念应用到食谱上。<code>Map</code>和<code>Reduce</code>其实是两种操作，我来给你详细讲解下。<br>
+<code>Map（映射）</code>: 把洋葱、番茄、辣椒和大蒜切碎，是各自作用在这些物体上的一个<code>Map</code>操作。所以你给<code>Map</code>一个洋葱，<code>Map</code>就会把洋葱切碎。 同样的，你把辣椒，大蒜和番茄一一地拿给<code>Map</code>，你也会得到各种碎块。 所以，当你在切像洋葱这样的蔬菜时，你执行就是一个<code>Map</code>操作。 <code>Map</code>操作适用于每一种蔬菜，它会相应地生产出一种或多种碎块，在我们的例子中生产的是蔬菜块。在<code>Map</code>操作中可能会出现有个洋葱坏掉了的情况，你只要把坏洋葱丢了就行了。所以，如果出现坏洋葱了，<code>Map</code>操作就会过滤掉坏洋葱而不会生产出任何的坏洋葱块。</p>
+<p><code>Reduce（化简）</code>:在这一阶段，你将各种蔬菜碎都放入研磨机里进行研磨，你就可以得到一瓶辣椒酱了。这意味要制成一瓶辣椒酱，你得研磨所有的原料。因此，研磨机通常将<code>map</code>操作的蔬菜碎聚集在了一起。</p>
+<p><strong>妻子</strong>： 所以，这就是<code>MapReduce</code>?</p>
+<p><strong>我</strong>： 你可以说是，也可以说不是。 其实这只是<code>MapReduce</code>的一部分，<code>MapReduce</code>的强大在于分布式计算。</p>
+<p><strong>妻子</strong>： 分布式计算？ 那是什么？请给我解释下吧。</p>
+<p><strong>我</strong>： 没问题。</p>
+<p><strong>我</strong>： 假设你参加了一个辣椒酱比赛并且你的食谱赢得了最佳辣椒酱奖。得奖之后，辣椒酱食谱大受欢迎，于是你想要开始出售自制品牌的辣椒酱。假设你每天需要生产10000瓶辣椒酱，你会怎么办呢？</p>
+<p><strong>妻子</strong>： 我会找一个能为我大量提供原料的供应商。</p>
+<p><strong>我</strong>：是的…就是那样的。那你能否独自完成制作呢？也就是说，独自将原料都切碎？ 仅仅一部研磨机又是否能满足需要？而且现在，我们还需要供应不同种类的辣椒酱，像洋葱辣椒酱、青椒辣椒酱、番茄辣椒酱等等。</p>
+<p><strong>妻子</strong>： 当然不能了，我会雇佣更多的工人来切蔬菜。我还需要更多的研磨机，这样我就可以更快地生产辣椒酱了。<br>
+<strong>我</strong>：没错，所以现在你就不得不分配工作了，你将需要几个人一起切蔬菜。每个人都要处理满满一袋的蔬菜，而每一个人都相当于在执行一个简单的<code>Map</code>操作。每一个人都将不断的从袋子里拿出蔬菜来，并且每次只对一种蔬菜进行处理，也就是将它们切碎，直到袋子空了为止。<br>
+这样，当所有的工人都切完以后，工作台（每个人工作的地方）上就有了洋葱块、番茄块、和蒜蓉等等。</p>
+<p><strong>妻子</strong>：但是我怎么会制造出不同种类的番茄酱呢？</p>
+<p><strong>我</strong>：现在你会看到<code>MapReduce</code>遗漏的阶段—搅拌阶段。<code>MapReduce</code>将所有输出的蔬菜碎都搅拌在了一起，这些蔬菜碎都是在以key为基础的 map操作下产生的。搅拌将自动完成，你可以假设key是一种原料的名字，就像洋葱一样。 所以全部的洋葱keys都会搅拌在一起，并转移到研磨洋葱的研磨器里。这样，你就能得到洋葱辣椒酱了。同样地，所有的番茄也会被转移到标记着番茄的研磨器里，并制造出番茄辣椒酱。</p>
+<h2 id="shufflef过程详解"><a class="markdownIt-Anchor" href="#shufflef过程详解"></a> Shufflef过程详解</h2>
+<p>从Map输出到Reduce输入的整个过程可以广义地称为Shuffle。</p>
+<p>Shuffle横跨Map端和Reduce端，在Map端包括Spill过程，在Reduce端包括copy和sort过程，</p>
+<ul>
+<li>Spill过程：Spill过程包括输出、排序、溢写、合并等步骤</li>
+</ul>
+<h2 id="例子"><a class="markdownIt-Anchor" href="#例子"></a> 例子</h2>
+<p>1.Map：分别计算</p>
+<p>2.shuffle（有）：先内部算</p>
+<p>3.reduce：统计总结果</p>
+<h1 id="3网络数据计算"><a class="markdownIt-Anchor" href="#3网络数据计算"></a> 3.网络数据计算</h1>
+<h2 id="社交网络计算"><a class="markdownIt-Anchor" href="#社交网络计算"></a> 社交网络计算</h2>
+<h2 id="搜索引擎计算"><a class="markdownIt-Anchor" href="#搜索引擎计算"></a> 搜索引擎计算</h2>
+<ul>
+<li>餐馆推荐</li>
+<li>auth和hub值</li>
+<li>PageRank：
+<ul>
+<li>重要性：进来的和</li>
+</ul>
+</li>
+</ul>
+<h2 id="市场分配计算"><a class="markdownIt-Anchor" href="#市场分配计算"></a> 市场分配计算</h2>
+<p>1.根据点击率算广告位估值：广告位价值=点击价值*点击率</p>
+<p>2.市场清仓价格：</p>
+
+    
+  </div>
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation"><strong><a href="#" style="color: #999;">赞赏</a></strong></span>
+      <div class="donation-body">
+        <div class="tip text-center"><strong>支持一下</strong></div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="https://ws1.sinaimg.cn/large/006tNbRwly1fxjlq29zkkj30f60f675t.jpg" alt="">
+            <a>微信扫一扫</a>
+          </li>
+        
+          <li class="item">
+            <img src="https://ws2.sinaimg.cn/large/006tNbRwly1fxjlwikh27j30a20a2wfe.jpg" alt="">
+            <a>支付宝扫一扫</a>
+          </li>
+        
+          <li class="item">
+            <img src="https://ws3.sinaimg.cn/large/006tNbRwly1fxjlztplu9j30jd0jeadu.jpg" alt="">
+            <a>QQ扫一扫</a>
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2016/12/31/sum2016/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2016/12/25/music/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+              目录
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/category/" rel="noopener noreferrer" target="_self">
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/tag/" rel="noopener noreferrer" target="_self">
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/project/" rel="noopener noreferrer" target="_self">
+              项目
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+
+
+
+
+  <div id="vcomments"></div>
+    <script>
+        new Valine({
+            el: '#vcomments',
+            appId: 'm2JW5otJtf3PU6V2F3ORdsVl-gzGzoHsz',
+            appKey: 'sT0JdEoQA7RJThLQ7z6xiT0c'
+        })
+    </script>
+
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+
+</body>
+</html>

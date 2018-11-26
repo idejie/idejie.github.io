@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="google-site-verification" content="rEUG6A2SLvgx5-OW-Q2fuuC4q9qNnwo62YXM9KhQlPg">
+  
+  <title>使用Github + Hexo 搭建个人博客 | idejie</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="">
+  
+
+  <meta name="description" content="〇.准备工作  环境：OS X 10.11（Linux系统应该也没问题，Windows如果使用Ubuntu Bash也可以尝试）   1.安装Node.js   打开Terminal试一下node --version和npm --version如果有版本号，那么你可以跳过此步骤了。   下载Node.js下载安装对应版本就好官网下载   Mac安装一直Next就好   如果是Ubuntu的话可以">
+<meta name="keywords" content="Hexo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用Github + Hexo 搭建个人博客">
+<meta property="og:url" content="https://blog.idejie.com/2016/09/13/hexo-blog/index.html">
+<meta property="og:site_name" content="idejie">
+<meta property="og:description" content="〇.准备工作  环境：OS X 10.11（Linux系统应该也没问题，Windows如果使用Ubuntu Bash也可以尝试）   1.安装Node.js   打开Terminal试一下node --version和npm --version如果有版本号，那么你可以跳过此步骤了。   下载Node.js下载安装对应版本就好官网下载   Mac安装一直Next就好   如果是Ubuntu的话可以">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-11-24T16:32:27.543Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用Github + Hexo 搭建个人博客">
+<meta name="twitter:description" content="〇.准备工作  环境：OS X 10.11（Linux系统应该也没问题，Windows如果使用Ubuntu Bash也可以尝试）   1.安装Node.js   打开Terminal试一下node --version和npm --version如果有版本号，那么你可以跳过此步骤了。   下载Node.js下载安装对应版本就好官网下载   Mac安装一直Next就好   如果是Ubuntu的话可以">
+
+  
+
+  
+    <link rel="icon" href="https://avatars0.githubusercontent.com/u/12479824">
+  
+
+  <link href="/css/styles.css?v=d671a41f" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/styles.css">
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+<script src="//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0"></script>
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+ <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css">
+<script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/github-markdown-css/2.2.1/github-markdown.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+
+    <!-- The loading of KaTeX is deferred to speed up page rendering -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+
+    <!-- To automatically render math in text elements, include the auto-render extension: -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+</head>
+<script src="//pixijs.download/release/pixi.js"></script>
+</html>
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">菜单</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">菜单</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+            目录
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/category/" rel="noopener noreferrer" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/tag/" rel="noopener noreferrer" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/project/" rel="noopener noreferrer" target="_self">
+            项目
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#〇准备工作"><span class="toc-text"> 〇.准备工作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1安装nodejs"><span class="toc-text"> 1.安装Node.js</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2安装hexo"><span class="toc-text"> 2.安装Hexo</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3安装git"><span class="toc-text"> 3.安装git</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4注册github并使用"><span class="toc-text"> 4.注册Github并使用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一开始创建"><span class="toc-text"> 一.开始创建</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1初始化"><span class="toc-text"> 1.初始化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2配置"><span class="toc-text"> 2.配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3部署到github"><span class="toc-text"> 3.部署到github</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二正式使用"><span class="toc-text"> 二.正式使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1一些常用命令"><span class="toc-text"> 1.一些常用命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2markdown语法"><span class="toc-text"> 2.Markdown语法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3每次部署到github都需要在你的目录下"><span class="toc-text"> 3.每次部署到github都需要在你的目录下</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三个性配置"><span class="toc-text"> 三.个性配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1主题"><span class="toc-text"> 1.主题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2插件"><span class="toc-text"> 2.插件</span></a></li></ol></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-hexo-blog" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">使用Github + Hexo 搭建个人博客</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2016.09.13</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>idejie</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/教程/">教程</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp 阅读量：<span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>
+        </span>
+      
+
+     
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h3 id="〇准备工作"><a class="markdownIt-Anchor" href="#〇准备工作"></a> 〇.准备工作</h3>
+<blockquote>
+<p>环境：OS X 10.11（Linux系统应该也没问题，Windows如果使用Ubuntu Bash也可以尝试）</p>
+</blockquote>
+<h4 id="1安装nodejs"><a class="markdownIt-Anchor" href="#1安装nodejs"></a> 1.安装Node.js</h4>
+<ul>
+<li>
+<p>打开Terminal试一下<code>node --version</code>和<code>npm --version</code>如果有版本号，那么你可以跳过此步骤了。</p>
+</li>
+<li>
+<p>下载Node.js下载安装对应版本就好<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">官网下载</a></p>
+</li>
+<li>
+<p>Mac安装一直<code>Next</code>就好</p>
+</li>
+<li>
+<p>如果是Ubuntu的话可以尝试</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -</span><br><span class="line"></span><br><span class="line">sudo apt-get install nodejs</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="2安装hexo"><a class="markdownIt-Anchor" href="#2安装hexo"></a> 2.安装Hexo</h4>
+<ul>
+<li>打开Terminal试一下<code>hexo --version</code>如果有版本号，那么你可以跳过此步骤了。</li>
+<li>Linux和Mac一样Terminal键入<code>sudo npm install -g hexo</code></li>
+</ul>
+<h4 id="3安装git"><a class="markdownIt-Anchor" href="#3安装git"></a> 3.安装git</h4>
+<ul>
+<li>打开Terminal试一下<code>git --version</code>如果有版本号，那么你可以跳过此步骤了。</li>
+<li>Ubuntu使用<code>sudo apt-get install git</code></li>
+</ul>
+<h4 id="4注册github并使用"><a class="markdownIt-Anchor" href="#4注册github并使用"></a> 4.注册Github并使用</h4>
+<ul>
+<li>注册地址：<a href="www.github.com">官网</a></li>
+<li>创建一个新的<code>Repository</code>，名字必须使用<code>username.github.io</code>，当然<code>username</code>就是你的账号名称了<a href="http://jingyan.baidu.com/article/f7ff0bfc7181492e27bb1360.html" target="_blank" rel="noopener">如何在github上创建repository</a></li>
+<li>创建时不要点选<code>Initialize this repository with a README</code></li>
+</ul>
+<h3 id="一开始创建"><a class="markdownIt-Anchor" href="#一开始创建"></a> 一.开始创建</h3>
+<p><strong>可以移步<a href="https://hexo.io/zh-cn/docs/setup.html" target="_blank" rel="noopener">官网</a>，它讲的比较详细</strong></p>
+<h4 id="1初始化"><a class="markdownIt-Anchor" href="#1初始化"></a> 1.初始化</h4>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> hexo init blog   </span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> blog</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm install</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> hexo g</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> hexo s</span></span><br></pre></td></tr></table></figure>
+<p>在浏览器打开<a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a>你就看到它的一个静态网站啦</p>
+<h4 id="2配置"><a class="markdownIt-Anchor" href="#2配置"></a> 2.配置</h4>
+<p>新建完成后，指定文件夹的目录如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml</span><br><span class="line">├── package.json</span><br><span class="line">├── scaffolds</span><br><span class="line">├── source</span><br><span class="line">|   └── _posts</span><br><span class="line">└── themes</span><br></pre></td></tr></table></figure>
+<p><code>_config.yml</code>网站的 <a href="https://hexo.io/zh-cn/docs/zh-cn/docs/configuration.html" target="_blank" rel="noopener">配置</a> 信息，您可以在此配置大部分的参数。</p>
+<p>大家可以参考我的配置</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Hexo Configuration</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/configuration.html</span></span><br><span class="line"><span class="comment">## Source: https://github.com/hexojs/hexo/</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Site</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">杨德杰</span></span><br><span class="line"><span class="attr">subtitle:</span> <span class="string">idejie.com</span></span><br><span class="line"><span class="attr">description:</span> <span class="string">杨德杰的个人博客</span></span><br><span class="line"><span class="attr">author:</span> <span class="string">Mr.Y</span></span><br><span class="line"><span class="attr">language:</span> <span class="string">zh-CN</span></span><br><span class="line"><span class="attr">timezone:</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># URL</span></span><br><span class="line"><span class="comment">## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'</span></span><br><span class="line"><span class="attr">url:</span> <span class="attr">http://blog.idejie.com</span></span><br><span class="line"><span class="attr">root:</span> <span class="string">/</span></span><br><span class="line"><span class="attr">permalink:</span> <span class="string">:year/:month/:day/:title/</span></span><br><span class="line"><span class="attr">permalink_defaults:</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Directory</span></span><br><span class="line"><span class="attr">source_dir:</span> <span class="string">source</span></span><br><span class="line"><span class="attr">public_dir:</span> <span class="string">public</span></span><br><span class="line"><span class="attr">tag_dir:</span> <span class="string">tags</span></span><br><span class="line"><span class="attr">archive_dir:</span> <span class="string">archives</span></span><br><span class="line"><span class="attr">category_dir:</span> <span class="string">categories</span></span><br><span class="line"><span class="attr">code_dir:</span> <span class="string">downloads/code</span></span><br><span class="line"><span class="attr">i18n_dir:</span> <span class="string">:lang</span></span><br><span class="line"><span class="attr">skip_render:</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Writing</span></span><br><span class="line"><span class="attr">new_post_name:</span> <span class="string">:title.md</span> <span class="comment"># File name of new posts</span></span><br><span class="line"><span class="attr">default_layout:</span> <span class="string">post</span></span><br><span class="line"><span class="attr">titlecase:</span> <span class="literal">false</span> <span class="comment"># Transform title into titlecase</span></span><br><span class="line"><span class="attr">external_link:</span> <span class="literal">true</span> <span class="comment"># Open external links in new tab</span></span><br><span class="line"><span class="attr">filename_case:</span> <span class="number">0</span></span><br><span class="line"><span class="attr">render_drafts:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">post_asset_folder:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">relative_link:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">future:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">highlight:</span></span><br><span class="line"><span class="attr">  enable:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">  line_number:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  auto_detect:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">  tab_replace:</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Category &amp; Tag</span></span><br><span class="line"><span class="attr">default_category:</span> </span><br><span class="line"><span class="attr">category_map:</span></span><br><span class="line"><span class="attr">tag_map:</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Date / Time format</span></span><br><span class="line"><span class="comment">## Hexo uses Moment.js to parse and display date</span></span><br><span class="line"><span class="comment">## You can customize the date format as defined in</span></span><br><span class="line"><span class="comment">## http://momentjs.com/docs/#/displaying/format/</span></span><br><span class="line"><span class="attr">date_format:</span> <span class="string">YYYY-MM-DD</span></span><br><span class="line"><span class="attr">time_format:</span> <span class="attr">HH:mm:ss</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Pagination</span></span><br><span class="line"><span class="comment">## Set per_page to 0 to disable pagination</span></span><br><span class="line"><span class="attr">per_page:</span> <span class="number">8</span></span><br><span class="line"><span class="attr">pagination_dir:</span> <span class="string">page</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Extensions</span></span><br><span class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></span><br><span class="line"><span class="attr">theme:</span> <span class="string">fexo</span> <span class="comment">#这里替换成你的主题名称</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/deployment.html</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">  type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">  repo:</span> <span class="attr">https://github.com/YangDejie/yangdejie.github.io.git</span> <span class="comment">#这里替换成你创建repository的地址</span></span><br><span class="line"><span class="attr">  branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+<h4 id="3部署到github"><a class="markdownIt-Anchor" href="#3部署到github"></a> 3.部署到github</h4>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm install hexo-deployer-git --save</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> hexo clean </span></span><br><span class="line"><span class="meta">$</span><span class="bash"> hexo g </span></span><br><span class="line"><span class="meta">$</span><span class="bash"> hexo d</span></span><br></pre></td></tr></table></figure>
+<p>打开你的repository地址<code>username.github.io</code></p>
+<h3 id="二正式使用"><a class="markdownIt-Anchor" href="#二正式使用"></a> 二.正式使用</h3>
+<h4 id="1一些常用命令"><a class="markdownIt-Anchor" href="#1一些常用命令"></a> 1.一些常用命令</h4>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo new "postName" #新建文章 ,等同于hexo n "postName"</span><br><span class="line">hexo new page "pageName" #新建页面 ，等同于hexo n page "pageName"</span><br><span class="line">hexo generate #生成静态页面至public目录，等同于hexo g</span><br><span class="line">hexo server #开启预览访问端口（默认端口4000，'ctrl + c'关闭server）等同于hexo s</span><br><span class="line">hexo deploy #将.deploy目录部署到GitHub，等同于hexo d</span><br><span class="line">hexo clean #清空本地cache</span><br></pre></td></tr></table></figure>
+<h4 id="2markdown语法"><a class="markdownIt-Anchor" href="#2markdown语法"></a> 2.Markdown语法</h4>
+<p>Markdown语法<a href="http://sspai.com/25137" target="_blank" rel="noopener">参考链接</a></p>
+<h4 id="3每次部署到github都需要在你的目录下"><a class="markdownIt-Anchor" href="#3每次部署到github都需要在你的目录下"></a> 3.每次部署到github都需要在你的目录下</h4>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> hexo clean </span></span><br><span class="line"><span class="meta">$</span><span class="bash"> hexo g </span></span><br><span class="line"><span class="meta">$</span><span class="bash"> hexo d</span></span><br></pre></td></tr></table></figure>
+<h3 id="三个性配置"><a class="markdownIt-Anchor" href="#三个性配置"></a> 三.个性配置</h3>
+<ul>
+<li>以后更新</li>
+</ul>
+<h4 id="1主题"><a class="markdownIt-Anchor" href="#1主题"></a> 1.主题</h4>
+<p><a href="https://hexo.io/themes/" target="_blank" rel="noopener">官网推荐主题</a></p>
+<h4 id="2插件"><a class="markdownIt-Anchor" href="#2插件"></a> 2.插件</h4>
+<p><a href="https://hexo.io/plugins/" target="_blank" rel="noopener">官方插件</a></p>
+
+    
+  </div>
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation"><strong><a href="#" style="color: #999;">赞赏</a></strong></span>
+      <div class="donation-body">
+        <div class="tip text-center"><strong>支持一下</strong></div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="https://ws1.sinaimg.cn/large/006tNbRwly1fxjlq29zkkj30f60f675t.jpg" alt="">
+            <a>微信扫一扫</a>
+          </li>
+        
+          <li class="item">
+            <img src="https://ws2.sinaimg.cn/large/006tNbRwly1fxjlwikh27j30a20a2wfe.jpg" alt="">
+            <a>支付宝扫一扫</a>
+          </li>
+        
+          <li class="item">
+            <img src="https://ws3.sinaimg.cn/large/006tNbRwly1fxjlztplu9j30jd0jeadu.jpg" alt="">
+            <a>QQ扫一扫</a>
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2016/09/13/hmi/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2016/08/24/baiduyun-crack/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+              目录
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/category/" rel="noopener noreferrer" target="_self">
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/tag/" rel="noopener noreferrer" target="_self">
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/project/" rel="noopener noreferrer" target="_self">
+              项目
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+
+
+
+
+  <div id="vcomments"></div>
+    <script>
+        new Valine({
+            el: '#vcomments',
+            appId: 'm2JW5otJtf3PU6V2F3ORdsVl-gzGzoHsz',
+            appKey: 'sT0JdEoQA7RJThLQ7z6xiT0c'
+        })
+    </script>
+
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+
+</body>
+</html>

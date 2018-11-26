@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="google-site-verification" content="rEUG6A2SLvgx5-OW-Q2fuuC4q9qNnwo62YXM9KhQlPg">
+  
+  <title>暑期实训项目期中总结 | idejie</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="">
+  
+
+  <meta name="description" content="已经完成的部分 1.前端可视化组件的实现，如新闻多文本上传、情感分析分布的二维点图、搜索结果的条目展示界面 2.结构化摘要工具的实现 3.php 实现的一个后台分析 4.关键算法的实现 5.批量生成这些新闻文本的情绪值（从积极的到消极的对应了数字1到 -1） 6.关键词/时间的摘取    原文： 河南一精神病院患者用筷子袭击女患者，致三死一重伤2017-04-01 19:574月1日下午，河南省">
+<meta name="keywords" content="暑期实训">
+<meta property="og:type" content="article">
+<meta property="og:title" content="暑期实训项目期中总结">
+<meta property="og:url" content="https://blog.idejie.com/2017/06/05/summer-summary/index.html">
+<meta property="og:site_name" content="idejie">
+<meta property="og:description" content="已经完成的部分 1.前端可视化组件的实现，如新闻多文本上传、情感分析分布的二维点图、搜索结果的条目展示界面 2.结构化摘要工具的实现 3.php 实现的一个后台分析 4.关键算法的实现 5.批量生成这些新闻文本的情绪值（从积极的到消极的对应了数字1到 -1） 6.关键词/时间的摘取    原文： 河南一精神病院患者用筷子袭击女患者，致三死一重伤2017-04-01 19:574月1日下午，河南省">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNc79ly1fga7kio4zgj30o308wq47.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNc79ly1fga7s16sj0j312c0eemxk.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNc79ly1fga7rh87thj31110jt0tl.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNc79gy1fga7qm32hqj31170jr0yg.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNc79ly1fga7ieza90j305s0j5js9.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNc79ly1fga7gybw1fj305x0comxr.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNc79ly1fga7hlmm62j30670iawfg.jpg">
+<meta property="og:updated_time" content="2018-11-24T16:32:27.561Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="暑期实训项目期中总结">
+<meta name="twitter:description" content="已经完成的部分 1.前端可视化组件的实现，如新闻多文本上传、情感分析分布的二维点图、搜索结果的条目展示界面 2.结构化摘要工具的实现 3.php 实现的一个后台分析 4.关键算法的实现 5.批量生成这些新闻文本的情绪值（从积极的到消极的对应了数字1到 -1） 6.关键词/时间的摘取    原文： 河南一精神病院患者用筷子袭击女患者，致三死一重伤2017-04-01 19:574月1日下午，河南省">
+<meta name="twitter:image" content="https://ws4.sinaimg.cn/large/006tNc79ly1fga7kio4zgj30o308wq47.jpg">
+
+  
+
+  
+    <link rel="icon" href="https://avatars0.githubusercontent.com/u/12479824">
+  
+
+  <link href="/css/styles.css?v=d671a41f" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/styles.css">
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+<script src="//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0"></script>
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+ <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css">
+<script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/github-markdown-css/2.2.1/github-markdown.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+
+    <!-- The loading of KaTeX is deferred to speed up page rendering -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+
+    <!-- To automatically render math in text elements, include the auto-render extension: -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+</head>
+<script src="//pixijs.download/release/pixi.js"></script>
+</html>
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">菜单</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">菜单</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+            目录
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/category/" rel="noopener noreferrer" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/tag/" rel="noopener noreferrer" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/project/" rel="noopener noreferrer" target="_self">
+            项目
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#已经完成的部分"><span class="toc-text"> 已经完成的部分</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-summer-summary" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">暑期实训项目期中总结</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2017.06.05</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>idejie</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/总结/">总结</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp 阅读量：<span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>
+        </span>
+      
+
+     
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h1 id="已经完成的部分"><a class="markdownIt-Anchor" href="#已经完成的部分"></a> 已经完成的部分</h1>
+<p>1.前端可视化组件的实现，如新闻多文本上传、情感分析分布的二维点图、搜索结果的条目展示界面</p>
+<p>2.结构化摘要工具的实现</p>
+<p>3.php 实现的一个后台分析</p>
+<p>4.关键算法的实现</p>
+<p>5.批量生成这些新闻文本的情绪值（从积极的到消极的对应了数字1到 -1）</p>
+<p>6.关键词/时间的摘取</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNc79ly1fga7kio4zgj30o308wq47.jpg" alt=""></p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1fga7s16sj0j312c0eemxk.jpg" alt=""><img src="https://ws3.sinaimg.cn/large/006tNc79ly1fga7rh87thj31110jt0tl.jpg" alt=""><img src="https://ws4.sinaimg.cn/large/006tNc79gy1fga7qm32hqj31170jr0yg.jpg" alt=""></p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1fga7ieza90j305s0j5js9.jpg" alt=""><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fga7gybw1fj305x0comxr.jpg" alt=""><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fga7hlmm62j30670iawfg.jpg" alt=""></p>
+<p>原文：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">河南一精神病院患者用筷子袭击女患者，致三死一重伤</span><br><span class="line">2017-04-01 19:57</span><br><span class="line">4月1日下午，河南省洛阳市洛宁县卫生计生委相关负责人向澎湃新闻证实，该县一精神病院近期发生一起精神病患者袭击他人并致人死亡事件，事件造成3名女性精神病患者死亡，一名女性精神病患者受伤。</span><br><span class="line">该负责人告诉澎湃新闻，该事件发生在2月24日晚。</span><br><span class="line">当天，洛宁县一家民营医院——洛宁县大众医院，收治了一名44岁的男性精神病患者。该患者挣脱捆绑，用筷子攻击了同病区的4名女性精神病患者。</span><br><span class="line">一名受伤女患者当场死亡，其余3名女患者重伤。在随后抢救过程中，其中两人死亡。</span><br><span class="line">洛宁县卫计委上述负责人表示，洛宁县警方当晚已介入调查该事件，涉事男患者被带往洛阳市精神卫生中心治疗并鉴定。</span><br><span class="line">上述患者均为洛宁县当地人。</span><br><span class="line">据洛宁县卫生计生委提供的信息，涉事男患者杨某某，是当地公共卫生精神病管理对象。3月24日，杨某某家属与大众医院联系，并与医院工作人员一同将杨某某转移安置到该院“四防”病区。“四防”病区指防伤人、防破坏、防出走，防自伤自杀的病区。</span><br><span class="line">洛宁县大众医院内设精神科，为一级综合医院，2008年由原洛阳市卫生局批准成立。该院主要收治洛宁县及周边地区的精神病患者。</span><br><span class="line">杨某某被转移到医院过程中，手脚都缚有铁链、手铐。24日20时许，医院工作人员将杨某某手铐打开，改用绳子捆绑。</span><br><span class="line">随后，在家属外出为杨某某购买奶粉，医院看护人员上卫生间期间，杨某某挣脱绳子，手持筷子袭击了同病区的4名女患者。</span><br><span class="line">120急救人员到达现场时，63岁的女患者云某某已死亡；30岁的女患者白某某右眼外伤，颅脑损伤，3月4日，因抢救无效，死亡；64岁的女患者韦某颅脑损伤，3月9日，因抢救无效，死亡。</span><br><span class="line">43岁的受害人张某某左眼外伤，颅脑损伤，经洛阳市中心医院治疗后，外伤痊愈，目前已返回洛宁县大众医院，继续接受精神病常规治疗。</span><br><span class="line">河南省洛阳市洛宁县公安局政工办工作人员向澎湃新闻证实，该辖区一精神病院——洛宁县大众医院近期发生一起刑事案件，嫌疑人为一名患者。</span><br><span class="line">前述洛宁县卫生计生委负责人表示，其中一名死亡女性精神病患者的后事已处置妥当，但另外两名死亡女性精神病患者家属要求赔偿数额较高，目前正在沟通中。</span><br><span class="line"></span><br><span class="line">韩国军方：朝鲜今晨发射1枚弹道导弹 飞行距离约60公里</span><br><span class="line">2017-04-05 07:02:00</span><br><span class="line">环球网报道 记者 赵衍龙】据韩国联合参谋本部5日消息，朝鲜当天上午在咸镜南道新浦一带朝向半岛东部海域发射不明飞行物。韩联参称，该飞行物为1枚弹道导弹，飞行距离约60公里。</span><br><span class="line">据了解，朝方当天上午6时40分许发射的该飞行物，飞行物的飞行距离不长。朝鲜曾多次在新浦地区发射潜射导弹(SLBM)，但鉴于此次在地上发射，因此当天发射的飞行物为潜射导弹的可能性较小。</span><br><span class="line">这是朝鲜于3月22日发射弹道导弹遭失败后时隔14天再次发射飞行物。</span><br><span class="line">3月6日，朝鲜在平安北道铁山郡东仓里一带发射了4枚弹道导弹。</span><br><span class="line">韩美两军认为，朝鲜还有可能发起核试验等挑衅，因此正在密切关注朝方动向。</span><br></pre></td></tr></table></figure>
+<p>结果示例：</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"news_test_0.txt"</span>: &#123;</span><br><span class="line">        <span class="attr">"code"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="attr">"sentiment"</span>: <span class="number">-0.5913626456902517</span>,</span><br><span class="line">        <span class="attr">"tilte"</span>: <span class="string">"河南一精神病院患者用筷子袭击女患者，致三死一重伤"</span>,</span><br><span class="line">        <span class="attr">"abstract"</span>: <span class="string">"事件造成3名女性精神病患者死亡 杨某某被转移到医院过程中 杨某某家属与大众医院联系 并与医院工作人员一同将杨某某转移安置到该院“四防”病区 63岁的女患者云某某已死亡 "</span>,</span><br><span class="line">        <span class="attr">"time"</span>: <span class="string">"2017-04-01 19:57"</span>,</span><br><span class="line">        <span class="attr">"keywords"</span>: [</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="attr">"frequency"</span>: <span class="number">0.02186421173762946</span>,</span><br><span class="line">                <span class="attr">"word"</span>: <span class="string">"患者"</span></span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="attr">"frequency"</span>: <span class="number">0.011507479861910242</span>,</span><br><span class="line">                <span class="attr">"word"</span>: <span class="string">"某某"</span></span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="attr">"frequency"</span>: <span class="number">0.01380897583429229</span>,</span><br><span class="line">                <span class="attr">"word"</span>: <span class="string">"精神病"</span></span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="attr">"frequency"</span>: <span class="number">0.01380897583429229</span>,</span><br><span class="line">                <span class="attr">"word"</span>: <span class="string">"医院"</span></span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="attr">"frequency"</span>: <span class="number">0.014959723820483314</span>,</span><br><span class="line">                <span class="attr">"word"</span>: <span class="string">"洛宁县"</span></span><br><span class="line">            &#125;</span><br><span class="line">        ],</span><br><span class="line">        <span class="attr">"message"</span>: <span class="string">"sucess"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"news_test_1.txt"</span>: &#123;</span><br><span class="line">        <span class="attr">"code"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="attr">"sentiment"</span>: <span class="number">0.9947093760814028</span>,</span><br><span class="line">        <span class="attr">"tilte"</span>: <span class="string">"韩国军方：朝鲜今晨发射1枚弹道导弹 飞行距离约60公里"</span>,</span><br><span class="line">        <span class="attr">"abstract"</span>: <span class="string">"朝鲜当天上午在咸镜南道新浦一带朝向半岛东部海域发射不明飞行物 因此当天发射的飞行物为潜射导弹的可能性较小 该飞行物为1枚弹道导弹 这是朝鲜于3月22日发射弹道导弹遭失败后时隔14天再次发射飞行物 朝方当天上午6时40分许发射的该飞行物 "</span>,</span><br><span class="line">        <span class="attr">"time"</span>: <span class="string">"2017-04-05 07:02:00"</span>,</span><br><span class="line">        <span class="attr">"keywords"</span>: [</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="attr">"frequency"</span>: <span class="number">0.02877697841726619</span>,</span><br><span class="line">                <span class="attr">"word"</span>: <span class="string">"发射"</span></span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="attr">"frequency"</span>: <span class="number">0.02158273381294964</span>,</span><br><span class="line">                <span class="attr">"word"</span>: <span class="string">"道"</span></span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="attr">"frequency"</span>: <span class="number">0.02877697841726619</span>,</span><br><span class="line">                <span class="attr">"word"</span>: <span class="string">"飞行"</span></span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="attr">"frequency"</span>: <span class="number">0.017985611510791366</span>,</span><br><span class="line">                <span class="attr">"word"</span>: <span class="string">"朝鲜"</span></span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="attr">"frequency"</span>: <span class="number">0.017985611510791366</span>,</span><br><span class="line">                <span class="attr">"word"</span>: <span class="string">"导弹"</span></span><br><span class="line">            &#125;</span><br><span class="line">        ],</span><br><span class="line">        <span class="attr">"message"</span>: <span class="string">"sucess"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    
+  </div>
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation"><strong><a href="#" style="color: #999;">赞赏</a></strong></span>
+      <div class="donation-body">
+        <div class="tip text-center"><strong>支持一下</strong></div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="https://ws1.sinaimg.cn/large/006tNbRwly1fxjlq29zkkj30f60f675t.jpg" alt="">
+            <a>微信扫一扫</a>
+          </li>
+        
+          <li class="item">
+            <img src="https://ws2.sinaimg.cn/large/006tNbRwly1fxjlwikh27j30a20a2wfe.jpg" alt="">
+            <a>支付宝扫一扫</a>
+          </li>
+        
+          <li class="item">
+            <img src="https://ws3.sinaimg.cn/large/006tNbRwly1fxjlztplu9j30jd0jeadu.jpg" alt="">
+            <a>QQ扫一扫</a>
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2017/06/11/python-sdu-ele/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2017/06/04/python3-module/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+              目录
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/category/" rel="noopener noreferrer" target="_self">
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/tag/" rel="noopener noreferrer" target="_self">
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/project/" rel="noopener noreferrer" target="_self">
+              项目
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+
+
+
+
+  <div id="vcomments"></div>
+    <script>
+        new Valine({
+            el: '#vcomments',
+            appId: 'm2JW5otJtf3PU6V2F3ORdsVl-gzGzoHsz',
+            appKey: 'sT0JdEoQA7RJThLQ7z6xiT0c'
+        })
+    </script>
+
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+
+</body>
+</html>

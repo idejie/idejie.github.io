@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="google-site-verification" content="rEUG6A2SLvgx5-OW-Q2fuuC4q9qNnwo62YXM9KhQlPg">
+  
+  <title>使用 OpenWRT 来 DIY 路由器 | idejie</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="">
+  
+
+  <meta name="description" content="OpenWRT OpenWrt是适合于嵌入式设备的一个Linux发行版。 相对原厂固件而言，OpenWrt不是一个单一、静态的固件，而是提供了一个可添加软件包的可写的文件系统。这使用户可以自由的选择应用程序和配置，而不必受设备提供商的限制，并且可以使用一些适合某方面应用的软件包来定制你的设备。对于开发者来说，OpenWrt是一个框架，开发者不必麻烦的构建整个固件就能得到想要的应用程序；对于用户来">
+<meta name="keywords" content="OpenWRT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用 OpenWRT 来 DIY 路由器">
+<meta property="og:url" content="https://blog.idejie.com/2017/07/17/openwrt/index.html">
+<meta property="og:site_name" content="idejie">
+<meta property="og:description" content="OpenWRT OpenWrt是适合于嵌入式设备的一个Linux发行版。 相对原厂固件而言，OpenWrt不是一个单一、静态的固件，而是提供了一个可添加软件包的可写的文件系统。这使用户可以自由的选择应用程序和配置，而不必受设备提供商的限制，并且可以使用一些适合某方面应用的软件包来定制你的设备。对于开发者来说，OpenWrt是一个框架，开发者不必麻烦的构建整个固件就能得到想要的应用程序；对于用户来">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tKfTcly1fhn9732jg9j30eg085q45.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1fhn9c0927aj30du06574j.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcly1fhn9dm3ag5j30iv018t8q.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcly1fhn9fhwbg7j30ds021aa7.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcly1fhn9g6yjxxj30ql06w75i.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcly1fhn9h76i2bj30b207zwf6.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcly1fhn99bmdsdj30b708bab2.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tKfTcly1fhn9klmhe7j30ep029aa6.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcly1fhn9ktqgvjj30dk05xdg2.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcly1fhn9p1gda9j30bm00w0ss.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcly1fhn9p1gda9j30bm00w0ss.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcly1fhn9rgqurvj30c403tjrz.jpg">
+<meta property="og:updated_time" content="2018-11-24T16:32:27.551Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用 OpenWRT 来 DIY 路由器">
+<meta name="twitter:description" content="OpenWRT OpenWrt是适合于嵌入式设备的一个Linux发行版。 相对原厂固件而言，OpenWrt不是一个单一、静态的固件，而是提供了一个可添加软件包的可写的文件系统。这使用户可以自由的选择应用程序和配置，而不必受设备提供商的限制，并且可以使用一些适合某方面应用的软件包来定制你的设备。对于开发者来说，OpenWrt是一个框架，开发者不必麻烦的构建整个固件就能得到想要的应用程序；对于用户来">
+<meta name="twitter:image" content="https://ws2.sinaimg.cn/large/006tKfTcly1fhn9732jg9j30eg085q45.jpg">
+
+  
+
+  
+    <link rel="icon" href="https://avatars0.githubusercontent.com/u/12479824">
+  
+
+  <link href="/css/styles.css?v=d671a41f" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/styles.css">
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+<script src="//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0"></script>
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+ <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css">
+<script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/github-markdown-css/2.2.1/github-markdown.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+
+    <!-- The loading of KaTeX is deferred to speed up page rendering -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+
+    <!-- To automatically render math in text elements, include the auto-render extension: -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+</head>
+<script src="//pixijs.download/release/pixi.js"></script>
+</html>
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">菜单</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">菜单</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+            目录
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/category/" rel="noopener noreferrer" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/tag/" rel="noopener noreferrer" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/project/" rel="noopener noreferrer" target="_self">
+            项目
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#openwrt"><span class="toc-text"> OpenWRT</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#supported-device"><span class="toc-text"> Supported Device</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#just-do-it"><span class="toc-text"> Just do it</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1将路由器的原系统更新至开发版"><span class="toc-text"> 1.将路由器的原系统更新至开发版</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2开启-ssh-权限"><span class="toc-text"> 2.开启 SSH 权限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3安装-openwrt"><span class="toc-text"> 3.安装 OpenWRT</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4开始-openwrt"><span class="toc-text"> 4.开始 OpenWRT</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#更进一步"><span class="toc-text"> 更进一步</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#开启中文界面"><span class="toc-text"> 开启中文界面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#挂载-u-盘"><span class="toc-text"> 挂载 U 盘</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#python"><span class="toc-text"> Python</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#more"><span class="toc-text"> More</span></a></li></ol></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-openwrt" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">使用 OpenWRT 来 DIY 路由器</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2017.07.17</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>idejie</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/教程/">教程</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp 阅读量：<span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>
+        </span>
+      
+
+     
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h1 id="openwrt"><a class="markdownIt-Anchor" href="#openwrt"></a> OpenWRT</h1>
+<p><strong>OpenWrt</strong>是适合于<a href="https://zh.wikipedia.org/wiki/%E5%B5%8C%E5%85%A5%E5%BC%8F" target="_blank" rel="noopener">嵌入式</a>设备的一个<a href="https://zh.wikipedia.org/wiki/Linux" target="_blank" rel="noopener">Linux</a>发行版。</p>
+<p>相对原厂固件而言，OpenWrt不是一个单一、静态的<a href="https://zh.wikipedia.org/wiki/%E5%9B%BA%E4%BB%B6" target="_blank" rel="noopener">固件</a>，而是提供了一个可添加软件包的可写的<a href="https://zh.wikipedia.org/wiki/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F" target="_blank" rel="noopener">文件系统</a>。这使用户可以自由的选择应用程序和配置，而不必受设备提供商的限制，并且可以使用一些适合某方面应用的软件包来定制你的设备。对于开发者来说，OpenWrt是一个框架，开发者不必麻烦的构建整个固件就能得到想要的<a href="https://zh.wikipedia.org/wiki/%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F" target="_blank" rel="noopener">应用程序</a>；对于用户来说，这意味着完全定制的能力，与以往不同的方式使用设备，OPKG包含超过3500个软件。 默认使用LuCI作为web交互界面。</p>
+<h1 id="supported-device"><a class="markdownIt-Anchor" href="#supported-device"></a> Supported Device</h1>
+<p>详见官方提供的<a href="https://wiki.openwrt.org/toh/start" target="_blank" rel="noopener">列表</a></p>
+<h1 id="just-do-it"><a class="markdownIt-Anchor" href="#just-do-it"></a> Just do it</h1>
+<p>本人使用的路由器为小米路由器 Mini(R1CM)</p>
+<h2 id="1将路由器的原系统更新至开发版"><a class="markdownIt-Anchor" href="#1将路由器的原系统更新至开发版"></a> 1.将路由器的原系统更新至开发版</h2>
+<ul>
+<li>
+<p>请先准备一个U盘，并确保这个U盘的格式为FAT或FAT32.</p>
+</li>
+<li>
+<p>在miwifi.com官网下载路由器对应的ROM包，并将其放在U盘的根目录下，命名为miwifi.bin</p>
+</li>
+<li>
+<p>断开小米路由器mini的电源，将U盘插入路由器的USB接口</p>
+</li>
+<li>
+<p>按下reset按钮后重新接入电源，待指示灯变为黄色闪烁状态后松开reset键</p>
+</li>
+<li>
+<p>等待5~8分钟，刷机完成之后系统会自动重启并进入正常的启动状态（指示灯由黄灯常亮变为蓝灯常亮），此时，说明刷机成功完成！</p>
+</li>
+</ul>
+<h2 id="2开启-ssh-权限"><a class="markdownIt-Anchor" href="#2开启-ssh-权限"></a> 2.开启 SSH 权限</h2>
+<ul>
+<li>使用小米提供的官方 APP 绑定路由器</li>
+<li>查看官网提供的 SSH 密码<a href="http://d.miwifi.com/rom/ssh" target="_blank" rel="noopener">网站</a></li>
+<li>下载对应的工具包</li>
+<li>请将下载的工具包bin文件复制到U盘（FAT/FAT32格式）的根目录下，保证文件名为miwifi_ssh.bin；</li>
+<li>断开小米路由器的电源，将U盘插入USB接口；</li>
+<li>按住reset按钮之后重新接入电源，指示灯变为黄色闪烁状态即可松开reset键；</li>
+<li>等待3-5秒后安装完成之后，小米路由器会自动重启，之后您就可以尽情折腾啦 ：）</li>
+</ul>
+<h2 id="3安装-openwrt"><a class="markdownIt-Anchor" href="#3安装-openwrt"></a> 3.安装 OpenWRT</h2>
+<ul>
+<li>使用命令行工具SSH 连接</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh root@192.168.31.1</span><br></pre></td></tr></table></figure>
+<p><img src="https://ws2.sinaimg.cn/large/006tKfTcly1fhn9732jg9j30eg085q45.jpg" alt=""></p>
+<ul>
+<li><a href="http://downloads.openwrt.org/chaos_calmer/15.05.1/ramips/mt7620/openwrt-15.05.1-ramips-mt7620-xiaomi-miwifi-mini-squashfs-sysupgrade.bin" target="_blank" rel="noopener">下载</a>OpenWRT官方提供的小米路由器定制包</li>
+<li>使用 <code>scp</code>将 OpenWRT工具包拷贝至路由器</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">scp ./openwrt-15.05.1-ramips-mt7620-xiaomi-miwifi-mini-squashfs-sysupgrade.bin root@192.168.31.1:/tmp #注意使用/tmp 目录，其他目录只可读</span><br></pre></td></tr></table></figure>
+<ul>
+<li>写入 OpenWRT</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mtd -r write /tmp/openwrt-15.05.1-ramips-mt7620-xiaomi-miwifi-mini-squashfs-sysupgrade.bin OS1</span><br></pre></td></tr></table></figure>
+<ul>
+<li>等待设备重启，大约3min</li>
+</ul>
+<h2 id="4开始-openwrt"><a class="markdownIt-Anchor" href="#4开始-openwrt"></a> 4.开始 OpenWRT</h2>
+<ul>
+<li>
+<p>浏览器打开192.168.1.1</p>
+</li>
+<li>
+<p>初始密码为 admin，上方会提示你修改密码,点击进入</p>
+</li>
+</ul>
+<p><img src="https://ws3.sinaimg.cn/large/006tKfTcly1fhn9c0927aj30du06574j.jpg" alt=""></p>
+<ul>
+<li>同时开启远程访问权限（可选）</li>
+</ul>
+<p><img src="https://ws1.sinaimg.cn/large/006tKfTcly1fhn9dm3ag5j30iv018t8q.jpg" alt=""></p>
+<ul>
+<li>
+<p>save &amp; apply</p>
+</li>
+<li>
+<p>设置网络</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tKfTcly1fhn9fhwbg7j30ds021aa7.jpg" alt=""></p>
+<ul>
+<li>点击 <strong>Interfaces</strong></li>
+<li><img src="https://ws1.sinaimg.cn/large/006tKfTcly1fhn9g6yjxxj30ql06w75i.jpg" alt=""></li>
+<li>根据提示和个人情况进行配置网络</li>
+</ul>
+<p><img src="https://ws4.sinaimg.cn/large/006tKfTcly1fhn9h76i2bj30b207zwf6.jpg" alt=""></p>
+</li>
+<li>
+<p>ssh 连接 OpenWRT</p>
+</li>
+</ul>
+<p><img src="https://ws4.sinaimg.cn/large/006tKfTcly1fhn99bmdsdj30b708bab2.jpg" alt=""></p>
+<h1 id="更进一步"><a class="markdownIt-Anchor" href="#更进一步"></a> 更进一步</h1>
+<h2 id="开启中文界面"><a class="markdownIt-Anchor" href="#开启中文界面"></a> 开启中文界面</h2>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">opkg update</span><br><span class="line">opkg install luci-i18n-base-zh-cn</span><br></pre></td></tr></table></figure>
+<p><img src="https://ws2.sinaimg.cn/large/006tKfTcly1fhn9klmhe7j30ep029aa6.jpg" alt=""></p>
+<p><img src="https://ws1.sinaimg.cn/large/006tKfTcly1fhn9ktqgvjj30dk05xdg2.jpg" alt=""></p>
+<h2 id="挂载-u-盘"><a class="markdownIt-Anchor" href="#挂载-u-盘"></a> 挂载 U 盘</h2>
+<p>你会发现装上几个软件包，就快满了,所以挂载 U 盘吧</p>
+<p>以 NTFS 盘为例</p>
+<ul>
+<li>安装必要安装包</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">opkg update</span><br><span class="line">opkg install fdisk</span><br><span class="line">opkg install kmod-usb-storage kmod-fs-ntfs ntfs-3g kmod-nls-utf8 kmod-fs-nfs-common kmod-fs-nfs</span><br></pre></td></tr></table></figure>
+<ul>
+<li>查看 U 盘盘符</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">fdisk -l</span><br></pre></td></tr></table></figure>
+<p><img src="https://ws1.sinaimg.cn/large/006tKfTcly1fhn9p1gda9j30bm00w0ss.jpg" alt=""></p>
+<ul>
+<li>
+<p>挂载 /dev/sda1(可能是其他名字)到overlay<br>
+<img src="https://ws1.sinaimg.cn/large/006tKfTcly1fhn9p1gda9j30bm00w0ss.jpg" alt=""></p>
+</li>
+<li>
+<p>查看挂载是否成功</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tKfTcly1fhn9rgqurvj30c403tjrz.jpg" alt=""></p>
+</li>
+<li>
+<p>接下来就可以任性装包了</p>
+</li>
+</ul>
+<h2 id="python"><a class="markdownIt-Anchor" href="#python"></a> Python</h2>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">opkg install python</span><br></pre></td></tr></table></figure>
+<ul>
+<li>pip</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">python get-pip.py</span><br></pre></td></tr></table></figure>
+<p>下载<a href="https://bootstrap.pypa.io/get-pip.py" target="_blank" rel="noopener">get-pip.py</a></p>
+<h2 id="more"><a class="markdownIt-Anchor" href="#more"></a> More</h2>
+<p><strong>wait …</strong></p>
+
+    
+  </div>
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation"><strong><a href="#" style="color: #999;">赞赏</a></strong></span>
+      <div class="donation-body">
+        <div class="tip text-center"><strong>支持一下</strong></div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="https://ws1.sinaimg.cn/large/006tNbRwly1fxjlq29zkkj30f60f675t.jpg" alt="">
+            <a>微信扫一扫</a>
+          </li>
+        
+          <li class="item">
+            <img src="https://ws2.sinaimg.cn/large/006tNbRwly1fxjlwikh27j30a20a2wfe.jpg" alt="">
+            <a>支付宝扫一扫</a>
+          </li>
+        
+          <li class="item">
+            <img src="https://ws3.sinaimg.cn/large/006tNbRwly1fxjlztplu9j30jd0jeadu.jpg" alt="">
+            <a>QQ扫一扫</a>
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2017/07/25/python-tpot/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2017/07/15/word-embedding/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+              目录
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/category/" rel="noopener noreferrer" target="_self">
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/tag/" rel="noopener noreferrer" target="_self">
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/project/" rel="noopener noreferrer" target="_self">
+              项目
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+
+
+
+
+  <div id="vcomments"></div>
+    <script>
+        new Valine({
+            el: '#vcomments',
+            appId: 'm2JW5otJtf3PU6V2F3ORdsVl-gzGzoHsz',
+            appKey: 'sT0JdEoQA7RJThLQ7z6xiT0c'
+        })
+    </script>
+
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+
+</body>
+</html>

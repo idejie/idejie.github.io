@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="google-site-verification" content="rEUG6A2SLvgx5-OW-Q2fuuC4q9qNnwo62YXM9KhQlPg">
+  
+  <title>Express入门（二） | idejie</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="">
+  
+
+  <meta name="description" content="七、使用Markdown编辑器 现在我们来给博客添加支持 markdown 发表文章的功能。 假如你不还熟悉 markdown，请转到：http://wowubuntu.com/markdown/ 打开 package.json ，添加一行代码： &amp;quot;markdown&amp;quot;: &amp;quot;0.5.0&amp;quot; 使用 npm install 安装 markdown 模块。 打开 p">
+<meta name="keywords" content="Express">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Express入门（二）">
+<meta property="og:url" content="https://blog.idejie.com/2016/10/21/express-blog-2/index.html">
+<meta property="og:site_name" content="idejie">
+<meta property="og:description" content="七、使用Markdown编辑器 现在我们来给博客添加支持 markdown 发表文章的功能。 假如你不还熟悉 markdown，请转到：http://wowubuntu.com/markdown/ 打开 package.json ，添加一行代码： &amp;quot;markdown&amp;quot;: &amp;quot;0.5.0&amp;quot; 使用 npm install 安装 markdown 模块。 打开 p">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/nswbmw/N-blog/blob/master/public/images/2.1.jpg?raw=true">
+<meta property="og:image" content="https://github.com/nswbmw/N-blog/blob/master/public/images/2.2.jpg?raw=true">
+<meta property="og:image" content="https://github.com/nswbmw/N-blog/blob/master/public/images/3.1.jpg?raw=true">
+<meta property="og:image" content="https://github.com/nswbmw/N-blog/blob/master/public/images/3.2.jpg?raw=true">
+<meta property="og:image" content="https://github.com/nswbmw/N-blog/blob/master/public/images/3.3.jpg?raw=true">
+<meta property="og:image" content="https://github.com/nswbmw/N-blog/blob/master/public/images/4.1.jpg?raw=true">
+<meta property="og:image" content="https://github.com/nswbmw/N-blog/blob/master/public/images/4.2.jpg?raw=true">
+<meta property="og:updated_time" content="2018-11-24T16:32:27.541Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Express入门（二）">
+<meta name="twitter:description" content="七、使用Markdown编辑器 现在我们来给博客添加支持 markdown 发表文章的功能。 假如你不还熟悉 markdown，请转到：http://wowubuntu.com/markdown/ 打开 package.json ，添加一行代码： &amp;quot;markdown&amp;quot;: &amp;quot;0.5.0&amp;quot; 使用 npm install 安装 markdown 模块。 打开 p">
+<meta name="twitter:image" content="https://github.com/nswbmw/N-blog/blob/master/public/images/2.1.jpg?raw=true">
+
+  
+
+  
+    <link rel="icon" href="https://avatars0.githubusercontent.com/u/12479824">
+  
+
+  <link href="/css/styles.css?v=d671a41f" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/styles.css">
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+<script src="//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0"></script>
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+ <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css">
+<script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/github-markdown-css/2.2.1/github-markdown.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+
+    <!-- The loading of KaTeX is deferred to speed up page rendering -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+
+    <!-- To automatically render math in text elements, include the auto-render extension: -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+</head>
+<script src="//pixijs.download/release/pixi.js"></script>
+</html>
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">菜单</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">菜单</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+            目录
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/category/" rel="noopener noreferrer" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/tag/" rel="noopener noreferrer" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/project/" rel="noopener noreferrer" target="_self">
+            项目
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#七-使用markdown编辑器"><span class="toc-text"> 七、使用Markdown编辑器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#八-添加文件上传功能"><span class="toc-text"> 八、添加文件上传功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#九-实现文章页面和用户页面"><span class="toc-text"> 九、实现文章页面和用户页面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十-增加编辑和删除功能"><span class="toc-text"> 十、增加编辑和删除功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十一-实现留言功能"><span class="toc-text"> 十一、实现留言功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十二-实现分页"><span class="toc-text"> 十二、实现分页</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十三-增加存档页面"><span class="toc-text"> 十三、增加存档页面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十四-实现标签功能"><span class="toc-text"> 十四、实现标签功能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#添加标签"><span class="toc-text"> 添加标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加标签页"><span class="toc-text"> 添加标签页</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加特定标签的页面"><span class="toc-text"> 添加特定标签的页面</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十五-增加检索功能"><span class="toc-text"> 十五、增加检索功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十六-增加友链"><span class="toc-text"> 十六、增加友链</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十七-实现404"><span class="toc-text"> 十七、实现404</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十八-增加头像"><span class="toc-text"> 十八、增加头像</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#添加已注册用户的头像"><span class="toc-text"> 添加已注册用户的头像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加未注册用户的头像"><span class="toc-text"> 添加未注册用户的头像</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十九-添加转载及统计"><span class="toc-text"> 十九、添加转载及统计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二十-添加日志功能"><span class="toc-text"> 二十、添加日志功能</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-express-blog-2" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">Express入门（二）</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2016.10.21</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>idejie</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/教程/">教程</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp 阅读量：<span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>
+        </span>
+      
+
+     
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h2 id="七-使用markdown编辑器"><a class="markdownIt-Anchor" href="#七-使用markdown编辑器"></a> 七、使用Markdown编辑器</h2>
+<p>现在我们来给博客添加支持 markdown 发表文章的功能。<br>
+假如你不还熟悉 markdown，请转到：<a href="http://wowubuntu.com/markdown/" target="_blank" rel="noopener">http://wowubuntu.com/markdown/</a></p>
+<p>打开 package.json ，添加一行代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&quot;markdown&quot;: &quot;0.5.0&quot;</span><br></pre></td></tr></table></figure>
+<p>使用 <code>npm install</code> 安装 markdown 模块。</p>
+<p>打开 post.js，在 <code>mongodb = require('./db')</code> 后添加一行代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">markdown = require(&apos;markdown&apos;).markdown;</span><br></pre></td></tr></table></figure>
+<p>在 <code>Post.get</code> 函数里的 <code>callback(null, docs);</code> 前添加以下代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">//解析 markdown 为 html</span><br><span class="line">docs.forEach(function (doc) &#123;</span><br><span class="line">  doc.post = markdown.toHTML(doc.post);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>现在我们就可以使用 markdown 发表文章了。</p>
+<p><strong>注意</strong>：每当我们给博客添加新功能后，都要清空数据库（即删除 mongodb/blog 文件夹里所有文件）再启动我们的博客。以后每一章都是如此，后面便不再赘述。</p>
+<p>运行我们的博客，如图所示：</p>
+<p><strong>发表前</strong></p>
+<p><img src="https://github.com/nswbmw/N-blog/blob/master/public/images/2.1.jpg?raw=true" alt=""></p>
+<p><strong>发表后</strong></p>
+<p><img src="https://github.com/nswbmw/N-blog/blob/master/public/images/2.2.jpg?raw=true" alt=""></p>
+<h2 id="八-添加文件上传功能"><a class="markdownIt-Anchor" href="#八-添加文件上传功能"></a> 八、添加文件上传功能</h2>
+<p>一个完整的博客怎么能缺少图片呢？现在，我们来给博客添加文件上传功能，这样我们就可以使用 markdown 来链接图片了。</p>
+<p>我们使用express的第三方中间件 multer 实现文件上传功能。打开 package.json，在 dependencies 中添加：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&quot;multer&quot;: &quot;1.1.0&quot;</span><br></pre></td></tr></table></figure>
+<p>并 npm install 安装模块。然后修改 index.js，添加：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var multer  = require(&apos;multer&apos;);</span><br><span class="line">原版本使用方法</span><br><span class="line">//app.use(multer(&#123;</span><br><span class="line">//  dest: &apos;./public/images&apos;,</span><br><span class="line">//  rename: function (fieldname, filename) &#123;</span><br><span class="line">//    return filename;</span><br><span class="line">//  &#125;</span><br><span class="line">//&#125;));</span><br><span class="line">新的使用方法</span><br><span class="line">var storage = multer.diskStorage(&#123;</span><br><span class="line">    destination: function (req, file, cb)&#123;</span><br><span class="line">        cb(null, &apos;./public/images&apos;)</span><br><span class="line">    &#125;,</span><br><span class="line">    filename: function (req, file, cb)&#123;</span><br><span class="line">        cb(null, file.originalname)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line">var upload = multer(&#123;</span><br><span class="line">    storage: storage</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>其中，destination 是上传的文件所在的目录，filename 函数用来修改上传后的文件名，这里设置为保持原来的文件名。</p>
+<p>打开 header.ejs ，在 <code>&lt;span&gt;&lt;a title=&quot;发表&quot; href=&quot;/post&quot;&gt;post&lt;/a&gt;&lt;/span&gt;</code> 前添加一行代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;span&gt;&lt;a title=&quot;上传&quot; href=&quot;/upload&quot;&gt;upload&lt;/a&gt;&lt;/span&gt;</span><br></pre></td></tr></table></figure>
+<p>然后打开 index.js ，在 <code>app.get('/logout')</code> 函数后添加如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">app.get(&apos;/upload&apos;, checkLogin);</span><br><span class="line">app.get(&apos;/upload&apos;, function (req, res) &#123;</span><br><span class="line">  res.render(&apos;upload&apos;, &#123;</span><br><span class="line">    title: &apos;文件上传&apos;,</span><br><span class="line">    user: req.session.user,</span><br><span class="line">    success: req.flash(&apos;success&apos;).toString(),</span><br><span class="line">    error: req.flash(&apos;error&apos;).toString()</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><strong>注意</strong>：我们设置 <code>app.get('/upload', checkLogin);</code> 限制只有登陆的用户才能上传文件。</p>
+<p>接下来，我们在 views 文件夹下新建 upload.ejs ，添加如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;%- include header %&gt;</span><br><span class="line">&lt;form method=&apos;post&apos; action=&apos;/upload&apos; enctype=&apos;multipart/form-data&apos; &gt;</span><br><span class="line">  &lt;input type=&quot;file&quot; multiple name=&apos;field1&apos;/&gt;&lt;br&gt;</span><br><span class="line">  &lt;input type=&quot;submit&quot; /&gt;</span><br><span class="line">&lt;/form&gt;</span><br><span class="line">&lt;%- include footer %&gt;</span><br></pre></td></tr></table></figure>
+<p>现在我们就可以访问文件上传页面了。IE可能会产生多文件上传兼容问题。清空数据库，重新注册登录后，上传文件页面如下图：<br>
+页面未修改，实际上应该只剩下一个上传控件显示（新修改的）</p>
+<p><img src="https://github.com/nswbmw/N-blog/blob/master/public/images/3.1.jpg?raw=true" alt=""></p>
+<p>我们现在只是有了一个可以上传文件的表单而已，并不能上传文件，接下来我们添加对上传文件的支持。</p>
+<p>在 <code>app.get('/upload')</code> 后添加如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">app.post(&apos;/upload&apos;, checkLogin);</span><br><span class="line">app.post(&apos;/upload&apos;, upload.array(&apos;field1&apos;, 5), function (req, res) &#123;</span><br><span class="line">  req.flash(&apos;success&apos;, &apos;文件上传成功!&apos;);</span><br><span class="line">  res.redirect(&apos;/upload&apos;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>其中，第一个参数array表示可以同时上传多个文件，第二个参数5表示最多上传5个文件<br>
+<strong>注意</strong>：假如从桌面启动的博客上传图片时失败，尝试在命令行中从博客根目录下启动。</p>
+<p>现在，我们给博客添加了文件上传功能。假如我们上传了一张名为 <strong>lufei.jpg</strong> 的图片，示例：</p>
+<p><strong>发表前</strong></p>
+<p><img src="https://github.com/nswbmw/N-blog/blob/master/public/images/3.2.jpg?raw=true" alt=""></p>
+<p><strong>发表后</strong></p>
+<p><img src="https://github.com/nswbmw/N-blog/blob/master/public/images/3.3.jpg?raw=true" alt=""></p>
+<h2 id="九-实现文章页面和用户页面"><a class="markdownIt-Anchor" href="#九-实现文章页面和用户页面"></a> 九、实现文章页面和用户页面</h2>
+<p>现在，我们来给博客添加用户页面和文章页面。</p>
+<p>所谓用户页面就是当点击某个用户名链接时，跳转到：<code>域名/u/用户名</code> ，并列出该用户的所有文章。<br>
+同理，文章页面就是当点击某篇文章标题时，跳转到：<code>域名/u/用户名/时间/文章名</code> ，进入到该文章的页面（也许还有该文章的评论等）。</p>
+<p>在开始之前我们需要做一个工作，打开 post.js ，将 <code>Post.get</code> 修改为 <code>Post.getAll</code> ，同时将 index.js 中 <code>Post.get</code> 修改为 <code>Post.getAll</code> 。在 post.js 最后添加如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">//获取一篇文章</span><br><span class="line">Post.getOne = function(name, day, title, callback) &#123;</span><br><span class="line">  //打开数据库</span><br><span class="line">  mongodb.open(function (err, db) &#123;</span><br><span class="line">    if (err) &#123;</span><br><span class="line">      return callback(err);</span><br><span class="line">    &#125;</span><br><span class="line">    //读取 posts 集合</span><br><span class="line">    db.collection(&apos;posts&apos;, function (err, collection) &#123;</span><br><span class="line">      if (err) &#123;</span><br><span class="line">        mongodb.close();</span><br><span class="line">        return callback(err);</span><br><span class="line">      &#125;</span><br><span class="line">      //根据用户名、发表日期及文章名进行查询</span><br><span class="line">      collection.findOne(&#123;</span><br><span class="line">        &quot;name&quot;: name,</span><br><span class="line">        &quot;time.day&quot;: day,</span><br><span class="line">        &quot;title&quot;: title</span><br><span class="line">      &#125;, function (err, doc) &#123;</span><br><span class="line">        mongodb.close();</span><br><span class="line">        if (err) &#123;</span><br><span class="line">          return callback(err);</span><br><span class="line">        &#125;</span><br><span class="line">        //解析 markdown 为 html</span><br><span class="line">        doc.post = markdown.toHTML(doc.post);</span><br><span class="line">        callback(null, doc);//返回查询的一篇文章</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>简单解释一下：</p>
+<ul>
+<li><code>Post.getAll</code> ：获取一个人的所有文章（传入参数 name）或获取所有人的文章（不传入参数）。</li>
+<li><code>Post.getOne</code> ：根据用户名、发表日期及文章名精确获取一篇文章。</li>
+</ul>
+<p>下面我们来实现用户页面和文章页面。</p>
+<p>打开 index.js ，在 <code>app.post('/upload')</code> 后添加如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">app.get(&apos;/u/:name&apos;, function (req, res) &#123;</span><br><span class="line">  //检查用户是否存在</span><br><span class="line">  User.get(req.params.name, function (err, user) &#123;</span><br><span class="line">    if (!user) &#123;</span><br><span class="line">      req.flash(&apos;error&apos;, &apos;用户不存在!&apos;); </span><br><span class="line">      return res.redirect(&apos;/&apos;);//用户不存在则跳转到主页</span><br><span class="line">    &#125;</span><br><span class="line">    //查询并返回该用户的所有文章</span><br><span class="line">    Post.getAll(user.name, function (err, posts) &#123;</span><br><span class="line">      if (err) &#123;</span><br><span class="line">        req.flash(&apos;error&apos;, err); </span><br><span class="line">        return res.redirect(&apos;/&apos;);</span><br><span class="line">      &#125; </span><br><span class="line">      res.render(&apos;user&apos;, &#123;</span><br><span class="line">        title: user.name,</span><br><span class="line">        posts: posts,</span><br><span class="line">        user : req.session.user,</span><br><span class="line">        success : req.flash(&apos;success&apos;).toString(),</span><br><span class="line">        error : req.flash(&apos;error&apos;).toString()</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;); </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>这里我们添加了一条路由规则 <code>app.get('/u/:name')</code>，用来处理访问用户页的请求，然后从数据库取得该用户的数据并渲染 user.ejs 模版，生成页面并显示给用户。</p>
+<p>接下来我们添加文章页面的路由规则。<br>
+在 <code>app.get('/u/:name')</code> 后添加如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">app.get(&apos;/u/:name/:day/:title&apos;, function (req, res) &#123;</span><br><span class="line">  Post.getOne(req.params.name, req.params.day, req.params.title, function (err, post) &#123;</span><br><span class="line">    if (err) &#123;</span><br><span class="line">      req.flash(&apos;error&apos;, err); </span><br><span class="line">      return res.redirect(&apos;/&apos;);</span><br><span class="line">    &#125;</span><br><span class="line">    res.render(&apos;article&apos;, &#123;</span><br><span class="line">      title: req.params.title,</span><br><span class="line">      post: post,</span><br><span class="line">      user: req.session.user,</span><br><span class="line">      success: req.flash(&apos;success&apos;).toString(),</span><br><span class="line">      error: req.flash(&apos;error&apos;).toString()</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>最后，我们创建用户页面和文章页面的模版文件。</p>
+<p>在 views 文件夹下新建 user.ejs，添加如下代码，同时也将 index.ejs 也修改成如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;%- include header %&gt;</span><br><span class="line">&lt;% posts.forEach(function (post, index) &#123; %&gt;</span><br><span class="line">  &lt;p&gt;&lt;h2&gt;&lt;a href=&quot;/u/&lt;%= post.name %&gt;/&lt;%= post.time.day %&gt;/&lt;%= post.title %&gt;&quot;&gt;&lt;%= post.title %&gt;&lt;/a&gt;&lt;/h2&gt;&lt;/p&gt;</span><br><span class="line">  &lt;p class=&quot;info&quot;&gt;</span><br><span class="line">    作者：&lt;a href=&quot;/u/&lt;%= post.name %&gt;&quot;&gt;&lt;%= post.name %&gt;&lt;/a&gt; | </span><br><span class="line">    日期：&lt;%= post.time.minute %&gt;</span><br><span class="line">  &lt;/p&gt;</span><br><span class="line">  &lt;p&gt;&lt;%- post.post %&gt;&lt;/p&gt;</span><br><span class="line">&lt;% &#125;) %&gt;</span><br><span class="line">&lt;%- include footer %&gt;</span><br></pre></td></tr></table></figure>
+<p>在 views 文件夹下新建 article.ejs ，添加如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;%- include header %&gt;</span><br><span class="line">&lt;p class=&quot;info&quot;&gt;</span><br><span class="line">  作者：&lt;a href=&quot;/u/&lt;%= post.name %&gt;&quot;&gt;&lt;%= post.name %&gt;&lt;/a&gt; | </span><br><span class="line">  日期：&lt;%= post.time.minute %&gt;</span><br><span class="line">&lt;/p&gt;</span><br><span class="line">&lt;p&gt;&lt;%- post.post %&gt;&lt;/p&gt;</span><br><span class="line">&lt;%- include footer %&gt;</span><br></pre></td></tr></table></figure>
+<p>然后将index.ejs中的href更改如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;%- include header %&gt;</span><br><span class="line">&lt;% posts.forEach(function (post, index) &#123; %&gt;</span><br><span class="line">  &lt;p&gt;&lt;h2&gt;&lt;a href=&quot;u/&lt;%= post.name %&gt;/&lt;%= post.time.day %&gt;/&lt;%= post.title %&gt;&quot;&gt;&lt;%= post.title %&gt;&lt;/a&gt;&lt;/h2&gt;&lt;/p&gt;</span><br><span class="line">  &lt;p class=&quot;info&quot;&gt;</span><br><span class="line">    作者：&lt;a href=&quot;u/&lt;%= post.name %&gt;&quot;&gt;&lt;%= post.name %&gt;&lt;/a&gt; |</span><br><span class="line">    日期：&lt;%= post.time.minute %&gt;</span><br><span class="line">  &lt;/p&gt;</span><br><span class="line">  &lt;p&gt;&lt;%- post.post %&gt;&lt;/p&gt;</span><br><span class="line">  &lt;% &#125;) %&gt;</span><br><span class="line">&lt;%- include footer %&gt;</span><br></pre></td></tr></table></figure>
+<p>现在，我们给博客添加了用户页面和文章页面。示例：</p>
+<p><strong>用户页面</strong></p>
+<p><img src="https://github.com/nswbmw/N-blog/blob/master/public/images/4.1.jpg?raw=true" alt=""></p>
+<p><strong>文章页面</strong></p>
+<p><img src="https://github.com/nswbmw/N-blog/blob/master/public/images/4.2.jpg?raw=true" alt=""></p>
+<h2 id="十-增加编辑和删除功能"><a class="markdownIt-Anchor" href="#十-增加编辑和删除功能"></a> 十、增加编辑和删除功能</h2>
+<p>现在，我们来给博客添加编辑文章与删除文章的功能。</p>
+<p>我们设定：当一个用户在线时，只允许他在自己发表的文章页进行编辑或删除，编辑时，只能编辑文章内容，不能编辑文章标题。</p>
+<p>打开 style.css ，添加如下样式：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.edit&#123;margin:3px;padding:2px 5px;border-radius:3px;background-color:#f3f3f3;color:#333;font-size:13px;&#125;</span><br><span class="line">.edit:hover&#123;text-decoration:none;background-color:#f00;color:#fff;-webkit-transition:color .2s linear;&#125;</span><br></pre></td></tr></table></figure>
+<p>打开 article.ejs ，将代码修改成如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;%- include header %&gt;</span><br><span class="line">&lt;p&gt;</span><br><span class="line">  &lt;span&gt;&lt;a class=&quot;edit&quot; href=&quot;/edit/&lt;%= post.name %&gt;/&lt;%= post.time.day %&gt;/&lt;%= post.title %&gt;&quot;&gt;编辑&lt;/a&gt;&lt;/span&gt;</span><br><span class="line">  &lt;span&gt;&lt;a class=&quot;edit&quot; href=&quot;/remove/&lt;%= post.name %&gt;/&lt;%= post.time.day %&gt;/&lt;%= post.title %&gt;&quot;&gt;删除&lt;/a&gt;&lt;/span&gt;</span><br><span class="line">&lt;/p&gt;</span><br><span class="line">&lt;p class=&quot;info&quot;&gt;</span><br><span class="line">  作者：&lt;a href=&quot;/u/&lt;%= post.name %&gt;&quot;&gt;&lt;%= post.name %&gt;&lt;/a&gt; | </span><br><span class="line">  日期：&lt;%= post.time.minute %&gt;</span><br><span class="line">&lt;/p&gt;</span><br><span class="line">&lt;p&gt;&lt;%- post.post %&gt;&lt;/p&gt;</span><br><span class="line">&lt;%- include footer %&gt;</span><br></pre></td></tr></table></figure>
+<p>至此，我们只是在文章页面添加了编辑和删除文章的链接。接下来，我们注册这两个链接的点击事件的响应。</p>
+<p>打开 post.js ，在最后添加如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">//返回原始发表的内容（markdown 格式）</span><br><span class="line">  Post.edit = function(name, day, title, callback) &#123;</span><br><span class="line">  //打开数据库</span><br><span class="line">  mongodb.open(function (err, db) &#123;</span><br><span class="line">    if (err) &#123;</span><br><span class="line">      return callback(err);</span><br><span class="line">    &#125;</span><br><span class="line">    //读取 posts 集合</span><br><span class="line">    db.collection(&apos;posts&apos;, function (err, collection) &#123;</span><br><span class="line">      if (err) &#123;</span><br><span class="line">        mongodb.close();</span><br><span class="line">        return callback(err);</span><br><span class="line">      &#125;</span><br><span class="line">      //根据用户名、发表日期及文章名进行查询</span><br><span class="line">      collection.findOne(&#123;</span><br><span class="line">        &quot;name&quot;: name,</span><br><span class="line">        &quot;time.day&quot;: day,</span><br><span class="line">        &quot;title&quot;: title</span><br><span class="line">      &#125;, function (err, doc) &#123;</span><br><span class="line">        mongodb.close();</span><br><span class="line">        if (err) &#123;</span><br><span class="line">          return callback(err);</span><br><span class="line">        &#125;</span><br><span class="line">        callback(null, doc);//返回查询的一篇文章（markdown 格式）</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>打开 index.js ，在 <code>app.get('/u/:name/:day/:title')</code> 后添加如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">app.get(&apos;/edit/:name/:day/:title&apos;, checkLogin);</span><br><span class="line">app.get(&apos;/edit/:name/:day/:title&apos;, function (req, res) &#123;</span><br><span class="line">  var currentUser = req.session.user;</span><br><span class="line">  Post.edit(currentUser.name, req.params.day, req.params.title, function (err, post) &#123;</span><br><span class="line">    if (err) &#123;</span><br><span class="line">      req.flash(&apos;error&apos;, err); </span><br><span class="line">      return res.redirect(&apos;back&apos;);</span><br><span class="line">    &#125;</span><br><span class="line">    res.render(&apos;edit&apos;, &#123;</span><br><span class="line">      title: &apos;编辑&apos;,</span><br><span class="line">      post: post,</span><br><span class="line">      user: req.session.user,</span><br><span class="line">      success: req.flash(&apos;success&apos;).toString(),</span><br><span class="line">      error: req.flash(&apos;error&apos;).toString()</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>在 views 下新建 edit.ejs ，添加如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;%- include header %&gt;</span><br><span class="line">&lt;form method=&quot;post&quot; action=&quot;/edit/&lt;%= post.name %&gt;/&lt;%= post.time.day %&gt;/&lt;%= post.title %&gt;&quot;&gt;</span><br><span class="line">  标题：&lt;br /&gt;</span><br><span class="line">  &lt;input type=&quot;text&quot; name=&quot;title&quot; value=&quot;&lt;%= post.title %&gt;&quot; disabled=&quot;disabled&quot; /&gt;&lt;br /&gt;</span><br><span class="line">  正文：&lt;br /&gt;</span><br><span class="line">  &lt;textarea name=&quot;post&quot; rows=&quot;20&quot; cols=&quot;100&quot;&gt;&lt;%= post.post %&gt;&lt;/textarea&gt;&lt;br /&gt;</span><br><span class="line">  &lt;input type=&quot;submit&quot; value=&quot;保存修改&quot; /&gt;</span><br><span class="line">&lt;/form&gt;</span><br><span class="line">&lt;%- include footer %&gt;</span><br></pre></td></tr></table></figure>
+<p>现在，运行我们的博客看看吧。在文章页面，当我们点击 <strong>编辑</strong> 后就会跳转到该文章对应的编辑页面了。接下来我们实现将修改后的文章提交到数据库。</p>
+<p>打开 post.js ，在最后添加如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">//更新一篇文章及其相关信息</span><br><span class="line">Post.update = function(name, day, title, post, callback) &#123;</span><br><span class="line">  //打开数据库</span><br><span class="line">  mongodb.open(function (err, db) &#123;</span><br><span class="line">    if (err) &#123;</span><br><span class="line">      return callback(err);</span><br><span class="line">    &#125;</span><br><span class="line">    //读取 posts 集合</span><br><span class="line">    db.collection(&apos;posts&apos;, function (err, collection) &#123;</span><br><span class="line">      if (err) &#123;</span><br><span class="line">        mongodb.close();</span><br><span class="line">        return callback(err);</span><br><span class="line">      &#125;</span><br><span class="line">      //更新文章内容</span><br><span class="line">      collection.update(&#123;</span><br><span class="line">        &quot;name&quot;: name,</span><br><span class="line">        &quot;time.day&quot;: day,</span><br><span class="line">        &quot;title&quot;: title</span><br><span class="line">      &#125;, &#123;</span><br><span class="line">        $set: &#123;post: post&#125;</span><br><span class="line">      &#125;, function (err) &#123;</span><br><span class="line">        mongodb.close();</span><br><span class="line">        if (err) &#123;</span><br><span class="line">          return callback(err);</span><br><span class="line">        &#125;</span><br><span class="line">        callback(null);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>打开 index.js ，在 <code>app.get('/edit/:name/:day/:title')</code> 后添加如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">app.post(&apos;/edit/:name/:day/:title&apos;, checkLogin);</span><br><span class="line">app.post(&apos;/edit/:name/:day/:title&apos;, function (req, res) &#123;</span><br><span class="line">  var currentUser = req.session.user;</span><br><span class="line">  Post.update(currentUser.name, req.params.day, req.params.title, req.body.post, function (err) &#123;</span><br><span class="line">    var url = encodeURI(&apos;/u/&apos; + req.params.name + &apos;/&apos; + req.params.day + &apos;/&apos; + req.params.title);</span><br><span class="line">    if (err) &#123;</span><br><span class="line">      req.flash(&apos;error&apos;, err); </span><br><span class="line">      return res.redirect(url);//出错！返回文章页</span><br><span class="line">    &#125;</span><br><span class="line">    req.flash(&apos;success&apos;, &apos;修改成功!&apos;);</span><br><span class="line">    res.redirect(url);//成功！返回文章页</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>现在，我们就可以编辑并保存文章了。赶紧试试吧！</p>
+<p>接下来，我们实现删除文章的功能。打开 post.js ，在最后添加如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">//删除一篇文章</span><br><span class="line">Post.remove = function(name, day, title, callback) &#123;</span><br><span class="line">  //打开数据库</span><br><span class="line">  mongodb.open(function (err, db) &#123;</span><br><span class="line">    if (err) &#123;</span><br><span class="line">      return callback(err);</span><br><span class="line">    &#125;</span><br><span class="line">    //读取 posts 集合</span><br><span class="line">    db.collection(&apos;posts&apos;, function (err, collection) &#123;</span><br><span class="line">      if (err) &#123;</span><br><span class="line">        mongodb.close();</span><br><span class="line">        return callback(err);</span><br><span class="line">      &#125;</span><br><span class="line">      //根据用户名、日期和标题查找并删除一篇文章</span><br><span class="line">      collection.remove(&#123;</span><br><span class="line">        &quot;name&quot;: name,</span><br><span class="line">        &quot;time.day&quot;: day,</span><br><span class="line">        &quot;title&quot;: title</span><br><span class="line">      &#125;, &#123;</span><br><span class="line">        w: 1</span><br><span class="line">      &#125;, function (err) &#123;</span><br><span class="line">        mongodb.close();</span><br><span class="line">        if (err) &#123;</span><br><span class="line">          return callback(err);</span><br><span class="line">        &#125;</span><br><span class="line">        callback(null);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>打开 index.js ，在 <code>app.post('/edit/:name/:day/:title')</code> 后添加如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">app.get(&apos;/remove/:name/:day/:title&apos;, checkLogin);</span><br><span class="line">app.get(&apos;/remove/:name/:day/:title&apos;, function (req, res) &#123;</span><br><span class="line">  var currentUser = req.session.user;</span><br><span class="line">  Post.remove(currentUser.name, req.params.day, req.params.title, function (err) &#123;</span><br><span class="line">    if (err) &#123;</span><br><span class="line">      req.flash(&apos;error&apos;, err); </span><br><span class="line">      return res.redirect(&apos;back&apos;);</span><br><span class="line">    &#125;</span><br><span class="line">    req.flash(&apos;success&apos;, &apos;删除成功!&apos;);</span><br><span class="line">    res.redirect(&apos;/&apos;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>至此我们完成了大部分的工作，接下来我们实现页面权限的控制。假如你现在注册了两个帐号 A 和 B，那么当 B 访问 A 的用户页面时，也会出现编辑和删除的选项，虽然点击后并不能编辑和删除 A 的文章。那怎么才能实现一个账号只能编辑和删除自己发表的文章呢？很简单，添加一个判断即可。打开 article.ejs ，将：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;span&gt;&lt;a class=&quot;edit&quot; href=&quot;/edit/&lt;%= post.name %&gt;/&lt;%= post.time.day %&gt;/&lt;%= post.title %&gt;&quot;&gt;编辑&lt;/a&gt;&lt;/span&gt;</span><br><span class="line">&lt;span&gt;&lt;a class=&quot;edit&quot; href=&quot;/remove/&lt;%= post.name %&gt;/&lt;%= post.time.day %&gt;/&lt;%= post.title %&gt;&quot;&gt;删除&lt;/a&gt;&lt;/span&gt;</span><br></pre></td></tr></table></figure>
+<p>修改为：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;% if (user &amp;&amp; (user.name == post.name)) &#123; %&gt;</span><br><span class="line">  &lt;span&gt;&lt;a class=&quot;edit&quot; href=&quot;/edit/&lt;%= post.name %&gt;/&lt;%= post.time.day %&gt;/&lt;%= post.title %&gt;&quot;&gt;编辑&lt;/a&gt;&lt;/span&gt;</span><br><span class="line">  &lt;span&gt;&lt;a class=&quot;edit&quot; href=&quot;/remove/&lt;%= post.name %&gt;/&lt;%= post.time.day %&gt;/&lt;%= post.title %&gt;&quot;&gt;删除&lt;/a&gt;&lt;/span&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
+<p>以上代码的意思是：通过检测 session 中的用户名是否存在，若存在且和当前文章页面的作者名相同，则显示编辑和删除按钮，否则不显示。</p>
+<p>现在，我们完成了给博客添加编辑文章与删除文章的功能。</p>
+<h2 id="十一-实现留言功能"><a class="markdownIt-Anchor" href="#十一-实现留言功能"></a> 十一、实现留言功能</h2>
+<p>一个完整的博客怎么能缺少留言功能呢，当然我们可以用第三方社会化评论插件，既然我们有了数据库，我们不妨把留言保存到自己的数据库里。</p>
+<p>我们设定：只有在文章页面才会显示留言板。</p>
+<p>打开 post.js ，修改 <code>Post.prototype.save</code> 中要存入的文档为：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var post = &#123;</span><br><span class="line">    name: this.name,</span><br><span class="line">    time: time,</span><br><span class="line">    title:this.title,</span><br><span class="line">    post: this.post,</span><br><span class="line">    comments: []</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>我们在文档里增加了 comments 键（数组），用来存储此文章上的留言（一个个对象）。为了也让留言支持 markdown 语法，我们将 <code>Post.getOne</code> 函数里的：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">doc.post = markdown.toHTML(doc.post);</span><br></pre></td></tr></table></figure>
+<p>修改为：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">if (doc) &#123;</span><br><span class="line">  doc.post = markdown.toHTML(doc.post);</span><br><span class="line">  doc.comments.forEach(function (comment) &#123;</span><br><span class="line">    comment.content = markdown.toHTML(comment.content);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>接下来我们在 models 下新建 comment.js 文件，添加如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var mongodb = require(&apos;./db&apos;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function Comment(name, day, title, comment) &#123;</span><br><span class="line">  this.name = name;</span><br><span class="line">  this.day = day;</span><br><span class="line">  this.title = title;</span><br><span class="line">  this.comment = comment;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">module.exports = Comment;</span><br><span class="line"></span><br><span class="line">//存储一条留言信息</span><br><span class="line">Comment.prototype.save = function(callback) &#123;</span><br><span class="line">  var name = this.name,</span><br><span class="line">      day = this.day,</span><br><span class="line">      title = this.title,</span><br><span class="line">      comment = this.comment;</span><br><span class="line">  //打开数据库</span><br><span class="line">  mongodb.open(function (err, db) &#123;</span><br><span class="line">    if (err) &#123;</span><br><span class="line">      return callback(err);</span><br><span class="line">    &#125;</span><br><span class="line">    //读取 posts 集合</span><br><span class="line">    db.collection(&apos;posts&apos;, function (err, collection) &#123;</span><br><span class="line">      if (err) &#123;</span><br><span class="line">        mongodb.close();</span><br><span class="line">        return callback(err);</span><br><span class="line">      &#125;</span><br><span class="line">      //通过用户名、时间及标题查找文档，并把一条留言对象添加到该文档的 comments 数组里</span><br><span class="line">      collection.update(&#123;</span><br><span class="line">        &quot;name&quot;: name,</span><br><span class="line">        &quot;time.day&quot;: day,</span><br><span class="line">        &quot;title&quot;: title</span><br><span class="line">      &#125;, &#123;</span><br><span class="line">        $push: &#123;&quot;comments&quot;: comment&#125;</span><br><span class="line">      &#125; , function (err) &#123;</span><br><span class="line">          mongodb.close();</span><br><span class="line">          if (err) &#123;</span><br><span class="line">            return callback(err);</span><br><span class="line">          &#125;</span><br><span class="line">          callback(null);</span><br><span class="line">      &#125;);   </span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>修改 index.js ，在 <code>Post = require('../models/post.js')</code> 后添加一行代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Comment = require(&apos;../models/comment.js&apos;);</span><br></pre></td></tr></table></figure>
+<p>这里我们创建了 comment 的模型文件，用于存储新的留言到数据库，并在 index.js 中引入以作后用。</p>
+<p>接下来我们创建 comment 的视图文件，在 views 文件夹下新建 comment.ejs ，添加如下代码(e.g.  首先要先插入一个留言再显示)：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;br /&gt;</span><br><span class="line">&lt;% post.comments.forEach(function (comment, index) &#123; %&gt;</span><br><span class="line">  &lt;p&gt;&lt;a href=&quot;&lt;%= comment.website %&gt;&quot;&gt;&lt;%= comment.name %&gt;&lt;/a&gt;</span><br><span class="line">  &lt;span class=&quot;info&quot;&gt; 回复于 &lt;%= comment.time %&gt;&lt;/span&gt;&lt;/p&gt;</span><br><span class="line">  &lt;p&gt;&lt;%- comment.content %&gt;&lt;/p&gt;</span><br><span class="line">&lt;% &#125;) %&gt;</span><br><span class="line"></span><br><span class="line">&lt;form method=&quot;post&quot; action=&quot;/u/&lt;%= post.name %&gt;/&lt;%= post.time.day %&gt;/&lt;%= post.title %&gt;&quot;&gt;</span><br><span class="line">&lt;% if (user) &#123; %&gt;</span><br><span class="line">  姓名：&lt;input type=&quot;text&quot; name=&quot;name&quot; value=&quot;&lt;%= user.name %&gt;&quot; /&gt;&lt;br /&gt;</span><br><span class="line">  邮箱：&lt;input type=&quot;text&quot; name=&quot;email&quot; value=&quot;&lt;%= user.email %&gt;&quot; /&gt;&lt;br /&gt;</span><br><span class="line">  网址：&lt;input type=&quot;text&quot; name=&quot;website&quot; value=&quot;/u/&lt;%= user.name %&gt;&quot; /&gt;&lt;br /&gt;</span><br><span class="line">&lt;% &#125; else &#123; %&gt;</span><br><span class="line">  姓名：&lt;input type=&quot;text&quot; name=&quot;name&quot; /&gt;&lt;br /&gt;</span><br><span class="line">  邮箱：&lt;input type=&quot;text&quot; name=&quot;email&quot; /&gt;&lt;br /&gt;</span><br><span class="line">  网址：&lt;input type=&quot;text&quot; name=&quot;website&quot; value=&quot;http://&quot; /&gt;&lt;br /&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br><span class="line">  &lt;textarea name=&quot;content&quot; rows=&quot;5&quot; cols=&quot;80&quot;&gt;&lt;/textarea&gt;&lt;br /&gt;</span><br><span class="line">  &lt;input type=&quot;submit&quot; value=&quot;留言&quot; /&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>注意</strong>：这里根据用户登录状态的不同，显示不同的提示信息。还需注意的一点是，未登录的用户在留言的时候， <strong>网址</strong> 这一项需要加上 <code>http://</code> 前缀，否则在生成连接的时候会基于当前 url （本地是 localhost:3000）。</p>
+<p>打开 article.ejs ，在 <code>&lt;%- include footer %&gt;</code> 前添加一行代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;%- include comment %&gt;</span><br></pre></td></tr></table></figure>
+<p>这样我们就在文章页面引入了留言模块。</p>
+<p>最后，修改 index.js ，注册留言的 POST 响应，在 <code>app.get('/u/:name/:day/:title')</code> 后添加如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">app.post(&apos;/u/:name/:day/:title&apos;, function (req, res) &#123;</span><br><span class="line">  var date = new Date(),</span><br><span class="line">      time = date.getFullYear() + &quot;-&quot; + (date.getMonth() + 1) + &quot;-&quot; + date.getDate() + &quot; &quot; + </span><br><span class="line">             date.getHours() + &quot;:&quot; + (date.getMinutes() &lt; 10 ? &apos;0&apos; + date.getMinutes() : date.getMinutes());</span><br><span class="line">  var comment = &#123;</span><br><span class="line">      name: req.body.name,</span><br><span class="line">      email: req.body.email,</span><br><span class="line">      website: req.body.website,</span><br><span class="line">      time: time,</span><br><span class="line">      content: req.body.content</span><br><span class="line">  &#125;;</span><br><span class="line">  var newComment = new Comment(req.params.name, req.params.day, req.params.title, comment);</span><br><span class="line">  newComment.save(function (err) &#123;</span><br><span class="line">    if (err) &#123;</span><br><span class="line">      req.flash(&apos;error&apos;, err); </span><br><span class="line">      return res.redirect(&apos;back&apos;);</span><br><span class="line">    &#125;</span><br><span class="line">    req.flash(&apos;success&apos;, &apos;留言成功!&apos;);</span><br><span class="line">    res.redirect(&apos;back&apos;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><strong>注意</strong>：这里我们使用 <code>res.redirect('back');</code> ，即留言成功后返回到该文章页。</p>
+<p>现在，我们就给博客添加了留言的功能。</p>
+<h2 id="十二-实现分页"><a class="markdownIt-Anchor" href="#十二-实现分页"></a> 十二、实现分页</h2>
+<p>现在我们给博客的主页和用户页面增加分页功能。</p>
+<p>我们设定：主页和用户页面每页最多显示十篇文章。</p>
+<p>这里我们要用到 mongodb 的 skip 和 limit 操作，具体可查阅《mongodb权威指南》。</p>
+<p>打开 post.js ，把 <code>Post.getAll</code> 函数修改如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">//一次获取十篇文章</span><br><span class="line">Post.getTen = function(name, page, callback) &#123;</span><br><span class="line">  //打开数据库</span><br><span class="line">  mongodb.open(function (err, db) &#123;</span><br><span class="line">    if (err) &#123;</span><br><span class="line">      return callback(err);</span><br><span class="line">    &#125;</span><br><span class="line">    //读取 posts 集合</span><br><span class="line">    db.collection(&apos;posts&apos;, function (err, collection) &#123;</span><br><span class="line">      if (err) &#123;</span><br><span class="line">        mongodb.close();</span><br><span class="line">        return callback(err);</span><br><span class="line">      &#125;</span><br><span class="line">      var query = &#123;&#125;;</span><br><span class="line">      if (name) &#123;</span><br><span class="line">        query.name = name;</span><br><span class="line">      &#125;</span><br><span class="line">      //使用 count 返回特定查询的文档数 total</span><br><span class="line">      collection.count(query, function (err, total) &#123;</span><br><span class="line">        //根据 query 对象查询，并跳过前 (page-1)*10 个结果，返回之后的 10 个结果</span><br><span class="line">        collection.find(query, &#123;</span><br><span class="line">          skip: (page - 1)*10,</span><br><span class="line">          limit: 10</span><br><span class="line">        &#125;).sort(&#123;</span><br><span class="line">          time: -1</span><br><span class="line">        &#125;).toArray(function (err, docs) &#123;</span><br><span class="line">          mongodb.close();</span><br><span class="line">          if (err) &#123;</span><br><span class="line">            return callback(err);</span><br><span class="line">          &#125;</span><br><span class="line">          //解析 markdown 为 html</span><br><span class="line">          docs.forEach(function (doc) &#123;</span><br><span class="line">            doc.post = markdown.toHTML(doc.post);</span><br><span class="line">          &#125;);  </span><br><span class="line">          callback(null, docs, total);</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>打开 index.js ，修改 <code>app.get('/', function(req,res){</code> 如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">app.get(&apos;/&apos;, function (req, res) &#123;</span><br><span class="line">  //判断是否是第一页，并把请求的页数转换成 number 类型</span><br><span class="line">  var page = parseInt(req.query.p) || 1;</span><br><span class="line">  //查询并返回第 page 页的 10 篇文章</span><br><span class="line">  Post.getTen(null, page, function (err, posts, total) &#123;</span><br><span class="line">    if (err) &#123;</span><br><span class="line">      posts = [];</span><br><span class="line">    &#125; </span><br><span class="line">    res.render(&apos;index&apos;, &#123;</span><br><span class="line">      title: &apos;主页&apos;,</span><br><span class="line">      posts: posts,</span><br><span class="line">      page: page,</span><br><span class="line">      isFirstPage: (page - 1) == 0,</span><br><span class="line">      isLastPage: ((page - 1) * 10 + posts.length) == total,</span><br><span class="line">      user: req.session.user,</span><br><span class="line">      success: req.flash(&apos;success&apos;).toString(),</span><br><span class="line">      error: req.flash(&apos;error&apos;).toString()</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><strong>注意</strong>：这里通过 <code>req.query.p</code> 获取的页数为字符串形式，我们需要通过 <code>parseInt()</code> 把它转换成数字以作后用。同时把 <code>Post.getAll</code> 改成了 <code>Post.getTen</code> 。</p>
+<p>修改 <code>app.get('/u/:name')</code> 如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">app.get(&apos;/u/:name&apos;, function (req, res) &#123;</span><br><span class="line">  var page = parseInt(req.query.p) || 1;</span><br><span class="line">  //检查用户是否存在</span><br><span class="line">  User.get(req.params.name, function (err, user) &#123;</span><br><span class="line">    if (!user) &#123;</span><br><span class="line">      req.flash(&apos;error&apos;, &apos;用户不存在!&apos;); </span><br><span class="line">      return res.redirect(&apos;/&apos;);</span><br><span class="line">    &#125;</span><br><span class="line">    //查询并返回该用户第 page 页的 10 篇文章</span><br><span class="line">    Post.getTen(user.name, page, function (err, posts, total) &#123;</span><br><span class="line">      if (err) &#123;</span><br><span class="line">        req.flash(&apos;error&apos;, err); </span><br><span class="line">        return res.redirect(&apos;/&apos;);</span><br><span class="line">      &#125; </span><br><span class="line">      res.render(&apos;user&apos;, &#123;</span><br><span class="line">        title: user.name,</span><br><span class="line">        posts: posts,</span><br><span class="line">        page: page,</span><br><span class="line">        isFirstPage: (page - 1) == 0,</span><br><span class="line">        isLastPage: ((page - 1) * 10 + posts.length) == total,</span><br><span class="line">        user: req.session.user,</span><br><span class="line">        success: req.flash(&apos;success&apos;).toString(),</span><br><span class="line">        error: req.flash(&apos;error&apos;).toString()</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;); </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>接下来在 views 文件夹下新建 paging.ejs ，添加如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;br /&gt;</span><br><span class="line">&lt;div&gt;</span><br><span class="line">  &lt;% if (!isFirstPage) &#123; %&gt;</span><br><span class="line">    &lt;span class=&quot;prepage&quot;&gt;&lt;a title=&quot;上一页&quot; href=&quot;?p=&lt;%= page-1 %&gt;&quot;&gt;上一页&lt;/a&gt;&lt;/span&gt;</span><br><span class="line">  &lt;% &#125; %&gt;</span><br><span class="line"></span><br><span class="line">  &lt;% if (!isLastPage) &#123; %&gt;</span><br><span class="line">    &lt;span class=&quot;nextpage&quot;&gt;&lt;a title=&quot;下一页&quot; href=&quot;?p=&lt;%= page+1 %&gt;&quot;&gt;下一页&lt;/a&gt;&lt;/span&gt;</span><br><span class="line">  &lt;% &#125; %&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>这里通过 <code>if(!isFirstPage)</code> 判断是否为第一页，不是第一页则显示 “上一页” ；通过 <code>if(!isLastPage)</code> 判断是否为最后一页，不是最后一页则显示 “下一页” 。</p>
+<p>接下来在主页和用户页引入分页。修改 index.ejs 和 user.ejs ，在 <code>&lt;%- include footer %&gt;</code> 前添加一行代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;%- include paging %&gt;</span><br></pre></td></tr></table></figure>
+<p>在主页和用户页面引入分页模块。</p>
+<p>最后，在 style.css 中添加以下样式：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.prepage a&#123;float:left;text-decoration:none;padding:.5em 1em;color:#ff0000;font-weight:bold;&#125;</span><br><span class="line">.nextpage a&#123;float:right;text-decoration:none;padding:.5em 1em;color:#ff0000;font-weight:bold;&#125;</span><br><span class="line">.prepage a:hover,.nextpage a:hover&#123;text-decoration:none;background-color:#ff0000;color:#f9f9f9;-webkit-transition:color .2s linear;&#125;</span><br></pre></td></tr></table></figure>
+<p>现在，我们实现了博客的分页功能。</p>
+<h2 id="十三-增加存档页面"><a class="markdownIt-Anchor" href="#十三-增加存档页面"></a> 十三、增加存档页面</h2>
+<p>现在我们来给博客增加存档功能，当进入存档页时，按年份和日期的降序列出所有的文章。</p>
+<p>首先，我们在主页左侧导航中添加存档页（archive）的链接，修改 header.ejs，在 <code>&lt;span&gt;&lt;a title=&quot;主页&quot; href=&quot;/&quot;&gt;home&lt;/a&gt;&lt;/span&gt;</code> 下添加一行代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;span&gt;&lt;a title=&quot;存档&quot; href=&quot;/archive&quot;&gt;archive&lt;/a&gt;&lt;/span&gt;</span><br></pre></td></tr></table></figure>
+<p>打开 post.js ，在最后添加以下代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">//返回所有文章存档信息</span><br><span class="line">Post.getArchive = function(callback) &#123;</span><br><span class="line">  //打开数据库</span><br><span class="line">  mongodb.open(function (err, db) &#123;</span><br><span class="line">    if (err) &#123;</span><br><span class="line">      return callback(err);</span><br><span class="line">    &#125;</span><br><span class="line">    //读取 posts 集合</span><br><span class="line">    db.collection(&apos;posts&apos;, function (err, collection) &#123;</span><br><span class="line">      if (err) &#123;</span><br><span class="line">        mongodb.close();</span><br><span class="line">        return callback(err);</span><br><span class="line">      &#125;</span><br><span class="line">      //返回只包含 name、time、title 属性的文档组成的存档数组</span><br><span class="line">      collection.find(&#123;&#125;, &#123;</span><br><span class="line">        &quot;name&quot;: 1,</span><br><span class="line">        &quot;time&quot;: 1,</span><br><span class="line">        &quot;title&quot;: 1</span><br><span class="line">      &#125;).sort(&#123;</span><br><span class="line">        time: -1</span><br><span class="line">      &#125;).toArray(function (err, docs) &#123;</span><br><span class="line">        mongodb.close();</span><br><span class="line">        if (err) &#123;</span><br><span class="line">          return callback(err);</span><br><span class="line">        &#125;</span><br><span class="line">        callback(null, docs);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>接下来我们在 index.js 中添加 <code>/archive</code> 的路由规则。打开 index.js ，在 <code>app.get('/u/:name')</code> 前添加以下代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">app.get(&apos;/archive&apos;, function (req, res) &#123;</span><br><span class="line">  Post.getArchive(function (err, posts) &#123;</span><br><span class="line">    if (err) &#123;</span><br><span class="line">      req.flash(&apos;error&apos;, err); </span><br><span class="line">      return res.redirect(&apos;/&apos;);</span><br><span class="line">    &#125;</span><br><span class="line">    res.render(&apos;archive&apos;, &#123;</span><br><span class="line">      title: &apos;存档&apos;,</span><br><span class="line">      posts: posts,</span><br><span class="line">      user: req.session.user,</span><br><span class="line">      success: req.flash(&apos;success&apos;).toString(),</span><br><span class="line">      error: req.flash(&apos;error&apos;).toString()</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>在 views 文件夹下新建 archive.ejs 模版文件，添加如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;%- include header %&gt;</span><br><span class="line">&lt;ul class=&quot;archive&quot;&gt;</span><br><span class="line">&lt;% var lastYear = 0 %&gt;</span><br><span class="line">&lt;% posts.forEach(function (post, index) &#123; %&gt;</span><br><span class="line">  &lt;% if (lastYear != post.time.year) &#123; %&gt;</span><br><span class="line">    &lt;li&gt;&lt;h3&gt;&lt;%= post.time.year %&gt;&lt;/h3&gt;&lt;/li&gt;</span><br><span class="line">  &lt;% lastYear=post.time.year &#125; %&gt;</span><br><span class="line">  &lt;li&gt;&lt;time&gt;&lt;%= post.time.day %&gt;&lt;/time&gt;&lt;/li&gt;</span><br><span class="line">  &lt;li&gt;&lt;a href=&quot;/u/&lt;%= post.name %&gt;/&lt;%= post.time.day %&gt;/&lt;%= post.title %&gt;&quot;&gt;&lt;%= post.title %&gt;&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">&lt;% &#125;) %&gt;</span><br><span class="line">&lt;/ul&gt;</span><br><span class="line">&lt;%- include footer %&gt;</span><br></pre></td></tr></table></figure>
+<p>这里我们通过在模版中设置一个 lastYear 变量判断是否和上次已经显示的年份相同，相同则不再显示年份，不同则显示。</p>
+<p>最后，在 style.css 中添加如下样式：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.archive&#123;list-style:none;line-height:28px;&#125;</span><br><span class="line">.archive h3&#123;margin:0.5em 0;&#125;</span><br><span class="line">.archive time&#123;float:left;font-size:14px;color:#999999;margin-right:1.2em;&#125;</span><br></pre></td></tr></table></figure>
+<p>现在，我们增加了文章的存档页面。</p>
+<h2 id="十四-实现标签功能"><a class="markdownIt-Anchor" href="#十四-实现标签功能"></a> 十四、实现标签功能</h2>
+<p>现在我们来给博客增加标签和标签页。</p>
+<p>我们设定：每篇文章最多有三个标签（少于三个也可以），当点击主页左侧标签页链接时，跳转到标签页并列出所有已存在标签；当点击任意一个标签链接时，跳转到该标签页并列出所有含有该标签的文章。</p>
+<h3 id="添加标签"><a class="markdownIt-Anchor" href="#添加标签"></a> 添加标签</h3>
+<p>首先我们来实现给文章添加标签的功能。</p>
+<p>打开 post.ejs ，在 <code>&lt;input type=&quot;text&quot; name=&quot;title&quot; /&gt;&lt;br /&gt;</code> 后添加：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">标签：&lt;br /&gt;</span><br><span class="line">&lt;input type=&quot;text&quot; name=&quot;tag1&quot; /&gt;&lt;input type=&quot;text&quot; name=&quot;tag2&quot; /&gt;&lt;input type=&quot;text&quot; name=&quot;tag3&quot; /&gt;&lt;br /&gt;</span><br></pre></td></tr></table></figure>
+<p>打开 index.js ，将 <code>app.post('/post')</code> 内的：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var currentUser = req.session.user,</span><br><span class="line">    post = new Post(currentUser.name, req.body.title, req.body.post);</span><br></pre></td></tr></table></figure>
+<p>修改为：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var currentUser = req.session.user,</span><br><span class="line">    tags = [req.body.tag1, req.body.tag2, req.body.tag3],</span><br><span class="line">    post = new Post(currentUser.name, req.body.title, tags, req.body.post);</span><br></pre></td></tr></table></figure>
+<p>打开 post.js ，将：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function Post(name, title, post) &#123;</span><br><span class="line">  this.name = name;</span><br><span class="line">  this.title= title;</span><br><span class="line">  this.post = post;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>修改为：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function Post(name, title, tags, post) &#123;</span><br><span class="line">  this.name = name;</span><br><span class="line">  this.title = title;</span><br><span class="line">  this.tags = tags;</span><br><span class="line">  this.post = post;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>将：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var post = &#123;</span><br><span class="line">    name: this.name,</span><br><span class="line">    time: time,</span><br><span class="line">    title: this.title,</span><br><span class="line">    post: this.post,</span><br><span class="line">    comments: []</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>修改为：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var post = &#123;</span><br><span class="line">    name: this.name,</span><br><span class="line">    time: time,</span><br><span class="line">    title: this.title,</span><br><span class="line">    tags: this.tags,</span><br><span class="line">    post: this.post,</span><br><span class="line">    comments: []</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>现在我们就可以在发表文章的时候添加标签了。接下来我们修改 index.ejs 、 user.ejs 和 article.ejs 来显示文章的标签。</p>
+<p>修改 index.ejs 、 user.ejs 和 article.ejs，将：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;p class=&quot;info&quot;&gt;</span><br><span class="line">  作者：&lt;a href=&quot;/u/&lt;%= post.name %&gt;&quot;&gt;&lt;%= post.name %&gt;&lt;/a&gt; | </span><br><span class="line">  日期：&lt;%= post.time.minute %&gt;</span><br><span class="line">&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+<p>修改为：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;p class=&quot;info&quot;&gt;</span><br><span class="line">  作者：&lt;a href=&quot;/u/&lt;%= post.name %&gt;&quot;&gt;&lt;%= post.name %&gt;&lt;/a&gt; | </span><br><span class="line">  日期：&lt;%= post.time.minute %&gt; | </span><br><span class="line">  标签：</span><br><span class="line">  &lt;% post.tags.forEach(function (tag, index) &#123; %&gt;</span><br><span class="line">    &lt;% if (tag) &#123; %&gt;</span><br><span class="line">      &lt;a class=&quot;tag&quot; href=&quot;/tags/&lt;%= tag %&gt;&quot;&gt;&lt;%= tag %&gt;&lt;/a&gt;</span><br><span class="line">    &lt;% &#125; %&gt;</span><br><span class="line">  &lt;% &#125;) %&gt;</span><br><span class="line">&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+<p>最后，在 style.css 中添加如下样式：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.tag&#123;background-color:#ff0000;border-radius:3px;font-size:14px;color:#ffffff;display:inline-block;padding:0 5px;margin-bottom:8px;&#125;</span><br><span class="line">.tag:hover&#123;text-decoration:none;background-color:#ffffff;color:#000000;-webkit-transition:color .2s linear;&#125;</span><br></pre></td></tr></table></figure>
+<p>至此，我们给博客添加了标签功能。赶紧看看效果吧！</p>
+<h3 id="添加标签页"><a class="markdownIt-Anchor" href="#添加标签页"></a> 添加标签页</h3>
+<p>接下来我们给博客增加标签页。</p>
+<p>修改 header.ejs ，在 <code>&lt;span&gt;&lt;a title=&quot;存档&quot; href=&quot;/archive&quot;&gt;archive&lt;/a&gt;&lt;/span&gt;</code> 下一行添加：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;span&gt;&lt;a title=&quot;标签&quot; href=&quot;/tags&quot;&gt;tags&lt;/a&gt;&lt;/span&gt;</span><br></pre></td></tr></table></figure>
+<p>修改 index.js ，在 <code>app.get('/archive')</code> 后添加如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">app.get(&apos;/tags&apos;, function (req, res) &#123;</span><br><span class="line">  Post.getTags(function (err, posts) &#123;</span><br><span class="line">    if (err) &#123;</span><br><span class="line">      req.flash(&apos;error&apos;, err); </span><br><span class="line">      return res.redirect(&apos;/&apos;);</span><br><span class="line">    &#125;</span><br><span class="line">    res.render(&apos;tags&apos;, &#123;</span><br><span class="line">      title: &apos;标签&apos;,</span><br><span class="line">      posts: posts,</span><br><span class="line">      user: req.session.user,</span><br><span class="line">      success: req.flash(&apos;success&apos;).toString(),</span><br><span class="line">      error: req.flash(&apos;error&apos;).toString()</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>打开 post.js ，在最后添加：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">//返回所有标签</span><br><span class="line">Post.getTags = function(callback) &#123;</span><br><span class="line">  mongodb.open(function (err, db) &#123;</span><br><span class="line">    if (err) &#123;</span><br><span class="line">      return callback(err);</span><br><span class="line">    &#125;</span><br><span class="line">    db.collection(&apos;posts&apos;, function (err, collection) &#123;</span><br><span class="line">      if (err) &#123;</span><br><span class="line">        mongodb.close();</span><br><span class="line">        return callback(err);</span><br><span class="line">      &#125;</span><br><span class="line">      //distinct 用来找出给定键的所有不同值</span><br><span class="line">      collection.distinct(&quot;tags&quot;, function (err, docs) &#123;</span><br><span class="line">        mongodb.close();</span><br><span class="line">        if (err) &#123;</span><br><span class="line">          return callback(err);</span><br><span class="line">        &#125;</span><br><span class="line">        callback(null, docs);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><strong>注意</strong>：这里我们用了 distinct （详见《mongodb权威指南》）返回 tags 键的所有不同值，因为有时候我们发表文章的标签是一样的，所以这样避免了获取重复的标签。</p>
+<p>在 views 文件夹下新建 tags.ejs ，添加如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;%- include header %&gt;</span><br><span class="line">&lt;% posts.forEach(function (tag, index) &#123; %&gt;</span><br><span class="line">  &lt;a class=&quot;tag&quot; href=&quot;/tags/&lt;%= tag %&gt;&quot;&gt;&lt;%= tag %&gt;&lt;/a&gt;</span><br><span class="line">&lt;% &#125;) %&gt;</span><br><span class="line">&lt;%- include footer %&gt;</span><br></pre></td></tr></table></figure>
+<p>至此，我们就给博客添加了标签页。</p>
+<h3 id="添加特定标签的页面"><a class="markdownIt-Anchor" href="#添加特定标签的页面"></a> 添加特定标签的页面</h3>
+<p>现在我们来添加特定标签的页面，即当点击任意一个标签链接时，跳转到该标签页并列出所有含有该标签的文章信息。</p>
+<p>修改 post.js ，在最后添加如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">//返回含有特定标签的所有文章</span><br><span class="line">Post.getTag = function(tag, callback) &#123;</span><br><span class="line">  mongodb.open(function (err, db) &#123;</span><br><span class="line">    if (err) &#123;</span><br><span class="line">      return callback(err);</span><br><span class="line">    &#125;</span><br><span class="line">    db.collection(&apos;posts&apos;, function (err, collection) &#123;</span><br><span class="line">      if (err) &#123;</span><br><span class="line">        mongodb.close();</span><br><span class="line">        return callback(err);</span><br><span class="line">      &#125;</span><br><span class="line">      //查询所有 tags 数组内包含 tag 的文档</span><br><span class="line">      //并返回只含有 name、time、title 组成的数组</span><br><span class="line">      collection.find(&#123;</span><br><span class="line">        &quot;tags&quot;: tag</span><br><span class="line">      &#125;, &#123;</span><br><span class="line">        &quot;name&quot;: 1,</span><br><span class="line">        &quot;time&quot;: 1,</span><br><span class="line">        &quot;title&quot;: 1</span><br><span class="line">      &#125;).sort(&#123;</span><br><span class="line">        time: -1</span><br><span class="line">      &#125;).toArray(function (err, docs) &#123;</span><br><span class="line">        mongodb.close();</span><br><span class="line">        if (err) &#123;</span><br><span class="line">          return callback(err);</span><br><span class="line">        &#125;</span><br><span class="line">        callback(null, docs);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>修改 index.js ，在 <code>app.get('/tags')</code> 后添加如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">app.get(&apos;/tags/:tag&apos;, function (req, res) &#123;</span><br><span class="line">  Post.getTag(req.params.tag, function (err, posts) &#123;</span><br><span class="line">    if (err) &#123;</span><br><span class="line">      req.flash(&apos;error&apos;,err); </span><br><span class="line">      return res.redirect(&apos;/&apos;);</span><br><span class="line">    &#125;</span><br><span class="line">    res.render(&apos;tag&apos;, &#123;</span><br><span class="line">      title: &apos;TAG:&apos; + req.params.tag,</span><br><span class="line">      posts: posts,</span><br><span class="line">      user: req.session.user,</span><br><span class="line">      success: req.flash(&apos;success&apos;).toString(),</span><br><span class="line">      error: req.flash(&apos;error&apos;).toString()</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>在 views 文件夹下新建 tag.ejs ，添加如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;%- include header %&gt;</span><br><span class="line">&lt;ul class=&quot;archive&quot;&gt;</span><br><span class="line">&lt;% var lastYear = 0 %&gt;</span><br><span class="line">&lt;% posts.forEach(function (post, index) &#123; %&gt;</span><br><span class="line">  &lt;% if (lastYear != post.time.year) &#123; %&gt;</span><br><span class="line">    &lt;li&gt;&lt;h3&gt;&lt;%= post.time.year %&gt;&lt;/h3&gt;&lt;/li&gt;</span><br><span class="line">  &lt;% lastYear = post.time.year &#125; %&gt;</span><br><span class="line">    &lt;li&gt;&lt;time&gt;&lt;%= post.time.day %&gt;&lt;/time&gt;&lt;/li&gt;</span><br><span class="line">    &lt;li&gt;&lt;a href=&quot;/u/&lt;%= post.name %&gt;/&lt;%= post.time.day %&gt;/&lt;%= post.title %&gt;&quot;&gt;&lt;%= post.title %&gt;&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">&lt;% &#125;) %&gt;</span><br><span class="line">&lt;/ul&gt;</span><br><span class="line">&lt;%- include footer %&gt;</span><br></pre></td></tr></table></figure>
+<p>最后，别忘了修改 edit.ejs ，为了保持和 post.ejs 一致。将 edit.ejs 修改为：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;%- include header %&gt;</span><br><span class="line">&lt;form method=&quot;post&quot;&gt;</span><br><span class="line">  标题：&lt;br /&gt;</span><br><span class="line">  &lt;input type=&quot;text&quot; name=&quot;title&quot; value=&quot;&lt;%= post.title %&gt;&quot; disabled=&quot;disabled&quot; /&gt;&lt;br /&gt;</span><br><span class="line">  标签：&lt;br /&gt;</span><br><span class="line">  &lt;input type=&quot;text&quot; name=&quot;tag1&quot; value=&quot;&lt;%= post.tags[0] %&gt;&quot; disabled=&quot;disabled&quot; /&gt;</span><br><span class="line">  &lt;input type=&quot;text&quot; name=&quot;tag2&quot; value=&quot;&lt;%= post.tags[1] %&gt;&quot; disabled=&quot;disabled&quot; /&gt;</span><br><span class="line">  &lt;input type=&quot;text&quot; name=&quot;tag3&quot; value=&quot;&lt;%= post.tags[2] %&gt;&quot; disabled=&quot;disabled&quot; /&gt;&lt;br /&gt;</span><br><span class="line">  正文：&lt;br /&gt;</span><br><span class="line">  &lt;textarea name=&quot;post&quot; rows=&quot;20&quot; cols=&quot;100&quot;&gt;&lt;%= post.post %&gt;&lt;/textarea&gt;&lt;br /&gt;</span><br><span class="line">  &lt;input type=&quot;submit&quot; value=&quot;保存修改&quot; /&gt;</span><br><span class="line">&lt;/form&gt;</span><br><span class="line">&lt;%- include footer %&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>注意</strong>：这里我们设定了编辑时不能编辑文章的标题和标签。</p>
+<p>现在，我们的博客就增加了标签和标签页的功能。</p>
+<p>十四、实现PV统计和留言统计</p>
+<p>现在我们来给每篇文章增加 pv 统计和留言统计。</p>
+<p>我们设定：在主页、用户页和文章页均显示 pv 统计和留言统计。</p>
+<p>修改 post.js ，将：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var post = &#123;</span><br><span class="line">    name: this.name,</span><br><span class="line">    time: time,</span><br><span class="line">    title:this.title,</span><br><span class="line">    tags: this.tags,</span><br><span class="line">    post: this.post,</span><br><span class="line">    comments: []</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>修改为：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var post = &#123;</span><br><span class="line">    name: this.name,</span><br><span class="line">    time: time,</span><br><span class="line">    title:this.title,</span><br><span class="line">    tags: this.tags,</span><br><span class="line">    post: this.post,</span><br><span class="line">    comments: [],</span><br><span class="line">    pv: 0</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><strong>注意</strong>：我们给要存储的文档添加了 pv 键并直接赋初值为 0。</p>
+<p>打开 post.js ，将 <code>Post.getOne()</code> 修改为：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">//获取一篇文章</span><br><span class="line">Post.getOne = function(name, day, title, callback) &#123;</span><br><span class="line">  //打开数据库</span><br><span class="line">  mongodb.open(function (err, db) &#123;</span><br><span class="line">    if (err) &#123;</span><br><span class="line">      return callback(err);</span><br><span class="line">    &#125;</span><br><span class="line">    //读取 posts 集合</span><br><span class="line">    db.collection(&apos;posts&apos;, function (err, collection) &#123;</span><br><span class="line">      if (err) &#123;</span><br><span class="line">        mongodb.close();</span><br><span class="line">        return callback(err);</span><br><span class="line">      &#125;</span><br><span class="line">      //根据用户名、发表日期及文章名进行查询</span><br><span class="line">      collection.findOne(&#123;</span><br><span class="line">        &quot;name&quot;: name,</span><br><span class="line">        &quot;time.day&quot;: day,</span><br><span class="line">        &quot;title&quot;: title</span><br><span class="line">      &#125;, function (err, doc) &#123;</span><br><span class="line">        if (err) &#123;</span><br><span class="line">          mongodb.close();</span><br><span class="line">          return callback(err);</span><br><span class="line">        &#125;</span><br><span class="line">        if (doc) &#123;</span><br><span class="line">          //每访问 1 次，pv 值增加 1</span><br><span class="line">          collection.update(&#123;</span><br><span class="line">            &quot;name&quot;: name,</span><br><span class="line">            &quot;time.day&quot;: day,</span><br><span class="line">            &quot;title&quot;: title</span><br><span class="line">          &#125;, &#123;</span><br><span class="line">            $inc: &#123;&quot;pv&quot;: 1&#125;</span><br><span class="line">          &#125;, function (err) &#123;</span><br><span class="line">            mongodb.close();</span><br><span class="line">            if (err) &#123;</span><br><span class="line">              return callback(err);</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;);</span><br><span class="line">          //解析 markdown 为 html</span><br><span class="line">          doc.post = markdown.toHTML(doc.post);</span><br><span class="line">          doc.comments.forEach(function (comment) &#123;</span><br><span class="line">            comment.content = markdown.toHTML(comment.content);</span><br><span class="line">          &#125;);</span><br><span class="line">          callback(null, doc);//返回查询的一篇文章</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>更多关于 <code>$inc</code> 的知识请参阅《mongodb权威指南》。</p>
+<p>增加留言统计就简单多了，直接取 <code>comments.length</code> 即可。修改 index.ejs 、user.ejs 及 article.ejs ，在：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;p&gt;&lt;%- post.post %&gt;&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+<p>下一行添加一行代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;p class=&quot;info&quot;&gt;阅读：&lt;%= post.pv %&gt; | 评论：&lt;%= post.comments.length %&gt;&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+<p>现在，我们给博客增加了 pv 统计和留言统计。</p>
+<h2 id="十五-增加检索功能"><a class="markdownIt-Anchor" href="#十五-增加检索功能"></a> 十五、增加检索功能</h2>
+<p>现在我们来给博客增加文章检索功能，即根据关键字模糊查询文章标题，且字母不区分大小写。<br>
+首先，我们修改 header.ejs ，在 <code>&lt;/nav&gt;</code> 前添加一行代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;span&gt;&lt;form action=&quot;/search&quot; method=&quot;GET&quot;&gt;&lt;input type=&quot;text&quot; name=&quot;keyword&quot; placeholder=&quot;SEARCH&quot; class=&quot;search&quot; /&gt;&lt;/form&gt;&lt;/span&gt;</span><br></pre></td></tr></table></figure>
+<p>在 style.css 中添加一行样式：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.search&#123;border:0;width:6em;text-align:center;font-size:1em;margin:0.5em 0;&#125;</span><br></pre></td></tr></table></figure>
+<p>打开 post.js ，在最后添加如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">//返回通过标题关键字查询的所有文章信息</span><br><span class="line">Post.search = function(keyword, callback) &#123;</span><br><span class="line">  mongodb.open(function (err, db) &#123;</span><br><span class="line">    if (err) &#123;</span><br><span class="line">      return callback(err);</span><br><span class="line">    &#125;</span><br><span class="line">    db.collection(&apos;posts&apos;, function (err, collection) &#123;</span><br><span class="line">      if (err) &#123;</span><br><span class="line">        mongodb.close();</span><br><span class="line">        return callback(err);</span><br><span class="line">      &#125;</span><br><span class="line">      var pattern = new RegExp(keyword, &quot;i&quot;);</span><br><span class="line">      collection.find(&#123;</span><br><span class="line">        &quot;title&quot;: pattern</span><br><span class="line">      &#125;, &#123;</span><br><span class="line">        &quot;name&quot;: 1,</span><br><span class="line">        &quot;time&quot;: 1,</span><br><span class="line">        &quot;title&quot;: 1</span><br><span class="line">      &#125;).sort(&#123;</span><br><span class="line">        time: -1</span><br><span class="line">      &#125;).toArray(function (err, docs) &#123;</span><br><span class="line">        mongodb.close();</span><br><span class="line">        if (err) &#123;</span><br><span class="line">         return callback(err);</span><br><span class="line">        &#125;</span><br><span class="line">        callback(null, docs);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>修改 index.js ，在 <code>app.get('/u/:name')</code> 前添加如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">app.get(&apos;/search&apos;, function (req, res) &#123;</span><br><span class="line">  Post.search(req.query.keyword, function (err, posts) &#123;</span><br><span class="line">    if (err) &#123;</span><br><span class="line">      req.flash(&apos;error&apos;, err); </span><br><span class="line">      return res.redirect(&apos;/&apos;);</span><br><span class="line">    &#125;</span><br><span class="line">    res.render(&apos;search&apos;, &#123;</span><br><span class="line">      title: &quot;SEARCH:&quot; + req.query.keyword,</span><br><span class="line">      posts: posts,</span><br><span class="line">      user: req.session.user,</span><br><span class="line">      success: req.flash(&apos;success&apos;).toString(),</span><br><span class="line">      error: req.flash(&apos;error&apos;).toString()</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>在 views 文件夹下新建 search.ejs ，添加如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;%- include header %&gt;</span><br><span class="line">&lt;ul class=&quot;archive&quot;&gt;</span><br><span class="line">&lt;% var lastYear = 0 %&gt;</span><br><span class="line">&lt;% posts.forEach(function (post, index) &#123; %&gt;</span><br><span class="line">  &lt;% if(lastYear != post.time.year) &#123; %&gt;</span><br><span class="line">    &lt;li&gt;&lt;h3&gt;&lt;%= post.time.year %&gt;&lt;/h3&gt;&lt;/li&gt;</span><br><span class="line">  &lt;% lastYear = post.time.year &#125; %&gt;</span><br><span class="line">    &lt;li&gt;&lt;time&gt;&lt;%= post.time.day %&gt;&lt;/time&gt;&lt;/li&gt;</span><br><span class="line">    &lt;li&gt;&lt;a href=&quot;/u/&lt;%= post.name %&gt;/&lt;%= post.time.day %&gt;/&lt;%= post.title %&gt;&quot;&gt;&lt;%= post.title %&gt;&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">&lt;% &#125;) %&gt;</span><br><span class="line">&lt;/ul&gt;</span><br><span class="line">&lt;%- include footer %&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>注意</strong>：目前为止，你会发现 tag.ejs 和 search.ejs 代码完全一样，因为我们都用相同的布局。这也突出了模版的优点之一 —— 可以重复利用，但我们这里并没有把这两个文件用一个代替，因为每一个文件的名字代表了不同的意义。</p>
+<p>现在，我们给博客添加了文章检索功能。</p>
+<h2 id="十六-增加友链"><a class="markdownIt-Anchor" href="#十六-增加友链"></a> 十六、增加友链</h2>
+<p>现在我们来给博客添加友情链接。</p>
+<p>打开 header.ejs ，在：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;span&gt;&lt;a title=&quot;标签&quot; href=&quot;/tags&quot;&gt;tags&lt;/a&gt;&lt;/span&gt;</span><br></pre></td></tr></table></figure>
+<p>下一行添加一行代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;span&gt;&lt;a title=&quot;友情链接&quot; href=&quot;/links&quot;&gt;links&lt;/a&gt;&lt;/span&gt;</span><br></pre></td></tr></table></figure>
+<p>修改 index.js ，在 <code>app.get('/search')</code> 前添加如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">app.get(&apos;/links&apos;, function (req, res) &#123;</span><br><span class="line">  res.render(&apos;links&apos;, &#123;</span><br><span class="line">    title: &apos;友情链接&apos;,</span><br><span class="line">    user: req.session.user,</span><br><span class="line">    success: req.flash(&apos;success&apos;).toString(),</span><br><span class="line">    error: req.flash(&apos;error&apos;).toString()</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>在 views 文件夹下新建 links.ejs ，添加如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;%- include header %&gt;</span><br><span class="line">&lt;ul style=&quot;list-style:none&quot;&gt;</span><br><span class="line">  &lt;li&gt;&lt;h3&gt;&lt;a href=&quot;https://love.alipay.com/donate/donateSingle.htm?name=201304201216494301&quot;&gt;支付宝公益网&lt;/a&gt;&lt;/h3&gt;天佑四川，为雅安地震捐款&lt;/li&gt;</span><br><span class="line">  &lt;li&gt;&lt;h3&gt;&lt;a href=&quot;http://www.onefoundation.cn/html/cn/beneficence.html&quot;&gt;壹基金&lt;/a&gt;&lt;/h3&gt;壹基金雅安地震救援，刻不容缓！&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br><span class="line">&lt;%- include footer %&gt;</span><br></pre></td></tr></table></figure>
+<p>现在，我们给博客添加了友情链接。</p>
+<h2 id="十七-实现404"><a class="markdownIt-Anchor" href="#十七-实现404"></a> 十七、实现404</h2>
+<p>现在我们来给博客添加 404 页面，即当访问的路径都不匹配时，跳转到 404 页面。</p>
+<p>打开 index.js ，在：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function checkLogin(req, res, next)&#123; ... &#125;</span><br></pre></td></tr></table></figure>
+<p>前添加如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">app.use(function (req, res) &#123;</span><br><span class="line">  res.render(&quot;404&quot;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>在 views 文件夹下新建 404.ejs ，添加如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">&lt;title&gt;Blog&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;http://www.qq.com/404/search_children.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>现在，我们给博客添加了 404 页面。</p>
+<h2 id="十八-增加头像"><a class="markdownIt-Anchor" href="#十八-增加头像"></a> 十八、增加头像</h2>
+<p>现在我们来给博客添加用户头像，注册的用户根据注册时的邮箱获取 gravatar 头像，未注册的用户则根据留言填的邮箱获取 gravatar 头像。<br>
+什么是 gravatar ？详情请戳：<a href="http://www.gravatar.com" target="_blank" rel="noopener">http://www.gravatar.com</a></p>
+<p>我们设定：在主页和用户页的文章标题右侧显示作者头像，在文章页面留言的人的头像显示在留言板左侧。</p>
+<p>我们需要用到 Node.js 中的 crypto 模块，之前已经引入过，所以这里可以直接使用。</p>
+<h3 id="添加已注册用户的头像"><a class="markdownIt-Anchor" href="#添加已注册用户的头像"></a> 添加已注册用户的头像</h3>
+<p>打开 user.js ，在最上面添加一行代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var crypto = require(&apos;crypto&apos;);</span><br></pre></td></tr></table></figure>
+<p>然后将 <code>User.prototype.save</code> 内的:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var user = &#123;</span><br><span class="line">    name: this.name,</span><br><span class="line">    password: this.password,</span><br><span class="line">    email: this.email</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>修改为:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var md5 = crypto.createHash(&apos;md5&apos;),</span><br><span class="line">    email_MD5 = md5.update(this.email.toLowerCase()).digest(&apos;hex&apos;),</span><br><span class="line">    head = &quot;http://www.gravatar.com/avatar/&quot; + email_MD5 + &quot;?s=48&quot;;</span><br><span class="line">//要存入数据库的用户信息文档</span><br><span class="line">var user = &#123;</span><br><span class="line">    name: this.name,</span><br><span class="line">    password: this.password,</span><br><span class="line">    email: this.email,</span><br><span class="line">    head: head</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>这里我们在用户文档里添加了 <code>head</code> 键，方便后面使用。</p>
+<p><strong>注意</strong>：需要把 email 转化成小写再编码。</p>
+<p>打开 index.js ，将 <code>app.post('/post')</code> 中的：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">post = new Post(currentUser.name, req.body.title, tags, req.body.post);</span><br></pre></td></tr></table></figure>
+<p>修改成：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">post = new Post(currentUser.name, currentUser.head, req.body.title, tags, req.body.post);</span><br></pre></td></tr></table></figure>
+<p>修改 post.js ，将：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function Post(name, title, tags, post) &#123;</span><br><span class="line">  this.name = name;</span><br><span class="line">  this.title = title;</span><br><span class="line">  this.tags = tags;</span><br><span class="line">  this.post = post;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>修改为：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function Post(name, head, title, tags, post) &#123;</span><br><span class="line">  this.name = name;</span><br><span class="line">  this.head = head;</span><br><span class="line">  this.title = title;</span><br><span class="line">  this.tags = tags;</span><br><span class="line">  this.post = post;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>将：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var post = &#123;</span><br><span class="line">    name: this.name,</span><br><span class="line">    time: time,</span><br><span class="line">    title:this.title,</span><br><span class="line">    tags: this.tags,</span><br><span class="line">    post: this.post,</span><br><span class="line">    comments: [],</span><br><span class="line">    pv: 0</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>修改为：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var post = &#123;</span><br><span class="line">    name: this.name,</span><br><span class="line">    head: this.head,</span><br><span class="line">    time: time,</span><br><span class="line">    title:this.title,</span><br><span class="line">    tags: this.tags,</span><br><span class="line">    post: this.post,</span><br><span class="line">    comments: [],</span><br><span class="line">    pv: 0</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>最后，修改 index.ejs 和 user.ejs ，在 <code>&lt;/h2&gt;</code> 后添加一行代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;a href=&quot;/u/&lt;%= post.name %&gt;&quot;&gt;&lt;img src=&quot;&lt;%= post.head %&gt;&quot; class=&quot;r_head&quot; /&gt;&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+<p>至此，我们实现了给已注册的用户添加头像的功能。</p>
+<h3 id="添加未注册用户的头像"><a class="markdownIt-Anchor" href="#添加未注册用户的头像"></a> 添加未注册用户的头像</h3>
+<p>修改 <code>app.post('/u/:name/:day/:title')</code>，将：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var comment = &#123;</span><br><span class="line">    name: req.body.name,</span><br><span class="line">    email: req.body.email,</span><br><span class="line">    website: req.body.website,</span><br><span class="line">    time: time,</span><br><span class="line">    content: req.body.content</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>修改为：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var md5 = crypto.createHash(&apos;md5&apos;),</span><br><span class="line">    email_MD5 = md5.update(req.body.email.toLowerCase()).digest(&apos;hex&apos;),</span><br><span class="line">    head = &quot;http://www.gravatar.com/avatar/&quot; + email_MD5 + &quot;?s=48&quot;; </span><br><span class="line">var comment = &#123;</span><br><span class="line">    name: req.body.name,</span><br><span class="line">    head: head,</span><br><span class="line">    email: req.body.email,</span><br><span class="line">    website: req.body.website,</span><br><span class="line">    time: time,</span><br><span class="line">    content: req.body.content</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>打开 comment.ejs ，将：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;% post.comments.forEach(function (comment, index) &#123; %&gt;</span><br><span class="line">  &lt;p&gt;&lt;a href=&quot;&lt;%= comment.website %&gt;&quot;&gt;&lt;%= comment.name %&gt;&lt;/a&gt;</span><br><span class="line">  &lt;span class=&quot;info&quot;&gt; 回复于 &lt;%= comment.time %&gt;&lt;/span&gt;&lt;/p&gt;</span><br><span class="line">  &lt;p&gt;&lt;%- comment.content %&gt;&lt;/p&gt;</span><br><span class="line">&lt;% &#125;) %&gt;</span><br></pre></td></tr></table></figure>
+<p>修改为：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;% post.comments.forEach(function (comment, index) &#123; %&gt;</span><br><span class="line">  &lt;div style=&quot;padding-left:4em&quot;&gt;</span><br><span class="line">    &lt;p&gt;&lt;img src=&quot;&lt;%= comment.head %&gt;&quot; class=&quot;l_head&quot; /&gt;&lt;a href=&quot;&lt;%= comment.website %&gt;&quot;&gt;&lt;%= comment.name %&gt;&lt;/a&gt;</span><br><span class="line">    &lt;span class=&quot;info&quot;&gt; 回复于 &lt;%= comment.time %&gt;&lt;/span&gt;&lt;/p&gt;</span><br><span class="line">    &lt;p&gt;&lt;%- comment.content %&gt;&lt;/p&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;% &#125;) %&gt;</span><br></pre></td></tr></table></figure>
+<p>最后，在 style.css 中添加两行样式：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.l_head&#123;float:left;margin-left:-4em;box-shadow:0px 1px 4px #888;&#125;</span><br><span class="line">.r_head&#123;float:right;margin-top:-2.5em;box-shadow:0px 1px 4px #888;&#125;</span><br></pre></td></tr></table></figure>
+<p>现在，我们给博客添加了头像的功能。</p>
+<h2 id="十九-添加转载及统计"><a class="markdownIt-Anchor" href="#十九-添加转载及统计"></a> 十九、添加转载及统计</h2>
+<p>现在，我们来给博客添加转载文章和转载数统计的功能。</p>
+<p>我们的设计思路是：当在线用户满足特定条件时，文章页面才会显示 <code>转载</code> 链接字样，当用户点击 <code>转载</code> 后，复制一份存储当前文章的文档，修改后以新文档的形式存入数据库，而不是单纯的添加一条指向被转载的文档的 “引用” ，这种设计是合理的，因为这样我们也可以将转载来的文章进行修改。</p>
+<p>首先，我们来完成转载文章的功能。</p>
+<p>打开 post.js ，将 <code>Post.prototype.save</code> 内的：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var post = &#123;</span><br><span class="line">    name: this.name,</span><br><span class="line">    head: this.head,</span><br><span class="line">    time: time,</span><br><span class="line">    title:this.title,</span><br><span class="line">    tags: this.tags,</span><br><span class="line">    post: this.post,</span><br><span class="line">    comments: [],</span><br><span class="line">    pv: 0</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>修改为：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var post = &#123;</span><br><span class="line">    name: this.name,</span><br><span class="line">    head: this.head,</span><br><span class="line">    time: time,</span><br><span class="line">    title:this.title,</span><br><span class="line">    tags: this.tags,</span><br><span class="line">    post: this.post,</span><br><span class="line">    comments: [],</span><br><span class="line">    reprint_info: &#123;&#125;,</span><br><span class="line">    pv: 0</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>这里我们给文档里添加了 <code>reprint_info</code> 键，最多为以下形式：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  reprint_from: &#123;name: xxx, day: xxx, title: xxx&#125;,</span><br><span class="line">  reprint_to: [</span><br><span class="line">    &#123;name: xxx, day: xxx, title: xxx&#125;,</span><br><span class="line">    &#123;name: xxx, day: xxx, title: xxx&#125;,</span><br><span class="line">    ...</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>reprint_from</code> 表示转载来的原文章的信息，<code>reprint_to</code> 表示该文章被转载的信息。为了节约存储空间，我们初始设置 <code>reprint_info</code> 键为 <code>{}</code>，而不是以下形式：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  reprint_from: &#123;&#125;,</span><br><span class="line">  reprint_to: []</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这是因为大多数文章是没有经过任何转载的，所以为每个文档都添加以上形式的 <code>reprint_info</code> 是有点浪费的。假如某篇文章是转载来的，我们只需给 <code>reprint_info</code> 添加上 <code>reprint_from</code> 键即可，假如某篇文章被转载了，我们只需给 <code>reprint_info</code> 添加上 <code>reprint_to</code> 键即可，假如某篇文章是转载来的且又被转载了，那我们就给 <code>reprint_info</code> 添加上 <code>reprint_from</code> 和 <code>reprint_to</code> 键即可。</p>
+<p>打开 post.js ，在最后添加如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">//转载一篇文章</span><br><span class="line">Post.reprint = function(reprint_from, reprint_to, callback) &#123;</span><br><span class="line">  mongodb.open(function (err, db) &#123;</span><br><span class="line">    if (err) &#123;</span><br><span class="line">      return callback(err);</span><br><span class="line">    &#125;</span><br><span class="line">    db.collection(&apos;posts&apos;, function (err, collection) &#123;</span><br><span class="line">      if (err) &#123;</span><br><span class="line">        mongodb.close();</span><br><span class="line">        return callback(err);</span><br><span class="line">      &#125;</span><br><span class="line">      //找到被转载的文章的原文档</span><br><span class="line">      collection.findOne(&#123;</span><br><span class="line">        &quot;name&quot;: reprint_from.name,</span><br><span class="line">        &quot;time.day&quot;: reprint_from.day,</span><br><span class="line">        &quot;title&quot;: reprint_from.title</span><br><span class="line">      &#125;, function (err, doc) &#123;</span><br><span class="line">        if (err) &#123;</span><br><span class="line">          mongodb.close();</span><br><span class="line">          return callback(err);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        var date = new Date();</span><br><span class="line">        var time = &#123;</span><br><span class="line">            date: date,</span><br><span class="line">            year : date.getFullYear(),</span><br><span class="line">            month : date.getFullYear() + &quot;-&quot; + (date.getMonth() + 1),</span><br><span class="line">            day : date.getFullYear() + &quot;-&quot; + (date.getMonth() + 1) + &quot;-&quot; + date.getDate(),</span><br><span class="line">            minute : date.getFullYear() + &quot;-&quot; + (date.getMonth() + 1) + &quot;-&quot; + date.getDate() + &quot; &quot; + </span><br><span class="line">            date.getHours() + &quot;:&quot; + (date.getMinutes() &lt; 10 ? &apos;0&apos; + date.getMinutes() : date.getMinutes())</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        delete doc._id;//注意要删掉原来的 _id</span><br><span class="line"></span><br><span class="line">        doc.name = reprint_to.name;</span><br><span class="line">        doc.head = reprint_to.head;</span><br><span class="line">        doc.time = time;</span><br><span class="line">        doc.title = (doc.title.search(/[转载]/) &gt; -1) ? doc.title : &quot;[转载]&quot; + doc.title;</span><br><span class="line">        doc.comments = [];</span><br><span class="line">        doc.reprint_info = &#123;&quot;reprint_from&quot;: reprint_from&#125;;</span><br><span class="line">        doc.pv = 0;</span><br><span class="line"></span><br><span class="line">        //更新被转载的原文档的 reprint_info 内的 reprint_to</span><br><span class="line">        collection.update(&#123;</span><br><span class="line">          &quot;name&quot;: reprint_from.name,</span><br><span class="line">          &quot;time.day&quot;: reprint_from.day,</span><br><span class="line">          &quot;title&quot;: reprint_from.title</span><br><span class="line">        &#125;, &#123;</span><br><span class="line">          $push: &#123;</span><br><span class="line">            &quot;reprint_info.reprint_to&quot;: &#123;</span><br><span class="line">              &quot;name&quot;: doc.name,</span><br><span class="line">              &quot;day&quot;: time.day,</span><br><span class="line">              &quot;title&quot;: doc.title</span><br><span class="line">          &#125;&#125;</span><br><span class="line">        &#125;, function (err) &#123;</span><br><span class="line">          if (err) &#123;</span><br><span class="line">            mongodb.close();</span><br><span class="line">            return callback(err);</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        //将转载生成的副本修改后存入数据库，并返回存储后的文档</span><br><span class="line">        collection.insert(doc, &#123;</span><br><span class="line">          safe: true</span><br><span class="line">        &#125;, function (err, post) &#123;</span><br><span class="line">          mongodb.close();</span><br><span class="line">          if (err) &#123;</span><br><span class="line">            return callback(err);</span><br><span class="line">          &#125;</span><br><span class="line">          callback(err, post[0]);</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>这里我们在 <code>Post.reprint()</code> 内实现了被转载的原文章的更新和转载后文章的存储。</p>
+<p>打开 index.js ，在 <code>app.get('/remove/:name/:day/:title')</code> 后添加如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">app.get(&apos;/reprint/:name/:day/:title&apos;, checkLogin);</span><br><span class="line">app.get(&apos;/reprint/:name/:day/:title&apos;, function (req, res) &#123;</span><br><span class="line">  Post.edit(req.params.name, req.params.day, req.params.title, function (err, post) &#123;</span><br><span class="line">    if (err) &#123;</span><br><span class="line">      req.flash(&apos;error&apos;, err); </span><br><span class="line">      return res.redirect(back);</span><br><span class="line">    &#125;</span><br><span class="line">    var currentUser = req.session.user,</span><br><span class="line">        reprint_from = &#123;name: post.name, day: post.time.day, title: post.title&#125;,</span><br><span class="line">        reprint_to = &#123;name: currentUser.name, head: currentUser.head&#125;;</span><br><span class="line">    Post.reprint(reprint_from, reprint_to, function (err, post) &#123;</span><br><span class="line">      if (err) &#123;</span><br><span class="line">        req.flash(&apos;error&apos;, err); </span><br><span class="line">        return res.redirect(&apos;back&apos;);</span><br><span class="line">      &#125;</span><br><span class="line">      req.flash(&apos;success&apos;, &apos;转载成功!&apos;);</span><br><span class="line">      var url = encodeURI(&apos;/u/&apos; + post.name + &apos;/&apos; + post.time.day + &apos;/&apos; + post.title);</span><br><span class="line">      //跳转到转载后的文章页面</span><br><span class="line">      res.redirect(url);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>至此，我们给 <code>转载</code> 链接注册了路由响应。</p>
+<p><strong>注意</strong>：我们需要通过 <code>Post.edit()</code> 返回一篇文章 markdown 格式的文本，而不是通过 <code>Post.getOne</code> 返回一篇转义后的 HTML 文本，因为我们还要将修改后的文档存入数据库，而数据库中应该存储 markdown 格式的文本。</p>
+<p>最后，我们在文章页（article.ejs）添加转载链接。</p>
+<p>打开 article.ejs ，在：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;% if (user &amp;&amp; (user.name == post.name)) &#123; %&gt;</span><br><span class="line">  &lt;span&gt;&lt;a class=&quot;edit&quot; href=&quot;/edit/&lt;%= post.name %&gt;/&lt;%= post.time.day %&gt;/&lt;%= post.title %&gt;&quot;&gt;编辑&lt;/a&gt;&lt;/span&gt;</span><br><span class="line">  &lt;span&gt;&lt;a class=&quot;edit&quot; href=&quot;/remove/&lt;%= post.name %&gt;/&lt;%= post.time.day %&gt;/&lt;%= post.title %&gt;&quot;&gt;删除&lt;/a&gt;&lt;/span&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
+<p>后添加如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;% var flag = 1 %&gt;</span><br><span class="line">&lt;% if (user &amp;&amp; (user.name != post.name)) &#123; %&gt;</span><br><span class="line">  &lt;% if ((post.reprint_info.reprint_from != undefined) &amp;&amp; (user.name == post.reprint_info.reprint_from.name)) &#123; %&gt;</span><br><span class="line">    &lt;% flag = 0 %&gt;</span><br><span class="line">  &lt;% &#125; %&gt;</span><br><span class="line">  &lt;% if ((post.reprint_info.reprint_to != undefined)) &#123; %&gt;</span><br><span class="line">    &lt;% post.reprint_info.reprint_to.forEach(function (reprint_to, index) &#123; %&gt;</span><br><span class="line">      &lt;% if (user.name == reprint_to.name) &#123; %&gt;</span><br><span class="line">        &lt;% flag = 0 %&gt;</span><br><span class="line">      &lt;% &#125; %&gt;</span><br><span class="line">    &lt;% &#125;) %&gt;</span><br><span class="line">  &lt;% &#125; %&gt;</span><br><span class="line">&lt;% &#125; else &#123; %&gt;</span><br><span class="line">  &lt;% flag = 0 %&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br><span class="line">&lt;% if (flag) &#123; %&gt;</span><br><span class="line">  &lt;span&gt;&lt;a class=&quot;edit&quot; href=&quot;/reprint/&lt;%= post.name %&gt;/&lt;%= post.time.day %&gt;/&lt;%= post.title %&gt;&quot;&gt;转载&lt;/a&gt;&lt;/span&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
+<p>以上代码的意思是：我们设置一个 flag 标志，如果用户是游客，或者是该文章的目前作者，或者是该文章的上一级作者，或者已经转载过该文章，都会将 flag 设置为 0 ，即不显示 <code>转载</code> 链接，即不能转载该文章。最后判断 flag 为 1 时才会显示 <code>转载</code> 链接，即才可以转载这篇文章。</p>
+<p>最后，我们需要添加一个 <strong>原文链接</strong> 来指向被转载的文章。<br>
+打开 index.ejs 、user.ejs 、article.ejs，在第一个 <code>&lt;p class=&quot;info&quot;&gt;</code> 里最后添加如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;% if (post.reprint_info.reprint_from) &#123; %&gt;</span><br><span class="line">  &lt;br&gt;&lt;a href=&quot;/u/&lt;%= post.reprint_info.reprint_from.name %&gt;/&lt;%= post.reprint_info.reprint_from.day %&gt;/&lt;%= post.reprint_info.reprint_from.title %&gt;&quot;&gt;原文链接&lt;/a&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
+<p>现在我们就给博客添加了转载功能。</p>
+<p>接下来我们添加转载统计。<br>
+添加转载统计就简单多了，我们只需使用 <code>reprint_info.reprint_to.length</code> 即可。</p>
+<p>打开 index.ejs 、user.ejs 、article.ejs ，将：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;p class=&quot;info&quot;&gt;阅读：&lt;%= post.pv %&gt; | 评论：&lt;%= post.comments.length %&gt;&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+<p>修改为：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;p class=&quot;info&quot;&gt;</span><br><span class="line">  阅读：&lt;%= post.pv %&gt; | </span><br><span class="line">  评论：&lt;%= post.comments.length %&gt; | </span><br><span class="line">  转载：</span><br><span class="line">  &lt;% if (post.reprint_info.reprint_to) &#123; %&gt;</span><br><span class="line">    &lt;%= post.reprint_info.reprint_to.length %&gt;</span><br><span class="line">  &lt;% &#125; else &#123; %&gt;</span><br><span class="line">    &lt;%= 0 %&gt;</span><br><span class="line">  &lt;% &#125; %&gt;</span><br><span class="line">&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+<p>现在我们就给博客添加了转载统计的功能。但工作还没有完成，假如我们要删除一篇转载来的文章时，还要将被转载的原文章所在文档的 <code>reprint_to</code> 删除遗留的转载信息。</p>
+<p>打开 post.js ，将 <code>Post.remove</code> 修改为：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">//删除一篇文章</span><br><span class="line">Post.remove = function(name, day, title, callback) &#123;</span><br><span class="line">  //打开数据库</span><br><span class="line">  mongodb.open(function (err, db) &#123;</span><br><span class="line">    if (err) &#123;</span><br><span class="line">      return callback(err);</span><br><span class="line">    &#125;</span><br><span class="line">    //读取 posts 集合</span><br><span class="line">    db.collection(&apos;posts&apos;, function (err, collection) &#123;</span><br><span class="line">      if (err) &#123;</span><br><span class="line">        mongodb.close();</span><br><span class="line">        return callback(err);</span><br><span class="line">      &#125;</span><br><span class="line">      //查询要删除的文档</span><br><span class="line">      collection.findOne(&#123;</span><br><span class="line">        &quot;name&quot;: name,</span><br><span class="line">        &quot;time.day&quot;: day,</span><br><span class="line">        &quot;title&quot;: title</span><br><span class="line">      &#125;, function (err, doc) &#123;</span><br><span class="line">        if (err) &#123;</span><br><span class="line">          mongodb.close();</span><br><span class="line">          return callback(err);</span><br><span class="line">        &#125;</span><br><span class="line">        //如果有 reprint_from，即该文章是转载来的，先保存下来 reprint_from</span><br><span class="line">        var reprint_from = &quot;&quot;;</span><br><span class="line">        if (doc.reprint_info.reprint_from) &#123;</span><br><span class="line">          reprint_from = doc.reprint_info.reprint_from;</span><br><span class="line">        &#125;</span><br><span class="line">        if (reprint_from != &quot;&quot;) &#123;</span><br><span class="line">          //更新原文章所在文档的 reprint_to</span><br><span class="line">          collection.update(&#123;</span><br><span class="line">            &quot;name&quot;: reprint_from.name,</span><br><span class="line">            &quot;time.day&quot;: reprint_from.day,</span><br><span class="line">            &quot;title&quot;: reprint_from.title</span><br><span class="line">          &#125;, &#123;</span><br><span class="line">            $pull: &#123;</span><br><span class="line">              &quot;reprint_info.reprint_to&quot;: &#123;</span><br><span class="line">                &quot;name&quot;: name,</span><br><span class="line">                &quot;day&quot;: day,</span><br><span class="line">                &quot;title&quot;: title</span><br><span class="line">            &#125;&#125;</span><br><span class="line">          &#125;, function (err) &#123;</span><br><span class="line">            if (err) &#123;</span><br><span class="line">              mongodb.close();</span><br><span class="line">              return callback(err);</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        //删除转载来的文章所在的文档</span><br><span class="line">        collection.remove(&#123;</span><br><span class="line">          &quot;name&quot;: name,</span><br><span class="line">          &quot;time.day&quot;: day,</span><br><span class="line">          &quot;title&quot;: title</span><br><span class="line">        &#125;, &#123;</span><br><span class="line">          w: 1</span><br><span class="line">        &#125;, function (err) &#123;</span><br><span class="line">          mongodb.close();</span><br><span class="line">          if (err) &#123;</span><br><span class="line">            return callback(err);</span><br><span class="line">          &#125;</span><br><span class="line">          callback(null);</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><strong>注意</strong>：我们使用了 <code>$pull</code> 来删除数组中的特定项，关于 <code>$pull</code> 的详细使用请查阅 《MongoDB 权威指南》。</p>
+<p>至此，我们给博客添加了转载功能和转载统计。</p>
+<h2 id="二十-添加日志功能"><a class="markdownIt-Anchor" href="#二十-添加日志功能"></a> 二十、添加日志功能</h2>
+<p>现在我们来给博客增加日志，实现访问日志（access.log）和错误日志（error.log）功能。</p>
+<p>前面我们介绍过，使用 Express 自带的 logger 中间件实现了终端日志的输出：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">app.use(logger(&apos;dev&apos;));</span><br></pre></td></tr></table></figure>
+<p>那我们想把日志保存为日志文件该怎么办呢？很简单，我们只需在以上代码的下一行添加：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">app.use(logger(&#123;stream: accessLog&#125;));</span><br></pre></td></tr></table></figure>
+<p>并在 var app = express(); 之前添加如下代码即可：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var fs = require(&apos;fs&apos;);</span><br><span class="line">var accessLog = fs.createWriteStream(&apos;access.log&apos;, &#123;flags: &apos;a&apos;&#125;);</span><br><span class="line">var errorLog = fs.createWriteStream(&apos;error.log&apos;, &#123;flags: &apos;a&apos;&#125;);</span><br></pre></td></tr></table></figure>
+<p>这样，我们每一次访问的请求信息，不仅显示在了命令行中，也都保存在了工程根目录下的 access.log 文件里。但 Express 并没有提供记录错误日志的功能，所以我们需自己写一个简单的中间件，在 app.use(express.static(path.join(__dirname, ‘public’))); 下一行添加如下代码 ：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">app.use(function (err, req, res, next) &#123;</span><br><span class="line">  var meta = &apos;[&apos; + new Date() + &apos;] &apos; + req.url + &apos;\n&apos;;</span><br><span class="line">  errorLog.write(meta + err.stack + &apos;\n&apos;);</span><br><span class="line">  next();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>这样，当有错误发生时，就将错误信息保存到了根目录下的 error.log 文件夹里。</p>
+<p>至此，我们就给博客添加了日志的功能。</p>
+
+    
+  </div>
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation"><strong><a href="#" style="color: #999;">赞赏</a></strong></span>
+      <div class="donation-body">
+        <div class="tip text-center"><strong>支持一下</strong></div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="https://ws1.sinaimg.cn/large/006tNbRwly1fxjlq29zkkj30f60f675t.jpg" alt="">
+            <a>微信扫一扫</a>
+          </li>
+        
+          <li class="item">
+            <img src="https://ws2.sinaimg.cn/large/006tNbRwly1fxjlwikh27j30a20a2wfe.jpg" alt="">
+            <a>支付宝扫一扫</a>
+          </li>
+        
+          <li class="item">
+            <img src="https://ws3.sinaimg.cn/large/006tNbRwly1fxjlztplu9j30jd0jeadu.jpg" alt="">
+            <a>QQ扫一扫</a>
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2016/10/21/express-blog-3/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2016/10/21/express-blog-1/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+              目录
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/category/" rel="noopener noreferrer" target="_self">
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/tag/" rel="noopener noreferrer" target="_self">
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/project/" rel="noopener noreferrer" target="_self">
+              项目
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+
+
+
+
+  <div id="vcomments"></div>
+    <script>
+        new Valine({
+            el: '#vcomments',
+            appId: 'm2JW5otJtf3PU6V2F3ORdsVl-gzGzoHsz',
+            appKey: 'sT0JdEoQA7RJThLQ7z6xiT0c'
+        })
+    </script>
+
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+
+</body>
+</html>

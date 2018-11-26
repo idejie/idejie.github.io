@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="google-site-verification" content="rEUG6A2SLvgx5-OW-Q2fuuC4q9qNnwo62YXM9KhQlPg">
+  
+  <title>面向对象复习（〇） | idejie</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="">
+  
+
+  <meta name="description" content="第一大题：概念解释型  1.类 定义：类是具有相同属性或者相同操作的对象的集合，包括属性和操作。也可以说是具有相似行为或数据结构的对象的共同描述。 （1）类是一组相似的对象。每一个对象都是某一个类的实例。 （2）类是对象行为的存储库，即：同一个类的对象都能执行相同的方法。  2.对象 定义：对象是独立存在的客观事物。一切事物皆为对象。包括一组对象和操作。 （1）属性和操作是对象的两大要素。属性是">
+<meta name="keywords" content="面向对象">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面向对象复习（〇）">
+<meta property="og:url" content="https://blog.idejie.com/2016/06/02/review-oo-0/index.html">
+<meta property="og:site_name" content="idejie">
+<meta property="og:description" content="第一大题：概念解释型  1.类 定义：类是具有相同属性或者相同操作的对象的集合，包括属性和操作。也可以说是具有相似行为或数据结构的对象的共同描述。 （1）类是一组相似的对象。每一个对象都是某一个类的实例。 （2）类是对象行为的存储库，即：同一个类的对象都能执行相同的方法。  2.对象 定义：对象是独立存在的客观事物。一切事物皆为对象。包括一组对象和操作。 （1）属性和操作是对象的两大要素。属性是">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://o93w2e6aq.bkt.clouddn.com/%E5%9B%BE%E7%89%87%201.png">
+<meta property="og:updated_time" content="2018-11-24T16:32:27.557Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="面向对象复习（〇）">
+<meta name="twitter:description" content="第一大题：概念解释型  1.类 定义：类是具有相同属性或者相同操作的对象的集合，包括属性和操作。也可以说是具有相似行为或数据结构的对象的共同描述。 （1）类是一组相似的对象。每一个对象都是某一个类的实例。 （2）类是对象行为的存储库，即：同一个类的对象都能执行相同的方法。  2.对象 定义：对象是独立存在的客观事物。一切事物皆为对象。包括一组对象和操作。 （1）属性和操作是对象的两大要素。属性是">
+<meta name="twitter:image" content="http://o93w2e6aq.bkt.clouddn.com/%E5%9B%BE%E7%89%87%201.png">
+
+  
+
+  
+    <link rel="icon" href="https://avatars0.githubusercontent.com/u/12479824">
+  
+
+  <link href="/css/styles.css?v=d671a41f" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/styles.css">
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+<script src="//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0"></script>
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+ <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css">
+<script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/github-markdown-css/2.2.1/github-markdown.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+
+    <!-- The loading of KaTeX is deferred to speed up page rendering -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+
+    <!-- To automatically render math in text elements, include the auto-render extension: -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+</head>
+<script src="//pixijs.download/release/pixi.js"></script>
+</html>
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">菜单</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">菜单</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+            目录
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/category/" rel="noopener noreferrer" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/tag/" rel="noopener noreferrer" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/project/" rel="noopener noreferrer" target="_self">
+            项目
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#第一大题概念解释型"><span class="toc-text"> 第一大题：概念解释型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1类"><span class="toc-text"> 1.类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2对象"><span class="toc-text"> 2.对象</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3方法"><span class="toc-text"> 3.方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4消息"><span class="toc-text"> 4.消息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5继承"><span class="toc-text"> 5.继承</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6方法绑定"><span class="toc-text"> 6.方法绑定</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7改写"><span class="toc-text"> 7.改写</span></a></li></ol></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-review-oo-0" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">面向对象复习（〇）</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2016.06.02</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>idejie</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/课程复习/">课程复习</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp 阅读量：<span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>
+        </span>
+      
+
+     
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h3 id="第一大题概念解释型"><a class="markdownIt-Anchor" href="#第一大题概念解释型"></a> 第一大题：概念解释型</h3>
+<h4 id="1类"><a class="markdownIt-Anchor" href="#1类"></a> 1.类</h4>
+<p>定义：类是具有相同属性或者相同操作的对象的集合，包括属性和操作。也可以说是具有相似行为或数据结构的对象的共同描述。</p>
+<p>（1）类是一组相似的对象。每一个对象都是某一个类的实例。</p>
+<p>（2）类是对象行为的存储库，即：同一个类的对象都能执行相同的方法。</p>
+<h4 id="2对象"><a class="markdownIt-Anchor" href="#2对象"></a> 2.对象</h4>
+<p>定义：对象是独立存在的客观事物。一切事物皆为对象。包括一组对象和操作。</p>
+<p>（1）属性和操作是对象的两大要素。属性是指对象的静态特征，操作是指对象的动态特征。</p>
+<p>（2）属性一般只能通过执行对象的操作来改变。</p>
+<p>（3）操作（方法，服务），描述了对象所要执行的功能。通过消息传递，还可以为其他对象所调用。</p>
+<h4 id="3方法"><a class="markdownIt-Anchor" href="#3方法"></a> 3.方法</h4>
+<p>定义：某一特定类上的操作与规则。</p>
+<p>（1）在面向对象的编程中，行为的启动是通过“消息”传递给对此行为负责的代理来完成的，即调用方法</p>
+<p>（2）消息对行为的要求进行编码，并随着参数一起传递。</p>
+<p>（3）“接收器”就是消息发送的对象，负责接收消息，执行方法。</p>
+<h4 id="4消息"><a class="markdownIt-Anchor" href="#4消息"></a> 4.消息</h4>
+<p>定义：消息就是执行它所包含的某项处理操作的指令信息。实质是对某个类  对象的操作函数的调用，即方法调用</p>
+<h4 id="5继承"><a class="markdownIt-Anchor" href="#5继承"></a> 5.继承</h4>
+<p>定义：一种使用户得以在一个类的基础上建立新类的技术。</p>
+<h4 id="6方法绑定"><a class="markdownIt-Anchor" href="#6方法绑定"></a> 6.方法绑定</h4>
+<p>定义：指的是一个<strong>方法</strong>的调用与<strong>方法</strong>所在的类(方法主体)关联起来</p>
+<p>（1）静态绑定（前期绑定/编译期绑定）：<br>
+​	在程序执行前方法已经被绑定，此时由编译器或其它连接程序实现。例如：C。<br>
+​	针对java简单的可以理解为程序编译期的绑定；这里特别说明一点，java当中的方法只有final，static，private和构造方法是前期绑定</p>
+<p>（2）动态绑定（后期绑定/运行时绑定）：<br>
+        在运行时根据具体对象的类型进行绑定。若一种语言实现了后期绑定，同时必须提供一些机制，可在运行期间判断对象的类型，并分别调用适当的方法。也就是说，编译器此时依然不知道对象的类型，但方法调用机制能自己去调查，找到正确的方法主体。不同的语言对后期绑定的实现方法是有所区别的。但我们至少可以这样认为：它们都要在对象中安插某些特殊类型的信息。</p>
+<p>动态绑定的过程：</p>
+<ul>
+<li>
+<p>虚拟机提取对象的实际类型的方法表；</p>
+</li>
+<li>
+<p>虚拟机搜索方法签名；</p>
+</li>
+<li>
+<p>调用方法。</p>
+</li>
+</ul>
+<p>在java中，几乎所有的方法都是后期绑定的，在运行时动态绑定方法属于子类还是基类。但是也有特殊，针对static方法和final方法由于不能被继承，因此在编译时就可以确定他们的值，他们是属于前期绑定的。</p>
+<h4 id="7改写"><a class="markdownIt-Anchor" href="#7改写"></a> 7.改写</h4>
+<p>多态</p>
+<p>重载</p>
+<p>静态属性</p>
+<p>静态方法</p>
+<p>…</p>
+<p>多态</p>
+<p>静态方法绑定</p>
+<p></p>
+<p>1   范畴</p>
+<p>Dir.open()</p>
+<p>File.open</p>
+<p></p>
+<p></p>
+<p></p>
+<p>重定义</p>
+<p>2 签名</p>
+<p>n  <strong>如果两个或更多的方法具有相同的名称和相同的参数数目，编译器如何匹配?</strong></p>
+<p>n  <strong>P91****继承层次的例子</strong></p>
+<p></p>
+<p>3 动态方法绑定****</p>
+<p>改写****</p>
+<p>多态变量</p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p>继承的形式</p>
+<p>特化子类化（子类型化）</p>
+<p>规范子类化</p>
+<p>构造子类化</p>
+<p>泛化子类化</p>
+<p>扩展子类化</p>
+<p>限制子类化</p>
+<p>变体子类化</p>
+<p>结合子类化</p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p>内存布局   最小静态空间分配  最大静态空间分配   动态内存分配</p>
+<p>复制和克隆</p>
+<p></p>
+<p></p>
+<p></p>
+<p>静态方法绑定和动态方法绑定</p>
+<p></p>
+<p></p>
+<p></p>
+<p>纯多态、适配器模式、反射和内省</p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p>协方差与反协方差</p>
+<p>框架   特点</p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p><img src="http://o93w2e6aq.bkt.clouddn.com/%E5%9B%BE%E7%89%87%201.png" alt="img"></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p>简单工厂、工厂方法、抽象工厂     单例</p>
+<p>适配器、代理、  BRIDGE（桥接）、  DECORATOR（装饰）</p>
+<p>CHAIN OF RESPONSIBILITY(职责链) 、 OBSERVER（观察者）、STRATEGY(策略)    命令</p>
+<p><strong>面向对象复习整理：</strong>****</p>
+<p></p>
+<p><strong>类</strong>：类是具有相同属性和相同操作（服务）的对象的集合。它包括属性和操作。</p>
+<p>n   每一个对象都是某个类的实例。类是一组相似的对象 。</p>
+<p>类是对象相关行为的储存库(repository)。即同一个类的所有对象都能执行同样的动作。</p>
+<p></p>
+<p><strong>对象</strong>：对象是独立存在的客观事物，它由一组属性和一组操作构成。</p>
+<p>n  属性和操作是对象的两大要素。属性是对象静态特征的描述，操作是对象动态特征的描述。</p>
+<p>n  属性一般只能通过执行对象的操作来改变。</p>
+<p>n  操作又称为方法或服务，它描述了对象执行的功能。通过消息传递，还可以为其它对象使用。</p>
+<p></p>
+<p><strong>方法</strong>：</p>
+<p>n  在面向对象编程中，行为的启动是通过将“消息”传递给对此行为负责的代理(对象)来完成的。</p>
+<p>n  消息对行为的要求进行编码，并且随着执行要求所需的附加信息（参数）来一起传递。</p>
+<p>n  “接收器”就是消息发送的对象。如果接收器接受了消息，那么同时它也接受了消息所包含的行为责任。然后，接受器响应消息，执行相应的“方法”以实现要求。</p>
+<p></p>
+<p><strong>消息</strong>：消息就是请求某个对象执行它所包含的某项处理操作的指令信息。实质是对某个类对象的操作函数的调用,即方法的调用 。</p>
+<p></p>
+<p><strong>继承</strong>：类被组织成有单个根节点的树状结构，称为继承层次结构。（对象之间存在着的一般和特殊的结构关系）</p>
+<p></p>
+<p><strong>方法绑定：</strong></p>
+<p>n  静态方法绑定/动态方法绑定</p>
+<p>n  响应消息时对哪个方法进行绑定是由接收器当前所包含的动态数值来决定的。</p>
+<p>** **</p>
+<p><strong>改写</strong>：将子类中某一方法取与父类方法相同的名称，结合寻找方法的规则实现改写。</p>
+<p>n 接收器搜索并执行相应的方法以响应给定的消息。</p>
+<p>n  如果没有找到匹配的方法，搜索就会传导到此类的父类。搜索会在父类链上一直进行下去，直到找到匹配的方法，或者父类链结束。</p>
+<p>n  如果能在更高类层次找到相同名称的方法，所执行的方法就称为改写了继承的行为。</p>
+<p>n  如果子类的方法具有与父类的方法相同的名称和类型签名，称子类的方法改写了父类的方法。</p>
+<p></p>
+<p><strong>多态</strong>: 多态性是指一般类中定义的属性和服务，在特殊类中不改变其名字，但通过各自不同的实现后，可以具有不同的数据类型或具有不同的行为。</p>
+<p></p>
+<p><strong>重载</strong>:</p>
+<p>n  重载是在编译时执行的，而改写是在运行时选择的。</p>
+<p>n  重载是多态的一种很强大的形式。</p>
+<p>n  非面向对象语言也支持。</p>
+<p></p>
+<p><strong>改写和重载的差异：</strong></p>
+<ol>
+<li>
+<ol>
+<li>对于改写来说，方法所在的类之间必须符合父类/子类继承关系，而对于简单的重载来说，并无此要求。</li>
+<li>如果发生改写，两个方法的类型签名必须匹配。</li>
+<li>重载方法总是独立的，而对于改写的两个方法，有时会结合起来一起实现某种行为。</li>
+<li>重载通常是在编译时解析的，而改写则是一种运行时机制。对于任何给定的消息，都无法预言将会执行何种行为，而只有到程序实际运行的时候才能对其进行确定。</li>
+</ol>
+</li>
+</ol>
+<p><strong>静态属性</strong>：</p>
+<p></p>
+<p><strong>静态方法</strong>：</p>
+<p></p>
+<p>…</p>
+<p><strong>多态</strong>****</p>
+<p><strong>1.      <strong><strong>多态的形式</strong></strong>-1</strong>**：<strong>术语重载(专用多态)：类型签名区分</strong>**</p>
+<p>Classoverloader{</p>
+<p>//three overloaded meanings for the same name</p>
+<p>public void example (int x){……}</p>
+<p>public void example (int x,double y){……}</p>
+<p>public void example (string x){……}</p>
+<p><strong>}</strong></p>
+<p><strong>2.      <strong><strong>多态的形式</strong></strong>-2</strong>**：**改写（包含多态）:层次关系中，相同类型签名，是重载的一种特殊情况，但是只发生在有父类和子类关系的上下文中</p>
+<p>Classparent{</p>
+<p>public void example(int x){……}</p>
+<p>}</p>
+<p>Classchild extends parent{</p>
+<p>//same name,different method body</p>
+<p>public void example(int x){……}</p>
+<p>}</p>
+<p><strong>3.      <strong><strong>多态的形式</strong></strong>-3</strong>**：<strong>多态变量（赋值多态）:声明与包含不同（声明为一种类型，但实际上确可以包含另一种类型数值的变量）</strong>**</p>
+<p>Parentp=new child();//declared as parent,holding child value</p>
+<p><strong>4.      <strong><strong>多态的形式</strong></strong>-4</strong>**：<strong>泛型（模板）：创建通用工具</strong>**</p>
+<p>Template<class t=""> T max(T left,T right)</class></p>
+<p>{</p>
+<p>//return largest argument</p>
+<p>if (left&lt;right)</p>
+<p>return right;</p>
+<p>return left;</p>
+<p>}</p>
+<p>** **</p>
+<p><strong>静<strong><strong>态方法绑定</strong></strong></strong></p>
+<p></p>
+<p><strong>1   <strong><strong>范畴</strong></strong></strong></p>
+<p><strong>Dir.open()</strong></p>
+<p><strong>File.open</strong></p>
+<p>n 范畴定义了能够使名称有效使用的一段程序，或者能够使名称有效使用的方式。(局部变量/public成员)</p>
+<p>n 通过继承创建的新类将同时创建新的名称范畴，该范畴是对父类的名称范畴的扩展。</p>
+<p>n 对于一个程序代码中的任何位置，都存在着多个活动的范畴。(类成员方法同时具有类范畴和本地范畴)</p>
+<p>n 通过类型签名和范畴可以对重载进行两种分类：基于具有不同范畴的方法；基于具有不同类型签名的方法。</p>
+<p></p>
+<p><strong>重定义：</strong></p>
+<p>n  当子类定义了一个与父类具有相同名称但类型签名不同的方法时，发生重定义。</p>
+<p>n  类型签名的变化是重定义区别于改写的主要依据。</p>
+<p>n  两种不同的技术解析重定义：融和模型和分级模型。</p>
+<p></p>
+<p>2 <strong>签名</strong></p>
+<p>n  <strong>如果两个或更多的方法具有相同的名称和相同的参数数目，编译器如何匹配?</strong></p>
+<p>1.  找到所有可能进行调用的方法，即各个参数可以合法的赋值给各个参数类型的所有方法。如果找到一个在调用时可以完全匹配所使用的参数类型的方法，那么就执行这个方法。****</p>
+<p>2.  如果第一部所产生的集合中的任何方法的参数类型都可以赋值给集合中的任何其他方法，那么就将第二个方法从集合中移走。重复以上操作，直至无法实现进一步的缩减为止。****</p>
+<p>3.  如果只剩下一个方法，那么这个方法就非常明确了，调用这个方法即可。如果剩余的方法不止一个，那么调用就产生歧义了，此时编译器将报告错误。****</p>
+<p>n  <strong>P91****继承层次的例子</strong></p>
+<p></p>
+<p>**3 **<strong>动态方法绑定</strong></p>
+<p>** **</p>
+<p><strong>改写</strong>：</p>
+<p>n  子类有时为了避免继承父类的行为，需要对其进行改写</p>
+<p>n  语法上：子类定义一个与父类有着相同名称且类型签名相同的方法。</p>
+<p>n  运行时：变量声明为一个类，它所包含的值来自于子类，与给定消息相对应的方法同时出现于父类和子类。</p>
+<p>n  改写与替换结合时，想要执行的一般都是子类的方法。</p>
+<p>** **</p>
+<p><strong>多态变量：</strong></p>
+<p>n  如果方法所执行的消息绑定是由最近赋值给变量的数值的类型来决定的，那么就称这个变量是多态的。</p>
+<p>n  Java,Smalltalk等变量都是多态的。</p>
+<p>n  C++声明为简单类型的变量，非多态。</p>
+<p></p>
+<p>n  多态变量是指可以引用多种对象类型的变量。</p>
+<p>n  这种变量在程序执行过程可以包含不同类型的数值。</p>
+<p>n  对于动态类型语言，所有的变量都可能是多态的。</p>
+<p>n  对于静态类型语言，多态变量则是替换原则的具体表现。</p>
+<p></p>
+<p><strong>改写、遮蔽、重定义差异：</strong></p>
+<p>改写：父类与子类的类型签名相同，并且在父类中将方法声明为虚拟的</p>
+<p>遮蔽：父类与子类的类型签名相同，但是在父类中并不将方法声明为虚拟的</p>
+<p>重定义：父类与子类的类型签名不同</p>
+<p><strong>继承的形式</strong></p>
+<p><strong>特化子类化（子类型化）</strong>：</p>
+<p>n  很多情况下，都是为了特殊化才使用继承。</p>
+<p>n  在这种形式下，新类是基类的一种特定类型，它能满足基类的所有规范。</p>
+<p>n  在这种形式下，新类是基类的一种特定类型，它能满足基类的所有规范。<br>
+用这种方式创建的总是子类型，并明显符合可替换性原则。</p>
+<p>n  与规范化继承一起，这两种方式构成了继承最理想的方式，也是一个好的设计所应追求的目标。</p>
+<p></p>
+<p><strong>规范子类化</strong>：</p>
+<p>n  规范化继承用于保证派生类和基类具有某个共同的接口，即所有的派生类实现了具有相同方法界面的方法。</p>
+<p>n  基类中既有已实现的方法，也有只定义了方法接口、留待派生类去实现的方法。派生类只是实现了那些定义在基类却又没有实现的方法。</p>
+<p>n  派生类并没有重新定义已有的类型，而是去实现一个未完成的抽象规范。</p>
+<p>n  派生类并没有重新定义已有的类型，而是去实现一个未完成的抽象规范。<br>
+也就是说，基类定义了某些操作，但并没有去实现它。只有派生类才能实现这些操作。</p>
+<p>n  在这种情况下，基类有时也被称为抽象规范类。</p>
+<p>n  在Java中，关键字abstract确保了必须要构建派生类。声明为abstract的类必须被派生类化，不可能用new运算符创建这种类的实例。除此之外，方法也能被声明为abstract，同样在创建实例之前，必须覆盖类中所有的抽象方法。</p>
+<p>n  规范化继承可以通过以下方式辨认：基类中只是提供了方法界面，并没有实现具体的行为，具体的行为必须在派生类中实现。</p>
+<p>n  GraphicalObject没有实现关于描绘对象的方法，因此它是一个抽象类。其子类Ball,Wall和Hole通过规范子类化实现这些方法。</p>
+<p></p>
+<p><strong>构造子类化</strong>：</p>
+<p>n  当继承的目的只是用于代码复用时，新创建的子类通常都不是子类型。这称为构造子类化。</p>
+<p>n  一般为了继承而继承，如利用一些工具类已有的方法。</p>
+<p>n  构造子类化经常违反替换原则（形成的子类并不是子类型）</p>
+<p></p>
+<p><strong>泛化子类化</strong>：</p>
+<p>n  派生类扩展基类的行为，形成一种更泛化的抽象。</p>
+<p>n  泛化子类化通常用于基于数据值的整体设计，其次才是基于行为的设计。</p>
+<p></p>
+<p><strong>扩展子类化</strong>：</p>
+<p>n  如果派生类只是往基类中添加新行为，并不修改从基类继承来的任何属性，即是扩展继承。（泛化子类化对基类已存在的功能进行修改或扩展，扩展子类化则是增加新功能）</p>
+<p>n  由于基类的功能仍然可以使用，而且并没有被修改，因此扩展继承并不违反可替换性原则，用这种方式构建的派生类还是派生类型。</p>
+<p></p>
+<p><strong>限制子类化</strong>：</p>
+<p>n  如果派生类的行为比基类的少或是更严格时，就是限制继承。</p>
+<p>n  常常出现于基类不应该、也不能被修改时。</p>
+<p>n  限制继承可描述成这么一种技术：它先接收那些继承来的方法，然后使它们无效。</p>
+<p>双向队列-〉堆栈</p>
+<p>n  由于限制继承违反了可替换性原则，用它创建的派生类已不是派生类型，因此应该尽可能不用。</p>
+<p></p>
+<p><strong>变体子类化</strong>：</p>
+<p>n  两个或多个类需要实现类似的功能，但他们的抽象概念之间似乎并不存在层次关系。</p>
+<p>n  控制机械鼠标=控制轨迹球</p>
+<p>w  但是，在概念上，任何一个类作为另一个类的子类都不合适</p>
+<p>w  因此，可以选择其中任何一个类作为父类，并改写与设备相关的代码</p>
+<p>n  但是，通常使用的更好的方法是将两个类的公共代码提炼成一个抽象类，比如PointingDevice，并且让这两个类都继承于这个抽象类。</p>
+<p>n  与泛化子类化一样，但基于已经存在的类创建新类时，就不能使用这种方法了。</p>
+<p></p>
+<p><strong>结合子类化</strong>：</p>
+<p>n  可以通过合并两个或者更多的抽象特性来形成新的抽象。</p>
+<p>n  一个类可以继承自多个基类的能力被称为多重继承 。</p>
+<p>n  助教</p>
+<p></p>
+<p></p>
+<p><strong>内存布局：</strong></p>
+<p><strong>最小静态空间分配</strong>：C++使用最小静态空间分配策略。</p>
+<p>n  C++保证变量x只能调用定义于Window类中的方法，不能调用定义于TextWindow类中的方法。</p>
+<p>n  定义并实现于Window类中的方法无法存取或修改定义于子类中的数据，因此不可能出现父类存取子类的情况。</p>
+<p>** **</p>
+<p><strong>最大静态空间分配</strong>：分配变量值可能使用的最大存储空间。</p>
+<p></p>
+<p><strong>动态内存分配 ：</strong></p>
+<p>n  堆栈中不保存对象值。</p>
+<p>n  堆栈通过指针大小空间来保存标识变量，数据值保存在堆中。</p>
+<p>n  指针变量都具有恒定不变的大小，变量赋值时，不会有任何问题。</p>
+<p>n  Smalltalk、Java都采用该方法。</p>
+<p><strong>赋值：</strong>****</p>
+<p>内存分配方法影响赋值的含义：</p>
+<p>n  复制语义:变量值独立</p>
+<p>n  指针语义:同一(Java)</p>
+<p>** **</p>
+<p><strong>复制和克隆 ：</strong></p>
+<p>n  浅复制(shallowcopy)：共享实例变量。</p>
+<p>n  深复制(deep copy)：建立实例变量的新的副本。</p>
+<p>n  C++:拷贝构造函数</p>
+<p>n  Java:改写clone方法</p>
+<p></p>
+<p><strong>静态方法绑定和动态方法绑定</strong>：</p>
+<p>如果编译器可以在编译阶段就完成绑定，就叫作静态绑定或前期绑定。</p>
+<p>动态绑定是指编译器在编译阶段不知道要调用哪个方法，直到运行时才能确定。让我们用个例子来解释。</p>
+<p></p>
+<p><strong>纯多态</strong>：</p>
+<p>n 多态方法</p>
+<p>n 支持可变参数的函数。</p>
+<p>n 支持代码只编写一次、高级别的抽象</p>
+<p>n 以及针对各种情况所需的代码裁剪。</p>
+<p>n 通常是通过给方法的接收器发送延迟消息来实现这种代码裁剪的。</p>
+<p></p>
+<p>** <strong><strong>反射和内省</strong></strong>**</p>
+<p>n  反射(reflection)和内省(introspection)是指程序在运行过程中“了解”自身的能力。</p>
+<p>n  用于反射和内省的技术分为两大类</p>
+<p>w  获取理解当前计算状态的特征</p>
+<p>w  用于修改的特征：增加新的行为</p>
+<p>n  反射支持一个组件动态的加载和查询自身信息，因此反射为许多基于组件的编程工具建立了基础。</p>
+<p></p>
+<p>协方差与反协方差</p>
+<p>n  很少有改变类型签名的需求，通常将类型在其继承层次上提升或降低。</p>
+<p>n  当一个类型降低类型层次作为子类时，将使用<strong>协方差</strong>变化术语。</p>
+<p>n  反之，当一个类型由子类化反向提升类型层次时，将使用<strong>反协方差</strong>变化术语。</p>
+<p></p>
+<p><strong>框架</strong></p>
+<p>n  对于一类相似问题的骨架解决方案。</p>
+<p>n  通过类的集合形成，类之间紧密结合，共同实现对问题的可复用解决方案</p>
+<p>n  继承和改写的强大能力体现</p>
+<p>n  最常见的框架</p>
+<p>w  Java中的GUI框架</p>
+<p>w  Web开发中的Struts框架</p>
+<p>n  框架开发的一个重要基础</p>
+<p>w  使用继承的两种方式：</p>
+<p>n  代码复用：基本方法，对问题的现存的解决方案。</p>
+<p>n  概念复用：特化方法，用于特定应用的解决方案。</p>
+<p>** **</p>
+<p><strong>特点</strong></p>
+<p>![img](file://localhost/Users/Yang/Library/Group%20Containers/UBF8T346G9.Office/msoclip1/01/clip_image002.gif)</p>
+<p><strong>单一职责原则（SRP</strong>**）**：**不要存在多于一个导致类变更的原因。**通俗的说，即一个类只负责一项职责。</p>
+<p>如果一个类承担的职责过多，就等于把这些职责<a href="http://baike.baidu.com/subview/156245/156245.htm" target="_blank" rel="noopener">耦合</a>在一起了。一个职责的变化可能会削弱或者抑制这个类完成其他职责的能力。这种耦合会导致脆弱的设计，当发生变化时，设计会遭受到意想不到的破坏。</p>
+<p>而如果想要避免这种现象的发生，就要尽可能的遵守单一职责原则。此原则的核心就是<a href="http://baike.baidu.com/view/471757.htm" target="_blank" rel="noopener">解耦</a>和增强<a href="http://baike.baidu.com/subview/2424328/2424328.htm" target="_blank" rel="noopener">内聚性</a>。</p>
+<p>**开-**<strong>闭原则OCP</strong>：软件组成实体应该是对扩展开放的，但是对修改是关闭的。</p>
+<p><a href="http://baike.baidu.com/view/8343.htm" target="_blank" rel="noopener">软件系统</a>中包含的各种组件，例如<a href="http://baike.baidu.com/view/22845.htm" target="_blank" rel="noopener">模块</a>（Modules）、<a href="http://baike.baidu.com/view/2390.htm" target="_blank" rel="noopener">类</a>（Classes）以及函数（Functions）等等，应该在不修改现有代码的基础上，引入新功能。 “开”，是允许对其进行功能扩展的；</p>
+<p>“闭”，是指对于原有代码的修改是封闭的，即不应该修改原有的代码。</p>
+<p><strong>里氏替换法则</strong>：使用指向基类(超类)的引用的函数，必须能够在不知道具体派生类(子类)对象类型的情况下使用它们。</p>
+<p>一个软件如果使用的是一个父类的话，如果把该父类换成子类，它不能察觉出父类对象和子类对象的区别</p>
+<p>也就是凡是父类适用的地方子类也适用</p>
+<p>继承只有满足里氏代换原则才是合理的</p>
+<p>n  Liskov替换法则(LSP)清楚地表明了IS A关系全部都是与行为有关的。</p>
+<p>n  为了保持LSP，所有子类必须符合使用基类的client所期望的行为。</p>
+<p>n  一个子类型不得具有比基类型更多的限制，可能这对于基类型来说是合法的，但是可能会因为违背子类型的其中一个额外限制，从而违背了LSP！</p>
+<p>n  LSP保证一个子类总是能够被用在其基类可以出现的地方</p>
+<p><strong>依赖倒转原则</strong>：抽象不应当依赖于细节，细节应当依赖于抽象。</p>
+<p><strong>设计原则</strong>**：针对接口编程**</p>
+<p><strong>要针对接口编程</strong></p>
+<p><strong>不要针对实现编程</strong></p>
+<p>n  不将变量声明为某个特定的具体类的实例对象，而让其遵从抽象类定义的接口。实现类仅实现接口，不添加方法。</p>
+<p>使用接口的优点：</p>
+<ol>
+<li>
+<ol>
+<li>Client不必知道其使用对象的具体所属类。</li>
+<li>一个对象可以很容易地被(实现了相同接口的)的另一个对象所替换。</li>
+<li>对象间的连接不必硬绑定(hardwire)到一个具体类的对象上，因此增加了灵活性。</li>
+<li>松散耦合(loosens coupling)。</li>
+<li>增加了重用的可能性。</li>
+<li>提高了(对象)组合的机率，因为被包含对象可以是任何实现了一个指定接口的类。</li>
+</ol>
+</li>
+</ol>
+<p><strong>接口隔离原则 (ISP)</strong>：</p>
+<p>n  使用多个专门的接口比使用单一的总接口好。</p>
+<p>n  一个类对另一个类的依赖性应建立在最小的接口上。</p>
+<p><strong>组合复用原则</strong>：</p>
+<p>n  优先使用(对象)组合，而非(类)继承</p>
+<p>优点：</p>
+<p>n  容器类仅能通过被包含对象的接口来对其进行访问。</p>
+<p>n  “黑盒”复用，因为被包含对象的内部细节对外是不可见。</p>
+<p>n  封装性好。</p>
+<p>n  实现上的相互依赖性比较小。</p>
+<p>n  每一个类只专注于一项任务。</p>
+<p>n  通过获取指向其它的具有相同类型的对象引用，可以在运行期间动态地定义(对象的)组合。</p>
+<p>缺点：</p>
+<p>n  从而导致系统中的对象过多。</p>
+<p>n  为了能将多个不同的对象作为组合块(composition block)来使用，必须仔细地对接口进行定义。</p>
+<p></p>
+<p><strong>迪米特法则</strong>：</p>
+<p>n  又称 最少知识原则，一个对象应该对其他对象尽可能少的了解。</p>
+<p>应当使得软件的不同对象彼此之间尽量“老死不相往来”，降低系统维护成本</p>
+<p></p>
+<p></p>
+<p><strong>简单工厂：****(<strong><strong>封装可变性</strong></strong>)</strong></p>
+<p>n 简单工厂模式是类的创建模式</p>
+<p>![img](file://localhost/Users/Yang/Library/Group%20Containers/UBF8T346G9.Office/msoclip1/01/clip_image004.gif)</p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p>n 简单工厂模式是有一个工厂类根据传入的参量决定创建出哪一种产品类的实例。</p>
+<p>** **</p>
+<p><strong>工厂方法</strong>****</p>
+<p>n 工厂方法模式是类的创建模式，又叫做虚拟构造子（Virtual Constructor）模式或者多态性工厂（Polymorphic Factory）模式。</p>
+<p>n 工厂方法模式的用意是定义一个创建产品对象的工厂接口，将实际创建工作推迟到子类中。</p>
+<p>n 工厂方法模式是简单工厂模式的进一步抽象和推广。由于使用了多态性，工厂方法模式保持了简单工厂模式的优点，而且克服了它的缺点。</p>
+<p><strong>抽象工厂</strong>****</p>
+<p>n 抽象工厂模式是所有形态的工厂模式中最为抽象和最具一般性的一种形态。</p>
+<p>n 抽象工厂模式与工厂方法模式的最大区别就在于，工厂方法模式针对的是一个产品等级结构；而抽象工厂模式则需要面对多个产品等级结构</p>
+<p>** **</p>
+<p><strong>适配器：</strong>****</p>
+<p>n 将一个类的接口转换成客户希望的另外一个接口。</p>
+<p>n Adapter模式使得原本由于接口不兼容而不能一起的那些类可以一起工作。</p>
+<p>n Adapter模式也叫做包装器Wrapper。</p>
+<p>** **</p>
+<p><strong>代理</strong>****</p>
+<p>n 为其他对象提供一种代理以控制对这个对象的访问。</p>
+<p>** **</p>
+<p><strong>BRIDGE</strong>**（桥接）******</p>
+<p>把抽象部分和行为部分分离，使它们都能独立变化</p>
+<p>将抽象和行为划分开来</p>
+<p>各自独立</p>
+<p>但能动态的结合</p>
+<p>将抽象化与实现化进行脱耦</p>
+<p>** **</p>
+<p><strong>DECORATOR</strong>**（装饰）******</p>
+<p>动态地给一个对象添加一些额外的职责,别名也叫Wrapper</p>
+<p>Decorator必须和要包装的的对象具有相同的接口</p>
+<p>有时我们希望给某个对象而不是整个类添加一些功能。</p>
+<p>** **</p>
+<p><strong>CHAINOF RESPONSIBILITY(<strong><strong>职责链</strong></strong>)</strong></p>
+<p>在责任链模式里，很多的对象由每一个对象对其下家的引用而联接起来形成一条链。请求在这个链上传递，直到链上的某一个对象决定处理此请求。</p>
+<p>发出这个请求的客户端并不知道链上的哪一个对象最终处理这个请求，这使得系统可以在不影响客户端的情况下动态地重新组织链和分配责任。</p>
+<p>责任链可能是一条直线、一个环链甚至一个树结构的一部分。</p>
+<p>** **</p>
+<p><strong>OBSERVER</strong>**（观察者）******</p>
+<p>n 定义对象间的一种一对多的依赖关系，</p>
+<p>n 当一个对象的状态发生改变时，所有依赖于他的对象都得到通知并被自动更新。</p>
+<p>** **</p>
+<p>![img](file://localhost/Users/Yang/Library/Group%20Containers/UBF8T346G9.Office/msoclip1/01/clip_image006.gif)<strong>STRATEGY(<strong><strong>策略</strong></strong>)</strong></p>
+<p><strong>Strategy<strong><strong>适合下列场合</strong></strong>:</strong></p>
+<p>1.以不同的格式保存文件;</p>
+<p>2.以不同的算法压缩文件;</p>
+<p>3.以不同的算法截获图象;</p>
+<p>4.以不同的格式输出同样数据的图形,比如曲线或框图bar等****</p>
+
+    
+  </div>
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation"><strong><a href="#" style="color: #999;">赞赏</a></strong></span>
+      <div class="donation-body">
+        <div class="tip text-center"><strong>支持一下</strong></div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="https://ws1.sinaimg.cn/large/006tNbRwly1fxjlq29zkkj30f60f675t.jpg" alt="">
+            <a>微信扫一扫</a>
+          </li>
+        
+          <li class="item">
+            <img src="https://ws2.sinaimg.cn/large/006tNbRwly1fxjlwikh27j30a20a2wfe.jpg" alt="">
+            <a>支付宝扫一扫</a>
+          </li>
+        
+          <li class="item">
+            <img src="https://ws3.sinaimg.cn/large/006tNbRwly1fxjlztplu9j30jd0jeadu.jpg" alt="">
+            <a>QQ扫一扫</a>
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2016/06/03/review-oo-1/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2016/05/20/hello-hexo/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+              目录
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/category/" rel="noopener noreferrer" target="_self">
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/tag/" rel="noopener noreferrer" target="_self">
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/project/" rel="noopener noreferrer" target="_self">
+              项目
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+
+
+
+
+  <div id="vcomments"></div>
+    <script>
+        new Valine({
+            el: '#vcomments',
+            appId: 'm2JW5otJtf3PU6V2F3ORdsVl-gzGzoHsz',
+            appKey: 'sT0JdEoQA7RJThLQ7z6xiT0c'
+        })
+    </script>
+
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+
+</body>
+</html>
