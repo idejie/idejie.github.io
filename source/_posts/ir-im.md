@@ -1,0 +1,468 @@
+---
+title: 信息检索考试 重点整理
+date: 2018-12-03 00:04:52
+tags: 课程学习
+category: 信息检索
+---
+
+>何苯老师上课画的重点2018.11
+
+![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+
+## 第一讲 布尔检索
+
+### 1.信息检索和传统数据库的区别
+
+传统数据库通常是结构化的数据，支持范围或者精确匹配查询。
+
+现代信息检索文本信息检索，包括信息的存储、组织、表现、查询、存取等各个方面，其核心为文本信息的索引和检索。从历史上看，信息检索经历了手工检索、计算机检索到目前网络化、智能化检索等多个发展阶段通常是自由文本（一种非结构化和半结构化的），在查询方面通常支持关键词和操作符号（如奥运会and游泳）以及复杂概念上的查询（例如：找出有关药物滥用(drug abuse)的网页）。
+
+数据量上，信息检索的数据量远远大于传统数据库。
+
+面向对象上，传统数据库多用于企事业单位用户的信息存储和查询，而信息检索更多的是面向包括但不限于企事业单位的所有用户，且存储来源众多，各类网站，各个企业和个人的信息。
+
+内容相关性。信息太多，查准和排序就特别重要，Google等搜索引擎发展了网页链接分析技术，根据互联网上网页被连接次数作为重要性评判的依据。真正的企业应用的检索要求基于内容的相关性排序，就是说，和检索要求最相关的信息排在检索结果的前面，链接分析技术此种排序基本不起作用。
+
+实时性。搜索引擎的索引生成和检索服务是分开的，周期性更新和同步数据，大的搜索引擎的更新周期需要以周乃至月度量；而企业信息检索需要实时反映内外信息变化，搜索引擎系统机制并不能适应企业中动态性数据增长和修改的要求。
+
+安全性。互联网搜索引擎都基于文件系统，但企业应用中内容一般均会安全和集中地存放在数据仓库中以保证数据安全和管理的要求。
+
+个性化和智能化。由于搜索引擎数据和客户规模的限制，相关反馈、知识检索、知识挖掘等计算密集的智能技术很难应用，而专门针对企业的信息检索应用能在智能化和个性走得更远。
+
+### 2.以上哪种通常不被视为信息检索技术的应用?
+
+ (A) 商品推荐 (B)论文检索库 (C)互联网搜索引擎 (D)学生信息数据库 
+
+解:D;信息检索是从大规模非结构化数据的集合中找出满足用户信息需求的资料的过程。 
+
+### 3.若有布尔查询:
+
+ Information AND (Retrieval OR Search) NOT Textbook，Information、 Retrieval、Search、Textbook 的文档频率分别是 1000，200，353，104。假设一共有 N=1080 个文档，请写出优化后的查询形式。 
+
+解:
+ |Information| = 1000
+ |Retrieval OR Search| <= 200 + 353 = 553 |NOT Textbook| = 1080-104=976 
+
+优化后的查询形式:
+ (Retrieval OR Search) AND (NOT Textbook) AND Information 
+
+### 4.画出下列文档集所对应的倒排索引(参考图 1-3 中的例子)。 
+
+文档 1 new home sales top forecasts
+
+文档 2 home sales rise in july
+
+文档 3 increase in home sales in july 
+
+文档 4  july new home sales rise 
+
+解: 
+
+![](https://ws3.sinaimg.cn/large/006tNbRwly1fxsrydq9fkj31r80tqtbw.jpg)
+
+### 5.、利用 Westlaw 系统的语法构造一个查询，
+
+通过它可以找到 professor、teacher 或 lecturer中的任意一个词，并且该词和动词 explain 在一个句子中出现，其中 explain 以某种形式出现。
+解:(professor teacher lecturer)/s explain! 
+
+### 6.倒排索引的基本概念、数据结构、优点（为什么用倒排索引）
+
+- 倒排索引是指从词项到文档的一种索引结构，由于它是可以直接从词项定位到文档，所以能大大加快索引的速度。
+- 存词项的词典+对应的记录文档id的倒排记录表
+- 一是压缩了存储空间，倒排记录表避免了词项文档矩阵的高度稀疏；二是加快了索引的速度；三是保留了原有信息，能够适用于其他的检索操作和排序。
+
+![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+
+## 第二讲 词汇表和倒排记录表
+
+### 1.词项和词条的基本概念
+
+- 词条(Token) – 词或者词项在文档中出现的实例，出现多次算多个词条
+- 词类(Type) – 多个词条构成的等价类(equivalence class)集合
+- 词类经过一些处理(去除停用词、归一化)之后，最后用于索引的称为为词项
+
+![](https://ws2.sinaimg.cn/large/006tNbRwly1fxssf6y0kqj31140ein0v.jpg)
+
+
+
+### 2.词干还原 、对倒排索引的影响、对词典的影响、对检索的结果的影响
+
+- 将词项归约(reduce)成其词干(stem)，然后再索引
+  - 词干还原” 意味着词缀的截除，与语言相关比如，将 automate(s), automatic, automation都还原成 automat
+- 对词典进行了压缩，未词干还原之前，可能是多个词对应的词-倒排记录表进行了合并，提高了召回率，一定程度上也提高了正确率，大大提高检索效果
+
+### 3.停用词去除 、对倒排索引的影响、对词典的影响、对检索的结果的影响
+
+- 根据停用词表(stop list), 将那些最常见的词从词典中去掉。比如直观上可以去掉：
+
+- - 一般不包含语义信息的词: the, a, and, to, be
+
+- 相对于删除了对应的词项-倒排记录表，大大压缩的空间占用
+- 所谓的停用词并不一定没用，比如：短语查询: “King of Denmark”。所以可能降低检索效果。
+
+![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+
+## 第三讲 词典及容错式检索
+
+### 1.编辑距离
+
+dis\[i][j] = min⁡{dis\[i − 1][j] + 1, dis\[i][j − 1] + 1, dis\[i − 1][j − 1] + (s[i] == s[j])}
+
+![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+
+## 第四章：索引构建
+
+### 1.基于块的排序索引方法BSMI
+
+(1)把整个文档集分成大小相同的部分（每个部分正好是一个块大小）并放入内存；
+
+(2)把每个部分解析成词项ID->文档ID对；(我们为了能够使得索引构建的效率更高，我们用词项ID代替词项本身，当然同时需要维护一个词项->词项ID的映射表，并把他放入内存)；
+
+(3)把这个块的词项ID->文档ID对按照词项排序，并对相同词项ID对应的文档ID构建临时posting；
+
+(4)将此结果写回磁盘，并进行下一个block的解析；
+
+(5)当全部的文档集都解析完毕后，对每个block的倒排索引进行合并，并最后成为一个完整的倒排索引；
+
+- 而BSBI的核心算法是(2),(3)，因此其核心算法的复杂度为O(TlogT)，在这个复杂度中并没有考虑(5)步的外部归并排序；因此只针对解析文档+生成临时posting；
+
+### 2.内存式单遍扫描构建的方法SPIMI
+
+- SPIMI(Simple Pass in memory indexing)，操作流程如下：
+
+  (1)把整个文档集都分割成词项->文档ID对；
+
+  (2)把这个一系列的词项->文档ID对作为一个流，如果还有内存，则逐个进入内存；
+
+  (3)内存中预先已经构建了一个dictionary（hash实现），因此只需要利用词项寻找到文档ID应该放入的位置，并放入文档ID即可；
+
+  (4)当内存满时，将dictionary按照词项进行排序，并将排序后的dictionary和posting写回磁盘；
+
+  (5)将全部的文档集解析完后在磁盘中应该有多个已排序的dictionary-posting；将这些合并即可；
+
+- SPIMI的核心算法为(2)(3)，因此算法复杂度为O(T);
+
+- ![](https://ws2.sinaimg.cn/large/006tNbRwly1fxlpbrjgj0j30ji0ba0wn.jpg)
+
+### 3.分布式索引构建方法
+
+上面所讲的都只是针对一般大的文档集，但是如果是对于海量的文档集，则在一台机器处理明显是不行的；因此我们想到了分而治之的思想；
+
+主要思想：将文档集分布在计算机集群上进行处理，采用Master-Slave模式，Master电脑控制处理过程，比如一台计算机在处理文档集时突然坏了，则Master会将此电脑处理的文档集任务交给另一台机器处理；
+
+Map阶段：将文档集划分成n个数据片，并通过**分析器**进行处理，变成排好序的词项->文档ID对,这就是一般的BSBI或SPIMI算法；
+
+Reduce阶段：比如将每台机器的dictionary划分成a-i和j-z两个部分，然后将a-j部分统一交给一个**倒排器**完成，因此这里只需要两个倒排器即可；
+
+注意：
+
+(1)分析器和倒排器是一台计算机，并且一台机器既可以作为倒排器也可以作为分析器；
+
+ 
+
+- Map阶段细化：
+
+(1)文档集存在一台独立的机器中，将文档集分成数据片，并分别传送到作为分析器的机器中（这里需要考虑IO时间）；
+
+(2)进行BSBI或者SPIMI分成词项ID-->文档ID（涉及比较次数消耗时间）；
+
+Reduce阶段细化：
+
+(1)将分区文件通过IO传送到倒排器中（这里需要考虑IO时间）；
+
+(2)将每个倒排器中的词项ID-->文档ID排序   O（nlogn） n为词条数目；
+
+(3)将倒排记录表写到独立的机器中； （注意：这里需要考虑dictionary的大小和posting的大小，dictionary的大小是词项大小，posting大小是词条大小,并且注意IO时间）；
+
+### 4.动态索引构建方法
+
+在以上讨论中，都是以文档不变化为前提，但实际上文档会更新、插入、删除等；因此我们需要引入动态索引；
+
+主要思想：主索引继续维护，构造一个辅助索引（表示添加的文档），维护一个无效位向量（表示删除的文档），当辅助索引足够大时，就和主索引合并；
+
+在检索时，我们必须要将主索引和辅助索引的检索结果合并，并在无效位向量中进行过滤即可；
+
+**改进方法：**
+
+引入log(T/n)个索引I0，I1，....Ii......;每个索引大小分别为(2^i)*n;
+
+这些索引构建过程：
+
+在内存中始终维护一个辅助索引；
+
+(1)一开始当辅助索引满时，就构建I0并将I0存入磁盘，清空辅助索引；
+
+(2)辅助索引第二次满时，和I0合并，并成为I1（I0被去除）；
+
+(3)辅助索引第三次满时，构建I0；
+
+(4)辅助索引第四次满时，将I0、I1和辅助索引合并，成为I2（I0和I1被清除）；
+
+以此类推，可以看到有一个规律：构建索引的过程是以二进制数增加的方式构建的；即：
+
+```
+I3   I2  I1   I0
+
+0    0    0    0
+0    0    0    1
+0    0    1    0
+0    0    1    1
+0    1    0    0
+0    1    0    1
+0    1    1    0
+0    1    1    1
+```
+
+### 5.其他索引构建方法
+
+一般倒排索引的posting都是按照文档ID进行排序，这样有助于压缩，而且插入数据时只需要在最后；但是对于ranked retrieval来说，需要按照权重进行排序，但是如果要添加数据，则需要扫描一遍确定插入位置；
+
+一般地，访问授权是指一个用户对于文档是否有权访问，通过ACL（Access Control List）进行处理，而访问控制表也可以用一个倒排索引结构进行组建；
+
+dictionary表示每个用户，而posting表示用户所能访问的文档ID；简单的来说就是一个用户-文档ID矩阵；
+
+![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+
+## 第五章：索引压缩
+
+### 1.压缩从概念上来讲，有什么效果？
+
+- - 减少磁盘空间 (节省开销)
+
+  - 增加内存存储内容 (加快速度)
+
+  - 加快从磁盘到内存的数据传输速度 (同样加快速度)
+
+  - - [读压缩数据到内存+在内存中解压]比直接读入未压缩数据要快很多
+    - 前提: 解压速度很快
+
+- ![](https://ws1.sinaimg.cn/large/006tNbRwly1fxst3186uuj31ce0u0ne8.jpg)
+
+### 2.对于一个用于检索的压缩算法，有什么要求？是有损还是无损？
+
+![](https://ws2.sinaimg.cn/large/006tNbRwly1fxst3hu9ohj31f20k2107.jpg)
+
+### 3.在检索时，是否要全部解压？支持随机读取；
+
+### 4.对于压缩，有词典压缩和倒排记录表压缩，课堂上介绍到基本概念、算法要了解掌握。
+
+- 将整部词典看成单一字符串(Dictionary as a string);单一字符串方式下按块存储;可以采用前端编码方式继续压缩
+- 存储docID间隔而不是docID本身
+
+### 5.尤其是倒排记录表压缩，有两个常见算法，伽马编码和VB编码。
+
+- VB编码
+  - 先写出二进制来，再取最后7位，并置首位为1，如果不足0补齐例如5：二进制101，vb编码1 000101；多于7位的部分，首位为0补上7位，不足补0 比如例如130化为二进制为 1000, 0010，总共需要8位，一个Byte表示不了，因而需要两个Byte来表示，第一个Byte表示后7位，并且在最高位置1来表示后面还有一个Byte，所以为(1) 0000010，第二个Byte表示第8位，并且最高位置0来表示后面没有其他的Byte了，所以为(0) 0000001。总的vb编码是0 0000001 1 0000010
+  - 好处，存的是间隔，而且是变长整数型
+  - 特点，基于字节
+- γ编码
+  - 一元码，n个1+一个0表示n
+  - 将间隔表示成长度+偏移
+  - 偏移对应G的二进制编码，只不过将首部的1去掉，13->1101偏移是101
+  - 长度是3（101偏移部分），长度编码（一元码）是1110
+
+![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+
+## 第六章：文档评分、权重计算及向量空间模型
+
+### 1.基本概念：词项频率 和 IDF 分别衡量的是什么？是局部还是全局？
+
+- - 词项t的词项频率(以下简称词频) tf 是指t 在d中出现的次数，是与文档相关的一个量，可以认为是文档内代表度的一个量，也可以认为是一种局部信息。
+  - 文档频率(document frequency, df)指的是出现词项的文档数目.idft 是反映词项t的信息量的一个指标，是一种全局性指标，反应的是词项在全局的区别性。
+
+### 2.向量空间模型是什么概念？考虑了哪些因素？局部因素怎样体现？全局因素怎样体现？文档长度是怎样处理的？
+
+- 文档表示成向量
+- 查询看成向量
+- 考虑三个因素tf、idf、文档长度（归一化处理）
+- 回转归一化：余弦归一化倾向于短文档，即对短文档产生的归一化因子太大，而平均而言对长文档产生的归一化因子太小
+  于是可以先找到一个支点(pivot，平衡点)，然后通过这个支点对余弦归一化操作进行线性调整。
+  效果：短文档的相似度降低，而长文档的相似度增大
+- 对于查询和文档常常采用不同的权重计算机制
+
+![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+
+## 第八章：检索评价& 结果摘要
+
+### 1.检索评价一般有两种评价指标，基于集合和基于排序的（更多）
+
+- 集合的P/R/G
+- MAP/AP/NDCG/Bpref
+
+### 2.评价指标的计算。未插值的平均正确率。
+
+![](https://ws4.sinaimg.cn/large/006tNbRwly1fxstg2xhrwj31fc0u07kd.jpg)
+
+### 3.近年来出现的一些指标：如Bpref，为什么需要这样的指标？NDCG指标能解决什么问题？
+
+**Bpref**
+
+- Bpref：Binary preference，2005年首次引入到TREC的Terabyte任务中
+- 基本的思想：在相关性判断(Relevance Judgment) 不完全的情况下，计算在进行了相关性判断的文档集合中，在判断到相关文档前，需要判断的不相关文档的篇数
+- 相关性判断完全的情况下，利用Bpref和MAP进行评价的结果很一致，但是相关性判断不完全的情况下，Bpref更鲁棒。
+
+![](https://ws1.sinaimg.cn/large/006tNbRwly1fxstizlf81j31ii0e67be.jpg)
+
+
+
+**NDCG**
+
+- 每个文档不仅仅只有相关和不相关两种情况，而是有相关度级别，比如0,1,2,3。我们可以假设，对于返回结果：
+
+- - 相关度级别越高的结果越多越好
+  - 相关度级别越高的结果越靠前越好
+
+![](https://ws4.sinaimg.cn/large/006tNbRwly1fxstjt1kw9j31lc0quai4.jpg)
+
+
+
+### 4.交叉检验
+
+![](https://ws2.sinaimg.cn/large/006tNbRwly1fxstklsayaj31e10u0tr8.jpg)
+
+![](https://ws4.sinaimg.cn/large/006tNbRwly1fxstkxbradj31us0l2dsp.jpg)
+
+![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+
+
+
+## 第十章：概率检索模型
+
+### 1.了解基本概念：BIM模型，BM25模型，考虑了哪些因素？长度是怎样反应的？局部重要性和全局重要性的计算，怎么考虑长度的？（考试不会要求计算）
+
+![](https://ws4.sinaimg.cn/large/006tNbRwly1fxstnn7fybj30zk0je0zh.jpg)
+
+![](https://ws4.sinaimg.cn/large/006tNbRwly1fxstodu3xnj30ze0i6wj2.jpg)
+
+![](https://ws1.sinaimg.cn/large/006tNbRwly1fxstr8rhicj310m0lgjvx.jpg)
+
+
+
+### 2.两个基本的分布——多项式分布和贝努力分布，BM25模型假设了一个什么分布？查询似然模型假设了一个什么总体分布(了解)
+
+- 泊松分布
+- ![](https://ws3.sinaimg.cn/large/006tNbRwly1fxstt7fk5qj311g0nutem.jpg)
+- 一元模型
+
+![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+
+## 第十一章：语言模型
+
+### 1.查询似然模型是什么样的基本假设
+
+- ![](https://ws4.sinaimg.cn/large/006tNbRwly1fxstvaekfzj30xu0kswkw.jpg)
+- QLM在1998年提出时采用的是多元贝努利模型，后来才有人用多项式模型并发现多项式模型通常优于贝努利模型。所以后来介绍QLM时大都用多项式模型。
+- QLM是多项式分布，然后文档的分布都是均匀分布以及词项独立性假设，位置独立性假设
+
+### 2.一个查询词项的局部重要性、全局重要性、基于模型在文档中是否有体现，怎么体现？
+
+![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+
+## 第十二章：朴素贝叶斯
+
+### 1.了解一个基于多项式分布的朴素贝爷斯（看课件上的例子，给定训练集，能够推出分类器并用数据预测所属类别）
+
+![](https://ws2.sinaimg.cn/large/006tNbRwly1fxsty5ubn6j311k0ewdjx.jpg)
+
+![](https://ws1.sinaimg.cn/large/006tNbRwly1fxstyk3vz0j313e0iu104.jpg)
+
+![](https://ws2.sinaimg.cn/large/006tNbRwly1fxstysm1arj31260c20wv.jpg)
+
+
+
+
+
+![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+
+## 第十三章: 向量空间分类器
+
+## 1.了解算法Rocchio,knn，这些算法哪些是线性，哪些是非线性。SVM对于线性不可分情况，怎么处理的。
+
+- 线性：rocchio，svm；knn非线性
+- ![](https://ws4.sinaimg.cn/large/006tNbRwly1fxsu1jnscyj30x00dqgq7.jpg)
+- 采用如下的内积函数(核函数)
+
+
+
+![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+
+## 第十四章：支持向量机
+
+### 1.了解基本概念。知道机器学习方法怎样用于信息检索（掌握例题P64）
+
+![](https://ws3.sinaimg.cn/large/006tNbRwly1fxsu3gkuixj30yo0qy48a.jpg)
+
+![](https://ws4.sinaimg.cn/large/006tNbRwly1fxsu3qmlhwj30zq0nuwls.jpg)
+
+
+
+### 2.了解序回归的排序学习，了解基本概念。
+
+![](https://ws3.sinaimg.cn/large/006tNbRwly1fxsu7t5nhwj30x60fiaft.jpg)
+
+![](https://ws4.sinaimg.cn/large/006tNbRwly1fxsu5w011ij311m0l6qc0.jpg)
+
+![](https://ws2.sinaimg.cn/large/006tNbRwly1fxsu6s43q3j30ym0gmafy.jpg)
+
+![](https://ws2.sinaimg.cn/large/006tNbRwly1fxsu73ispoj30xy0hgaeb.jpg)
+
+![](https://ws3.sinaimg.cn/large/006tNbRwly1fxsu89xh9nj30ti0jkn1j.jpg)
+
+
+
+![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+
+## 第十七章：互联网搜索
+
+### 1.第一代互联网广告为什么被第二代淘汰？问题出在哪了？
+
+![](https://ws2.sinaimg.cn/large/006tNbRwly1fxsua7t1wxj30xo0ayadf.jpg)
+
+### 2.次高价拍卖（看例题，给类似数据做出计算）
+
+![](https://ws4.sinaimg.cn/large/006tNbRwly1fxsu9je1xsj311o0ok46x.jpg)
+
+![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+
+## 第十八章：爬虫
+
+### 1.设计爬虫存在什么问题？要遵守什么协议？(看课件)
+
+![](https://ws4.sinaimg.cn/large/006tNbRwly1fxsub7f5xvj30wu0moai9.jpg)
+
+- robots
+
+![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+
+## 第十九章：链接分析
+
+### 1.Pagerank 基本算法是怎样的？给一个拓扑图，能否用迭代算法把每个网页的pagerank值计算出来？Pagerank存在什么不足，怎么解决？
+
+- 算法
+- 可能存在回环；只进不出；
+- ![](https://ws4.sinaimg.cn/large/006tNbRwly1fxsud5ilrnj31120lcaie.jpg)
+- 给他加一个只想所有的
+
+### 2.HITS算法基本概念，以及和pagerank的相同点和不同点。实际应用中，hits算法存在什么困难？它是一个动态的算法，对于每一个查询，都要重新构建基本集，重新计算，在线开销较大。
+
+ HITS算法和PageRank算法可以说是搜索引擎链接分析的两个最基础且最重要的算法。从以上对两个算法的介绍可以看出，两者无论是在基本概念模型还是计算思路以及技术实现细节都有很大的不同，下面对两者之间的差异进行逐一说明。      
+
+```
+1.HITS算法是与用户输入的查询请求密切相关的，而PageRank与查询请求无关。所以，HITS算法可以单独作为相似性计算评价标准，而PageRank必须结合内容相似性计算才可以用来对网页相关性进行评价；
+
+2.HITS算法因为与用户查询密切相关，所以必须在接收到用户查询后实时进行计算，计算效率较低；而PageRank则可以在爬虫抓取完成后离线计算，在线直接使用计算结果，计算效率较高；
+
+3.HITS算法的计算对象数量较少，只需计算扩展集合内网页之间的链接关系；而PageRank是全局性算法，对所有互联网页面节点进行处理；
+
+4.从两者的计算效率和处理对象集合大小来比较，PageRank更适合部署在服务器端，而HITS算法更适合部署在客户端；
+
+5.HITS算法存在主题泛化问题，所以更适合处理具体化的用户查询；而PageRank在处理宽泛的用户查询时更有优势；
+
+6.HITS算法在计算时，对于每个页面需要计算两个分值，而PageRank只需计算一个分值即可；在搜索引擎领域，更重视HITS算法计算出的Authority权值，但是在很多应用HITS算法的其它领域，Hub分值也有很重要的作用；
+
+7.从链接反作弊的角度来说，PageRank从机制上优于HITS算法，而HITS算法更易遭受链接作弊的影响。
+
+8.HITS算法结构不稳定，当对“扩充网页集合”内链接关系作出很小改变，则对最终排名有很大影响；而PageRank相对HITS而言表现稳定，其根本原因在于PageRank计算时的“远程跳转”。
+```
+
+![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
