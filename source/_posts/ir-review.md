@@ -5,13 +5,17 @@ tags: 课程学习
 category: 信息检索
 ---
 
->目前进度：6/20
+>目前进度：20/20
 
 
 
 >未经允许，不得转载或其他使用。
 >
 >如有问题，请联系[本文作者](mailto:i@idejie.com)
+
+
+
+![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
 
 ## 0-Introduction
 
@@ -69,6 +73,8 @@ category: 信息检索
 ②中间层次：搜索是极其重要的API（站内检索，内容检索，数据分析）
 
 ③核心层次：搜索是未来操作系统的重要组成部分！
+
+![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
 
 ## 1-Boolean Retrieval
 
@@ -202,6 +208,8 @@ iii. 半结构化数据:没有数据是完全无结构的，比如网页就是�
   - 没有充分利用词项的频率信息，通常出现的越多越好，需要利用词项在文档中的词项频率(term frequency, tf)信息
   - 不能对检索结果进行排序
 
+![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+
 ## 2-Dictionary
 
 ### （1）文档
@@ -270,6 +278,8 @@ iii. 半结构化数据:没有数据是完全无结构的，比如网页就是�
     - 二元词索引的概念可以扩展到更长的词序列，如果索引中包含变长的词序列，通常就称为**短语索引**
   - 位置索引：不只是简单地判断两个词项是否出现在同一文档中，而且还需要检查它们出现的位置关系和查询短语的一致性。这就需要计算出词之间的偏移距离。（距离跳远不是词组）
   - 混合索引机制：对某些查询使用短语索引或只使用二元词索引，而对其他短语查询则采用位置索引。短语索引所收录的那些较好的查询可以根据用户最近的访问行为日志统计得到，也就是说，它们往往是那些高频常见的查询。当然，这并不是唯一的准则。处理开销最大的短语查询往往是这样一些短语，它们中的每个词都非常常见，但是组合起来却相对很少见 
+
+![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
 
 ## 3-Tolerant Retrieval
 
@@ -411,12 +421,14 @@ Google Suggest是一种减轻用户输入负担的好方法
 - Soundex是寻找发音相似的单词的方法
 - 具体算法:
   - 将词典中每个词项转换成一个4字符缩减形式
-  - 对查询词项做同样的处理
-  - 基于4-字符缩减形式进行索引和搜索
+- 对查询词项做同样的处理
+- 基于4-字符缩减形式进行索引和搜索
 
 ![](https://ws1.sinaimg.cn/large/006tNbRwly1fxkkqdsab8j30o00cejux.jpg)
 
 ![](https://ws1.sinaimg.cn/large/006tNbRwly1fxkkqkxg92j30o00eu0v9.jpg)
+
+![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
 
 ## 4-Index Construction
 
@@ -461,6 +473,7 @@ Google Suggest是一种减轻用户输入负担的好方法
   (5)将全部的文档集解析完后在磁盘中应该有多个已排序的dictionary-posting；将这些合并即可；
 
 - SPIMI的核心算法为(2)(3)，因此算法复杂度为O(T);
+
 - ![](https://ws2.sinaimg.cn/large/006tNbRwly1fxlpbrjgj0j30ji0ba0wn.jpg)
 
 ### （4）分布式索引构建方法
@@ -540,6 +553,8 @@ I3   I2  I1   I0
 
 dictionary表示每个用户，而posting表示用户所能访问的文档ID；简单的来说就是一个用户-文档ID矩阵；
 
+![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+
 ## 5-Index Compression
 
 ### (1)压缩
@@ -605,6 +620,8 @@ dictionary表示每个用户，而posting表示用户所能访问的文档ID；�
     - 可变字节码通常按字边界对齐，因此可能效率更高
     - 除去效率高之外，可变字节码虽然额外增加了一点点开销，但是在概念上也要简单很多
 
+![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+
 ## 6-TF-IDF
 
 ### (1)参数化索引和域索引
@@ -621,7 +638,7 @@ dictionary表示每个用户，而posting表示用户所能访问的文档ID；�
   - 学习得$g_i$
   - 最优权重：![](https://ws2.sinaimg.cn/large/006tNbRwly1fxo1atwgbkj30q209kac1.jpg)
 
-### （2）词项频率和权重计算
+### (2)词项频率和权重计算
 
 - 当tf>0是，$tf$ -$idf_{t,d}=（1+\log tf _{t,d})\times \log \frac{N}{df_t}$，tf=0时等于0
 - 文档d的得分$Score(q,d)=\sum_{t \in q}tf$-$idf_{t,d}$
@@ -635,7 +652,7 @@ dictionary表示每个用户，而posting表示用户所能访问的文档ID；�
 
 
 
-#### （4）其他权重计算方法
+### （4）其他权重计算方法
 
 - 长度向量归一化：![](https://ws4.sinaimg.cn/large/006tNbRwly1fxo36ciidmj309k017dfr.jpg)
 
@@ -652,18 +669,51 @@ dictionary表示每个用户，而posting表示用户所能访问的文档ID；�
 
 ![](https://ws4.sinaimg.cn/large/006tNbRwly1fxo3bcyn20j31bb0u07im.jpg)
 
+![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+
 ## 7-System
 
 ### （1）快速评分及排序
 
+- 
+
+- 精确k：
+
+  - 一般步骤：算cos、排序、topk
+  - 加快cos:查询很短的话是有加速运算的
+    - 特例：不考虑查询词项的权重(查询的词项只出现一次）
+  - 堆排序
+  - 提前终止计算：
+
+  ![](https://ws4.sinaimg.cn/large/006tNbRwly1fxpxhyxrm8j30v40akjuw.jpg)
+
+  ![image-20181130113107548](/Users/idejie/Library/Application%20Support/typora-user-images/image-20181130113107548.png)
+
 - 非精确k：
-- 索引去除术：（1）只考虑idf超过一定阈值（2）只考虑多个查询词项
-- 胜者表：预先给出t的前k个文档（得分>r）
-- 静态得分和排序：每片文档都有一个与查询无关的静态得分，这个分数基于用户的正面评价；所以先按这个分数排序；
-- 扩展胜者表：把上面的静态得分+tfidf高于r的放在表里
-- 高低端表：一个词项的文档集分成两部分：高端版、低端版；如果高端版满足就不查低端了
-- 影响度排序：把文档按tf排序（好处：可以提前结束查询；按idf得分排序就可以先获得贡献大的了）
-- 簇剪枝方法：![](https://ws4.sinaimg.cn/large/006tNbRwly1fxoxx0zfzgj30pe06ego0.jpg)
+
+  - 索引去除术：
+    - 最容易想到的优化点，就是我们可不可以考虑针对原始查询做一些取舍，只关注查询中那些`idf`值比较高的那些词，即文档频率高的那些词。举个例子，我们在3C电商搜索中，根据“苹果手机”检索出排名最高的前20个商品。根据以往做法，根据分词后的“苹果”和“手机”两个词分别找到相应的倒排表，并依次扫描计算出最终的所有关联的商品，并根据计算的权重值按从高到低排序，并取出前２０个商品。但是细想下，针对3C商城来说，一个商品中包含“苹果”已经足够说明用户的意愿。而“手机”基本会出现在所有手机商品描述中，它的`idf`值是很低的，想当于那些“的，地，是”之类的停用词。所以可以把这些idf值低的词直接去掉，而这些词的倒排表是很长的，所以可以节省很大部分的计算量。
+    - （1）只考虑idf超过一定阈值(对于查询 catcher in the rye 仅考虑包含catcher和rye的文档的得分)
+    - （2）只考虑几个查询词项,对于多词项查询而言，只需要计算包含其中大部分词项的文档
+  - 胜者表：对每个词项t，预先计算出其倒排记录表中权重最高的r篇文档，如果采用tfidf机制，即tf最高的r篇;上面的`索引去除`方法是从查询进行优化裁剪。`胜者表`是从倒排表进行处理优化。我们针对每个查询词项，只取其倒排表中排名靠前的r个文档。这个r值的设置根据场景不同而异。而排名的依据可以用tf（词项频率）。
+  - 静态得分和排序：每片文档都有一个与查询无关的静态得分，这个分数基于用户的正面评价；所以先按这个分数排序；权威度
+  - ![](https://ws4.sinaimg.cn/large/006tNbRwly1fxpy51zd7rj30yg0j6wke.jpg)
+    - net-score评价法（高分文档先被遍历）
+
+  ![](https://ws1.sinaimg.cn/large/006tNbRwly1fxq5qaq5m0j31o80koth6.jpg)
+
+  - 高低端表：一个词项的文档集分成两部分：高端版、低端版；如果高端版满足就不查低端了
+
+  - 影响度排序：把文档按wf排序（好处：可以提前结束查询；按idf得分排序就可以先获得贡献大的了）
+
+    - 提前结束法：遍历了固定数目r，wf低于某个阈值了；然后将词项的集合合并；计算他们的得分
+    - 将词项按照idf排序
+
+  - 簇剪枝方法：
+
+    选一个leader
+
+    ![](https://ws4.sinaimg.cn/large/006tNbRwly1fxoxx0zfzgj30pe06ego0.jpg)
 
 ### （2）信息检索系统的组成
 
@@ -699,59 +749,328 @@ dictionary表示每个用户，而posting表示用户所能访问的文档ID；�
 
   用于向量空间方法的索引通常并不能用于短语查询的处理。
 
-### （4）精确查找top K
-
-- 一般步骤：
-  - 对每个文档做cos值
-  - 排序
-  - 取前k
-- 加速？
-  - 加快cos
-  - 不对所有文档排序
-  - 不对所有文档求cos
-- 快速算cos：
-  - 查询很短的话是有加速运算的
-    - 特例：不考虑查询词项的权重
-      - 查询的词项只出现一次
-- 加快求k：堆排序
-- 加快求k：提前终止计算
-- 优胜表法：
-- 静态质量得分排序
-- net-score
-- 影响度排序
-- 簇剪枝
+![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
 
 ## 8-Evaluation
 
 ### （1）信息检索系统的评价
 
 - 为什么评价IR
+  - 评价技术的优劣、各种因素对系统的影响，有利于促进研究，提高技术水平
+  - 目标是尽快、消耗少、返回准确
+  - 计算机学科本身就是研究“更好”
 - IR评价的指标
+  - 效率
+    - 时间开销、空间开销、响应速度
+  - 效果
+    - 返回了多少相关文档，占所有相关文档多少，返回的靠不靠前
+  - 其他
+    - 覆盖率，访问量，数据更新速度
 - 如何评价
 - 评价指标分类
+  - 单个查询的评价
+    - 召回率（查全率）+正确率（查准率）
+    - ![](https://ws3.sinaimg.cn/large/006tNbRwly1fxqb0mkir5j31l60u04la.jpg)
+    - ![](https://ws1.sinaimg.cn/large/006tNbRwly1fxqb0yodd3j31ci0u0wra.jpg)
+    - 精准率：![](https://ws3.sinaimg.cn/large/006tNbRwly1fxqb8fzm9yj31ag05wdh4.jpg)
+    - ![](https://ws2.sinaimg.cn/large/006tNbRwly1fxqba8wbe4j31610u0tqu.jpg)
+    - ![](https://ws2.sinaimg.cn/large/006tNbRwly1fxqd1n1tt3j31gw0u07kr.jpg)
+    - 平均正确率
+      - 未插值的AP：【未插值的AP(常用): 某个查询Q共有6个相关结果，某系统排序返回了5篇相关文档，其位置分别是第1，第2，第5，第10，第20位，则AP=(1/1+2/2+3/5+4/10+5/20+0)/6
+      - 插值的AP：【在召回率分别为0,0.1,0.2,…,1.0的十一个点上的正确率求平均，等价于11点平均
+      - 不考虑召回率【Precision@N：在第N个位置上的正确率，对于搜索引擎，大量统计数据表明，大部分搜索引擎用户只关注前一、两页的结果
+  - 多个查询的评价
+    - 平均的求法
+      - 宏平均(Macro Average): 对每个查询求出某个指标，然后对这些指标进行算术平均
+      - 微平均(Micro Average): 将所有查询视为一个查询，将各种情况的文档总数求和，然后进行指标的计算，如：Micro Precision=(对所有查询检出的相关文档总数)/(对所有查询检出的文档总数)
+    - MAP(Mean AP)：对所有查询的AP求宏平均
+  - 相关性试图度量用户的满意程度，但是用户是否满意取决于很多因素。
+  - 面向用户的指标
+    - ![](https://ws4.sinaimg.cn/large/006tNbRwly1fxr6sqe1jrj31di0rk4c8.jpg)
+    - ![](https://ws3.sinaimg.cn/large/006tNbRwly1fxr6zh8m2lj31be0hgalp.jpg)
+    - ![](https://ws2.sinaimg.cn/large/006tNbRwly1fxr70bnqd3j31700nkjxf.jpg)
+  - Bpref
+    - 基本的思想：在相关性判断(Relevance Judgment) 不完全的情况下，计算在进行了相关性判断的文档集合中，在判断到相关文档前，需要判断的不相关文档的篇数
+    - ![image-20181201143103572](https://ws4.sinaimg.cn/large/006tNbRwly1fxr8cz4ha5j30fg02qq32.jpg)
+  - GMAP
+    - ![](https://ws2.sinaimg.cn/large/006tNbRwly1fxr8pf7kazj30ps05kq3p.jpg)
+    - GMAP和MAP各有利弊，可以配合使用，如果存在难Topic时，GMAP更能体现细微差别
+  - NDCG
+    - ![](https://ws3.sinaimg.cn/large/006tNbRwly1fxr9m7ppvfj30w40i4wj6.jpg)
+    - ![](https://ws1.sinaimg.cn/large/006tNbRwly1fxr9p2eufuj30wo0he42g.jpg)
+    - ![](https://ws2.sinaimg.cn/large/006tNbRwly1fxr9xp1r9dj31ie0ggn3z.jpg)
+    - ![](https://ws2.sinaimg.cn/large/006tNbRwly1fxra1jrfszj31cb0u07de.jpg)
+    - ![](https://ws1.sinaimg.cn/large/006tNbRwly1fxra3i9zvjj31ey0u07l1.jpg)
+    - 
 
 ### （2）标准测试集
 
 ### （3）无序检索集合的评价
 
+![](https://ws3.sinaimg.cn/large/006tNbRwly1fxraeqnrtuj31ca0tyaia.jpg)
+
 ### （4）有序检索结果的评价
 
+- map
+- roc
+- ndcg
+
 ### （5）相关性判定
+
+![](https://ws1.sinaimg.cn/large/006tNbRwly1fxragg5qnnj30c00343yo.jpg)
 
 ### （6）系统质量和用户效用
 
 ### （7）结果片段
 
+![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+
 ## 9-Query Expansion
 
-## 10-Problem Model
+（1）相关性反馈及伪相关反馈
+
+- Rocchio 相关反馈
+  - Cr表示相关文档集，Cnr表示不相关文档集，那么我们希望找到的最优的 qr 是
+    - ![](https://ws2.sinaimg.cn/large/006tNbRwly1fxral54j8ej30mi01wjrm.jpg)
+    - ![](https://ws2.sinaimg.cn/large/006tNbRwly1fxraljhz34j31jm08cmzg.jpg)
+    - ![](https://ws3.sinaimg.cn/large/006tNbRwly1fxramnqj1wj30ng03gaad.jpg)
+- 基于概率的相关反馈方法：![](https://ws2.sinaimg.cn/large/006tNbRwly1fxranodoc9j30pg056t97.jpg)
+- 相关反馈策略的评价
+  - 首先计算出原始查询 q0 的正确率—召回率曲线，一轮相关反馈之后，我们计算出修改后的
+    查询 qm 并再次计算出新的正确率—召回率曲线。
+  - 利用剩余文档集(residual collection，所有文档集中除去用户判定的相关文档
+    后的文档集)对反馈后的结果进行评价
+- 伪相关反馈
+- 
+
+![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+
+## 10-Probabilistic Model
+
+- 基于Logistic回归的检索模型
+  - ![](https://ws4.sinaimg.cn/large/006tNbRwly1fxrbf69c1qj30zm0jcgql.jpg)
+- 经典的二值独立概率模型BIM
+  - ![](https://ws3.sinaimg.cn/large/006tNbRwly1fxrbhciuh3j310a0heq7b.jpg)
+- 经典的BM25模型 (BestMatch25)
+  - ![](https://ws3.sinaimg.cn/large/006tNbRwly1fxrdy90xcpj30wm0jydk6.jpg)
+  - ![](https://ws3.sinaimg.cn/large/006tNbRwly1fxrdxoqdm0j310m0l2q8v.jpg)
+- 贝叶斯网络模型：本讲义不介绍，请参考有关文献。
+- 基于语言建模的检索模型
+
+![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
 
 ## 11- Language Model
 
+- SLM广泛使用于语音识别和统计机器翻译领域，利用概率统计理论研究语言。
+
+- - 规则方法：词、句、篇章的生成比如满足某些规则，不满足该规则就不应存在。
+  - 统计方法：任何语言片断都有存在的可能，只是可能性大小不同
+  - ![](https://ws2.sinaimg.cn/large/006tNbRwly1fxrbl7dqoyj30z009itax.jpg)
+
+- 查询似然模型
+
+  - ![](https://ws2.sinaimg.cn/large/006tNbRwly1fxrkhdiw1fj30yo0kctdd.jpg)
+
+  - 几种平滑方法
+
+    ![](https://ws3.sinaimg.cn/large/006tNbRwly1fxrkii4yphj30yq0m0q93.jpg)
+
+![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+
 ## 12-Navie Bayes
+
+- 传统的分类
+
+  - 基于手工
+  - 基于规则
+
+- 贝叶斯分类器
+
+  ![](https://ws2.sinaimg.cn/large/006tNbRwly1fxrkmnkyz0j31bc0u0tnl.jpg)
+
+  ![](https://ws3.sinaimg.cn/large/006tNbRwly1fxs6ql4stwj310s09a76z.jpg)
+
+  ![](https://ws2.sinaimg.cn/large/006tNbRwly1fxs70jhz4uj31qi0u04gf.jpg)
+
+  ![](https://ws3.sinaimg.cn/large/006tNbRwly1fxs71m9sgsj31uk0m0dpr.jpg)
+
+- 生成式模型：![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs7fj8flcj30sg040wfg.jpg)
+
+- 贝努力模型：
+
+  ![](https://ws2.sinaimg.cn/large/006tNbRwly1fxs7pinuvxj31720u04bv.jpg)
+
+![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+
+## 13-vector classify
+
+- 特征选择方法主要基于其所使用特征效用(Utility)指标来定义。
+
+- 特征效用指标：
+
+  - 频率法 (DF)– 选择高频词项
+  - 互信息(MI-Mutual information) – 选择具有最高互信息的那些词项。
+  - 这里的互信息也叫做信息增益(IG-information gain)
+  - 卡方(Chi-square)
+
+- 互信息
+
+  ![](https://ws2.sinaimg.cn/large/006tNbRwly1fxs7tbu5cwj30x80hwjxc.jpg)
+
+- 信息增益
+
+  ![](https://ws2.sinaimg.cn/large/006tNbRwly1fxs7u21wzmj30wm0dmwhq.jpg)
+
+- 如何计算互信息
+
+  ![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs7uo9kg5j30tm0hg7a4.jpg)
+
+  ![](https://ws4.sinaimg.cn/large/006tNbRwly1fxs8lfucnkj30ym0rgwox.jpg)
+
+- 另一种互信息
+
+  ![](https://ws3.sinaimg.cn/large/006tNbRwly1fxs7v9m8s7j30x00lawiu.jpg)
+
+- 基于DF的选择方法 (DF Thresholding)
+
+- - Term的DF小于某个阈值去掉(太少，没有代表性)
+  - 实现十分简单，现有实验效果还不错
+
+- 卡方选择法
+
+![](https://ws2.sinaimg.cn/large/006tNbRwly1fxs7w8osu1j30z20hajvq.jpg)
+
+- 基于向量空间模型的分类
+
+  -  利用Rocchio方法进行向量空间分类
+
+  ![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs7xjxiffj30se08mq4z.jpg)![](https://ws4.sinaimg.cn/large/006tNbRwly1fxs7xxfm2gj311s0gimzq.jpg)
+
+  - KNN分类
+
+  ![](https://ws4.sinaimg.cn/large/006tNbRwly1fxs7zdu5xdj30z60lagte.jpg)
+
+  - 线性分类器
+    - ![](https://ws4.sinaimg.cn/large/006tNbRwly1fxs7zz286gj30rc0d040x.jpg)
+    - ![](https://ws2.sinaimg.cn/large/006tNbRwly1fxs80at9l2j30zk0lw44a.jpg)
+    - ![](https://ws4.sinaimg.cn/large/006tNbRwly1fxs80ios0qj310o0lmn4l.jpg)
+    - ![](https://ws3.sinaimg.cn/large/006tNbRwly1fxs8l3au2vj310c0p2104.jpg)
+
+![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+
+## 14-svm ltr
+
+- ![](https://ws3.sinaimg.cn/large/006tNbRwly1fxsc1vju5wj31fl0u0k5d.jpg)
+
+- ![](https://ws1.sinaimg.cn/large/006tNbRwly1fxsc1480clj31b70u0k4f.jpg)
+
+- 权重学习
+
+  - 域加权
+
+    ![](https://ws1.sinaimg.cn/large/006tNbRwly1fxscjfop66j31pm0ks48c.jpg)
+
+    ![](https://ws2.sinaimg.cn/large/006tNbRwly1fxsck9q3btj317t0u04go.jpg)
+
+    ![](https://ws3.sinaimg.cn/large/006tNbRwly1fxsclij2obj31f70u07g3.jpg)
+
+    ![](https://ws2.sinaimg.cn/large/006tNbRwly1fxscmfd1sfj31lw0tgdqg.jpg)
+
+    ![](https://ws4.sinaimg.cn/large/006tNbRwly1fxscnphdstj31jw0mu154.jpg)
+
+    ![](https://ws1.sinaimg.cn/large/006tNbRwly1fxsco9sdmrj313b0u0qi6.jpg)
+
+    ![](https://ws1.sinaimg.cn/large/006tNbRwly1fxscplvkh8j31p60q87kz.jpg)
+
+    ![](https://ws1.sinaimg.cn/large/006tNbRwly1fxscpwb84oj30zi0te0wk.jpg)
+
+
+![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+
+## 15- lsi
+
+
+
+- 层次聚类
+  - ![](https://ws1.sinaimg.cn/large/006tNbRwly1fxscsvgeotj311w0mado2.jpg)
+  - ![](https://ws3.sinaimg.cn/large/006tNbRwly1fxscv7ebdjj30zm0mitee.jpg)
+
+![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9e803m5j30pa0fijwr.jpg)
+
+
+
+
+
+![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+
+## 16- Neural IR
+
+
+
+![](https://ws4.sinaimg.cn/large/006tNbRwly1fxsduxjgfzj31220qwdms.jpg)
+
+![](https://ws4.sinaimg.cn/large/006tNbRwly1fxsdvbv9o2j313q0litgc.jpg)
+
+![](https://ws3.sinaimg.cn/large/006tNbRwly1fxsdvm13u9j311g0mytgf.jpg)
+
+![](https://ws2.sinaimg.cn/large/006tNbRwly1fxsdvti4faj310a0k0q8a.jpg)
+
+
+
+![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+
+## 17- WebSearch
+
+![](https://ws3.sinaimg.cn/large/006tNbRwly1fxsdwomeouj312e0o47cm.jpg)
+
+![](https://ws4.sinaimg.cn/large/006tNbRwly1fxsdwfdy5wj31280pm7ct.jpg)
+
+- 近似重复检测
+  - 将每篇文档表示成一个**shingle**集合
+    - ![](https://ws4.sinaimg.cn/large/006tNbRwly1fxse0mp7koj30xs0m0wlp.jpg)
+    - ![](https://ws4.sinaimg.cn/large/006tNbRwly1fxsdzp93srj30ze0hu0xf.jpg)
+  - 将文档表示成梗概(sketch)
+    - ![](https://ws1.sinaimg.cn/large/006tNbRwly1fxse0feao6j30w00l2wlh.jpg)
+    - ![image-20181202144354952](/Users/idejie/Library/Application%20Support/typora-user-images/image-20181202144354952.png)
+    - ![](https://ws3.sinaimg.cn/large/006tNbRwly1fxse8dgg7ej310o0qyagu.jpg)
+    - ![](https://ws1.sinaimg.cn/large/006tNbRwly1fxse8mnh3vj31000iktbd.jpg)
+    - 
+    - ![](https://ws3.sinaimg.cn/large/006tNbRwly1fxse95e3sij30j80bqmyd.jpg)
+
+
+
+![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+
+## 18 -Crawling
+
+![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+
+## 19-LinkAnalysis
+
+
+
+ HITS算法和PageRank算法可以说是搜索引擎链接分析的两个最基础且最重要的算法。从以上对两个算法的介绍可以看出，两者无论是在基本概念模型还是计算思路以及技术实现细节都有很大的不同，下面对两者之间的差异进行逐一说明。      
+
+```
+1.HITS算法是与用户输入的查询请求密切相关的，而PageRank与查询请求无关。所以，HITS算法可以单独作为相似性计算评价标准，而PageRank必须结合内容相似性计算才可以用来对网页相关性进行评价；
+
+2.HITS算法因为与用户查询密切相关，所以必须在接收到用户查询后实时进行计算，计算效率较低；而PageRank则可以在爬虫抓取完成后离线计算，在线直接使用计算结果，计算效率较高；
+
+3.HITS算法的计算对象数量较少，只需计算扩展集合内网页之间的链接关系；而PageRank是全局性算法，对所有互联网页面节点进行处理；
+
+4.从两者的计算效率和处理对象集合大小来比较，PageRank更适合部署在服务器端，而HITS算法更适合部署在客户端；
+
+5.HITS算法存在主题泛化问题，所以更适合处理具体化的用户查询；而PageRank在处理宽泛的用户查询时更有优势；
+
+6.HITS算法在计算时，对于每个页面需要计算两个分值，而PageRank只需计算一个分值即可；在搜索引擎领域，更重视HITS算法计算出的Authority权值，但是在很多应用HITS算法的其它领域，Hub分值也有很重要的作用；
+
+7.从链接反作弊的角度来说，PageRank从机制上优于HITS算法，而HITS算法更易遭受链接作弊的影响。
+
+8.HITS算法结构不稳定，当对“扩充网页集合”内链接关系作出很小改变，则对最终排名有很大影响；而PageRank相对HITS而言表现稳定，其根本原因在于PageRank计算时的“远程跳转”。
+```
 
 ## 参考
 
-1.[《An Introduction to Information Retrieval]( http://www.informationretrieval.org/)
+1.[《An Introduction to Information Retrieval》]( http://www.informationretrieval.org/)
 
 2.何苯-中国科学院大学-《现代信息检索》课程PPT
