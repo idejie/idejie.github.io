@@ -21,6 +21,7 @@
     "hexo-search": "^1.0.4",
     "hexo-server": "^0.2.0",
     "highlight.js": "^9.9.0",
+    "ityped": "^1.0.3",
     "markdown-it": "^8.4.2",
     "markdown-it-katex": "^2.0.3"
   }
