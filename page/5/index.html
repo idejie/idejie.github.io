@@ -77,7 +77,8 @@
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
 </head>
 <script src="//pixijs.download/release/pixi.js"></script>
-</html>
+<script src="https://unpkg.com/ityped@1.0.2"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"></html>
 <body>
 
 
@@ -91,10 +92,53 @@
   <h1 class="name" style="font-family: calligraffittiregular">
     I ，Dejie
   </h1>
-  <div class="slogan">
-    这世界太吵      多听听自己
-  </div>
 
+
+    <style>
+      .ityped-cursor {
+        font-size: 2.2rem;
+        opacity: 1;
+        -webkit-animation: blink 0.3s infinite;
+        -moz-animation: blink 0.3s infinite;
+        animation: blink 0.3s infinite;
+        animation-direction: alternate;
+      }
+  
+      @keyframes blink {
+        100% {
+          opacity: 0;
+        }
+      }
+  
+      @-webkit-keyframes blink {
+        100% {
+          opacity: 0;
+        }
+      }
+  
+      @-moz-keyframes blink {
+        100% {
+          opacity: 0;
+        }
+      }
+    </style>
+  <div class="slogan">
+    <div id="app">
+      <span id="ityped"></span>
+    </div>
+  </div>
+  <script>
+    ityped.init(document.querySelector("#ityped"), {
+        showCursor: true,
+        strings: ['这世界太吵      多听听自己'],
+        typeSpeed:  100,
+        backSpeed:  50,
+        startDelay: 500,
+        backDelay:  3000,
+        
+      })
+    
+      </script>
   <hr>
 
   <ul class="text-center nav">
