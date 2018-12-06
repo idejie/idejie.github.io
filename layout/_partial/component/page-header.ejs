@@ -18,8 +18,22 @@
         <%= theme.blog_name %>
       </h3>
       <div class="slogan">
-        <%= theme.slogan %>
+        <div id="app">
+          <span id="ityped"></span>
+        </div>
       </div>
+      <script>
+        ityped.init(document.querySelector("#ityped"), {
+            showCursor: true,
+            strings: ['<%=theme.slogan%>','<%=theme.slogan2%>'],
+            typeSpeed:  100,
+            backSpeed:  50,
+            startDelay: 500,
+            backDelay:  3000,
+            
+          })
+        
+          </script>
     </div>
   </div>
 
