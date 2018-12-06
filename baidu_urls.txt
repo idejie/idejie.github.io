@@ -2,8 +2,8 @@ https://blog.idejie.com/2018/12/03/ir-im/
 https://blog.idejie.com/2018/11/26/ir-naotu/
 https://blog.idejie.com/2018/11/25/probability-theory/
 https://blog.idejie.com/2018/11/25/for-new-mac/
-https://blog.idejie.com/2018/11/25/ir-review/
 https://blog.idejie.com/2018/11/25/ir-solution-zh/
+https://blog.idejie.com/2018/11/25/ir-review/
 https://blog.idejie.com/2018/01/23/colab/
 https://blog.idejie.com/2018/01/16/data-science-1/
 https://blog.idejie.com/2017/08/13/word-embeding/
@@ -44,8 +44,8 @@ https://blog.idejie.com/2016/12/31/sum2016/
 https://blog.idejie.com/2016/12/27/data-science/
 https://blog.idejie.com/2016/12/25/music/
 https://blog.idejie.com/2016/12/24/alipay/
-https://blog.idejie.com/2016/12/20/nosql/
 https://blog.idejie.com/2016/12/20/network/
+https://blog.idejie.com/2016/12/20/nosql/
 https://blog.idejie.com/2016/12/18/idea/
 https://blog.idejie.com/2016/12/13/hadoop-3/
 https://blog.idejie.com/2016/12/13/hadoop-2/
@@ -70,8 +70,8 @@ https://blog.idejie.com/2016/10/21/rest-learn/
 https://blog.idejie.com/2016/10/21/express-blog-3/
 https://blog.idejie.com/2016/10/21/express-blog-2/
 https://blog.idejie.com/2016/10/21/express-blog-1/
-https://blog.idejie.com/2016/09/13/hmi/
 https://blog.idejie.com/2016/09/13/hexo-blog/
+https://blog.idejie.com/2016/09/13/hmi/
 https://blog.idejie.com/2016/08/24/baiduyun-crack/
 https://blog.idejie.com/2016/08/23/mac-tips/
 https://blog.idejie.com/2016/06/29/mayuan/
