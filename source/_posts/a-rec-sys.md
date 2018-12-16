@@ -9,7 +9,8 @@ category: 教程
 
 ![](https://ws3.sinaimg.cn/large/006tNbRwly1fy6b0vq6uyj30bi0jgtal.jpg)
 
-## 0.数据
+## 0.介绍
+> It's just a homework for [UCAS-091M5042H -网络数据挖掘](http://jwxk.ucas.ac.cn/course/courseplan/148444).
 
 **数据集描述**
 
@@ -24,8 +25,6 @@ category: 教程
 字段之间用table符即”\t”隔开，文本编码为utf8编码格式，如下为截取训练集中的一行：
 
 ​	![](https://ws2.sinaimg.cn/large/006tNbRwly1fxp50f1fpjj30bj00nmx7.jpg)
-
-
 
 ## 1.非个性化推荐
 
@@ -286,10 +285,6 @@ class SVD(AlgoBase):
 
 
 
-在前20天的数据上进行了测试，效果并不佳，分析原因应该rating的评分只有{0,1}
-
-而SVD比较适用的场景是已知用户rating{0,1,2,3,4,5}预测出[0,5]的rating
-
 ```
 Evaluating RMSE, MAE of algorithm SVD on 5 split(s).
 
@@ -300,6 +295,10 @@ Fit time          2.99    3.12    3.09    3.00    3.10    3.06    0.05
 Test time         0.12    0.09    0.12    0.11    0.15    0.12    0.02    
 user: 5218791    item: 100642618  r_ui = None   est = 3.00   {'was_impossible': False}
 ```
+
+在前20天的数据上进行了测试，效果并不佳，分析原因应该rating的评分只有{0,1}
+
+而SVD比较适用的场景是已知用户rating{0,1,2,3,4,5}预测出[0,5]的rating
 
 接着用SVD++和NMF进行了测试，结果如下
 
@@ -982,3 +981,19 @@ LightFM是针对隐式和显式反馈的许多流行推荐算法的Python实现�
 
 项目地址：[推荐系统](https://github.com/idejie/recsys_web)
 
+## 6.TODO
+
+- 能够实现在线分析推荐
+- lightFM 混合推荐系统
+- 考虑用户和新闻随时间的变化
+
+## 7.Reference
+
+- [gaussic/text-classification-cnn-rnn](https://github.com/gaussic/text-classification-cnn-rnn)
+- [jieba](https://github.com/fxsjy/jieba)
+- [NicolasHug/Surprise](https://github.com/NicolasHug/Surprise)
+- ECharts: A Declarative Framework for Rapid Construction of Web-based Visualization
+  Deqing Li, Honghui Mei, Yi Shen, Shuang Su, Wenli Zhang, Junting Wang, Ming Zu, Wei Chen.
+  Visual Informatics, 2018 [[PDF]](http://www.cad.zju.edu.cn/home/vagblog/VAG_Work/echarts.pdf)
+
+## 
