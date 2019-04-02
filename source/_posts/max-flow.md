@@ -1,5 +1,5 @@
 ---
-title: max-flow
+title: 算法（五）：最大流
 date: 2019-01-10 14:15:44
 tags: 最大流
 category: 课程复习
