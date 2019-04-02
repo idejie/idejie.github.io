@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="google-site-verification" content="rEUG6A2SLvgx5-OW-Q2fuuC4q9qNnwo62YXM9KhQlPg">
+  
+  <title>算法（三）：贪心算法 | idejie</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="">
+  
+
+  <meta name="description" content="Greedy 2018级习题  1.多边形与度    2.工作分配    最后一个在PC上结束的时间 Time_{job_i}=\sum_{0\to i-1}Super\ time + PC_i \\ job_i\text{必须等前面i-1个job执行完，并且再在PC上执行完，所以结束时间：max{Time of Job i}}   3.子序列匹配   4.剪绳子  动态规划 dp[n]=max">
+<meta name="keywords" content="贪心">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法（三）：贪心算法">
+<meta property="og:url" content="https://blog.idejie.com/2019/01/08/greedy/index.html">
+<meta property="og:site_name" content="idejie">
+<meta property="og:description" content="Greedy 2018级习题  1.多边形与度    2.工作分配    最后一个在PC上结束的时间 Time_{job_i}=\sum_{0\to i-1}Super\ time + PC_i \\ job_i\text{必须等前面i-1个job执行完，并且再在PC上执行完，所以结束时间：max{Time of Job i}}   3.子序列匹配   4.剪绳子  动态规划 dp[n]=max">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNc79ly1fz8v5m4b1fj30ys06o0ua.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNc79ly1fz9fop73gcj31cu0am420.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNc79ly1fz8v69m24zj30y40b077h.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNc79ly1fz8v6xgzp3j310204wgmx.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNc79ly1fz9fs01ku2j31r009sadn.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNc79ly1fz8v7dxkuqj30yu064q4e.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNc79ly1fz8v7s21pyj30yu050dgz.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNc79ly1fz8v844sb3j30yk0no791.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNc79ly1fz9gnytganj31ni0u0162.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNc79ly1fz8v8m13edj30z203st9o.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNc79ly1fz8v9j3vdwj31300qq11b.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNc79ly1fz9no5gvfxj31290u07fg.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNc79ly1fz8v9vijvwj30yw07gmys.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNc79ly1fz8vaaxdloj3106078wg2.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNc79ly1fz8vau6k3nj30ya0fitc6.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNc79ly1fz8vd2em2sj317y0nctzv.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNc79ly1fz8velv7ohj311w0dkqpm.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNc79ly1fz8vf819ydj30yg08s4dm.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNc79ly1fz8vgfstbaj310w0em1el.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNc79ly1fz8vgu3opkj311q0d6aw9.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNc79ly1fz8vh6m2pxj30y608manu.jpg">
+<meta property="og:updated_time" content="2019-04-02T01:18:32.909Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="算法（三）：贪心算法">
+<meta name="twitter:description" content="Greedy 2018级习题  1.多边形与度    2.工作分配    最后一个在PC上结束的时间 Time_{job_i}=\sum_{0\to i-1}Super\ time + PC_i \\ job_i\text{必须等前面i-1个job执行完，并且再在PC上执行完，所以结束时间：max{Time of Job i}}   3.子序列匹配   4.剪绳子  动态规划 dp[n]=max">
+<meta name="twitter:image" content="https://ws4.sinaimg.cn/large/006tNc79ly1fz8v5m4b1fj30ys06o0ua.jpg">
+
+  
+
+  
+    <link rel="icon" href="https://avatars0.githubusercontent.com/u/12479824">
+  
+
+  <link href="/css/styles.css?v=d671a41f" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/styles.css">
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+<script src="//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0"></script>
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+ <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css">
+<script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/github-markdown-css/2.2.1/github-markdown.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+
+    <!-- The loading of KaTeX is deferred to speed up page rendering -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+
+    <!-- To automatically render math in text elements, include the auto-render extension: -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+</head>
+<script src="//pixijs.download/release/pixi.js"></script>
+<script src="https://unpkg.com/ityped@1.0.2"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"></html>
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">菜单</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">菜单</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+            目录
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/category/" rel="noopener noreferrer" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/tag/" rel="noopener noreferrer" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/project/" rel="noopener noreferrer" target="_self">
+            项目
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#greedy"><span class="toc-text"> Greedy</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1多边形与度"><span class="toc-text"> 1.多边形与度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2工作分配"><span class="toc-text"> 2.工作分配</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3子序列匹配"><span class="toc-text"> 3.子序列匹配</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4剪绳子"><span class="toc-text"> 4.剪绳子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5负重过河"><span class="toc-text"> 5.负重过河</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6猴子香蕉"><span class="toc-text"> 6.猴子香蕉</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7雷达布测"><span class="toc-text"> 7.雷达布测</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8乘数"><span class="toc-text"> 8.乘数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9霍夫曼编码"><span class="toc-text"> 9.霍夫曼编码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10最短路径"><span class="toc-text"> 10.最短路径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11聚会"><span class="toc-text"> 11.聚会</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12做作业"><span class="toc-text"> 12.做作业</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13滑雪比赛"><span class="toc-text"> 13.滑雪比赛</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14deadline"><span class="toc-text"> 14.Deadline</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#15dota猪队友神对手"><span class="toc-text"> 15.DotA猪队友神对手</span></a></li></ol></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-greedy" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">算法（三）：贪心算法</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2019.01.08</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>idejie</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/课程复习/">课程复习</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp 阅读量：<span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>
+        </span>
+      
+
+     
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h1 id="greedy"><a class="markdownIt-Anchor" href="#greedy"></a> Greedy</h1>
+<p>2018级习题</p>
+<h2 id="1多边形与度"><a class="markdownIt-Anchor" href="#1多边形与度"></a> 1.多边形与度</h2>
+<p><img src="https://ws4.sinaimg.cn/large/006tNc79ly1fz8v5m4b1fj30ys06o0ua.jpg" alt=""></p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNc79ly1fz9fop73gcj31cu0am420.jpg" alt=""></p>
+<h2 id="2工作分配"><a class="markdownIt-Anchor" href="#2工作分配"></a> 2.工作分配</h2>
+<p><img src="https://ws4.sinaimg.cn/large/006tNc79ly1fz8v69m24zj30y40b077h.jpg" alt=""></p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNc79ly1fz8v6xgzp3j310204wgmx.jpg" alt=""></p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1fz9fs01ku2j31r009sadn.jpg" alt=""></p>
+<p>最后一个在PC上结束的时间</p>
+<p class="katex-block katex-error" title="ParseError: KaTeX parse error: Expected &#039;EOF&#039;, got &#039;\\&#039; at position 48: …r\ time + PC_i
+\̲\̲
+job_i\text{必须等…">Time_{job_i}=\sum_{0\to i-1}Super\ time + PC_i
+\\
+job_i\text{必须等前面i-1个job执行完，并且再在PC上执行完，所以结束时间：max{Time of Job i}}
+</p>
+<h2 id="3子序列匹配"><a class="markdownIt-Anchor" href="#3子序列匹配"></a> 3.子序列匹配</h2>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fz8v7dxkuqj30yu064q4e.jpg" alt=""></p>
+<h2 id="4剪绳子"><a class="markdownIt-Anchor" href="#4剪绳子"></a> 4.剪绳子</h2>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fz8v7s21pyj30yu050dgz.jpg" alt=""></p>
+<p><strong>动态规划</strong></p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>p</mi><mo>[</mo><mi>n</mi><mo>]</mo><mo>=</mo><mi>m</mi><mi>a</mi><mi>x</mi><mo>{</mo><mi>d</mi><mi>p</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>∗</mo><mi>d</mi><mi>p</mi><mo>[</mo><mi>n</mi><mo>−</mo><mi>i</mi><mo>]</mo><mo>}</mo></mrow><annotation encoding="application/x-tex">dp[n]=max\{dp[i]*dp[n-i]\}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit">d</span><span class="mord mathit">p</span><span class="mopen">[</span><span class="mord mathit">n</span><span class="mclose">]</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord mathit">m</span><span class="mord mathit">a</span><span class="mord mathit">x</span><span class="mopen">{</span><span class="mord mathit">d</span><span class="mord mathit">p</span><span class="mopen">[</span><span class="mord mathit">i</span><span class="mclose">]</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord mathit">d</span><span class="mord mathit">p</span><span class="mopen">[</span><span class="mord mathit">n</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord mathit">i</span><span class="mclose">]</span><span class="mclose">}</span></span></span></span></span></p>
+<p><strong>贪心：</strong></p>
+<p>取尽量多的3，然后是2</p>
+<p>if n%3=0 全分成3</p>
+<p>if n%3=1 分成 n-4/3个3 和两个2</p>
+<p>if n%3=2 分分成n-1个3和一个2</p>
+<p><strong>证明：</strong></p>
+<p>数学归纳法：(并不完备，只能证明有效性，不能证明最优)</p>
+<ul>
+<li>n=1，2，3，4不讨论，原因：1不能剪，2，3，4的话剪了反而不会增大</li>
+<li>从n=5开始，显然2，3是最优解</li>
+<li>n=6~10通过枚举法也易得分配最优</li>
+</ul>
+<p>对于n&gt;=10时来讨论</p>
+<p>2(n-2)&gt;n ;3(n-3)&gt;2(n-2)</p>
+<h2 id="5负重过河"><a class="markdownIt-Anchor" href="#5负重过河"></a> 5.负重过河</h2>
+<p><img src="https://ws4.sinaimg.cn/large/006tNc79ly1fz8v844sb3j30yk0no791.jpg" alt=""></p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1fz9gnytganj31ni0u0162.jpg" alt=""></p>
+<h2 id="6猴子香蕉"><a class="markdownIt-Anchor" href="#6猴子香蕉"></a> 6.猴子香蕉</h2>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fz8v8m13edj30z203st9o.jpg" alt=""></p>
+<p>排序就完了</p>
+<p>第i个猴子拿第i个香蕉</p>
+<p>2016级习题</p>
+<h2 id="7雷达布测"><a class="markdownIt-Anchor" href="#7雷达布测"></a> 7.雷达布测</h2>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fz8v9j3vdwj31300qq11b.jpg" alt=""></p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fz9no5gvfxj31290u07fg.jpg" alt=""></p>
+<h2 id="8乘数"><a class="markdownIt-Anchor" href="#8乘数"></a> 8.乘数</h2>
+<p><img src="https://ws4.sinaimg.cn/large/006tNc79ly1fz8v9vijvwj30yw07gmys.jpg" alt=""></p>
+<p>排序，小的和小的乘</p>
+<h2 id="9霍夫曼编码"><a class="markdownIt-Anchor" href="#9霍夫曼编码"></a> 9.霍夫曼编码</h2>
+<p><img src="https://ws4.sinaimg.cn/large/006tNc79ly1fz8vaaxdloj3106078wg2.jpg" alt=""></p>
+<p>参考：<a href="https://blog.csdn.net/FX677588/article/details/70767446" target="_blank" rel="noopener">https://blog.csdn.net/FX677588/article/details/70767446</a></p>
+<h2 id="10最短路径"><a class="markdownIt-Anchor" href="#10最短路径"></a> 10.最短路径</h2>
+<p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1fz8vau6k3nj30ya0fitc6.jpg" alt=""></p>
+<p><a href="https://blog.csdn.net/yalishadaa/article/details/55827681" target="_blank" rel="noopener">https://blog.csdn.net/yalishadaa/article/details/55827681</a></p>
+<p>2015级习题</p>
+<h2 id="11聚会"><a class="markdownIt-Anchor" href="#11聚会"></a> 11.聚会</h2>
+<p><img src="https://ws3.sinaimg.cn/large/006tNc79ly1fz8vd2em2sj317y0nctzv.jpg" alt=""></p>
+<p>都排序，和猴子分香蕉的一样</p>
+<p>2017级试题题</p>
+<h2 id="12做作业"><a class="markdownIt-Anchor" href="#12做作业"></a> 12.做作业</h2>
+<p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1fz8velv7ohj311w0dkqpm.jpg" alt=""></p>
+<p>和下面14.deadline的一样</p>
+<h2 id="13滑雪比赛"><a class="markdownIt-Anchor" href="#13滑雪比赛"></a> 13.滑雪比赛</h2>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fz8vf819ydj30yg08s4dm.jpg" alt=""></p>
+<p>都排序，和猴子分香蕉的一样</p>
+<p>2016级试题</p>
+<h2 id="14deadline"><a class="markdownIt-Anchor" href="#14deadline"></a> 14.Deadline</h2>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fz8vgfstbaj310w0em1el.jpg" alt=""></p>
+<p>按扣分项降序，然后把作业都放在deadline那一天，如果当天有多个扣分项，试着往前移第一个次大的p，如果前一天没有作业，或者扣得分少于p,那么就可以换；如果不可以，就继续试着往前换，直到所有都不满足</p>
+<h2 id="15dota猪队友神对手"><a class="markdownIt-Anchor" href="#15dota猪队友神对手"></a> 15.DotA猪队友神对手</h2>
+<p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1fz8vgu3opkj311q0d6aw9.jpg" alt=""></p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fz8vh6m2pxj30y608manu.jpg" alt=""></p>
+<p>按DSP/HP降序排列，先打最高的</p>
+<p>补充题</p>
+<p>教程：<a href="https://blog.csdn.net/qq_32400847/article/details/51336300" target="_blank" rel="noopener">https://blog.csdn.net/qq_32400847/article/details/51336300</a></p>
+<p>①最典型的例子就是 会场安排问题nyoj14, 按节目结束时间排序,再遍历每一个节目时,有选择地更新结束时间,计算出最大节目数</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">可分割背包问题,按单位价值排序,每次选择单位价值大的物品。有道题跟可分割背包类似,但是需要考虑多一点点路程成本的问题,nyoj248</span><br><span class="line"></span><br><span class="line">有几道也是比较容易找出最优策略的题目:  nyoj824 nyoj236   nyoj71  nyoj91(需要有点小技巧)</span><br></pre></td></tr></table></figure>
+<p>②区间覆盖问题,  poj1328(典型),nyoj6   nyoj1036(比较难理解的是题意…看不懂算了)  nyoj891  建议可以先做poj1328,后面的两道也就可以想出来了。</p>
+<p>③二分+贪心: 通过题目可以已知结果所在的范围,然后又有某个限定条件的存在,这个条件可供我们作为贪心的检验条件 nyoj586 nyoj914  poj3122 poj3258 hdu4190</p>
+<p>④寻找最大数系列(要在某个范围内贪心):  nyoj448  nyoj1057 nyoj1170</p>
+<p>⑤需要很细心地贪心策略  nyoj364(我有试着用二分图但是超时了,选择贪心策略去做吧)  nyoj791(记得要充分利用所有的油漆) hdu1735</p>
+<p>⑥很难但是很有学习价值的题目: nyoj30(列举出每种情况,解题报告一句话让我恍然大悟,贪心策略很巧妙)  nyoj1309(看了解题报告很久才懂的题目,好题) hdu4415(难) hdu3697(贪心+枚举)</p>
+<p>⑦策略好找,但是需要小技巧防止超时的题目: hdu4544  hdu4864</p>
+<p>⑧以小见大,举例子去找到排序策略,体会一下这三道题,nyoj47(经典过河)hdu4296  hdu4442 nyoj1218(涉及高精度运算)</p>
+<p>⑨如何将a配凑成b,用 ‘就近原则’ nyoj915 hdu5821</p>
+<p>nyoj  <a href="http://acm.nyist.net/JudgeOnline/problemset.php" target="_blank" rel="noopener">http://acm.nyist.net/JudgeOnline/problemset.php</a>         hdu   <a href="http://acm.hdu.edu.cn" target="_blank" rel="noopener">http://acm.hdu.edu.cn</a>        poj  <a href="http://poj.org/" target="_blank" rel="noopener">http://poj.org/</a></p>
+<p>这里只是列举了一些题目,如果你是刚学贪心算法正在找题目做的同学可以先刷完这些题,我的博客也有部分题目的题解,希望有所帮助.</p>
+<p>PS:因为huffman树,迪杰斯特拉算法,最小生成树算法,二分图最大匹配(匈牙利算法)和二分图最佳匹配(KM算法)  也用到了贪心思想,所以我也看了一下,下面都是一些很好的文章:</p>
+<p>huffman树:   <a href="http://blog.csdn.net/ns_code/article/details/19174553" target="_blank" rel="noopener">http://blog.csdn.net/ns_code/article/details/19174553</a>  poj3253  nyoj801</p>
+<p>迪杰斯特拉算法: <a href="http://www.cnblogs.com/Braveliu/p/3458671.html" target="_blank" rel="noopener">http://www.cnblogs.com/Braveliu/p/3458671.html</a>     poj1502</p>
+<p>最小生成树算法: <a href="http://www.cnblogs.com/biyeymyhjob/archive/2012/07/30/2615542.html#commentform" target="_blank" rel="noopener">http://www.cnblogs.com/biyeymyhjob/archive/2012/07/30/2615542.html#commentform</a></p>
+<p>二分图最大匹配:<a href="http://blog.csdn.net/dark_scope/article/details/8880547/" target="_blank" rel="noopener">http://blog.csdn.net/dark_scope/article/details/8880547/</a>   hdu2063  hdu1281  poj1274 poj1469</p>
+<p>最佳匹配: <a href="http://www.cnblogs.com/Lanly/p/6291214.html#3738044" target="_blank" rel="noopener">http://www.cnblogs.com/Lanly/p/6291214.html#3738044</a></p>
+
+    
+  </div>
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation"><strong><a href="#" style="color: #999;">赞赏</a></strong></span>
+      <div class="donation-body">
+        <div class="tip text-center"><strong>支持一下</strong></div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="https://ws1.sinaimg.cn/large/006tNbRwly1fxjlq29zkkj30f60f675t.jpg" alt="">
+            <a>微信扫一扫</a>
+          </li>
+        
+          <li class="item">
+            <img src="https://ws2.sinaimg.cn/large/006tNbRwly1fxjlwikh27j30a20a2wfe.jpg" alt="">
+            <a>支付宝扫一扫</a>
+          </li>
+        
+          <li class="item">
+            <img src="https://ws3.sinaimg.cn/large/006tNbRwly1fxjlztplu9j30jd0jeadu.jpg" alt="">
+            <a>QQ扫一扫</a>
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2019/01/09/lp/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2019/01/07/dp/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+              目录
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/category/" rel="noopener noreferrer" target="_self">
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/tag/" rel="noopener noreferrer" target="_self">
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/project/" rel="noopener noreferrer" target="_self">
+              项目
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+
+
+
+
+  <div id="vcomments"></div>
+    <script>
+        new Valine({
+            el: '#vcomments',
+            appId: 'm2JW5otJtf3PU6V2F3ORdsVl-gzGzoHsz',
+            appKey: 'sT0JdEoQA7RJThLQ7z6xiT0c'
+        })
+    </script>
+
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+
+</body>
+</html>

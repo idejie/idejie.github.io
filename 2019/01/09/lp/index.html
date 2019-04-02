@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="google-site-verification" content="rEUG6A2SLvgx5-OW-Q2fuuC4q9qNnwo62YXM9KhQlPg">
+  
+  <title>算法（四）：线性规划 | idejie</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="">
+  
+
+  <meta name="description" content="2018级习题  1.线性不等式的可行解       2.教室分配    3.燃气站分配    4.配对        5.多物品流      6.对偶问题2   7.飞机落地    8.志愿者分配     2016级习题  9.*****   2017级试题   10.最小费用流   11.最短路径  in the single-pair shortest-path problem,we are">
+<meta name="keywords" content="线性规划">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法（四）：线性规划">
+<meta property="og:url" content="https://blog.idejie.com/2019/01/09/lp/index.html">
+<meta property="og:site_name" content="idejie">
+<meta property="og:description" content="2018级习题  1.线性不等式的可行解       2.教室分配    3.燃气站分配    4.配对        5.多物品流      6.对偶问题2   7.飞机落地    8.志愿者分配     2016级习题  9.*****   2017级试题   10.最小费用流   11.最短路径  in the single-pair shortest-path problem,we are">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNc79ly1fz8viizeolj30yw0940uv.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNc79ly1fz9tzj70duj318k0oc1kx.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNc79ly1fz9u04vzr3j317m0ti7wh.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNc79ly1fz9u0nera7j317a0ss4qp.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNc79ly1fz9u0twojpj31800qc1kx.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNc79ly1fz8vj0x657j30z6074769.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNc79ly1fz9tnw95xlj31bm0u0ag6.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNc79ly1fz8vj8e9jwj30yw0eg0wd.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNc79ly1fz9txm9i2ej30ye0geju3.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNc79ly1fz8vjlfz8mj311y0lc444.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNc79ly1fz9u8vsf8zj319w0s24qp.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNc79ly1fz9u9cn044j31880iokbs.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNc79ly1fz9ubqc25kj315u0kskcr.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNc79ly1fz9ucu5e6yj317y0r21kx.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNc79ly1fz9ud1a5dgj31580l87pn.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNc79ly1fz8vk56ejrj30zy05o3zt.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNc79ly1fz9ue4r0jvj317c0igdzd.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNc79ly1fz9v1xkhpsj311s0r0hb1.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNc79ly1fz9v1hshynj316a0to4qp.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNc79ly1fz8vkjhe0rj30mi0egdgr.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNc79ly1fz8vl3chvdj30zy0ic0xk.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNc79ly1fz9v3fafprj315i0rcx5y.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNc79ly1fz8vlm2uovj30yw09mdi4.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNc79ly1fz9v3qbndhj318k07sn5z.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNc79ly1fz9v42k3kmj318y0janiz.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNc79ly1fz9v49nw2gj318m0om4p9.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNc79ly1fz8vmw32htj310m0cw76v.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNc79ly1fz8vnc2ca2j30u00vln5e.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNc79ly1fz8vovqtnzj30po02k0wl.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNc79ly1fz8vpp5hfxj30yc0awtow.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNc79ly1fz8vty2dvvj30ma04ijwk.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNc79ly1fz8vvha8vuj31100eety6.jpg">
+<meta property="og:updated_time" content="2019-04-02T01:19:51.109Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="算法（四）：线性规划">
+<meta name="twitter:description" content="2018级习题  1.线性不等式的可行解       2.教室分配    3.燃气站分配    4.配对        5.多物品流      6.对偶问题2   7.飞机落地    8.志愿者分配     2016级习题  9.*****   2017级试题   10.最小费用流   11.最短路径  in the single-pair shortest-path problem,we are">
+<meta name="twitter:image" content="https://ws2.sinaimg.cn/large/006tNc79ly1fz8viizeolj30yw0940uv.jpg">
+
+  
+
+  
+    <link rel="icon" href="https://avatars0.githubusercontent.com/u/12479824">
+  
+
+  <link href="/css/styles.css?v=d671a41f" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/styles.css">
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+<script src="//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0"></script>
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+ <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css">
+<script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/github-markdown-css/2.2.1/github-markdown.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+
+    <!-- The loading of KaTeX is deferred to speed up page rendering -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+
+    <!-- To automatically render math in text elements, include the auto-render extension: -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+</head>
+<script src="//pixijs.download/release/pixi.js"></script>
+<script src="https://unpkg.com/ityped@1.0.2"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"></html>
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">菜单</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">菜单</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+            目录
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/category/" rel="noopener noreferrer" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/tag/" rel="noopener noreferrer" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/project/" rel="noopener noreferrer" target="_self">
+            项目
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1线性不等式的可行解"><span class="toc-text"> 1.线性不等式的可行解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2教室分配"><span class="toc-text"> 2.教室分配</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3燃气站分配"><span class="toc-text"> 3.燃气站分配</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4配对"><span class="toc-text"> 4.配对</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5多物品流"><span class="toc-text"> 5.多物品流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6对偶问题2"><span class="toc-text"> 6.对偶问题2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7飞机落地"><span class="toc-text"> 7.飞机落地</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8志愿者分配"><span class="toc-text"> 8.志愿者分配</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9"><span class="toc-text"> 9.*****</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10最小费用流"><span class="toc-text"> 10.最小费用流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11最短路径"><span class="toc-text"> 11.最短路径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12货物运输"><span class="toc-text"> 12.货物运输</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-lp" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">算法（四）：线性规划</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2019.01.09</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>idejie</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/课程复习/">课程复习</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp 阅读量：<span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>
+        </span>
+      
+
+     
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <p>2018级习题</p>
+<h2 id="1线性不等式的可行解"><a class="markdownIt-Anchor" href="#1线性不等式的可行解"></a> 1.线性不等式的可行解</h2>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fz8viizeolj30yw0940uv.jpg" alt=""></p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNc79ly1fz9tzj70duj318k0oc1kx.jpg" alt=""></p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fz9u04vzr3j317m0ti7wh.jpg" alt=""></p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fz9u0nera7j317a0ss4qp.jpg" alt=""></p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1fz9u0twojpj31800qc1kx.jpg" alt=""></p>
+<h2 id="2教室分配"><a class="markdownIt-Anchor" href="#2教室分配"></a> 2.教室分配</h2>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fz8vj0x657j30z6074769.jpg" alt=""></p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fz9tnw95xlj31bm0u0ag6.jpg" alt=""></p>
+<h2 id="3燃气站分配"><a class="markdownIt-Anchor" href="#3燃气站分配"></a> 3.燃气站分配</h2>
+<p><img src="https://ws4.sinaimg.cn/large/006tNc79ly1fz8vj8e9jwj30yw0eg0wd.jpg" alt=""></p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1fz9txm9i2ej30ye0geju3.jpg" alt=""></p>
+<h2 id="4配对"><a class="markdownIt-Anchor" href="#4配对"></a> 4.配对</h2>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fz8vjlfz8mj311y0lc444.jpg" alt=""></p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNc79ly1fz9u8vsf8zj319w0s24qp.jpg" alt=""></p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1fz9u9cn044j31880iokbs.jpg" alt=""></p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNc79ly1fz9ubqc25kj315u0kskcr.jpg" alt=""></p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNc79ly1fz9ucu5e6yj317y0r21kx.jpg" alt=""></p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1fz9ud1a5dgj31580l87pn.jpg" alt=""></p>
+<h2 id="5多物品流"><a class="markdownIt-Anchor" href="#5多物品流"></a> 5.多物品流</h2>
+<p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1fz8vk56ejrj30zy05o3zt.jpg" alt=""></p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fz9ue4r0jvj317c0igdzd.jpg" alt=""></p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNc79ly1fz9v1xkhpsj311s0r0hb1.jpg" alt=""></p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNc79ly1fz9v1hshynj316a0to4qp.jpg" alt=""></p>
+<h2 id="6对偶问题2"><a class="markdownIt-Anchor" href="#6对偶问题2"></a> 6.对偶问题2</h2>
+<p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1fz8vkjhe0rj30mi0egdgr.jpg" alt=""></p>
+<h2 id="7飞机落地"><a class="markdownIt-Anchor" href="#7飞机落地"></a> 7.飞机落地</h2>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fz8vl3chvdj30zy0ic0xk.jpg" alt=""></p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1fz9v3fafprj315i0rcx5y.jpg" alt=""></p>
+<h2 id="8志愿者分配"><a class="markdownIt-Anchor" href="#8志愿者分配"></a> 8.志愿者分配</h2>
+<p><img src="https://ws3.sinaimg.cn/large/006tNc79ly1fz8vlm2uovj30yw09mdi4.jpg" alt=""></p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNc79ly1fz9v3qbndhj318k07sn5z.jpg" alt=""></p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1fz9v42k3kmj318y0janiz.jpg" alt=""></p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1fz9v49nw2gj318m0om4p9.jpg" alt=""></p>
+<p>2016级习题</p>
+<h2 id="9"><a class="markdownIt-Anchor" href="#9"></a> 9.*****</h2>
+<p><img src="https://ws3.sinaimg.cn/large/006tNc79ly1fz8vmw32htj310m0cw76v.jpg" alt=""></p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fz8vnc2ca2j30u00vln5e.jpg" alt=""></p>
+<p>2017级试题</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNc79ly1fz8vovqtnzj30po02k0wl.jpg" alt=""></p>
+<h2 id="10最小费用流"><a class="markdownIt-Anchor" href="#10最小费用流"></a> 10.最小费用流</h2>
+<p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1fz8vpp5hfxj30yc0awtow.jpg" alt=""></p>
+<h2 id="11最短路径"><a class="markdownIt-Anchor" href="#11最短路径"></a> 11.最短路径</h2>
+<p><img src="https://ws3.sinaimg.cn/large/006tNc79ly1fz8vty2dvvj30ma04ijwk.jpg" alt=""></p>
+<p>in the single-pair shortest-path problem,we are given: a weigthed directed graph G=(U,E) ,a weight function w: E <span class="katex-error" title="ParseError: KaTeX parse error: Expected &#039;EOF&#039;, got &#039;\R&#039; at position 5: \to \̲R̲^2">\to \R^2</span> mapping edges to positive real-valued weight</p>
+<p>2016级试题</p>
+<h2 id="12货物运输"><a class="markdownIt-Anchor" href="#12货物运输"></a> 12.货物运输</h2>
+<p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1fz8vvha8vuj31100eety6.jpg" alt=""></p>
+<p class="katex-block katex-error" title="ParseError: KaTeX parse error: Expected &#039;EOF&#039;, got &#039;\\&#039; at position 34: …x_i+b_i·I(x_i)
+\̲\̲
+s.t.=
+\begin{c…">min \quad \sum a_ix_i+b_i·I(x_i)
+\\
+s.t.=
+\begin{cases}
+I(x)=\begin{cases}
+1 ，&amp; x&gt;0\\
+0, &amp;x=0
+\end{cases}\\
+ x_i \leq C_i &amp;i=1,2...M\\
+\sum _{to\  City_c }x_i =\sum _{from\ City_c }x_j\\
+\sum_{from \ City_1}x_i=\sum_{to \ city_N} x_j = K
+\\
+x_i = 0，1,2,3,....,K\\
+i,j = 1,2,...,M\\
+c= 2,3,...,N-1
+\end{cases}
+</p>
+<p>补充题</p>
+
+    
+  </div>
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation"><strong><a href="#" style="color: #999;">赞赏</a></strong></span>
+      <div class="donation-body">
+        <div class="tip text-center"><strong>支持一下</strong></div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="https://ws1.sinaimg.cn/large/006tNbRwly1fxjlq29zkkj30f60f675t.jpg" alt="">
+            <a>微信扫一扫</a>
+          </li>
+        
+          <li class="item">
+            <img src="https://ws2.sinaimg.cn/large/006tNbRwly1fxjlwikh27j30a20a2wfe.jpg" alt="">
+            <a>支付宝扫一扫</a>
+          </li>
+        
+          <li class="item">
+            <img src="https://ws3.sinaimg.cn/large/006tNbRwly1fxjlztplu9j30jd0jeadu.jpg" alt="">
+            <a>QQ扫一扫</a>
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2019/01/10/max-flow/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2019/01/08/greedy/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+              目录
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/category/" rel="noopener noreferrer" target="_self">
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/tag/" rel="noopener noreferrer" target="_self">
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/project/" rel="noopener noreferrer" target="_self">
+              项目
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+
+
+
+
+  <div id="vcomments"></div>
+    <script>
+        new Valine({
+            el: '#vcomments',
+            appId: 'm2JW5otJtf3PU6V2F3ORdsVl-gzGzoHsz',
+            appKey: 'sT0JdEoQA7RJThLQ7z6xiT0c'
+        })
+    </script>
+
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+
+</body>
+</html>
