@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="google-site-verification" content="rEUG6A2SLvgx5-OW-Q2fuuC4q9qNnwo62YXM9KhQlPg">
+  
+  <title>算法（一）：分而治之 | idejie</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="">
+  
+
+  <meta name="description" content="1.两个数组的中位数   当 n= 1时，中位数就是𝑚𝑖𝑛(𝐴[0],𝐵[0])当n&amp;gt;=2时，需要比较𝑀𝑙和𝑀𝑟如果两个数相等，那么中位数就是这个值如果𝑀𝑙&amp;gt;𝑀𝑟,那么就开始求𝐴𝑙和𝐵𝑟两部分的中位数如果𝑀𝑙&amp;lt;𝑀𝑟,那么就开始求𝐴𝑟和𝐵𝑙两部分的中位数。 算法复杂度：O(log n)O(log \ n)O(log n)   2.">
+<meta name="keywords" content="分而治之">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法（一）：分而治之">
+<meta property="og:url" content="https://blog.idejie.com/2019/01/02/divide-conquer/index.html">
+<meta property="og:site_name" content="idejie">
+<meta property="og:description" content="1.两个数组的中位数   当 n= 1时，中位数就是𝑚𝑖𝑛(𝐴[0],𝐵[0])当n&amp;gt;=2时，需要比较𝑀𝑙和𝑀𝑟如果两个数相等，那么中位数就是这个值如果𝑀𝑙&amp;gt;𝑀𝑟,那么就开始求𝐴𝑙和𝐵𝑟两部分的中位数如果𝑀𝑙&amp;lt;𝑀𝑟,那么就开始求𝐴𝑟和𝐵𝑙两部分的中位数。 算法复杂度：O(log n)O(log \ n)O(log n)   2.">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNc79ly1fz7912jcwfj319g0f8789.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNc79ly1fz791sed76j319m0biade.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNc79ly1fz792apttwj31ag0b8tc2.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNc79ly1fz78e4xm5yj30xd0u0tc8.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNc79ly1fz792pudvdj319i0asdiy.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNc79ly1fz77z7yrwxj306604yt8k.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNc79ly1fz780cwzrdj30uy0b2t91.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNc79ly1fz78gwh2p6j31ck0hw4mz.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNc79ly1fz791ku38ij31a806cq3z.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNc79ly1fz794b4x91j313404aq3s.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNc79ly1fz78xvignoj315e0iqqum.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNc79ly1fz7cke3uggj30s4118qbv.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNc79ly1fz78yx3mllj316k06oth6.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNc79ly1fz7is86vz6j30qg0v2x0t.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNc79ly1fz78zmye1mj30nq066jxq.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNc79ly1fz790j4009j319y0m844j.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNc79ly1fz790rrup0j3198098wgw.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNc79ly1fz793nqrtpj319g0a4411.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNc79ly1fz793vhjfhj316u02u74x.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNc79ly1fz7953hbzpj319e03cjs2.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNc79ly1fz795a5s77j319s02sdgi.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNc79ly1fz797l1j9bj30sa06ewnt.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNc79ly1fz7k6dvon8j30it08aabn.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNc79ly1fz7krdczuxj30je0huq6o.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNc79ly1fz7k2vn7r3j31vs06stae.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNc79ly1fz7k02v1muj30v90u048w.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNc79ly1fz7ka3oswqj307704taac.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNc79ly1fz7kn42pqlj31580h8aav.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNc79ly1fz7kncv39sj317w0h8js8.jpg">
+<meta property="og:updated_time" content="2019-04-02T01:13:23.735Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="算法（一）：分而治之">
+<meta name="twitter:description" content="1.两个数组的中位数   当 n= 1时，中位数就是𝑚𝑖𝑛(𝐴[0],𝐵[0])当n&amp;gt;=2时，需要比较𝑀𝑙和𝑀𝑟如果两个数相等，那么中位数就是这个值如果𝑀𝑙&amp;gt;𝑀𝑟,那么就开始求𝐴𝑙和𝐵𝑟两部分的中位数如果𝑀𝑙&amp;lt;𝑀𝑟,那么就开始求𝐴𝑟和𝐵𝑙两部分的中位数。 算法复杂度：O(log n)O(log \ n)O(log n)   2.">
+<meta name="twitter:image" content="https://ws3.sinaimg.cn/large/006tNc79ly1fz7912jcwfj319g0f8789.jpg">
+
+  
+
+  
+    <link rel="icon" href="https://avatars0.githubusercontent.com/u/12479824">
+  
+
+  <link href="/css/styles.css?v=d671a41f" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/styles.css">
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+<script src="//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0"></script>
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+ <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css">
+<script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/github-markdown-css/2.2.1/github-markdown.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+
+    <!-- The loading of KaTeX is deferred to speed up page rendering -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+
+    <!-- To automatically render math in text elements, include the auto-render extension: -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+</head>
+<script src="//pixijs.download/release/pixi.js"></script>
+<script src="https://unpkg.com/ityped@1.0.2"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"></html>
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">菜单</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">菜单</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+            目录
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/category/" rel="noopener noreferrer" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/tag/" rel="noopener noreferrer" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/project/" rel="noopener noreferrer" target="_self">
+            项目
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1两个数组的中位数"><span class="toc-text"> 1.两个数组的中位数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2二叉树中的最远距离"><span class="toc-text"> 2.二叉树中的最远距离</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3二叉树中的局部最小值"><span class="toc-text"> 3.二叉树中的局部最小值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4棋盘中的局部最小值"><span class="toc-text"> 4.棋盘中的局部最小值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5归并排序的特例"><span class="toc-text"> 5.归并排序的特例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6棋盘填充"><span class="toc-text"> 6.棋盘填充</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7第k大元素"><span class="toc-text"> 7.第k大元素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8最近点对"><span class="toc-text"> 8.最近点对</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9凸包特例捉鬼敢死队"><span class="toc-text"> 9.凸包特例：捉鬼敢死队</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10凸包问题多边形转化成三角"><span class="toc-text"> 10.凸包问题：多边形转化成三角</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11数组中的局部最大值"><span class="toc-text"> 11.数组中的局部最大值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12奶牛跳房子"><span class="toc-text"> 12.奶牛跳房子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13排序"><span class="toc-text"> 13.排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14矩阵乘法"><span class="toc-text"> 14.矩阵乘法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#15大数乘法"><span class="toc-text"> 15.大数乘法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#16旋转数组"><span class="toc-text"> 16.旋转数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#17汉诺塔"><span class="toc-text"> 17.汉诺塔</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#18凸包问题"><span class="toc-text"> 18.凸包问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#19最大子序和"><span class="toc-text"> 19.最大子序和</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#20循环赛表"><span class="toc-text"> 20.循环赛表</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-divide-conquer" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">算法（一）：分而治之</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2019.01.02</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>idejie</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/课程复习/">课程复习</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp 阅读量：<span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>
+        </span>
+      
+
+     
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h2 id="1两个数组的中位数"><a class="markdownIt-Anchor" href="#1两个数组的中位数"></a> 1.两个数组的中位数</h2>
+<p><img src="https://ws3.sinaimg.cn/large/006tNc79ly1fz7912jcwfj319g0f8789.jpg" alt=""></p>
+<hr>
+<p>当 n= 1时，中位数就是𝑚𝑖𝑛(𝐴[0],𝐵[0])当n&gt;=2时，需要比较𝑀𝑙和𝑀𝑟如果两个数相等，那么中位数就是这个值如果𝑀𝑙&gt;𝑀𝑟,那么就开始求𝐴𝑙和𝐵𝑟两部分的中位数如果𝑀𝑙&lt;𝑀𝑟,那么就开始求𝐴𝑟和𝐵𝑙两部分的中位数。</p>
+<p><strong>算法复杂度</strong>：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>l</mi><mi>o</mi><mi>g</mi><mtext> </mtext><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(log \ n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mord mathit">o</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mspace"> </span><span class="mord mathit">n</span><span class="mclose">)</span></span></span></span></p>
+<hr>
+<h2 id="2二叉树中的最远距离"><a class="markdownIt-Anchor" href="#2二叉树中的最远距离"></a> 2.二叉树中的最远距离</h2>
+<p>Given a binary tree, suppose that the distance between two adjacent nodes is 1, please give a solution to find the maximum distance of any two node in the binary tree.</p>
+<hr>
+<p>将树分成左子树和右子树子问题就是求左右两棵树的到根节点最大距离的点最大距离的点是，比较左右子树的根节点到叶子节点的最大值，并返回这个点最终，我们在左子树上能找到一个距离最大的叶子节点，右子树能找到一个到跟节点最大的叶子节点这两个点就是距离最远的节点对</p>
+<p><strong>算法复杂度</strong>:<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>l</mi><mi>o</mi><mi>g</mi><mtext> </mtext><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(log\ n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mord mathit">o</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mspace"> </span><span class="mord mathit">n</span><span class="mclose">)</span></span></span></span></p>
+<hr>
+<h2 id="3二叉树中的局部最小值"><a class="markdownIt-Anchor" href="#3二叉树中的局部最小值"></a> 3.二叉树中的局部最小值</h2>
+<p><img src="https://ws4.sinaimg.cn/large/006tNc79ly1fz791sed76j319m0biade.jpg" alt=""></p>
+<hr>
+<p>如果子节点都大于根节点，那么根节点就满足如果存在子节点小于根节点，那么可以将这个节点当做根节点形成新树去求解，这样就减少了一半</p>
+<p><strong>复杂度</strong>：𝑂(𝑙𝑜𝑔𝑛)</p>
+<hr>
+<h2 id="4棋盘中的局部最小值"><a class="markdownIt-Anchor" href="#4棋盘中的局部最小值"></a> 4.棋盘中的局部最小值</h2>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fz792apttwj31ag0b8tc2.jpg" alt=""></p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNc79ly1fz78e4xm5yj30xd0u0tc8.jpg" alt=""></p>
+<p>n = 1 时，就是局部最小值</p>
+<p>Divider:如图，将大棋盘G分割成4个 的小棋盘𝑔𝑖</p>
+<p>Conquer:然后找出棋盘边上的𝑥𝑖的最小值min</p>
+<ul>
+<li>如果最小值位于原大棋盘G的边上，那么就选择它所在的小棋盘𝑔𝑖为大棋盘再进行Divider，即𝐺=𝑔𝑖</li>
+<li>如果min位于两个小棋盘的相交的边，那么就去比较它上下或者左右两个邻居
+<ul>
+<li>如果min最小，那么min就是局部最小值如果</li>
+<li>不是min最小，那么选择最小邻居所在的棋盘作为大棋盘再进行处理如果</li>
+</ul>
+</li>
+<li>min位于四个小棋盘的交汇点，那么就去比较它周围的四个邻居
+<ul>
+<li>如果min仍是最小，输出min</li>
+<li>否则选择最小邻居所在的小棋盘作为大棋盘进行Divider</li>
+</ul>
+</li>
+</ul>
+<p><strong>算法复杂度</strong>：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mclose">)</span></span></span></span></p>
+<hr>
+<h2 id="5归并排序的特例"><a class="markdownIt-Anchor" href="#5归并排序的特例"></a> 5.归并排序的特例</h2>
+<p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1fz792pudvdj319i0asdiy.jpg" alt=""></p>
+<hr>
+<p>和归并排序一样，只需要在换位置的时候判断一下，并且合理加上数值</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mtext> </mtext><mi>l</mi><mi>o</mi><mi>g</mi><mtext> </mtext><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n\ log \ n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mspace"> </span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mord mathit">o</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mspace"> </span><span class="mord mathit">n</span><span class="mclose">)</span></span></span></span></p>
+<hr>
+<h2 id="6棋盘填充"><a class="markdownIt-Anchor" href="#6棋盘填充"></a> 6.棋盘填充</h2>
+<p>Given a table M consisting of 2n ∗ 2n blocks, we want to fill it with a L-shaped module (consisting of three blocks). The L-shaped module is shown below.</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fz77z7yrwxj306604yt8k.jpg" alt="替代文字"></p>
+<p>Please give a fill method, so that the last element of the table (M2n,2n) is empty.</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1fz780cwzrdj30uy0b2t91.jpg" alt="w"></p>
+<hr>
+<p>分成四个小正方形，相当于四个子问题</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNc79ly1fz78gwh2p6j31ck0hw4mz.jpg" alt=""></p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>n</mi><mn>2</mn></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n^2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></p>
+<hr>
+<h2 id="7第k大元素"><a class="markdownIt-Anchor" href="#7第k大元素"></a> 7.第k大元素</h2>
+<p><img src="https://ws4.sinaimg.cn/large/006tNc79ly1fz791ku38ij31a806cq3z.jpg" alt=""></p>
+<hr>
+<p>快排，但是只需要关心第k个数可能在的那部分就好</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mclose">)</span></span></span></span></p>
+<hr>
+<h2 id="8最近点对"><a class="markdownIt-Anchor" href="#8最近点对"></a> 8.最近点对</h2>
+<p><img src="https://ws3.sinaimg.cn/large/006tNc79ly1fz794b4x91j313404aq3s.jpg" alt=""></p>
+<hr>
+<p>最近点对 分成两部分，找出最小的𝛿</p>
+<p>合并时，找|𝛿|附近的最近点对</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mtext> </mtext><mi>l</mi><mi>o</mi><mi>g</mi><mtext> </mtext><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n\ log \ n )</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mspace"> </span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mord mathit">o</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mspace"> </span><span class="mord mathit">n</span><span class="mclose">)</span></span></span></span></p>
+<h2 id="9凸包特例捉鬼敢死队"><a class="markdownIt-Anchor" href="#9凸包特例捉鬼敢死队"></a> 9.凸包特例：捉鬼敢死队</h2>
+<p><img src="https://ws4.sinaimg.cn/large/006tNc79ly1fz78xvignoj315e0iqqum.jpg" alt=""></p>
+<hr>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fz7cke3uggj30s4118qbv.jpg" alt=""></p>
+<hr>
+<h2 id="10凸包问题多边形转化成三角"><a class="markdownIt-Anchor" href="#10凸包问题多边形转化成三角"></a> 10.凸包问题：多边形转化成三角</h2>
+<p><img src="https://ws4.sinaimg.cn/large/006tNc79ly1fz78yx3mllj316k06oth6.jpg" alt=""></p>
+<hr>
+<p><img src="https://ws4.sinaimg.cn/large/006tNc79ly1fz7is86vz6j30qg0v2x0t.jpg" alt=""></p>
+<h2 id="11数组中的局部最大值"><a class="markdownIt-Anchor" href="#11数组中的局部最大值"></a> 11.数组中的局部最大值</h2>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fz78zmye1mj30nq066jxq.jpg" alt=""></p>
+<p>Divider:从数组的中间元素<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>A</mi><mi>m</mi></msub><mo>=</mo><mi>A</mi><mo>[</mo><mfrac><mrow><mi>n</mi></mrow><mrow><mn>2</mn></mrow></mfrac><mo>]</mo></mrow><annotation encoding="application/x-tex">A_m=A [\frac{n}{2}]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1.095em;vertical-align:-0.345em;"></span><span class="base"><span class="mord"><span class="mord mathit">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">m</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord mathit">A</span><span class="mopen">[</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.695392em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span style="top:-3.15em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy" style="height:0.2em;"><svg width="400em" height="0.2em" viewbox="0 0 400000 200" preserveaspectratio="xMinYMin slice"><path d="M0 80H400000 v40H0z M0 80H400000 v40H0z"/></svg></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose">]</span></span></span></span>开始比</p>
+<p>Conquer:</p>
+<ul>
+<li>如果元素<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>A</mi><mi>m</mi></msub></mrow><annotation encoding="application/x-tex">A_m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="base"><span class="mord"><span class="mord mathit">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">m</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span>比两边邻居大，那么就返回<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>A</mi><mi>m</mi></msub></mrow><annotation encoding="application/x-tex">A_m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="base"><span class="mord"><span class="mord mathit">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">m</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span></li>
+<li>如果不是最大，就选比它的其中一个邻居所在的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><mrow><mi>n</mi></mrow><mrow><mn>2</mn></mrow></mfrac></mrow><annotation encoding="application/x-tex">\frac{n}{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.695392em;"></span><span class="strut bottom" style="height:1.040392em;vertical-align:-0.345em;"></span><span class="base"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.695392em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span style="top:-3.15em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy" style="height:0.2em;"><svg width="400em" height="0.2em" viewbox="0 0 400000 200" preserveaspectratio="xMinYMin slice"><path d="M0 80H400000 v40H0z M0 80H400000 v40H0z"/></svg></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span>个元素当成新数列A，进行divider</li>
+</ul>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>l</mi><mi>o</mi><mi>g</mi><mtext> </mtext><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(log \ n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mord mathit">o</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mspace"> </span><span class="mord mathit">n</span><span class="mclose">)</span></span></span></span></p>
+<h2 id="12奶牛跳房子"><a class="markdownIt-Anchor" href="#12奶牛跳房子"></a> 12.奶牛跳房子</h2>
+<p><img src="https://ws4.sinaimg.cn/large/006tNc79ly1fz790j4009j319y0m844j.jpg" alt=""></p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNc79ly1fz790rrup0j3198098wgw.jpg" alt=""></p>
+<p>最小间隔&lt;d&lt;L</p>
+<p>然后用二分法夹逼出这个d来</p>
+<p>每次试d，如果Di大于d就不用移走石头</p>
+<h2 id="13排序"><a class="markdownIt-Anchor" href="#13排序"></a> 13.排序</h2>
+<p><img src="https://ws3.sinaimg.cn/large/006tNc79ly1fz793nqrtpj319g0a4411.jpg" alt=""></p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1fz793vhjfhj316u02u74x.jpg" alt=""></p>
+<h2 id="14矩阵乘法"><a class="markdownIt-Anchor" href="#14矩阵乘法"></a> 14.矩阵乘法</h2>
+<p><img src="https://ws3.sinaimg.cn/large/006tNc79ly1fz7953hbzpj319e03cjs2.jpg" alt=""></p>
+<h2 id="15大数乘法"><a class="markdownIt-Anchor" href="#15大数乘法"></a> 15.大数乘法</h2>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fz795a5s77j319s02sdgi.jpg" alt=""></p>
+<h2 id="16旋转数组"><a class="markdownIt-Anchor" href="#16旋转数组"></a> 16.旋转数组</h2>
+<p><img src="https://ws3.sinaimg.cn/large/006tNc79ly1fz797l1j9bj30sa06ewnt.jpg" alt=""></p>
+<p>divide：</p>
+<ul>
+<li>初始化,start 和end为数组的第一个和最后一个</li>
+<li>如果start&lt;end，那么start就是最小值</li>
+<li>如果start&gt;end，那么去数组中间的那个数mid，可知mid要么大于start，要么小于end
+<ul>
+<li>如果mid&gt;start,那么让start=mid，end=end在数组A[start~end]再进行divide</li>
+<li>如果mid&lt;end,那么让start=start,end=mid在数组A[start~end]再进行divide</li>
+</ul>
+</li>
+</ul>
+<h2 id="17汉诺塔"><a class="markdownIt-Anchor" href="#17汉诺塔"></a> 17.汉诺塔</h2>
+<p><img src="https://ws4.sinaimg.cn/large/006tNc79ly1fz7k6dvon8j30it08aabn.jpg" alt=""></p>
+<p>对于n个盘子的汉诺塔问题，总有3根柱子，当前所有n个盘子都在柱子a上，那么如何通过柱子b将所有盘子挪到柱子c上？</p>
+<p>对于n＝1，好吧，从a到c没有问题；</p>
+<p>如果n&gt;1，可以考虑为a有两个盘子一个是最下面的盘子，一个是上面的n-1个盘子（n-1个盘子看作一个整体），那么问题就是首先将n-1个盘子挪到b柱子上，然后把最下面的盘子放到c柱子上；</p>
+<p>剩下的问题就是如何将n-1个盘子由b挪到c上</p>
+<h2 id="18凸包问题"><a class="markdownIt-Anchor" href="#18凸包问题"></a> 18.凸包问题</h2>
+<p>分治法解决凸包问题的大体思路就是，</p>
+<ul>
+<li>取横坐标最小的点<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>P</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">P_0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="base"><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span>和横坐标最大<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>P</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">P_n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="base"><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span>的点（这两个点一定在凸包上，这个仔细想想能想明白）</li>
+<li>然把这两个点连成一条直线，直线上面的半个凸包叫上凸包，直线下面的半个凸包叫下凸包</li>
+<li>分别在上凸包和下凸包找出距离直线最大的点<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>P</mi><mrow><mi>m</mi><mi>a</mi><mi>x</mi></mrow></msub></mrow><annotation encoding="application/x-tex">P_{max}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="base"><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">m</span><span class="mord mathit mtight">a</span><span class="mord mathit mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span>，连接<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>P</mi><mn>1</mn></msub><msub><mi>P</mi><mrow><mi>m</mi><mi>a</mi><mi>x</mi></mrow></msub></mrow><annotation encoding="application/x-tex">P_1   P_{max}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="base"><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">m</span><span class="mord mathit mtight">a</span><span class="mord mathit mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span>和<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>P</mi><mi>n</mi></msub><msub><mi>P</mi><mrow><mi>m</mi><mi>a</mi><mi>x</mi></mrow></msub></mrow><annotation encoding="application/x-tex">P_nP_{max}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="base"><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">m</span><span class="mord mathit mtight">a</span><span class="mord mathit mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span>如下图</li>
+</ul>
+<p><img src="https://ws3.sinaimg.cn/large/006tNc79ly1fz7krdczuxj30je0huq6o.jpg" alt=""></p>
+<ul>
+<li>又可以把上下两个凸包分解成更小的上凸包和下凸包，为什么说是更小的上凸包和下凸包，</li>
+<li>我们看上图如果我们把<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>P</mi><mn>1</mn></msub><msub><mi>P</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">P_1P_n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="base"><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span>这条线段看成是一条有向线段，那么下凸包在它的右方，上凸包在它的左方，以上凸包为例，连接<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>P</mi><mn>1</mn></msub><msub><mi>P</mi><mrow><mi>m</mi><mi>a</mi><mi>x</mi></mrow></msub></mrow><annotation encoding="application/x-tex">P_1P_{max}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="base"><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">m</span><span class="mord mathit mtight">a</span><span class="mord mathit mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span>之后再找下一个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>P</mi><mrow><mi>m</mi><mi>a</mi><mi>x</mi></mrow></msub></mrow><annotation encoding="application/x-tex">P_{max}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="base"><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">m</span><span class="mord mathit mtight">a</span><span class="mord mathit mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span>的时候我们肯定是要在<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>P</mi><mn>1</mn></msub><msub><mi>P</mi><mrow><mi>m</mi><mi>a</mi><mi>x</mi></mrow></msub></mrow><annotation encoding="application/x-tex">P_1P_{max}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="base"><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">m</span><span class="mord mathit mtight">a</span><span class="mord mathit mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span>这条有向线段的左方进行查找，因此我们可以将<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>P</mi><mn>1</mn></msub><msub><mi>P</mi><mrow><mi>m</mi><mi>a</mi><mi>x</mi></mrow></msub></mrow><annotation encoding="application/x-tex">P_1P_{max}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="base"><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">m</span><span class="mord mathit mtight">a</span><span class="mord mathit mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span>这条线段的左方看成一个更小的上凸包，同理，连接<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>P</mi><mn>1</mn></msub><msub><mi>P</mi><mrow><mi>m</mi><mi>a</mi><mi>x</mi></mrow></msub></mrow><annotation encoding="application/x-tex">P_1P_{max}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="base"><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">m</span><span class="mord mathit mtight">a</span><span class="mord mathit mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span>我们要找到下一个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>P</mi><mrow><mi>m</mi><mi>a</mi><mi>x</mi></mrow></msub></mrow><annotation encoding="application/x-tex">P_{max}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="base"><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">m</span><span class="mord mathit mtight">a</span><span class="mord mathit mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span>肯定要在<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>P</mi><mn>1</mn></msub><msub><mi>P</mi><mrow><mi>m</mi><mi>a</mi><mi>x</mi></mrow></msub></mrow><annotation encoding="application/x-tex">P_1P_{max}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="base"><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">m</span><span class="mord mathit mtight">a</span><span class="mord mathit mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span>的右方查找，这就和下凸包的查找方式一样了，我们可以将它看成一个下凸包。</li>
+</ul>
+<h2 id="19最大子序和"><a class="markdownIt-Anchor" href="#19最大子序和"></a> 19.最大子序和</h2>
+<p>Given an integer array <code>nums</code>, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.</p>
+<p><strong>Example:</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Input: [-2,1,-3,4,-1,2,1,-5,4],</span><br><span class="line">Output: 6</span><br><span class="line">Explanation: [4,-1,2,1] has the largest sum = 6.</span><br></pre></td></tr></table></figure>
+<p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1fz7k2vn7r3j31vs06stae.jpg" alt=""></p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNc79ly1fz7k02v1muj30v90u048w.jpg" alt=""></p>
+<h2 id="20循环赛表"><a class="markdownIt-Anchor" href="#20循环赛表"></a> 20.循环赛表</h2>
+<p>设有n=2^k个运动员要进行网球循环赛。现要设计一个满足以下要求的比赛日程表：</p>
+<p>(1)每个选手必须与其他n-1个选手各赛一次；</p>
+<p>(2)每个选手一天只能参赛一次；</p>
+<p>(3)循环赛在n-1天内结束。</p>
+<p>请按此要求将比赛日程表设计成有n行和n-1列的一个表。在表中的第i行，第j列处填入第i个选手在第j天所遇到的选手。</p>
+<p>按分治策略，我们可以将所有的选手分为两半。则n个选手的比赛日程表可以通过n/2个选手的比赛日程表来决定。</p>
+<p>递归地用这种一分为二的策略对选手进行划分，直到只剩下两个选手时，比赛日程表的制定就变得很简单。</p>
+<p>这时只要让这两个选手进行比赛就可以了。</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNc79ly1fz7ka3oswqj307704taac.jpg" alt=""></p>
+<p>如上图，所列出的正方形表是8个选手的比赛日程表。其中左上角与左下角的两小块分别为选手1至选手4和选手5至选手8前3天的比赛日程。据此，将左上角小块中的所有数字按其相对位置抄到右下角，又将左下角小块中的所有数字按其相对位置抄到右上角，这样我们就分别安排好了选手1至选手4和选手5至选手8在后4天的比赛日程。依此思想容易将这个比赛日程表推广到具有任意多个选手的情形。</p>
+<p>当成一个nx(n-1)的矩阵</p>
+<p>Divide：排序后分组，直到分成2，如有单数，虚拟出一个选手与其竞赛</p>
+<p>Conquer：为两名选手安排竞赛</p>
+<p>merge:使组A只与组B的选手进行竞赛</p>
+<p>特殊情况的处理，单数:</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNc79ly1fz7kn42pqlj31580h8aav.jpg" alt=""></p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNc79ly1fz7kncv39sj317w0h8js8.jpg" alt=""></p>
+
+    
+  </div>
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation"><strong><a href="#" style="color: #999;">赞赏</a></strong></span>
+      <div class="donation-body">
+        <div class="tip text-center"><strong>支持一下</strong></div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="https://ws1.sinaimg.cn/large/006tNbRwly1fxjlq29zkkj30f60f675t.jpg" alt="">
+            <a>微信扫一扫</a>
+          </li>
+        
+          <li class="item">
+            <img src="https://ws2.sinaimg.cn/large/006tNbRwly1fxjlwikh27j30a20a2wfe.jpg" alt="">
+            <a>支付宝扫一扫</a>
+          </li>
+        
+          <li class="item">
+            <img src="https://ws3.sinaimg.cn/large/006tNbRwly1fxjlztplu9j30jd0jeadu.jpg" alt="">
+            <a>QQ扫一扫</a>
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2019/01/10/max-flow/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2018/12/17/net-mining-naotu/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+              目录
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/category/" rel="noopener noreferrer" target="_self">
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/tag/" rel="noopener noreferrer" target="_self">
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/project/" rel="noopener noreferrer" target="_self">
+              项目
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+
+
+
+
+  <div id="vcomments"></div>
+    <script>
+        new Valine({
+            el: '#vcomments',
+            appId: 'm2JW5otJtf3PU6V2F3ORdsVl-gzGzoHsz',
+            appKey: 'sT0JdEoQA7RJThLQ7z6xiT0c'
+        })
+    </script>
+
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+
+</body>
+</html>
