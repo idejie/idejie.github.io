@@ -48,7 +48,6 @@ https://blog.idejie.com/2017/03/08/caffe-learning-2/
 https://blog.idejie.com/2017/03/07/caffe-learning-1/
 https://blog.idejie.com/2017/02/21/software-testing-0/
 https://blog.idejie.com/2017/01/27/mfc/
-https://blog.idejie.com/2017/01/27/electric/
 https://blog.idejie.com/2016/12/31/sum2016/
 https://blog.idejie.com/2016/12/27/data-science/
 https://blog.idejie.com/2016/12/25/music/
