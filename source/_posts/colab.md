@@ -11,7 +11,7 @@ Colaboratory 是一种数据分析工具，可将文字、代码和代码输出�
 
  Jupyter Notebook 上写代码。写好后执行 (Shift + Enter)，代码单元下方就会生成输出。
 
-![](https://ws3.sinaimg.cn/large/006tNc79gy1fnqwuezuuij309502bmx6.jpg)
+![](../pic/006tNc79gy1fnqwuezuuij309502bmx6.jpg)
 
 2.可以存储在 Google Drive 里并且可以共享 note 给别人，可以多人协作
 
