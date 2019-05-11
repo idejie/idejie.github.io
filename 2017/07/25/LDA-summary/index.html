@@ -35,13 +35,13 @@
 <meta property="og:image" content="http://img.blog.csdn.net/20141117160613962">
 <meta property="og:image" content="http://img.blog.csdn.net/20141117160656067">
 <meta property="og:image" content="http://img.blog.csdn.net/20141117152903751">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNc79ly1fhwkw2s9nbj306400i0sn.jpg">
+<meta property="og:image" content="https://blog.idejie.com/pics/LDA-summary0.jpg">
 <meta property="og:image" content="https://www.zhihu.com/equation?tex=f%28q%7Cx%29%5Csim+P%28X%3Dx%7Cq%29f%28q%29">
 <meta property="og:image" content="https://www.zhihu.com/equation?tex=P%28X%3Dx%7Cp%29+%3D+q%5E%7Bk%7D%281-q%29%5E%7Bn-k%7D+">
 <meta property="og:image" content="https://www.zhihu.com/equation?tex=f%28q%7Cx%29+%5Csim+q%5E%7Bk%7D%281-q%29%5E%7Bn-k%7Df%28q%29+">
 <meta property="og:image" content="https://www.zhihu.com/equation?tex=f%28q%7Cx%29+%5Csim+q%5E%7Bk%7D%281-q%29%5E%7Bn-k%7D">
 <meta property="og:image" content="https://www.zhihu.com/equation?tex=q%5E%7Bk%7D%281-q%29%5E%7Bn-k%7D">
-<meta property="og:updated_time" content="2019-05-05T04:24:34.285Z">
+<meta property="og:updated_time" content="2019-05-11T03:53:08.204Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LDA学习笔记">
 <meta name="twitter:description" content="1.什么是 LDA？ 举个例子，我们要写一个某品牌新车上市的软文，首先就得确定这篇文章的主题，比如你的主题定义在了该车的动力、外观和内饰。 第二步，便是从这些相关主题的词汇库里寻找相关的词语  动力：发动机、涡轮增压、功率、油耗、扭矩等 外观：氙气、天窗、后视镜、前脸、格栅灯等； 内饰: 仪表台、中控台、方向盘、座椅、靠背等  最后一步就是结合语法，将词语组织成句子。 由文档确定主题、由主题确定">
@@ -76,9 +76,9 @@
 
 
   
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" referrer="always"></script>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   
-<script src="//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0" referrer="always"></script>
+<script src="//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0"></script>
   
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
   
@@ -95,7 +95,7 @@
 
     <!-- To automatically render math in text elements, include the auto-render extension: -->
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
-        <meta name="referrer" content="never">
+        
 </head>
 <script src="//pixijs.download/release/pixi.js"></script>
 <script src="https://unpkg.com/ityped@1.0.2"></script>
@@ -255,7 +255,7 @@ Q：<strong>我们如何知道这枚硬币抛出字的概率？<strong>我们知
 <p>到这里，其实很自然地会想到把bayes theorem引进来，因为Bayes能随着不断的观测而更新概率；而且每次只需要前一次的prior等等…在这先不多说bayes有什么好，接下来用更形式化语言来讲其实说得更清楚。</p>
 <p><strong>我们现在用更正规的语言重新整理一下思路。<strong>现在有个硬币得到random sample X  = (x1,x2,…xn)，我们需要基于这n次观察的结果来估算一下</strong>q在[0,1]中取哪个值比较靠谱</strong>，由于我们不能再用单一一个确定的值描述q，所以我们用一个分布函数来描述：有关q的概率密度函数（说得再简单点，即是q在[0,1]“分布律”）。当然，这应当写成一个条件密度：f(q|X)，因为我们总是观测到X的情况下，来猜的q。</p>
 <p>现在我们来看看Bayes theorem，看看它能带来什么不同：<br>
-<img src="https://ws1.sinaimg.cn/large/006tNc79ly1fhwkw2s9nbj306400i0sn.jpg" alt=""></p>
+<img src="https://blog.idejie.com/pics/LDA-summary0.jpg" alt=""></p>
 <p>在这里P(q)就是关于q的先验概率（所谓先验，就是在得到观察X之前，我们设定的关于q的概率密度函数）。P(q|x)是观测到x之后得到的关于q的后验概率。注意，到这里公式里出现的都是&quot;概率&quot;，并没有在[0,1]上的概率密度函数出现。为了让贝叶斯定理和密度函数结合到一块。我们可以从方程两边由P(q)得到f(q)，而由P(q|x)得到f(q|x)。<br>
 又注意到P(x)可以认定为是个常量（Q：why？），可以在分析这类问题时不用管。<strong>那么，这里就有个简单的结论——<strong><strong>关于q的后验概率密度f(q|x)就和“关于q的</strong></strong>先验概率密度乘以一个条件概率&quot;成比例，即：</strong><br>
 <img src="https://www.zhihu.com/equation?tex=f%28q%7Cx%29%5Csim+P%28X%3Dx%7Cq%29f%28q%29" alt="f(q|x)\sim P(X=x|q)f(q)"></p>

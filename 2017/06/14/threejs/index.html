@@ -25,17 +25,17 @@
 <meta property="og:site_name" content="idejie">
 <meta property="og:description" content="〇、概述 什么是 ThreeJS 首先你要知道 OpenGL 和 WebGL。  OpenGL（全写Open Graphics Library）是指定义了一个跨编程语言、跨平台的编程接口规格的专业的图形程序接口。它用于三维图像（二维的亦可），是一个功能强大，调用方便的底层图形库。 WebGL（全写Web Graphics Library）是一种3D绘图标准，这种绘图技术标准允许把JavaScri">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tKfTcly1fgl0fffauvj30gz0ed75h.jpg">
-<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcly1fgl0queix3j30e90be0tj.jpg">
-<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tKfTcly1fgl0yh0krqj30d007pdg2.jpg">
-<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1fgl11t882kj31kw1ff799.jpg">
-<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcly1fgl34j239zj30s90ca0tw.jpg">
-<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1fgl3nqwdxaj30io0go0tf.jpg">
-<meta property="og:updated_time" content="2019-05-05T04:24:34.262Z">
+<meta property="og:image" content="https://blog.idejie.com/pics/threejs0.jpg">
+<meta property="og:image" content="https://blog.idejie.com/pics/threejs1.jpg">
+<meta property="og:image" content="https://blog.idejie.com/pics/threejs2.jpg">
+<meta property="og:image" content="https://blog.idejie.com/pics/threejs3.jpg">
+<meta property="og:image" content="https://blog.idejie.com/pics/threejs4.jpg">
+<meta property="og:image" content="https://blog.idejie.com/pics/threejs5.jpg">
+<meta property="og:updated_time" content="2019-05-11T03:35:13.268Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="学习ThreeJS一哈">
 <meta name="twitter:description" content="〇、概述 什么是 ThreeJS 首先你要知道 OpenGL 和 WebGL。  OpenGL（全写Open Graphics Library）是指定义了一个跨编程语言、跨平台的编程接口规格的专业的图形程序接口。它用于三维图像（二维的亦可），是一个功能强大，调用方便的底层图形库。 WebGL（全写Web Graphics Library）是一种3D绘图标准，这种绘图技术标准允许把JavaScri">
-<meta name="twitter:image" content="https://ws2.sinaimg.cn/large/006tKfTcly1fgl0fffauvj30gz0ed75h.jpg">
+<meta name="twitter:image" content="https://blog.idejie.com/pics/threejs0.jpg">
 
   
 
@@ -66,9 +66,9 @@
 
 
   
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" referrer="always"></script>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   
-<script src="//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0" referrer="always"></script>
+<script src="//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0"></script>
   
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
   
@@ -85,7 +85,7 @@
 
     <!-- To automatically render math in text elements, include the auto-render extension: -->
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
-        <meta name="referrer" content="never">
+        
 </head>
 <script src="//pixijs.download/release/pixi.js"></script>
 <script src="https://unpkg.com/ityped@1.0.2"></script>
@@ -233,7 +233,7 @@
 <p>然后创建一个 Canvas</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">'demo'</span> <span class="attr">width</span>=<span class="string">"100%"</span> <span class="attr">height</span>=<span class="string">"100%"</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>ThreeJS 由渲染器(Render)、场景(Scene)、摄像机（Camera）,以及我们创建的三维模型</p>
-<p><img src="https://ws2.sinaimg.cn/large/006tKfTcly1fgl0fffauvj30gz0ed75h.jpg" alt=""></p>
+<p><img src="https://blog.idejie.com/pics/threejs0.jpg" alt=""></p>
 <p><strong>渲染器</strong>：渲染器利用 id 属性和Canvas元素进行绑定</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> renderer = <span class="keyword">new</span> THREE.WebGLRenderer(&#123;      </span><br><span class="line">  canvas: <span class="built_in">document</span>.getElementById(<span class="string">'your-canvas-id'</span>) </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>也可以让他自动生成一个 Canvas</p>
@@ -247,14 +247,14 @@
 <h1 id="二-camera"><a class="markdownIt-Anchor" href="#二-camera"></a> 二、Camera</h1>
 <h2 id="什么是-camera"><a class="markdownIt-Anchor" href="#什么是-camera"></a> <strong>什么是 Camera</strong></h2>
 <p>由于图像或者视频都是二维的，把三维的图像转换成二维的，就需要类似于平时的摄像机</p>
-<p><img src="https://ws4.sinaimg.cn/large/006tKfTcly1fgl0queix3j30e90be0tj.jpg" alt=""></p>
+<p><img src="https://blog.idejie.com/pics/threejs1.jpg" alt=""></p>
 <p>而且根据投影方式的不同，又分为正交投影和透视投影</p>
 <h2 id="orthographic-camera"><a class="markdownIt-Anchor" href="#orthographic-camera"></a> <strong>Orthographic Camera</strong></h2>
 <p><strong>正交投影</strong>一个长方体为例，正交投影就相当数学老师在黑板上画的。</p>
-<p><img src="https://ws2.sinaimg.cn/large/006tKfTcly1fgl0yh0krqj30d007pdg2.jpg" alt=""></p>
+<p><img src="https://blog.idejie.com/pics/threejs2.jpg" alt=""></p>
 <p>构造函数</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">THREE.OrthographicCamera(left,right,top,botton,near,far)</span><br></pre></td></tr></table></figure>
-<p><img src="https://ws3.sinaimg.cn/large/006tKfTcly1fgl11t882kj31kw1ff799.jpg" alt=""></p>
+<p><img src="https://blog.idejie.com/pics/threejs3.jpg" alt=""></p>
 <p>这6个参数分别代表着正交投影摄像机到空间的6个位置，这样围成的一个长方体称之为 <strong>视景体</strong></p>
 <p>在视景体中只有上图灰色位置才能显示在屏幕上</p>
 <p>为了保持照相机的横竖比例,需要保证 (right - left) 与 (top - bottom) 的比例与 Canvas宽度与高度的比例一致。</p>
@@ -264,7 +264,7 @@
 <p>透视投影摄像机获得结果和人眼在真实世界看到的“近大远小”的效果相似</p>
 <p>他的构造函数</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">THREE.PerspectiveCamera(fov, aspect, near, far)</span><br></pre></td></tr></table></figure>
-<p><img src="https://ws4.sinaimg.cn/large/006tKfTcly1fgl34j239zj30s90ca0tw.jpg" alt=""></p>
+<p><img src="https://blog.idejie.com/pics/threejs4.jpg" alt=""></p>
 <p>透视图中,灰色的部分是视景体,是可能被渲染的物体所在的区域。 fov 是视景体竖直方向上的张角(是角度制而非弧度制),如侧视图所示。</p>
 <p>aspect 等于 width / height ,是照相机水平方向和竖直方向长度的比值,通常设为Canvas 的横纵比例。</p>
 <p>near 和 far 分别是照相机到视景体最近、最远的距离,均为正值,且 far 应大于near 。</p>
@@ -289,7 +289,7 @@
 <p><strong>改变竖直张角</strong></p>
 <p>把 fov 的45改成60</p>
 <p>为什么正方体显得更小了呢?我们从下面的侧视图来看,虽然正方体的实际大小并未改变,但是将照相机的竖直张角设置得更大时,视景体变大了,因而正方体相对于整个视景体的大小就变小了,看起来正方形就显得变小了。</p>
-<p><img src="https://ws3.sinaimg.cn/large/006tKfTcly1fgl3nqwdxaj30io0go0tf.jpg" alt=""></p>
+<p><img src="https://blog.idejie.com/pics/threejs5.jpg" alt=""></p>
 <h1 id="三-基本几何形状"><a class="markdownIt-Anchor" href="#三-基本几何形状"></a> 三、基本几何形状</h1>
 <h2 id="立方体"><a class="markdownIt-Anchor" href="#立方体"></a> 立方体</h2>
 <h2 id="平面"><a class="markdownIt-Anchor" href="#平面"></a> 平面</h2>

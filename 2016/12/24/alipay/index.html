@@ -24,7 +24,7 @@
 <meta property="og:site_name" content="idejie">
 <meta property="og:description" content="昨天支付宝憋了一个大招： AR红包 这是一个基于图像识别和LBS的case，而且这次针对上次有人通过抓包的方式破解微信朋友圈图片（去年春节微信朋友圈推出的）的问题，alipay对数据流进行了处理，现在抓包是抓不到了。 但是~其实目前破解还是很简单的。 **方法一：**PS 点击查看线索，并快速截屏打开PhotoShop等图片处理工具把深度图条扣掉把剩余的图拼在一起 #建议大家建立一个【动作】，很快">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-05T04:24:34.286Z">
+<meta property="og:updated_time" content="2019-05-11T03:57:17.918Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于支付宝AR红包的破解">
 <meta name="twitter:description" content="昨天支付宝憋了一个大招： AR红包 这是一个基于图像识别和LBS的case，而且这次针对上次有人通过抓包的方式破解微信朋友圈图片（去年春节微信朋友圈推出的）的问题，alipay对数据流进行了处理，现在抓包是抓不到了。 但是~其实目前破解还是很简单的。 **方法一：**PS 点击查看线索，并快速截屏打开PhotoShop等图片处理工具把深度图条扣掉把剩余的图拼在一起 #建议大家建立一个【动作】，很快">
@@ -58,9 +58,9 @@
 
 
   
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" referrer="always"></script>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   
-<script src="//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0" referrer="always"></script>
+<script src="//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0"></script>
   
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
   
@@ -77,7 +77,7 @@
 
     <!-- To automatically render math in text elements, include the auto-render extension: -->
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
-        <meta name="referrer" content="never">
+        
 </head>
 <script src="//pixijs.download/release/pixi.js"></script>
 <script src="https://unpkg.com/ityped@1.0.2"></script>
@@ -203,7 +203,7 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">同样得先获取到图片</span><br><span class="line">算出每条横杠的相对坐标</span><br><span class="line">用BitMap把图片存起来</span><br><span class="line">去横杠</span><br><span class="line">拼接</span><br><span class="line">支付宝扫图片</span><br></pre></td></tr></table></figure>
 <p>大致上的代码：</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ARView</span> <span class="keyword">extends</span> <span class="title">View</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> dividerHeight = <span class="number">7</span>;<span class="comment">// 这个值是慢慢试出来的</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> pictureHeight = <span class="number">8</span>;<span class="comment">// 这个不是整图的高，而是每一条没有被挡住的高</span></span><br><span class="line">    <span class="keyword">private</span> Paint mPaint; <span class="comment">//用于在canvas上绘制</span></span><br><span class="line">    <span class="keyword">private</span> Bitmap mBitmap; <span class="comment">// 最终要画的图</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ARView</span><span class="params">(Context context, AttributeSet attrs)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(context, attrs);</span><br><span class="line">        mPaint = <span class="keyword">new</span> Paint();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@RequiresApi</span>(api = Build.VERSION_CODES.KITKAT)</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDraw</span><span class="params">(Canvas canvas)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (mBitmap == <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">final</span> <span class="keyword">int</span> widthh = getWidth();<span class="comment">//  获取屏幕宽，为了最后把图片放大到填满屏幕宽度</span></span><br><span class="line">        InputStream is = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            is = getContext().getAssets().open(<span class="string">"a.png"</span>);<span class="comment">//我截的图就直接丢assets里了，命名为a.png</span></span><br><span class="line">            BitmapRegionDecoder decoder = BitmapRegionDecoder.newInstance(is, <span class="keyword">true</span>);<span class="comment">//我们只要加载线索图那一部分即可，不用加载全图</span></span><br><span class="line">            Rect rect = <span class="keyword">new</span> Rect(<span class="number">330</span>, <span class="number">963</span>, <span class="number">750</span>, <span class="number">1383</span>);<span class="comment">//上面定位到的坐标</span></span><br><span class="line">            Bitmap bitmap = decoder.decodeRegion(rect, <span class="keyword">null</span>);<span class="comment">// 好了，拿到图了</span></span><br><span class="line">            <span class="comment">//不要吐槽我这里的bitmap全部没有调用recycle，只要不报错，先实现看效果再说</span></span><br><span class="line">            bitmap = bitmap.copy(Bitmap.Config.ARGB_8888, <span class="keyword">true</span>);<span class="comment">//上面拿到的图是不能通过setPixel修改的，所以cp一个新的可以修改的对象。</span></span><br><span class="line">            restoreBitmap(bitmap);<span class="comment">//这是我自定义的方法，这是关键</span></span><br><span class="line">            <span class="keyword">final</span> Matrix matrix = <span class="keyword">new</span> Matrix();</span><br><span class="line">            fianl <span class="keyword">float</span> scale = (<span class="keyword">float</span>) width / bitmap.getWidth();<span class="comment">// 计算屏幕宽与图片宽之比</span></span><br><span class="line">            matrix.setScale(scale);</span><br><span class="line">            mBitmap = Bitmap.createBitmap(bitmap, <span class="number">0</span>, <span class="number">0</span>, bitmap.getWidth(), bitmap.getHeight()，matrix, <span class="keyword">true</span>);<span class="comment">//放大图片</span></span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (is != <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    is.close();</span><br><span class="line">                &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                &#125;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       canvas.drawBitmap(mBitmap, <span class="number">0</span>, <span class="number">0</span>, mPaint);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">restoreBitmap</span><span class="params">(Bitmap bitmap)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>**方法三：**没看懂</p>
+<p><strong>方法三：</strong></p>
 <p>来自<strong>虎嗅网</strong></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">①用深度卷积网络CNN在ImageNet上训练一个Autoencoder，训练的模型可以用AlexNet的改装版：</span><br><span class="line">　　a，需要一个 Tensorflow环境或者 Caffe环境；</span><br><span class="line">　　b，用一个3层卷积(Conv)、3层解卷积(Deconv)的网络进行端对端训练 ，用sigmoid交叉熵作loss；</span><br><span class="line">　　c，当loss收敛时，就可以拿来破解了。</span><br><span class="line">②按上面的方法先截个图，并把横条图颜色部分都置为0，然后将此图片作为卷积网络的输入部分；</span><br><span class="line">③对卷积网络进行Forward，我们就可以拿到不带横条的原图。</span><br></pre></td></tr></table></figure>
 <p>以上，<code>仅供娱乐</code>。</p>
@@ -248,7 +248,7 @@
     <a class="show pull-left" href="/2016/12/25/music/">
         <i class="icon icon-angle-left"></i>
     </a>
-    <a class="show pull-right" href="/2016/12/20/network/">
+    <a class="show pull-right" href="/2016/12/20/nosql/">
         <i class="icon icon-angle-right"></i>
     </a>
   </div>

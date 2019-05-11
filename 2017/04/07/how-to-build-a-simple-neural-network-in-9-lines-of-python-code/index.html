@@ -25,22 +25,22 @@
 <meta property="og:site_name" content="idejie">
 <meta property="og:description" content="原文：How to build a simple neural network in 9 lines of Python code 以下为翻译  作为学习AI的一部分，我给自己设定了一个在Python中构建一个简单神经网络的目标。为了确保我能真正理解他，我决定从头构建，而不适用神经网络库。感谢Andrew Trask 的博客，我用9行代码实现了。 from numpy import exp, a">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://ww2.sinaimg.cn/large/006tNc79gy1fegrdlgmlcj30b40b4gls.jpg">
-<meta property="og:image" content="https://ww3.sinaimg.cn/large/006tNc79gy1fegrfy2br2j30is08ut9n.jpg">
-<meta property="og:image" content="https://ww3.sinaimg.cn/large/006tNc79gy1fegrji90ioj30b406mjrk.jpg">
-<meta property="og:image" content="https://ww2.sinaimg.cn/large/006tNc79gy1fegrl5pg7pj30fq00q0sr.jpg">
-<meta property="og:image" content="https://ww4.sinaimg.cn/large/006tNc79gy1fegrmh5568j301m012744.jpg">
-<meta property="og:image" content="https://ww1.sinaimg.cn/large/006tNc79gy1fegrmzy9eej30hs0bvjrt.jpg">
-<meta property="og:image" content="https://ww3.sinaimg.cn/large/006tNc79gy1fegrnxahf4j308w012747.jpg">
-<meta property="og:image" content="https://ww4.sinaimg.cn/large/006tNc79gy1fegrrjgf3mj30eq00i74a.jpg">
-<meta property="og:image" content="https://ww4.sinaimg.cn/large/006tNc79gy1fegrrjgf3mj30eq00i74a.jpg">
-<meta property="og:image" content="https://ww3.sinaimg.cn/large/006tNc79ly1feguk0un4gj30c300iweg.jpg">
-<meta property="og:image" content="https://ww2.sinaimg.cn/large/006tNc79ly1fegup8rxwdj303002hq2u.jpg">
-<meta property="og:updated_time" content="2019-05-05T04:24:34.301Z">
+<meta property="og:image" content="https://blog.idejie.com/pics/how-to-build-a-simple-neural-network-in-9-lines-of-python-code0.jpg">
+<meta property="og:image" content="https://blog.idejie.com/pics/how-to-build-a-simple-neural-network-in-9-lines-of-python-code1.jpg">
+<meta property="og:image" content="https://blog.idejie.com/pics/how-to-build-a-simple-neural-network-in-9-lines-of-python-code2.jpg">
+<meta property="og:image" content="https://blog.idejie.com/pics/how-to-build-a-simple-neural-network-in-9-lines-of-python-code3.jpg">
+<meta property="og:image" content="https://blog.idejie.com/pics/how-to-build-a-simple-neural-network-in-9-lines-of-python-code4.jpg">
+<meta property="og:image" content="https://blog.idejie.com/pics/how-to-build-a-simple-neural-network-in-9-lines-of-python-code5.jpg">
+<meta property="og:image" content="https://blog.idejie.com/pics/how-to-build-a-simple-neural-network-in-9-lines-of-python-code6.jpg">
+<meta property="og:image" content="https://blog.idejie.com/pics/how-to-build-a-simple-neural-network-in-9-lines-of-python-code7.jpg">
+<meta property="og:image" content="https://blog.idejie.com/pics/how-to-build-a-simple-neural-network-in-9-lines-of-python-code7.jpg">
+<meta property="og:image" content="https://blog.idejie.com/pics/how-to-build-a-simple-neural-network-in-9-lines-of-python-code9.jpg">
+<meta property="og:image" content="https://blog.idejie.com/pics/how-to-build-a-simple-neural-network-in-9-lines-of-python-code10.jpg">
+<meta property="og:updated_time" content="2019-05-11T04:01:53.265Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="震惊！9行代码就能搭建一个神经网络">
 <meta name="twitter:description" content="原文：How to build a simple neural network in 9 lines of Python code 以下为翻译  作为学习AI的一部分，我给自己设定了一个在Python中构建一个简单神经网络的目标。为了确保我能真正理解他，我决定从头构建，而不适用神经网络库。感谢Andrew Trask 的博客，我用9行代码实现了。 from numpy import exp, a">
-<meta name="twitter:image" content="https://ww2.sinaimg.cn/large/006tNc79gy1fegrdlgmlcj30b40b4gls.jpg">
+<meta name="twitter:image" content="https://blog.idejie.com/pics/how-to-build-a-simple-neural-network-in-9-lines-of-python-code0.jpg">
 
   
 
@@ -71,9 +71,9 @@
 
 
   
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" referrer="always"></script>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   
-<script src="//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0" referrer="always"></script>
+<script src="//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0"></script>
   
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
   
@@ -90,7 +90,7 @@
 
     <!-- To automatically render math in text elements, include the auto-render extension: -->
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
-        <meta name="referrer" content="never">
+        
 </head>
 <script src="//pixijs.download/release/pixi.js"></script>
 <script src="https://unpkg.com/ityped@1.0.2"></script>
@@ -221,10 +221,10 @@
 <p>在这篇博文中，我会解释一下我是如何做到的，所以你也可以建立自己的。 我还提供一个更长的，但更漂亮的源代码版本。</p>
 <p>但首先，什么是<strong>神经网络</strong>？</p>
 <p>​	 人脑由1000亿个称为神经元的细胞组成，通过突触连接在一起。 如果对神经元有足够的突触输入，那神经元也会发射。 我们把这个过程叫做“思考”。</p>
-<p><img src="https://ww2.sinaimg.cn/large/006tNc79gy1fegrdlgmlcj30b40b4gls.jpg" alt=""></p>
+<p><img src="https://blog.idejie.com/pics/how-to-build-a-simple-neural-network-in-9-lines-of-python-code0.jpg" alt=""></p>
 <p>我们可以通过在计算机上创建一个神经网络来建模这个过程。 没有必要在分子水平上模拟人类大脑的生物复杂性，只是实现其较高级别的规则。 我们使用一种称为矩阵的数学方法，即<strong>数字网格</strong>。 为了使其变得非常简单，我们将模拟单个神经元，具有三个输入和一个输出。</p>
 <p>我们要训练神经元来解决下面的问题。 前四个例子称为训练集。 你能锻炼出模式吗？ '<strong>？</strong>'是0或1吗？</p>
-<p><img src="https://ww3.sinaimg.cn/large/006tNc79gy1fegrfy2br2j30is08ut9n.jpg" alt=""></p>
+<p><img src="https://blog.idejie.com/pics/how-to-build-a-simple-neural-network-in-9-lines-of-python-code1.jpg" alt=""></p>
 <p>您可能已经注意到，输出总是等于最左侧输入列的值。 所以答案是’？'应该是1。</p>
 <h2 id="训练过程"><a class="markdownIt-Anchor" href="#训练过程"></a> <strong>训练过程</strong></h2>
 <p>但是我们如何教我们的神经元来正确回答这个问题？ 我们将给每个输入一个权重，这可以是一个正数或负数。 具有大正负重或负重的输入将对神经元的输出具有很强的影响。 在开始之前，我们将每个权重设置为随机数。 然后我们开始训练过程：</p>
@@ -234,22 +234,22 @@
 <li>根据误差的方向，稍微调整权重</li>
 <li>重复此过程10,000次。</li>
 </ol>
-<p><img src="https://ww3.sinaimg.cn/large/006tNc79gy1fegrji90ioj30b406mjrk.jpg" alt=""></p>
+<p><img src="https://blog.idejie.com/pics/how-to-build-a-simple-neural-network-in-9-lines-of-python-code2.jpg" alt=""></p>
 <p>最终，神经元的权重将达到训练集的最佳值。 如果我们允许神经元考虑一个新的情况，那么遵循相同的模式，它应该做出很好的预测。</p>
 <p>这个过程称为<strong>反向传播</strong>。</p>
 <h2 id="计算神经元输出的公式"><a class="markdownIt-Anchor" href="#计算神经元输出的公式"></a> <strong>计算神经元输出的公式</strong></h2>
 <p>你可能会想，计算神经元输出的特殊公式是什么？ 首先，我们采用神经元输入的加权和，即：</p>
-<p><img src="https://ww2.sinaimg.cn/large/006tNc79gy1fegrl5pg7pj30fq00q0sr.jpg" alt=""></p>
+<p><img src="https://blog.idejie.com/pics/how-to-build-a-simple-neural-network-in-9-lines-of-python-code3.jpg" alt=""></p>
 <p>接下来我们归一化这个，所以结果在0和1之间。为此，我们使用一个数学上方便的函数，称为<strong>Sigmoid</strong>函数：</p>
-<p><img src="https://ww4.sinaimg.cn/large/006tNc79gy1fegrmh5568j301m012744.jpg" alt=""></p>
+<p><img src="https://blog.idejie.com/pics/how-to-build-a-simple-neural-network-in-9-lines-of-python-code4.jpg" alt=""></p>
 <p>如果绘制在图形上，Sigmoid函数绘制S形曲线。</p>
-<p><img src="https://ww1.sinaimg.cn/large/006tNc79gy1fegrmzy9eej30hs0bvjrt.jpg" alt=""></p>
+<p><img src="https://blog.idejie.com/pics/how-to-build-a-simple-neural-network-in-9-lines-of-python-code5.jpg" alt=""></p>
 <p>所以通过将第一个方程代入第二个方程，输出神经元的最终公式是：</p>
-<p><img src="https://ww3.sinaimg.cn/large/006tNc79gy1fegrnxahf4j308w012747.jpg" alt=""></p>
+<p><img src="https://blog.idejie.com/pics/how-to-build-a-simple-neural-network-in-9-lines-of-python-code6.jpg" alt=""></p>
 <p>你可能已经注意到，我们没有使用最小的触发阈值，这是为了保持简单。</p>
 <h2 id="用于调整重量的公式"><a class="markdownIt-Anchor" href="#用于调整重量的公式"></a> <strong>用于调整重量的公式</strong></h2>
 <p>在训练周期中，我们调整权重。 但是我们靠什么来调整权重呢？ 我们可以使用“误加权导数”公式：</p>
-<p><img src="https://ww4.sinaimg.cn/large/006tNc79gy1fegrrjgf3mj30eq00i74a.jpg" alt=""></p>
+<p><img src="https://blog.idejie.com/pics/how-to-build-a-simple-neural-network-in-9-lines-of-python-code7.jpg" alt=""></p>
 <p>为什么要用这个公式？</p>
 <p>​	首先我们要使调整与错误的大小成比例。 其次，我们乘以输入，它是0或1.如果输入为0，则不调整重量。 最后，我们乘以Sigmoid曲线的梯度。 要理解最后一个，请考虑：</p>
 <p>1.我们用Sigmoid曲线来计算神经元的输出。</p>
@@ -257,9 +257,9 @@
 <p>3.在大数字处，S形曲线具有浅梯度。</p>
 <p>4.如果神经元有信心现有的权重是正确的，那么它不想要特别调整它。 乘以Sigmoid曲线梯度实现这一点。</p>
 <p>Sigmoid曲线的梯度可以通过采用导数求出：</p>
-<p><img src="https://ww4.sinaimg.cn/large/006tNc79gy1fegrrjgf3mj30eq00i74a.jpg" alt=""></p>
+<p><img src="https://blog.idejie.com/pics/how-to-build-a-simple-neural-network-in-9-lines-of-python-code7.jpg" alt=""></p>
 <p>所以通过将第二个方程代入第一个方程，调整权重的最终公式是：</p>
-<p><img src="https://ww3.sinaimg.cn/large/006tNc79ly1feguk0un4gj30c300iweg.jpg" alt=""></p>
+<p><img src="https://blog.idejie.com/pics/how-to-build-a-simple-neural-network-in-9-lines-of-python-code9.jpg" alt=""></p>
 <p>有一些替代公式，这将使神经元能够更快地学习，但是这个方法的优点是相当简单。</p>
 <h2 id="构建python代码"><a class="markdownIt-Anchor" href="#构建python代码"></a> <strong>构建Python代码</strong></h2>
 <p>虽然我们不会使用神经网络库，但我们将从名为numpy的Python数学库导入四种方法。 这些是：</p>
@@ -272,7 +272,7 @@
 <p>例如，我们可以使用array（）方法来表示前面显示的训练集：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">training_set_inputs = array([[<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>], [<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>], [<span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>], [<span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>]])</span><br><span class="line">training_set_outputs = array([[<span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>]]).T</span><br></pre></td></tr></table></figure>
 <p><code>.T</code>功能将矩阵从水平转换为垂直。 所以计算机正在存储这样的数字。</p>
-<p><img src="https://ww2.sinaimg.cn/large/006tNc79ly1fegup8rxwdj303002hq2u.jpg" alt=""></p>
+<p><img src="https://blog.idejie.com/pics/how-to-build-a-simple-neural-network-in-9-lines-of-python-code10.jpg" alt=""></p>
 <p>好。 我想我们已经准备好了更漂亮的源代码版本。 一旦我给了你，我将总结一些最后的想法。</p>
 <p>我已经添加了对我的源代码的注释，逐一解释一切。 请注意，在每次迭代中，我们同时处理整个训练集。 因此，我们的变量是矩阵，它们是数字格。 这是一个用Python编写的完整工作示例：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> numpy <span class="keyword">import</span> exp, array, random, dot</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NeuralNetwork</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="comment"># 生成随机数</span></span><br><span class="line">        random.seed(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 建立一个神经元，3输入：1输出</span></span><br><span class="line">        <span class="comment"># 为3*1的矩阵分配权重，值：-1 ~ 1</span></span><br><span class="line">        self.synaptic_weights = <span class="number">2</span> * random.random((<span class="number">3</span>, <span class="number">1</span>)) - <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Sigmoid函数，描述S型曲线</span></span><br><span class="line">    <span class="comment"># 用这个函数输入加权和</span></span><br><span class="line">    <span class="comment"># 并将它们0-1标准化</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__sigmoid</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span> / (<span class="number">1</span> + exp(-x))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Sigmoid函数的导数</span></span><br><span class="line">    <span class="comment"># 也就是Sigmoid函数的梯度</span></span><br><span class="line">    <span class="comment"># 它表示我们对已有权重的信心</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__sigmoid_derivative</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> x * (<span class="number">1</span> - x)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 通过调整权重训练神经网络</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">train</span><span class="params">(self, training_set_inputs, training_set_outputs, number_of_training_iterations)</span>:</span></span><br><span class="line">        <span class="keyword">for</span> iteration <span class="keyword">in</span> xrange(number_of_training_iterations):</span><br><span class="line">            <span class="comment"># 通过我们的神经网络（单个神经元）传递训练集。</span></span><br><span class="line">            output = self.think(training_set_inputs)</span><br><span class="line"></span><br><span class="line">            <span class="comment"># 计算误差（期望输出与预测输出之间的差值）。</span></span><br><span class="line">            error = training_set_outputs - output</span><br><span class="line"></span><br><span class="line">            <span class="comment"># 将输入的误差乘以Sigmoid曲线的梯度。</span></span><br><span class="line">            <span class="comment"># 这意味着更少的自信的权重被调整得更多。</span></span><br><span class="line">            <span class="comment"># T这意味着输入为零，不会导致权重的更改。</span></span><br><span class="line">            adjustment = dot(training_set_inputs.T, error * self.__sigmoid_derivative(output))</span><br><span class="line"></span><br><span class="line">            <span class="comment"># 调整权重.</span></span><br><span class="line">            self.synaptic_weights += adjustment</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 神经网络运算</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">think</span><span class="params">(self, inputs)</span>:</span></span><br><span class="line">        <span class="comment"># 通过我们的神经网络（我们的单个神经元）传递输入。</span></span><br><span class="line">        <span class="keyword">return</span> self.__sigmoid(dot(inputs, self.synaptic_weights))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line"></span><br><span class="line">    <span class="comment">#初始化一个神经网络</span></span><br><span class="line">    neural_network = NeuralNetwork()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">print</span> <span class="string">"Random starting synaptic weights: "</span></span><br><span class="line">    <span class="keyword">print</span> neural_network.synaptic_weights</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 训练集。 我们有4个例子，每个由3个输入值和1个输出值组成。</span></span><br><span class="line">    training_set_inputs = array([[<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>], [<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>], [<span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>], [<span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>]])</span><br><span class="line">    training_set_outputs = array([[<span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>]]).T</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 训练神经网络使用训练集。</span></span><br><span class="line">    <span class="comment"># 做一次10000次，每次都是微弱调整。</span></span><br><span class="line">    neural_network.train(training_set_inputs, training_set_outputs, <span class="number">10000</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">print</span> <span class="string">"New synaptic weights after training: "</span></span><br><span class="line">    <span class="keyword">print</span> neural_network.synaptic_weights</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 用测试集测试神经网络。</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">"Considering new situation [1, 0, 0] -&gt; ?: "</span></span><br><span class="line">    <span class="keyword">print</span> neural_network.think(array([<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>]))</span><br></pre></td></tr></table></figure>

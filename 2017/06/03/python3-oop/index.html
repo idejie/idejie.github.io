@@ -25,12 +25,12 @@
 <meta property="og:site_name" content="idejie">
 <meta property="og:description" content="3.面向对象编程 处理学生成绩可以通过函数实现，比如打印学生的成绩： def print_score(std):    print(&apos;%s: %s&apos; % (std[&apos;name&apos;], std[&apos;score&apos;])) 如果采用面向对象的程序设计思想，我们首选思考的不是程序的执行流程，而是Student这种数据类型应该被视为一个对象，这个对象拥有name和score这两个属性（Property）。如果要">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNbRwly1ffz7b0fe7uj30ff0ax3z2.jpg">
-<meta property="og:updated_time" content="2019-05-05T04:24:34.284Z">
+<meta property="og:image" content="https://blog.idejie.com/pics/python3-oop0.jpg">
+<meta property="og:updated_time" content="2019-05-11T03:52:26.284Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python3学习笔记（OOP）">
 <meta name="twitter:description" content="3.面向对象编程 处理学生成绩可以通过函数实现，比如打印学生的成绩： def print_score(std):    print(&apos;%s: %s&apos; % (std[&apos;name&apos;], std[&apos;score&apos;])) 如果采用面向对象的程序设计思想，我们首选思考的不是程序的执行流程，而是Student这种数据类型应该被视为一个对象，这个对象拥有name和score这两个属性（Property）。如果要">
-<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/006tNbRwly1ffz7b0fe7uj30ff0ax3z2.jpg">
+<meta name="twitter:image" content="https://blog.idejie.com/pics/python3-oop0.jpg">
 
   
 
@@ -61,9 +61,9 @@
 
 
   
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" referrer="always"></script>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   
-<script src="//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0" referrer="always"></script>
+<script src="//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0"></script>
   
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
   
@@ -80,7 +80,7 @@
 
     <!-- To automatically render math in text elements, include the auto-render extension: -->
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
-        <meta name="referrer" content="never">
+        
 </head>
 <script src="//pixijs.download/release/pixi.js"></script>
 <script src="https://unpkg.com/ityped@1.0.2"></script>
@@ -315,7 +315,7 @@
 <p>对扩展开放：允许新增<code>Animal</code>子类；</p>
 <p>对修改封闭：不需要修改依赖<code>Animal</code>类型的<code>run_twice()</code>等函数。</p>
 <p>继承还可以一级一级地继承下来，就好比从爷爷到爸爸、再到儿子这样的关系。而任何类，最终都可以追溯到根类object，这些继承关系看上去就像一颗倒着的树。比如如下的继承树：</p>
-<p><img src="https://ws1.sinaimg.cn/large/006tNbRwly1ffz7b0fe7uj30ff0ax3z2.jpg" alt=""></p>
+<p><img src="https://blog.idejie.com/pics/python3-oop0.jpg" alt=""></p>
 <p><strong>静态语言 vs 动态语言</strong></p>
 <p>对于静态语言（例如Java）来说，如果需要传入<code>Animal</code>类型，则传入的对象必须是<code>Animal</code>类型或者它的子类，否则，将无法调用<code>run()</code>方法。</p>
 <p>对于Python这样的动态语言来说，则不一定需要传入<code>Animal</code>类型。我们只需要保证传入的对象有一个<code>run()</code>方法就可以了：</p>

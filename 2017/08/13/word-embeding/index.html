@@ -27,16 +27,16 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2017/06/06052154/collage.png">
 <meta property="og:image" content="https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2017/06/06064148/joke-297x300.jpg">
-<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNc79ly1fgxtqaxbu2j30ct033q31.jpg">
+<meta property="og:image" content="https://blog.idejie.com/pics/word-embeding2.jpg">
 <meta property="og:image" content="https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2017/06/04164920/count-vector.png">
 <meta property="og:image" content="https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2017/06/04171138/Tf-IDF.png">
-<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNc79ly1fgxtw4epz5j30ey018wej.jpg">
-<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNc79ly1fgxtwmtvw7j30ev01dwej.jpg">
-<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNc79ly1fgxtxf3r0yj30eq06s3z0.jpg">
-<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNc79ly1fgxtxz7hswj30jd058gm9.jpg">
+<meta property="og:image" content="https://blog.idejie.com/pics/word-embeding5.jpg">
+<meta property="og:image" content="https://blog.idejie.com/pics/word-embeding6.jpg">
+<meta property="og:image" content="https://blog.idejie.com/pics/word-embeding7.jpg">
+<meta property="og:image" content="https://blog.idejie.com/pics/word-embeding8.jpg">
 <meta property="og:image" content="https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2017/06/04224842/svd2.png">
 <meta property="og:image" content="https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2017/06/04205949/cbow1.png">
-<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNc79ly1fgxu3bnn87j30ik02bweo.jpg">
+<meta property="og:image" content="https://blog.idejie.com/pics/word-embeding11.jpg">
 <meta property="og:image" content="https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2017/06/04224109/Screenshot-from-2017-06-04-22-40-29.png">
 <meta property="og:image" content="https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2017/06/04222108/Screenshot-from-2017-06-04-22-19-202.png">
 <meta property="og:image" content="https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2017/06/04220606/Screenshot-from-2017-06-04-22-05-44-261x300.png">
@@ -45,7 +45,7 @@
 <meta property="og:image" content="https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2017/06/05122225/skip.png">
 <meta property="og:image" content="https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2017/06/05003425/graph1-300x277.jpg">
 <meta property="og:image" content="https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2017/06/05003807/ml-300x211.png">
-<meta property="og:updated_time" content="2019-05-05T04:24:34.285Z">
+<meta property="og:updated_time" content="2019-05-11T03:52:59.253Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="词嵌入的直觉理解：从计数向量到 Word2Vec">
 <meta name="twitter:description" content="原文：An Intuitive Understanding of Word Embeddings: From Count Vectors to Word2Vec  Instruction 我们在开始之前，看看下面的例子： 1.你打开Google搜索一篇关于正在进行的冠军奖杯比赛的新闻文章，你会得到它返回的数以百计的搜索结果。 2.Nate Silver分析了数百万条推文，并在2008年美国总统选举">
@@ -80,9 +80,9 @@
 
 
   
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" referrer="always"></script>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   
-<script src="//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0" referrer="always"></script>
+<script src="//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0"></script>
   
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
   
@@ -99,7 +99,7 @@
 
     <!-- To automatically render math in text elements, include the auto-render extension: -->
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
-        <meta name="referrer" content="never">
+        
 </head>
 <script src="//pixijs.download/release/pixi.js"></script>
 <script src="https://unpkg.com/ityped@1.0.2"></script>
@@ -281,7 +281,7 @@
 <p>创建的字典可以是语料库中的具有唯一标记的单词：[‘He’,’She’,’lazy’,’boy’,’Neeraj’,’person’]</p>
 <p>这里，D = 2，N = 6</p>
 <p>大小为2×6的计数矩阵M将被表示为 -</p>
-<p><img src="https://ws3.sinaimg.cn/large/006tNc79ly1fgxtqaxbu2j30ct033q31.jpg" alt=""></p>
+<p><img src="https://blog.idejie.com/pics/word-embeding2.jpg" alt=""></p>
 <p>现在，列也可以被理解为矩阵M中的对应单词的词向量。例如，上述矩阵中的“lazy”的词向量是[2,1]等等。这里的行对应于 语料库和列中的文档对应于字典中的标记。 上述矩阵中的第二行可以被读取为 - D2包含“lazy”：一次，“Neeraj”：一次和“person”一次。</p>
 <p>现在在准备上述矩阵M时可能存在相当多的变化。这些变化将通常是在</p>
 <p>1.字典的准备方式。<br>
@@ -320,15 +320,15 @@
 <p>在深入了解如何构建同现矩阵的细节之前，有两个需要澄清的概念 - 同现和上下文 边界。</p>
 <p>同现 - 对于给定的语料库，一对词的w1和w2 的共生是它们在上下文边界中一起出现的次数。</p>
 <p>上下文边界 - 上下文边界由数字和方向指定。 那么2（周围）的上下文边界是什么意思？ 下面我们来看一个例子，</p>
-<p><img src="https://ws4.sinaimg.cn/large/006tNc79ly1fgxtw4epz5j30ey018wej.jpg" alt=""></p>
+<p><img src="https://blog.idejie.com/pics/word-embeding5.jpg" alt=""></p>
 <p>绿色单词是“Fox”一词的2（周围）上下文边界，并且为了计算共现，只会计算这些单词。 让我们看看“Over”这个词的上下文边界。</p>
-<p><img src="https://ws4.sinaimg.cn/large/006tNc79ly1fgxtwmtvw7j30ev01dwej.jpg" alt=""></p>
+<p><img src="https://blog.idejie.com/pics/word-embeding6.jpg" alt=""></p>
 <p>现在我们来举个例子来计算一个同现矩阵。</p>
 <p>语料库 = He is not lazy. He is intelligent. He is smart.</p>
-<p><img src="https://ws3.sinaimg.cn/large/006tNc79ly1fgxtxf3r0yj30eq06s3z0.jpg" alt=""></p>
+<p><img src="https://blog.idejie.com/pics/word-embeding7.jpg" alt=""></p>
 <p>让我们通过看到上表中的两个例子来理解这个同现矩阵。 红色和蓝色框。</p>
 <p>红色框 - 在上下文边界2中出现了“He”和“is”的次数，可以看出，这个数字是4。下表将帮助您显示计数。</p>
-<p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fgxtxz7hswj30jd058gm9.jpg" alt=""></p>
+<p><img src="https://blog.idejie.com/pics/word-embeding8.jpg" alt=""></p>
 <p>而“Lazy”一词在上下文边界中从未出现过“intelligent”，因此在蓝盒中已被赋值为0。</p>
 <p><strong>同现矩阵的变化</strong></p>
 <p>假设语料库中有V个独特的词。所以词汇表大小= V。同现矩阵的列形成上下文单词。同现矩阵的不同变化是 -</p>
@@ -356,7 +356,7 @@
 <p>假设我们有一个语料库C =“Hey, this is sample corpus using only one context word”，并且我们定义了一个上下文边界1.该语料库可以转换为如下CBOW模型的训练集合。输入如下所示。下图中右侧的矩阵包含从左侧输入的独热编码。</p>
 <p><img src="https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2017/06/04205949/cbow1.png" alt=""></p>
 <p>使用单个数据点的目标表示数据点4如下所示</p>
-<p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fgxu3bnn87j30ik02bweo.jpg" alt=""></p>
+<p><img src="https://blog.idejie.com/pics/word-embeding11.jpg" alt=""></p>
 <p>将上述图像中所示的矩阵发送到具有三层的浅层神经网络：输入层，隐藏层和输出层。输出层是一个softmax层，它用于将输出层中获得的概率求和为1.现在让我们看看正向传播如何用于计算隐藏层激活。</p>
 <p>我们首先看看CBOW模型的图解表示。</p>
 <p><img src="https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2017/06/04224109/Screenshot-from-2017-06-04-22-40-29.png" alt=""></p>
