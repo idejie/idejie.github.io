@@ -109,7 +109,7 @@ D2: Neeraj is a lazy person.
 
 大小为2×6的计数矩阵M将被表示为 -
 
-![](https://ws3.sinaimg.cn/large/006tNc79ly1fgxtqaxbu2j30ct033q31.jpg)
+![](https://blog.idejie.com/pics/word-embeding2.jpg)
 
 现在，列也可以被理解为矩阵M中的对应单词的词向量。例如，上述矩阵中的“lazy”的词向量是[2,1]等等。这里的行对应于 语料库和列中的文档对应于字典中的标记。 上述矩阵中的第二行可以被读取为 - D2包含“lazy”：一次，“Neeraj”：一次和“person”一次。
 
@@ -183,23 +183,23 @@ TF-IDF(Messi, Document1) = (4/8)*0.301 = 0.15
 
 上下文边界 - 上下文边界由数字和方向指定。 那么2（周围）的上下文边界是什么意思？ 下面我们来看一个例子，
 
-![](https://ws4.sinaimg.cn/large/006tNc79ly1fgxtw4epz5j30ey018wej.jpg)
+![](https://blog.idejie.com/pics/word-embeding5.jpg)
 
 绿色单词是“Fox”一词的2（周围）上下文边界，并且为了计算共现，只会计算这些单词。 让我们看看“Over”这个词的上下文边界。
 
-![](https://ws4.sinaimg.cn/large/006tNc79ly1fgxtwmtvw7j30ev01dwej.jpg)
+![](https://blog.idejie.com/pics/word-embeding6.jpg)
 
 现在我们来举个例子来计算一个同现矩阵。
 
 语料库 = He is not lazy. He is intelligent. He is smart.
 
-![](https://ws3.sinaimg.cn/large/006tNc79ly1fgxtxf3r0yj30eq06s3z0.jpg)
+![](https://blog.idejie.com/pics/word-embeding7.jpg)
 
 让我们通过看到上表中的两个例子来理解这个同现矩阵。 红色和蓝色框。
 
 红色框 - 在上下文边界2中出现了“He”和“is”的次数，可以看出，这个数字是4。下表将帮助您显示计数。
 
-![](https://ws2.sinaimg.cn/large/006tNc79ly1fgxtxz7hswj30jd058gm9.jpg)
+![](https://blog.idejie.com/pics/word-embeding8.jpg)
 
 而“Lazy”一词在上下文边界中从未出现过“intelligent”，因此在蓝盒中已被赋值为0。
 
@@ -251,7 +251,7 @@ CBOW的工作方式是倾向于在给定上下文情况下预测单词的概率�
 
 使用单个数据点的目标表示数据点4如下所示
 
-![](https://ws2.sinaimg.cn/large/006tNc79ly1fgxu3bnn87j30ik02bweo.jpg) 
+![](https://blog.idejie.com/pics/word-embeding11.jpg) 
 
 将上述图像中所示的矩阵发送到具有三层的浅层神经网络：输入层，隐藏层和输出层。输出层是一个softmax层，它用于将输出层中获得的概率求和为1.现在让我们看看正向传播如何用于计算隐藏层激活。
 

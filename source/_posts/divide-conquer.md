@@ -7,7 +7,7 @@ category: 课程复习
 
 ## 1.两个数组的中位数
 
-![](https://ws3.sinaimg.cn/large/006tNc79ly1fz7912jcwfj319g0f8789.jpg)
+![](https://blog.idejie.com/pics/divide-conquer0.jpg)
 
 ------
 
@@ -31,7 +31,7 @@ Given a binary tree, suppose that the distance between two adjacent nodes is 1, 
 
 ## 3.二叉树中的局部最小值
 
-![](https://ws4.sinaimg.cn/large/006tNc79ly1fz791sed76j319m0biade.jpg)
+![](https://blog.idejie.com/pics/divide-conquer1.jpg)
 
 ------
 
@@ -43,9 +43,9 @@ Given a binary tree, suppose that the distance between two adjacent nodes is 1, 
 
 ## 4.棋盘中的局部最小值
 
-![](https://ws2.sinaimg.cn/large/006tNc79ly1fz792apttwj31ag0b8tc2.jpg)
+![](https://blog.idejie.com/pics/divide-conquer2.jpg)
 
-![](https://ws4.sinaimg.cn/large/006tNc79ly1fz78e4xm5yj30xd0u0tc8.jpg)
+![](https://blog.idejie.com/pics/divide-conquer3.jpg)
 
 
 
@@ -71,7 +71,7 @@ Conquer:然后找出棋盘边上的𝑥𝑖的最小值min
 
 ## 5.归并排序的特例
 
-![](https://ws1.sinaimg.cn/large/006tNc79ly1fz792pudvdj319i0asdiy.jpg)
+![](https://blog.idejie.com/pics/divide-conquer4.jpg)
 
 ------
 
@@ -85,17 +85,17 @@ $O(n\ log \ n)$
 
 Given a table M consisting of 2n ∗ 2n blocks, we want to fill it with a L-shaped module (consisting of three blocks). The L-shaped module is shown below.
 
-![替代文字](https://ws2.sinaimg.cn/large/006tNc79ly1fz77z7yrwxj306604yt8k.jpg)
+![替代文字](https://blog.idejie.com/pics/divide-conquer5.jpg)
 
 Please give a fill method, so that the last element of the table (M2n,2n) is empty.
 
-![w](https://ws1.sinaimg.cn/large/006tNc79ly1fz780cwzrdj30uy0b2t91.jpg)
+![w](https://blog.idejie.com/pics/divide-conquer6.jpg)
 
 ------
 
 分成四个小正方形，相当于四个子问题
 
-![](https://ws4.sinaimg.cn/large/006tNc79ly1fz78gwh2p6j31ck0hw4mz.jpg)
+![](https://blog.idejie.com/pics/divide-conquer7.jpg)
 
 $O(n^2)$
 
@@ -103,7 +103,7 @@ $O(n^2)$
 
 ## 7.第k大元素
 
-![](https://ws4.sinaimg.cn/large/006tNc79ly1fz791ku38ij31a806cq3z.jpg)
+![](https://blog.idejie.com/pics/divide-conquer8.jpg)
 
 ------
 
@@ -115,7 +115,7 @@ $O(n)$
 
 ## 8.最近点对
 
-![](https://ws3.sinaimg.cn/large/006tNc79ly1fz794b4x91j313404aq3s.jpg)
+![](https://blog.idejie.com/pics/divide-conquer9.jpg)
 
 ------
 
@@ -127,25 +127,25 @@ $O(n\ log \ n )$
 
 ## 9.凸包特例：捉鬼敢死队
 
-![](https://ws4.sinaimg.cn/large/006tNc79ly1fz78xvignoj315e0iqqum.jpg)
+![](https://blog.idejie.com/pics/divide-conquer10.jpg)
 
 ------
 
-![](https://ws2.sinaimg.cn/large/006tNc79ly1fz7cke3uggj30s4118qbv.jpg)
+![](https://blog.idejie.com/pics/divide-conquer11.jpg)
 
 ------
 
 ## 10.凸包问题：多边形转化成三角
 
-![](https://ws4.sinaimg.cn/large/006tNc79ly1fz78yx3mllj316k06oth6.jpg)
+![](https://blog.idejie.com/pics/divide-conquer12.jpg)
 
 ------
 
-![](https://ws4.sinaimg.cn/large/006tNc79ly1fz7is86vz6j30qg0v2x0t.jpg)
+![](https://blog.idejie.com/pics/divide-conquer13.jpg)
 
 ## 11.数组中的局部最大值
 
-![](https://ws2.sinaimg.cn/large/006tNc79ly1fz78zmye1mj30nq066jxq.jpg)
+![](https://blog.idejie.com/pics/divide-conquer14.jpg)
 
 Divider:从数组的中间元素$A_m=A [\frac{n}{2}]$开始比
 
@@ -158,9 +158,9 @@ $O(log \ n)$
 
 ## 12.奶牛跳房子
 
-![](https://ws4.sinaimg.cn/large/006tNc79ly1fz790j4009j319y0m844j.jpg)
+![](https://blog.idejie.com/pics/divide-conquer15.jpg)
 
-![](https://ws4.sinaimg.cn/large/006tNc79ly1fz790rrup0j3198098wgw.jpg)
+![](https://blog.idejie.com/pics/divide-conquer16.jpg)
 
 最小间隔<d<L
 
@@ -172,21 +172,21 @@ $O(log \ n)$
 
 ## 13.排序
 
-![](https://ws3.sinaimg.cn/large/006tNc79ly1fz793nqrtpj319g0a4411.jpg)
+![](https://blog.idejie.com/pics/divide-conquer17.jpg)
 
-![](https://ws1.sinaimg.cn/large/006tNc79ly1fz793vhjfhj316u02u74x.jpg)
+![](https://blog.idejie.com/pics/divide-conquer18.jpg)
 
 ## 14.矩阵乘法
 
-![](https://ws3.sinaimg.cn/large/006tNc79ly1fz7953hbzpj319e03cjs2.jpg)
+![](https://blog.idejie.com/pics/divide-conquer19.jpg)
 
 ## 15.大数乘法
 
-![](https://ws2.sinaimg.cn/large/006tNc79ly1fz795a5s77j319s02sdgi.jpg)
+![](https://blog.idejie.com/pics/divide-conquer20.jpg)
 
 ## 16.旋转数组
 
-![](https://ws3.sinaimg.cn/large/006tNc79ly1fz797l1j9bj30sa06ewnt.jpg)
+![](https://blog.idejie.com/pics/divide-conquer21.jpg)
 
  divide：
 
@@ -198,7 +198,7 @@ $O(log \ n)$
 
 ## 17.汉诺塔
 
-![](https://ws4.sinaimg.cn/large/006tNc79ly1fz7k6dvon8j30it08aabn.jpg)
+![](https://blog.idejie.com/pics/divide-conquer22.jpg)
 
 对于n个盘子的汉诺塔问题，总有3根柱子，当前所有n个盘子都在柱子a上，那么如何通过柱子b将所有盘子挪到柱子c上？
 
@@ -216,7 +216,7 @@ $O(log \ n)$
 - 然把这两个点连成一条直线，直线上面的半个凸包叫上凸包，直线下面的半个凸包叫下凸包
 - 分别在上凸包和下凸包找出距离直线最大的点$P_{max}$，连接$P_1   P_{max}$和$P_nP_{max}$如下图
 
-![](https://ws3.sinaimg.cn/large/006tNc79ly1fz7krdczuxj30je0huq6o.jpg)
+![](https://blog.idejie.com/pics/divide-conquer23.jpg)
 
 - 又可以把上下两个凸包分解成更小的上凸包和下凸包，为什么说是更小的上凸包和下凸包，
 - 我们看上图如果我们把$P_1P_n$这条线段看成是一条有向线段，那么下凸包在它的右方，上凸包在它的左方，以上凸包为例，连接$P_1P_{max}$之后再找下一个$P_{max}$的时候我们肯定是要在$P_1P_{max}$这条有向线段的左方进行查找，因此我们可以将$P_1P_{max}$这条线段的左方看成一个更小的上凸包，同理，连接$P_1P_{max}$我们要找到下一个$P_{max}$肯定要在$P_1P_{max}$的右方查找，这就和下凸包的查找方式一样了，我们可以将它看成一个下凸包。
@@ -233,9 +233,9 @@ Output: 6
 Explanation: [4,-1,2,1] has the largest sum = 6.
 ```
 
-![](https://ws1.sinaimg.cn/large/006tNc79ly1fz7k2vn7r3j31vs06stae.jpg)
+![](https://blog.idejie.com/pics/divide-conquer24.jpg)
 
-![](https://ws4.sinaimg.cn/large/006tNc79ly1fz7k02v1muj30v90u048w.jpg)
+![](https://blog.idejie.com/pics/divide-conquer25.jpg)
 
 ## 20.循环赛表
 
@@ -257,7 +257,7 @@ Explanation: [4,-1,2,1] has the largest sum = 6.
 
 这时只要让这两个选手进行比赛就可以了。
 
-![](https://ws3.sinaimg.cn/large/006tNc79ly1fz7ka3oswqj307704taac.jpg)
+![](https://blog.idejie.com/pics/divide-conquer26.jpg)
 
 如上图，所列出的正方形表是8个选手的比赛日程表。其中左上角与左下角的两小块分别为选手1至选手4和选手5至选手8前3天的比赛日程。据此，将左上角小块中的所有数字按其相对位置抄到右下角，又将左下角小块中的所有数字按其相对位置抄到右上角，这样我们就分别安排好了选手1至选手4和选手5至选手8在后4天的比赛日程。依此思想容易将这个比赛日程表推广到具有任意多个选手的情形。
 
@@ -271,6 +271,6 @@ merge:使组A只与组B的选手进行竞赛
 
 特殊情况的处理，单数:
 
-![](https://ws4.sinaimg.cn/large/006tNc79ly1fz7kn42pqlj31580h8aav.jpg)
+![](https://blog.idejie.com/pics/divide-conquer27.jpg)
 
-![](https://ws3.sinaimg.cn/large/006tNc79ly1fz7kncv39sj317w0h8js8.jpg)
+![](https://blog.idejie.com/pics/divide-conquer28.jpg)

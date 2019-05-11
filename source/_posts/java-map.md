@@ -13,7 +13,7 @@ category: Java
 
 ## 一、Map概述
 
-![](https://ww1.sinaimg.cn/large/006tNbRwly1fe41bdt6z4j30gn092dgm.jpg)
+![](https://blog.idejie.com/pics/java-map0.jpg)
 
 **Map：**“键值”对映射的抽象接口。该映射不包括重复的键，一个键对应一个值。
 
@@ -35,11 +35,11 @@ category: Java
 
 **总结**如下：
 
-![](https://ww1.sinaimg.cn/large/006tNbRwly1fe42t7s85wj30ib0d7abh.jpg)
+![](https://blog.idejie.com/pics/java-map1.jpg)
 
 他们之间的区别：
 
-![](https://ww1.sinaimg.cn/large/006tNbRwly1fe42tlilcej30oa0dzdhj.jpg)
+![](https://blog.idejie.com/pics/java-map2.jpg)
 
 ## 二、内部哈希： 哈希映射技术
 
@@ -68,7 +68,7 @@ static int indexFor(int h, int length) {
 
 位置的索引就代表了该节点在数组中的位置。下图是哈希映射的基本原理图
 
-![](https://ww4.sinaimg.cn/large/006tNbRwly1fe42jho0b7j30780cet9a.jpg)
+![](https://blog.idejie.com/pics/java-map3.jpg)
 
 在该图中1-4步骤是找到该元素在数组中位置，5-8步骤是将该元素插入数组中。在插入的过程中会遇到一点点小挫折。在众多肯能存在多个元素他们的hash值是一样的，这样就会得到相同的索引位置，也就说多个元素会映射到相同的位置，这个过程我们称之为“冲突”。解决冲突的办法就是在索引位置处插入一个链接列表，并简单地将元素添加到此链接列表。当然也不是简单的插入，在HashMap中的处理过程如下：获取索引位置的链表，如果该链表为null，则将该元素直接插入，否则通过比较是否存在与该key相同的key，若存在则覆盖原来key的value并返回旧值，否则将该元素保存在链头（最先保存的元素放在链尾）。下面是HashMap的put方法，该方法详细展示了计算索引位置，将元素插入到适当的位置的全部过程：
 

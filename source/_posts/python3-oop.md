@@ -464,7 +464,7 @@ Tortoise is running slowly...
 
 继承还可以一级一级地继承下来，就好比从爷爷到爸爸、再到儿子这样的关系。而任何类，最终都可以追溯到根类object，这些继承关系看上去就像一颗倒着的树。比如如下的继承树：
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1ffz7b0fe7uj30ff0ax3z2.jpg)
+![](https://blog.idejie.com/pics/python3-oop0.jpg)
 
 **静态语言 vs 动态语言**
 

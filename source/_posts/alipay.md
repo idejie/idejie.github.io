@@ -78,7 +78,7 @@ public class ARView extends View {
 }
 ```
 
-**方法三：**没看懂
+**方法三：**
 
 来自**虎嗅网**
 

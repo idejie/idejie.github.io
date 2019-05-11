@@ -55,7 +55,7 @@ category: JavaScript
 
 ThreeJS 由渲染器(Render)、场景(Scene)、摄像机（Camera）,以及我们创建的三维模型
 
-![](https://ws2.sinaimg.cn/large/006tKfTcly1fgl0fffauvj30gz0ed75h.jpg)
+![](https://blog.idejie.com/pics/threejs0.jpg)
 
 **渲染器**：渲染器利用 id 属性和Canvas元素进行绑定
 
@@ -144,7 +144,7 @@ scene.add(camera);
 
 由于图像或者视频都是二维的，把三维的图像转换成二维的，就需要类似于平时的摄像机
 
-![](https://ws4.sinaimg.cn/large/006tKfTcly1fgl0queix3j30e90be0tj.jpg)
+![](https://blog.idejie.com/pics/threejs1.jpg)
 
 而且根据投影方式的不同，又分为正交投影和透视投影
 
@@ -152,7 +152,7 @@ scene.add(camera);
 
 **正交投影**一个长方体为例，正交投影就相当数学老师在黑板上画的。
 
-![](https://ws2.sinaimg.cn/large/006tKfTcly1fgl0yh0krqj30d007pdg2.jpg)
+![](https://blog.idejie.com/pics/threejs2.jpg)
 
 构造函数
 
@@ -160,7 +160,7 @@ scene.add(camera);
 THREE.OrthographicCamera(left,right,top,botton,near,far)
 ```
 
-![](https://ws3.sinaimg.cn/large/006tKfTcly1fgl11t882kj31kw1ff799.jpg)
+![](https://blog.idejie.com/pics/threejs3.jpg)
 
 这6个参数分别代表着正交投影摄像机到空间的6个位置，这样围成的一个长方体称之为 **视景体**
 
@@ -182,7 +182,7 @@ near 与 far 都是指到照相机位置在深度平面的位置,而照相机不
 THREE.PerspectiveCamera(fov, aspect, near, far)
 ```
 
-![](https://ws4.sinaimg.cn/large/006tKfTcly1fgl34j239zj30s90ca0tw.jpg)
+![](https://blog.idejie.com/pics/threejs4.jpg)
 
 透视图中,灰色的部分是视景体,是可能被渲染的物体所在的区域。 fov 是视景体竖直方向上的张角(是角度制而非弧度制),如侧视图所示。
 
@@ -264,7 +264,7 @@ camera.lookAt(new THREE.Vector3(0, 0, 0));
 
 为什么正方体显得更小了呢?我们从下面的侧视图来看,虽然正方体的实际大小并未改变,但是将照相机的竖直张角设置得更大时,视景体变大了,因而正方体相对于整个视景体的大小就变小了,看起来正方形就显得变小了。
 
-![](https://ws3.sinaimg.cn/large/006tKfTcly1fgl3nqwdxaj30io0go0tf.jpg)
+![](https://blog.idejie.com/pics/threejs5.jpg)
 
 # 三、基本几何形状
 

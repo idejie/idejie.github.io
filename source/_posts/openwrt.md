@@ -47,7 +47,7 @@ category: 教程
 ssh root@192.168.31.1
 ```
 
-![](https://ws2.sinaimg.cn/large/006tKfTcly1fhn9732jg9j30eg085q45.jpg)
+![](https://blog.idejie.com/pics/openwrt0.jpg)
 
 - [下载](http://downloads.openwrt.org/chaos_calmer/15.05.1/ramips/mt7620/openwrt-15.05.1-ramips-mt7620-xiaomi-miwifi-mini-squashfs-sysupgrade.bin)OpenWRT官方提供的小米路由器定制包
 - 使用 `scp`将 OpenWRT工具包拷贝至路由器
@@ -71,28 +71,28 @@ mtd -r write /tmp/openwrt-15.05.1-ramips-mt7620-xiaomi-miwifi-mini-squashfs-sysu
 
 - 初始密码为 admin，上方会提示你修改密码,点击进入
 
-![](https://ws3.sinaimg.cn/large/006tKfTcly1fhn9c0927aj30du06574j.jpg)
+![](https://blog.idejie.com/pics/openwrt1.jpg)
 
 - 同时开启远程访问权限（可选）
 
-![](https://ws1.sinaimg.cn/large/006tKfTcly1fhn9dm3ag5j30iv018t8q.jpg)
+![](https://blog.idejie.com/pics/openwrt2.jpg)
 
 - save & apply
 
 - 设置网络
 
-  ![](https://ws4.sinaimg.cn/large/006tKfTcly1fhn9fhwbg7j30ds021aa7.jpg)
+  ![](https://blog.idejie.com/pics/openwrt3.jpg)
 
   - 点击 **Interfaces**
-  - ![](https://ws1.sinaimg.cn/large/006tKfTcly1fhn9g6yjxxj30ql06w75i.jpg)
+  - ![](https://blog.idejie.com/pics/openwrt4.jpg)
   - 根据提示和个人情况进行配置网络
 
-  ![](https://ws4.sinaimg.cn/large/006tKfTcly1fhn9h76i2bj30b207zwf6.jpg)
+  ![](https://blog.idejie.com/pics/openwrt5.jpg)
 
 
 - ssh 连接 OpenWRT
 
-![](https://ws4.sinaimg.cn/large/006tKfTcly1fhn99bmdsdj30b708bab2.jpg)
+![](https://blog.idejie.com/pics/openwrt6.jpg)
 
 # 更进一步
 
@@ -103,9 +103,9 @@ opkg update
 opkg install luci-i18n-base-zh-cn
 ```
 
-![](https://ws2.sinaimg.cn/large/006tKfTcly1fhn9klmhe7j30ep029aa6.jpg)
+![](https://blog.idejie.com/pics/openwrt7.jpg)
 
-![](https://ws1.sinaimg.cn/large/006tKfTcly1fhn9ktqgvjj30dk05xdg2.jpg)
+![](https://blog.idejie.com/pics/openwrt8.jpg)
 
 ## 挂载 U 盘
 
@@ -127,14 +127,14 @@ opkg install kmod-usb-storage kmod-fs-ntfs ntfs-3g kmod-nls-utf8 kmod-fs-nfs-com
 fdisk -l
 ```
 
-![](https://ws1.sinaimg.cn/large/006tKfTcly1fhn9p1gda9j30bm00w0ss.jpg)
+![](https://blog.idejie.com/pics/openwrt9.jpg)
 
 - 挂载 /dev/sda1(可能是其他名字)到overlay
-  ![](https://ws1.sinaimg.cn/large/006tKfTcly1fhn9p1gda9j30bm00w0ss.jpg)
+  ![](https://blog.idejie.com/pics/openwrt9.jpg)
 
 - 查看挂载是否成功
 
-  ![](https://ws1.sinaimg.cn/large/006tKfTcly1fhn9rgqurvj30c403tjrz.jpg)
+  ![](https://blog.idejie.com/pics/openwrt11.jpg)
 
 - 接下来就可以任性装包了
 

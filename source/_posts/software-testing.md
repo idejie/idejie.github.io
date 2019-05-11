@@ -33,7 +33,7 @@ category: 课程复习
 
 5.**测试和开发的关系（V模型）**
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fgnfpq3iirj3091052dfy.jpg)
+![](https://blog.idejie.com/pics/software-testing0.jpg)
 
 6.**测试和质量保证的关系**
 
@@ -93,7 +93,7 @@ SQA和软件测试之间相辅相成，既有包含又有交叉的关系。SQA�
 
 白盒测试：也叫结构化测试、逻辑驱动测试，已知产品内部的工作过程，按照程序内部的结构测试程序，测试程序内部的变量状态、逻辑结构、运行路径等，检验程序中的每条通路是否都能按预定要求正确工作，检查程序内部动作或运行是否符合设计规格要求
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fgnfqxkxtaj30d905g74z.jpg)
+![](https://blog.idejie.com/pics/software-testing1.jpg)
 
 15.**测试级别（单元、集合…的概念）**
 
@@ -158,7 +158,7 @@ SQA和软件测试之间相辅相成，既有包含又有交叉的关系。SQA�
 
 会批评审：以会议形式，制定目标、流程和规则，按缺陷检查表（不断完善）逐项检查。发现问题适当记录，避免现场修改，发现重大缺陷，改正后会议需要重开
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fgnfrgenjvj30ad03xq3c.jpg)
+![](https://blog.idejie.com/pics/software-testing2.jpg)
 
 
 18.**驱动程序、桩程序的概念**
@@ -196,7 +196,7 @@ Java：Juni、Jtest
 
 混合策略：上层“自顶向下”，下层“自底向上”
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fgnfryloorj30ec040aae.jpg)
+![](https://blog.idejie.com/pics/software-testing3.jpg)
 
 
 22.**功能测试的要求**

@@ -9,19 +9,19 @@ category: Python
 
 then~中心校区提供了一个用电查询的系统
 
-![](https://ws1.sinaimg.cn/large/006tKfTcly1fghd3pu094j31400p0q6j.jpg)
+![](https://blog.idejie.com/pics/python-sdu-ele0.jpg)
 
 # 1.chrome 开发者模式
 
 在 chrome 开发者模式下查看它的网络请求
 
-![](https://ws1.sinaimg.cn/large/006tKfTcly1fghd4llyldj31400p07bj.jpg)
+![](https://blog.idejie.com/pics/python-sdu-ele1.jpg)
 
 可以看出是 post 请求，而且在每一栋楼、每一层获取时都是 post，并伴随着`_VIEWSTATE`的变化
 
 然后在 FormData 着看到了数据
 
-![](https://ws4.sinaimg.cn/large/006tKfTcly1fghd52k6qaj30fj0csq6c.jpg)
+![](https://blog.idejie.com/pics/python-sdu-ele2.jpg)
 
 不断修改，selector 的 option可以发现关键字段`drlouming`、`drceng`、`drfangjian`分别代表着楼名、楼层、房间号。
 

@@ -13,11 +13,11 @@ category: 深度学习
 
 - 安装`caffe`
 
-  ![](https://ww4.sinaimg.cn/large/006tNc79ly1fdi2slop2xj30hv02laaj.jpg)
+  ![](https://blog.idejie.com/pics/caffe-learning-40.jpg)
 
 - 下载Caffe源码
 
-  ![](https://ww1.sinaimg.cn/large/006tNc79ly1fdi2uf32i2j30el020glw.jpg)
+  ![](https://blog.idejie.com/pics/caffe-learning-41.jpg)
 
 - 修改config
 

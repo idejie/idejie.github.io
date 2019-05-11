@@ -96,9 +96,9 @@ category: 课程复习
 
 4. **简述认知心理学的基本隐喻**。（来自网络）
 
-![](https://ww1.sinaimg.cn/large/006tNbRwjw1fbj9mtzshcj30g602jmxo.jpg)
+![](https://blog.idejie.com/pics/hmi0.jpg)
 
-![](https://ww3.sinaimg.cn/large/006tKfTcjw1fbj9nmii0qj30gx031t9f.jpg)
+![](https://blog.idejie.com/pics/hmi1.jpg)
 
 5. **简述在图形用户界面中直接操纵方式的特点。**
 
@@ -118,7 +118,7 @@ category: 课程复习
    用户只能使用手这一种交互通道输入信息，通过视觉通道获取信息。 
    在WIMP界面中，界面的输出可以为静态或动态的二维图形或图像等信息。
 
-   ![](https://ww1.sinaimg.cn/large/006tKfTcjw1fbj9tcru71j30gr09kwey.jpg)
+   ![](https://blog.idejie.com/pics/hmi2.jpg)
 
 7. **简述图形用户界面设计的一般性原则。**
 
@@ -158,7 +158,7 @@ category: 课程复习
 
    多通道用户界面的研究是为了消除当前WIMP/GUI用户界面通信带宽不平衡的瓶颈，综合采用视线、语音、手势等新的交互通道、设备和交互技术，使用户利用多个通道以自然、并行、协作的方式进行人机对话，通过整合来自多个通道的、精确的和不精确的输入来捕捉用户的交互意图，实现三维、非精确及隐含的人机交互，提高人机交互的自然性和高效性。
 
-   ![](https://ww2.sinaimg.cn/large/006tKfTcjw1fbj9ynhdnlj30be0603yu.jpg)
+   ![](https://blog.idejie.com/pics/hmi3.jpg)
 
 10. **简述GOMS模型中G、O、M、S的含义。**
 
@@ -190,9 +190,9 @@ category: 课程复习
 
    ​
 
-   ![](https://ww1.sinaimg.cn/large/006tKfTcjw1fbja0zoaoyj30qg0gvgmx.jpg)
+   ![](https://blog.idejie.com/pics/hmi4.jpg)
 
-   ![](https://ww3.sinaimg.cn/large/006tKfTcjw1fbja2qgprej30ox0g476a.jpg)
+   ![](https://blog.idejie.com/pics/hmi5.jpg)
 
    ​	T1 ||| T2（交替Interleaving)
 
@@ -206,9 +206,9 @@ category: 课程复习
 
 2. **用UAN模型描述“在桌面上把文件X拖入文件夹Y”的任务单通道实现。**
 
-   ![](https://ww3.sinaimg.cn/large/006tKfTcjw1fbja5kht1dj30ly0c3dgy.jpg)
+   ![](https://blog.idejie.com/pics/hmi6.jpg)
 
-   ![](https://ww1.sinaimg.cn/large/006tKfTcjw1fbja4e0u3qj30l80b9wg9.jpg)
+   ![](https://blog.idejie.com/pics/hmi7.jpg)
 
 3. **利用由事件引导的系统的产生式规则描述画直线的交互过程。**
 
@@ -244,11 +244,11 @@ category: 课程复习
 
 5. **把对“中国象棋对弈”的行为模式中的“运行”目标转换为状态转换网络。**
 
-   ![](https://ww2.sinaimg.cn/large/006tKfTcjw1fbjaaful9nj30ly0f675o.jpg)
+   ![](https://blog.idejie.com/pics/hmi8.jpg)
 
 6. **根据第4题中的文本样式设置规则，试画出Bold、Italic: Underline三种文本设置属性组合的状态转换图（STN）。**
 
-   ![](https://ww2.sinaimg.cn/large/006tKfTcjw1fbja98dq20j30gn0bht9o.jpg)
+   ![](https://blog.idejie.com/pics/hmi9.jpg)
 
 7. **请画出某大学图书管理系统读者借阅图书的时序图，并描述读者借阅图书的过程。**
 
@@ -262,8 +262,8 @@ category: 课程复习
 
    当确认信息出现时，整个图书借阅的交互过程就结束了。
 
-   ![](https://ww3.sinaimg.cn/large/006tKfTcjw1fbjabhvid2j30og0hcjsw.jpg)
+   ![](https://blog.idejie.com/pics/hmi10.jpg)
 
 8. **请画出银行ATM系统中持卡人取款操作的时序图和对象协作图。**
 
-   ![](https://ww2.sinaimg.cn/large/006tKfTcjw1fbjacjlerzj30aj0emjsh.jpg)
+   ![](https://blog.idejie.com/pics/hmi11.jpg)

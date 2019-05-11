@@ -11,17 +11,17 @@ category: 课程复习
 
 ## 1.多边形与度
 
-![](https://ws4.sinaimg.cn/large/006tNc79ly1fz8v5m4b1fj30ys06o0ua.jpg)
+![](https://blog.idejie.com/pics/greedy0.jpg)
 
-![](https://ws4.sinaimg.cn/large/006tNc79ly1fz9fop73gcj31cu0am420.jpg)
+![](https://blog.idejie.com/pics/greedy1.jpg)
 
 ## 2.工作分配
 
-![](https://ws4.sinaimg.cn/large/006tNc79ly1fz8v69m24zj30y40b077h.jpg)
+![](https://blog.idejie.com/pics/greedy2.jpg)
 
-![](https://ws4.sinaimg.cn/large/006tNc79ly1fz8v6xgzp3j310204wgmx.jpg)
+![](https://blog.idejie.com/pics/greedy3.jpg)
 
-![](https://ws1.sinaimg.cn/large/006tNc79ly1fz9fs01ku2j31r009sadn.jpg)
+![](https://blog.idejie.com/pics/greedy4.jpg)
 
 最后一个在PC上结束的时间
 $$
@@ -32,11 +32,11 @@ $$
 
 ## 3.子序列匹配
 
-![](https://ws2.sinaimg.cn/large/006tNc79ly1fz8v7dxkuqj30yu064q4e.jpg)
+![](https://blog.idejie.com/pics/greedy5.jpg)
 
 ## 4.剪绳子
 
-![](https://ws2.sinaimg.cn/large/006tNc79ly1fz8v7s21pyj30yu050dgz.jpg)
+![](https://blog.idejie.com/pics/greedy6.jpg)
 
 **动态规划**
 $$
@@ -66,15 +66,15 @@ if n%3=2 分分成n-1个3和一个2
 
 ## 5.负重过河
 
-![](https://ws4.sinaimg.cn/large/006tNc79ly1fz8v844sb3j30yk0no791.jpg)
+![](https://blog.idejie.com/pics/greedy7.jpg)
 
-![](https://ws1.sinaimg.cn/large/006tNc79ly1fz9gnytganj31ni0u0162.jpg)
+![](https://blog.idejie.com/pics/greedy8.jpg)
 
 
 
 ## 6.猴子香蕉
 
-![](https://ws2.sinaimg.cn/large/006tNc79ly1fz8v8m13edj30z203st9o.jpg)
+![](https://blog.idejie.com/pics/greedy9.jpg)
 
 排序就完了
 
@@ -84,19 +84,19 @@ if n%3=2 分分成n-1个3和一个2
 
 ## 7.雷达布测
 
-![](https://ws2.sinaimg.cn/large/006tNc79ly1fz8v9j3vdwj31300qq11b.jpg)
+![](https://blog.idejie.com/pics/greedy10.jpg)
 
-![](https://ws2.sinaimg.cn/large/006tNc79ly1fz9no5gvfxj31290u07fg.jpg)
+![](https://blog.idejie.com/pics/greedy11.jpg)
 
 ## 8.乘数
 
-![](https://ws4.sinaimg.cn/large/006tNc79ly1fz8v9vijvwj30yw07gmys.jpg)
+![](https://blog.idejie.com/pics/greedy12.jpg)
 
 排序，小的和小的乘
 
 ## 9.霍夫曼编码
 
-![](https://ws4.sinaimg.cn/large/006tNc79ly1fz8vaaxdloj3106078wg2.jpg)
+![](https://blog.idejie.com/pics/greedy13.jpg)
 
 参考：https://blog.csdn.net/FX677588/article/details/70767446
 
@@ -104,7 +104,7 @@ if n%3=2 分分成n-1个3和一个2
 
 ## 10.最短路径
 
-![](https://ws1.sinaimg.cn/large/006tNc79ly1fz8vau6k3nj30ya0fitc6.jpg)
+![](https://blog.idejie.com/pics/greedy14.jpg)
 
 https://blog.csdn.net/yalishadaa/article/details/55827681 
 
@@ -112,7 +112,7 @@ https://blog.csdn.net/yalishadaa/article/details/55827681
 
 ## 11.聚会
 
-![](https://ws3.sinaimg.cn/large/006tNc79ly1fz8vd2em2sj317y0nctzv.jpg)
+![](https://blog.idejie.com/pics/greedy15.jpg)
 
 都排序，和猴子分香蕉的一样
 
@@ -122,13 +122,13 @@ https://blog.csdn.net/yalishadaa/article/details/55827681
 
 ## 12.做作业
 
-![](https://ws1.sinaimg.cn/large/006tNc79ly1fz8velv7ohj311w0dkqpm.jpg)
+![](https://blog.idejie.com/pics/greedy16.jpg)
 
 和下面14.deadline的一样
 
 ## 13.滑雪比赛
 
-![](https://ws2.sinaimg.cn/large/006tNc79ly1fz8vf819ydj30yg08s4dm.jpg)
+![](https://blog.idejie.com/pics/greedy17.jpg)
 
 都排序，和猴子分香蕉的一样
 
@@ -136,15 +136,15 @@ https://blog.csdn.net/yalishadaa/article/details/55827681
 
 ## 14.Deadline
 
-![](https://ws2.sinaimg.cn/large/006tNc79ly1fz8vgfstbaj310w0em1el.jpg)
+![](https://blog.idejie.com/pics/greedy18.jpg)
 
 按扣分项降序，然后把作业都放在deadline那一天，如果当天有多个扣分项，试着往前移第一个次大的p，如果前一天没有作业，或者扣得分少于p,那么就可以换；如果不可以，就继续试着往前换，直到所有都不满足
 
 ## 15.DotA猪队友神对手
 
-![](https://ws1.sinaimg.cn/large/006tNc79ly1fz8vgu3opkj311q0d6aw9.jpg)
+![](https://blog.idejie.com/pics/greedy19.jpg)
 
-![](https://ws2.sinaimg.cn/large/006tNc79ly1fz8vh6m2pxj30y608manu.jpg)
+![](https://blog.idejie.com/pics/greedy20.jpg)
 
 按DSP/HP降序排列，先打最高的
 

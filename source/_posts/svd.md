@@ -22,7 +22,7 @@ category: 数据挖掘
   	- Each user has at least 20 ratings
   ```
 
-  ​
+  
 
 - users.dat
 
@@ -50,7 +50,7 @@ category: 数据挖掘
   		* 20:  "writer"
   ```
 
-  ​
+  
 
 - movies.dat
 
@@ -84,27 +84,27 @@ category: 数据挖掘
 
 - 关联规则是形如X→Y的蕴涵式。其中，X和Y分别称为关联规则的先导和后继。
 
-![](https://ww3.sinaimg.cn/large/006tKfTcly1fdzd5ari8bj30jq08iq3h.jpg)
+![](https://blog.idejie.com/pics/svd0.jpg)
 
 ### 2.Slope One
 
 举个例子
 
-![](https://ww4.sinaimg.cn/large/006tKfTcly1fdzdjr4aaqj30df049aab.jpg)
+![](https://blog.idejie.com/pics/svd1.jpg)
 
 ？=4-（（5-3）+（4-3））/2
 
-- 基本的想法来自于简单的一元线性模型![](https://ww2.sinaimg.cn/large/006tKfTcly1fdzd7bb284j303100oq2s.jpg)已知一组训练点![](https://ww1.sinaimg.cn/large/006tKfTcly1fdzd7xwj4kj301q00vdfo.jpg) 利用此线性模型最小化预测误差的平方和，我们可以获得![](https://ww2.sinaimg.cn/large/006tKfTcly1fdzd8vvdjfj304c01bq2t.jpg)
+- 基本的想法来自于简单的一元线性模型![](https://blog.idejie.com/pics/svd14.jpg)已知一组训练点![](https://blog.idejie.com/pics/svd15.jpg) 利用此线性模型最小化预测误差的平方和，我们可以获得![](https://blog.idejie.com/pics/svd13.jpg)
 
 - 当我们要预测新点的时候，带入原来的一元线性模型就好了
 
-- 误差多大？![](https://ww4.sinaimg.cn/large/006tKfTcly1fdzdb17cn7j307501rjrc.jpg)
+- 误差多大？![](https://blog.idejie.com/pics/svd3.jpg)
 
   ​	其中 Sj,i() 表示同时对item i 和 j 给予了评分的用户集合，而 card()表示集合包含的元素数量。
 
 - 将
 
-![](https://ww4.sinaimg.cn/large/006tKfTcly1fdzddmfcsuj302f00ot8k.jpg)作为新的item的预测值
+![](https://blog.idejie.com/pics/svd4.jpg)作为新的item的预测值
 
 
 
@@ -116,31 +116,31 @@ category: 数据挖掘
 
 简单的说就是把高维稀疏矩阵进行分解：
 
-![](https://ww3.sinaimg.cn/large/006tNbRwly1fe6g3vhavtj30nz0bxmxp.jpg)
+![](https://blog.idejie.com/pics/svd5.jpg)
 
 #### 一些补充知识
 
 ##### 1.正交矩阵
 
-![](https://ww1.sinaimg.cn/large/006tNbRwly1fe6g5y0n80j30ov0giab6.jpg)
+![](https://blog.idejie.com/pics/svd6.jpg)
 
 假设二维空间中的一个向量OA，它在标准坐标系也即e1、e2表示的坐标是中表示为(a,b)'（用'表示转置），现在把它用另一组坐标e1'、e2'表示为(a',b')'，存在矩阵U使得(a',b')'=U(a,b)'，则U即为正交矩阵。从图中可以看到，正交变换只是将变换向量用另一组正交基表示，在这个过程中并没有对向量做拉伸，也不改变向量的空间位置，加入对两个向量同时做正交变换，那么变换前后这两个向量的夹角显然不会改变。上面的例子只是正交变换的一个方面，即旋转变换，可以把e1'、e2'坐标系看做是e1、e2坐标系经过旋转某个斯塔角度得到，怎么样得到该旋转矩阵U呢？如下：
 
-![](https://ww4.sinaimg.cn/large/006tNbRwly1fe6g73syd7j30as0793yl.jpg)
+![](https://blog.idejie.com/pics/svd7.jpg)
 
 a'和b'实际上是x在e1'和e2'轴上的投影大小，所以直接做内积可得，then
 
-![](https://ww1.sinaimg.cn/large/006tNbRwly1fe6g7ssuurj3052022a9z.jpg)
+![](https://blog.idejie.com/pics/svd8.jpg)
 
-从图中可以看到![](https://ww2.sinaimg.cn/large/006tNbRwly1fe6g8b4hj4j303m01mt8l.jpg)![](https://ww2.sinaimg.cn/large/006tNbRwly1fe6g8gip64j303x01mwed.jpg)
+从图中可以看到![](https://blog.idejie.com/pics/svd17.jpg)![](https://blog.idejie.com/pics/svd16.jpg)
 
 所以
 
-![](https://ww2.sinaimg.cn/large/006tNbRwly1fe6g8src90j306v01umx4.jpg)
+![](https://blog.idejie.com/pics/svd10.jpg)
 
 正交阵U行（列）向量之间都是单位正交向量。上面求得的是一个旋转矩阵，它对向量做旋转变换！也许你会有疑问：刚才不是说向量空间位置不变吗？怎么现在又说它被旋转了？对的，这两个并没有冲突，说空间位置不变是绝对的，但是坐标是相对的，加入你站在e1上看OA，随着e1旋转到e1'，看OA的位置就会改变。如下图：
 
-![](https://ww1.sinaimg.cn/large/006tNbRwly1fe6g97q4r6j30p90g9jsn.jpg)
+![](https://blog.idejie.com/pics/svd11.jpg)
 
 如图，如果我选择了e1'、e2'作为新的标准坐标系，那么在新坐标系中OA（原标准坐标系的表示）就变成了OA'，这样看来就好像坐标系不动，把OA往顺时针方向旋转了“斯塔”角度，这个操作实现起来很简单：将变换后的向量坐标仍然表示在当前坐标系中。
 
@@ -150,7 +150,7 @@ a'和b'实际上是x在e1'和e2'轴上的投影大小，所以直接做内积可
 
 ##### 2.EVD
 
-  在讨论SVD之前先讨论矩阵的特征值分解（EVD），在这里，选择一种特殊的矩阵——对称阵（酉空间中叫hermite矩阵即厄米阵）。对称阵有一个很优美的性质：它总能相似对角化，对称阵不同特征值对应的特征向量两两正交。一个矩阵能相似对角化即说明其特征子空间即为其列空间，若不能对角化则其特征子空间为列空间的子空间。现在假设存在mxm的满秩对称矩阵A，它有m个不同的特征值，设特征值为![](https://ww2.sinaimg.cn/large/006tNbRwly1fe6gazmlosj301c01g0sk.jpg)
+  在讨论SVD之前先讨论矩阵的特征值分解（EVD），在这里，选择一种特殊的矩阵——对称阵（酉空间中叫hermite矩阵即厄米阵）。对称阵有一个很优美的性质：它总能相似对角化，对称阵不同特征值对应的特征向量两两正交。一个矩阵能相似对角化即说明其特征子空间即为其列空间，若不能对角化则其特征子空间为列空间的子空间。现在假设存在mxm的满秩对称矩阵A，它有m个不同的特征值，设特征值为![](https://blog.idejie.com/pics/svd12.jpg)
 
 对应的单位特征向量为![img](http://img.blog.csdn.net/20150123145830171)
 

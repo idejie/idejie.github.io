@@ -9,7 +9,7 @@ category: 课程复习
 
 ## 1.基本概念
 
-![](https://ws2.sinaimg.cn/large/006tNc79ly1fyy8mtg817j30cm09gt92.jpg)
+![](https://blog.idejie.com/pics/max-flow0.jpg)
 
 老板让你从1往3运东西，蓝色箭头的代表桥，蓝色数字代表桥的载重，超过载重车是走不成的。
 
@@ -48,7 +48,7 @@ $f(u, v)$称为从顶点$u$到顶点$v$的流，流的值定义为：$|f| =Σv�
 
 **但是这样未必正确**
 
-![](https://ws2.sinaimg.cn/large/006tNc79ly1fz0gdwpsdpj30zw0gyjt9.jpg)
+![](https://blog.idejie.com/pics/max-flow1.jpg)
 
 按照上述算法最大流为100，但答案是200。
 
@@ -63,21 +63,21 @@ $f(u, v)$称为从顶点$u$到顶点$v$的流，流的值定义为：$|f| =Σv�
 
 - 第一次DFS后
 
-  ![](https://ws1.sinaimg.cn/large/006tNc79ly1fz0ggy6gzkj30ui0gmabu.jpg)
+  ![](https://blog.idejie.com/pics/max-flow2.jpg)
 
 - 施加反向边
 
-  ![](https://ws4.sinaimg.cn/large/006tNc79ly1fz0ghsnss9j30uy0gyacg.jpg)
+  ![](https://blog.idejie.com/pics/max-flow3.jpg)
 
 - 第二次dfs
 
-  ![](https://ws2.sinaimg.cn/large/006tNc79ly1fz0gj5uza1j30x00h20vf.jpg)
+  ![](https://blog.idejie.com/pics/max-flow4.jpg)
 
   第二次dfs搜索又找到了一个流量为100的流，加上第一次搜索得到的流量为100的流，总流量上升到200
 
 - 施加反向边
 
-  ![](https://ws3.sinaimg.cn/large/006tNc79ly1fz0gk4cknyj30xi0hidj2.jpg)
+  ![](https://blog.idejie.com/pics/max-flow5.jpg)
 
 这样施加反向边的网络叫做 **残差网络**
 
@@ -87,11 +87,11 @@ $f(u, v)$称为从顶点$u$到顶点$v$的流，流的值定义为：$|f| =Σv�
 
 假设在第一次寻找流的时候，发现在b->a上可以有流量n来自源，到达b，再流出a后抵达汇点。
 
-![](https://ws1.sinaimg.cn/large/006tNc79ly1fz0hc0gyg3j30uw0reaev.jpg)
+![](https://blog.idejie.com/pics/max-flow6.jpg)
 
 构建残余网络时添加反向边a->b，容量是n,增广的时候发现了流量n-k，即新增了n-k的流量。这n-k的流量，从a进，b出，最终流到汇点
 
-![](https://ws2.sinaimg.cn/large/006tNc79ly1fz0hcx88yaj30xe0qwafa.jpg)
+![](https://blog.idejie.com/pics/max-flow7.jpg)
 
 
 
@@ -99,11 +99,11 @@ $f(u, v)$称为从顶点$u$到顶点$v$的流，流的值定义为：$|f| =Σv�
 
 把流入b的边合并，看做一条，把流出a的边也合并，同理把流入a和流出b的边也都合并
 
-![](https://ws3.sinaimg.cn/large/006tNc79ly1fz0hdr48n0j30t60twjv4.jpg)
+![](https://blog.idejie.com/pics/max-flow8.jpg)
 
 在原图上可以如下分配流量，则能有2n-k从源流到汇点：
 
-![](https://ws2.sinaimg.cn/large/006tNc79ly1fz0head2ofj31fe0tewn3.jpg)
+![](https://blog.idejie.com/pics/max-flow9.jpg)
 
 **总结**
 
@@ -121,7 +121,7 @@ Dfs 最多运行C次
 
 这个算法实现很简单但是注意到在图中C可能很大很大比如说下面这张图
 
-![](https://ws1.sinaimg.cn/large/006tNc79ly1fz0hjr7u3lj30zm0j6gnh.jpg)
+![](https://blog.idejie.com/pics/max-flow10.jpg)
 
 如果运气不好 这种图会让你的程序执行200次dfs虽然实际上最少只要2次我们就能得到最大流
 
@@ -270,13 +270,13 @@ Edmonds-Karp的提高余地：需要多次从s到t调用BFS，可以设法减少
 
 详细分析
 
-![](https://ws4.sinaimg.cn/large/006tNc79ly1fz0im14s2pj310k0i2jto.jpg)
+![](https://blog.idejie.com/pics/max-flow11.jpg)
 
 1.先利用 BFS对残余网络分层
 
 一个节点的“层”数，就是源点到它最少要经过的边数。于是得到
 
-![](https://ws2.sinaimg.cn/large/006tNc79ly1fz0imr74j0j30z40iqwgv.jpg)
+![](https://blog.idejie.com/pics/max-flow12.jpg)
 
 2.分完层后，利用DFS从前一层向后一层反复寻找增广路。
 
@@ -417,29 +417,29 @@ int main(){
 C(e),那么，在这样的流网络上求最大流，就是有下界的最大流问题。
  这种网络不一定存在可行流，如
 
-![](https://ws4.sinaimg.cn/large/006tNc79ly1fz1bkns878j31220dign3.jpg)
+![](https://blog.idejie.com/pics/max-flow13.jpg)
 
-![](https://ws2.sinaimg.cn/large/006tNc79ly1fz1bl1kz3ij319o0hmdjv.jpg)
+![](https://blog.idejie.com/pics/max-flow14.jpg)
 
 如果我们沿着s-a-b-t路线走 仅能得到一个100的流
 
-![](https://ws2.sinaimg.cn/large/006tNc79ly1fz1blg2ty9j31e20i4ado.jpg)
+![](https://blog.idejie.com/pics/max-flow15.jpg)
 
 
 
 思路：将下界“分离”出去，使问题转换为下界为０的普通网络流问题。
 
-![](https://ws2.sinaimg.cn/large/006tNc79ly1fz1blz7z5ej317a0r0aff.jpg)
+![](https://blog.idejie.com/pics/max-flow16.jpg)
 
-![](https://ws2.sinaimg.cn/large/006tNc79ly1fz1bm8bp3bj31ak0ms439.jpg)
+![](https://blog.idejie.com/pics/max-flow17.jpg)
 
-![](https://ws4.sinaimg.cn/large/006tNc79ly1fz1bmguv9kj316w0u0n5o.jpg)
+![](https://blog.idejie.com/pics/max-flow18.jpg)
 
-![](https://ws4.sinaimg.cn/large/006tNc79ly1fz1bq6pneuj316w0u0jyr.jpg)
+![](https://blog.idejie.com/pics/max-flow19.jpg)
 
-![](https://ws2.sinaimg.cn/large/006tNc79ly1fz1bqeqs39j318u0u012n.jpg)
+![](https://blog.idejie.com/pics/max-flow20.jpg)
 
-![](https://ws3.sinaimg.cn/large/006tNc79ly1fz1bqxva83j316a0u0grt.jpg)
+![](https://blog.idejie.com/pics/max-flow21.jpg)
 
 在做过一遍最大流的新图的残余网络中，去掉t->s以及s->t的边，然后以s为源，t为汇再做一次最大流，
 此时得到的流量 sum2，则 sum1+sum2就是在原图上满足下界的最大流。
@@ -454,9 +454,9 @@ C(e),那么，在这样的流网络上求最大流，就是有下界的最大流
 
 ### 2.6最小费用最大流
 
-![](https://ws1.sinaimg.cn/large/006tNc79ly1fz1c2cc3g3j31bq0n2qb8.jpg)
+![](https://blog.idejie.com/pics/max-flow22.jpg)
 
-![](https://ws2.sinaimg.cn/large/006tNc79ly1fz1c2nc15lj31ce0p6q9y.jpg)
+![](https://blog.idejie.com/pics/max-flow23.jpg)
 
 反复用spfa算法做源到汇的最短路进行增广，边权值为边上单位费用。反向边上的单位费用是负的。
 直到无法增广，即为找到最小费用最大流。
@@ -597,7 +597,7 @@ Bold texts appearing in the sample sections are informative and do not form part
 
 
 
-![](https://ws4.sinaimg.cn/large/006tNc79ly1fz1aextyq9j313m0qo42u.jpg)
+![](https://blog.idejie.com/pics/max-flow24.jpg)
 
 ```
 15 0 0 0 0 1 0
@@ -708,7 +708,7 @@ Sample Output
 第三个顾客有2猪圈的钥匙要买6头
 ```
 
-![](https://ws1.sinaimg.cn/large/006tNc79ly1fz1azn0togj315q0rq7gc.jpg)
+![](https://blog.idejie.com/pics/max-flow25.jpg)
 
 1） 三个顾客，就有三轮交易，每一轮分别都有 3个猪圈和 1 个顾客的节点。
 2） 从源点到第一轮的各个猪圈各有一条边，容量就是各个猪圈里的猪的初始数量。
@@ -721,7 +721,7 @@ Sample Output
 这个模型虽然很直观，但是节点数太多了，计算速度肯定会很慢。其实不用再想别的算法，就让我们继续上面的例子，用合并的方法来简化这个网络模型。
 首先，最后一轮中没有打开的猪圈就可以从图中删掉了，也就是下面图中红色的部分，显然它们对整个网络的流量没有任何影响。
 
-![](https://ws4.sinaimg.cn/large/006tNc79ly1fz1b2i6h1dj31a10u0wyk.jpg)
+![](https://blog.idejie.com/pics/max-flow26.jpg)
 
 用以下3条规律合并节点：
 规律 1. 如果几个节点的流量的来源完全相同，则可以把它们合并成一个。
@@ -737,11 +737,11 @@ Sample Output
 
 于是，会得到下页的图。也就是说，最后一轮除外，每一轮被打开的猪圈和下一轮的同样这些猪圈都可以被合并成一个点。
 
-![](https://ws4.sinaimg.cn/large/006tNc79ly1fz1b5h82snj31760smgvd.jpg)
+![](https://blog.idejie.com/pics/max-flow27.jpg)
 
 接着，根据规律3，此中的蓝色节点、2 号猪圈和 1 号顾客这三点可以合并成一个；两个 3 号猪圈和 2 号顾客也可以合并成一个点。当然，如果两点之间有多条同向的边，则这些边可以合并成一条，容量相加。最终，上例中的网络模型被简化成了下页图 的样子。
 
-![](https://ws3.sinaimg.cn/large/006tNc79ly1fz1b6cgcrwj31320ruai1.jpg)
+![](https://blog.idejie.com/pics/max-flow28.jpg)
 
 从上图 重新总结一下构造这个网络流模型的规则：
 1)每个顾客分别用一个节点来表示。

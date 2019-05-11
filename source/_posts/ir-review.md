@@ -15,7 +15,7 @@ category: 信息检索
 
 
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+![](https://blog.idejie.com/pics/ir-review0.gif)
 
 ## 0-Introduction
 
@@ -74,7 +74,7 @@ category: 信息检索
 
 ③核心层次：搜索是未来操作系统的重要组成部分！
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+![](https://blog.idejie.com/pics/ir-review0.gif)
 
 ## 1-Boolean Retrieval
 
@@ -127,7 +127,7 @@ iii. 半结构化数据:没有数据是完全无结构的，比如网页就是�
 
 - 典型的搜索过程：
 
-  ![](https://ws4.sinaimg.cn/large/006tNbRwly1fx0hhs291ij310c0n2gr5.jpg)
+  ![](https://blog.idejie.com/pics/ir-review2.jpg)
 
 - 检索效果的评价
 
@@ -147,11 +147,11 @@ iii. 半结构化数据:没有数据是完全无结构的，比如网页就是�
 
   ▪ 内存中，采用链表或者可变长数组方式 
 
-  ![](https://ws1.sinaimg.cn/large/006tNbRwly1fx0i8zp3e4j310g0i8q7o.jpg)
+  ![](https://blog.idejie.com/pics/ir-review3.jpg)
 
 - 倒排索引的构建
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fx0ia5pw6bj311u0m2dky.jpg)
+![](https://blog.idejie.com/pics/ir-review4.jpg)
 
 - 索引构建过程
 
@@ -165,7 +165,7 @@ iii. 半结构化数据:没有数据是完全无结构的，比如网页就是�
 
   - 最终：<（词项，频率），docIDs>
 
-    ![](https://ws3.sinaimg.cn/large/006tNbRwly1fx0iiit7xmj30650b6752.jpg)
+    ![](https://blog.idejie.com/pics/ir-review5.jpg)
 
 ### (3)布尔查询处理
 
@@ -183,7 +183,7 @@ iii. 半结构化数据:没有数据是完全无结构的，比如网页就是�
 
   - 调表指针法：
 
-    ![](https://ws2.sinaimg.cn/large/006tNbRwly1fx0muqgeu5j30nk068q35.jpg)
+    ![](https://blog.idejie.com/pics/ir-review6.jpg)
 
     查询52时，直接先查2处，比2和41都大，那就要调到41处再往后查48，64
 
@@ -208,7 +208,7 @@ iii. 半结构化数据:没有数据是完全无结构的，比如网页就是�
   - 没有充分利用词项的频率信息，通常出现的越多越好，需要利用词项在文档中的词项频率(term frequency, tf)信息
   - 不能对检索结果进行排序
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+![](https://blog.idejie.com/pics/ir-review0.gif)
 
 ## 2-Dictionary
 
@@ -226,7 +226,7 @@ iii. 半结构化数据:没有数据是完全无结构的，比如网页就是�
 ### （2）词条
 
 - 词条化：
-  - 在这个过程中，可能会同时去掉一些特殊字符，如标点符号等。![](https://ws4.sinaimg.cn/large/006tNbRwly1fxecezsvjjj312w05sq54.jpg)
+  - 在这个过程中，可能会同时去掉一些特殊字符，如标点符号等。![](https://blog.idejie.com/pics/ir-review8.jpg)
   - 词条：在文档中出现的字符序列的一个实例
   - 词条类：相同词条构成的集合
   - 词项：在信息检索系统词典中所包含的某个可能经过归一化处理的词条类
@@ -279,7 +279,7 @@ iii. 半结构化数据:没有数据是完全无结构的，比如网页就是�
   - 位置索引：不只是简单地判断两个词项是否出现在同一文档中，而且还需要检查它们出现的位置关系和查询短语的一致性。这就需要计算出词之间的偏移距离。（距离跳远不是词组）
   - 混合索引机制：对某些查询使用短语索引或只使用二元词索引，而对其他短语查询则采用位置索引。短语索引所收录的那些较好的查询可以根据用户最近的访问行为日志统计得到，也就是说，它们往往是那些高频常见的查询。当然，这并不是唯一的准则。处理开销最大的短语查询往往是这样一些短语，它们中的每个词都非常常见，但是组合起来却相对很少见 
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+![](https://blog.idejie.com/pics/ir-review0.gif)
 
 ## 3-Tolerant Retrieval
 
@@ -318,7 +318,7 @@ iii. 半结构化数据:没有数据是完全无结构的，比如网页就是�
 
 - 这个时候比较适合用树（B树）
 
-  ![](https://ws4.sinaimg.cn/large/006tNbRwly1fxkhjgv0ntj30x00fmgsz.jpg)
+  ![](https://blog.idejie.com/pics/ir-review10.jpg)
 
 - 词项中间的 *号处理：轮排索引
 
@@ -329,7 +329,7 @@ iii. 半结构化数据:没有数据是完全无结构的，比如网页就是�
 
 - 轮排索引的一个示例：
 
-  ![](https://ws2.sinaimg.cn/large/006tNbRwly1fxkhmvvjcfj30oq0e6q54.jpg)
+  ![](https://blog.idejie.com/pics/ir-review11.jpg)
 
 - 查找过程：
 
@@ -343,11 +343,11 @@ iii. 半结构化数据:没有数据是完全无结构的，比如网页就是�
 
 - k-gram
 
-  - 需要注意的是，这里有两个倒排索引：词项-文档、**k-gram**-词项![](https://ws3.sinaimg.cn/large/006tNbRwly1fxkhrb8nluj30l402074f.jpg)
+  - 需要注意的是，这里有两个倒排索引：词项-文档、**k-gram**-词项![](https://blog.idejie.com/pics/ir-review12.jpg)
 
   - 这个时候就需要把通配查询转换成布尔查询了
 
-    ![](https://ws3.sinaimg.cn/large/006tNbRwly1fxkhsk5gi7j30ni0aeq6x.jpg)
+    ![](https://blog.idejie.com/pics/ir-review13.jpg)
 
 - k-gram索引 vs. 轮排索引
 
@@ -398,17 +398,17 @@ Google Suggest是一种减轻用户输入负担的好方法
 - k-gram
 
   - 例子：采用2-gram索引, 错误拼写的单词为bordroom     2-gram: *bo, or, rd, dr, ro, oo, om*
-  - ![](https://ws4.sinaimg.cn/large/006tNbRwly1fxkjantc06j30f7056q38.jpg)
+  - ![](https://blog.idejie.com/pics/ir-review14.jpg)
 
 - 基于上下文的
 
-  - 一种方法: 基于命中数(hit-based) 的拼写校正![](https://ws1.sinaimg.cn/large/006tNbRwly1fxkjbs8zeaj30lm09egog.jpg)
+  - 一种方法: 基于命中数(hit-based) 的拼写校正![](https://blog.idejie.com/pics/ir-review15.jpg)
 
   - 从查询库(比如历史查询)中搜索而不是从文档库中搜索（大家经常写错的一个库）
 
-    ![](https://ws2.sinaimg.cn/large/006tNbRwly1fxkjcdxx8gj307m0240sy.jpg)
+    ![](https://blog.idejie.com/pics/ir-review16.jpg)
 
-- ![](https://ws4.sinaimg.cn/large/006tNbRwly1fxkjd8e8htj30ns0gy797.jpg)
+- ![](https://blog.idejie.com/pics/ir-review17.jpg)
 
 - Peter-Noring工具
 
@@ -424,11 +424,11 @@ Google Suggest是一种减轻用户输入负担的好方法
 - 对查询词项做同样的处理
 - 基于4-字符缩减形式进行索引和搜索
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fxkkqdsab8j30o00cejux.jpg)
+![](https://blog.idejie.com/pics/ir-review18.jpg)
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fxkkqkxg92j30o00eu0v9.jpg)
+![](https://blog.idejie.com/pics/ir-review19.jpg)
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+![](https://blog.idejie.com/pics/ir-review0.gif)
 
 ## 4-Index Construction
 
@@ -474,7 +474,7 @@ Google Suggest是一种减轻用户输入负担的好方法
 
 - SPIMI的核心算法为(2)(3)，因此算法复杂度为O(T);
 
-- ![](https://ws2.sinaimg.cn/large/006tNbRwly1fxlpbrjgj0j30ji0ba0wn.jpg)
+- ![](https://blog.idejie.com/pics/ir-review21.jpg)
 
 ### （4）分布式索引构建方法
 
@@ -553,7 +553,7 @@ I3   I2  I1   I0
 
 dictionary表示每个用户，而posting表示用户所能访问的文档ID；简单的来说就是一个用户-文档ID矩阵；
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+![](https://blog.idejie.com/pics/ir-review0.gif)
 
 ## 5-Index Compression
 
@@ -569,7 +569,7 @@ dictionary表示每个用户，而posting表示用户所能访问的文档ID；�
 
 - IR为什么需要压缩？
 
-  ![](https://ws1.sinaimg.cn/large/006tNbRwly1fxnjez1sxij31g00u0tq1.jpg)
+  ![](https://blog.idejie.com/pics/ir-review23.jpg)
 
 - 有损压缩：丢弃一些信息
 
@@ -582,7 +582,7 @@ dictionary表示每个用户，而posting表示用户所能访问的文档ID；�
     - M 是词汇表大小, *T* 是文档集的大小(所有词条的个数，即所有文档大小之和)
     - $30\leq k\leq100,b\approx 0.5$
 - 词项的分布
-  - Zipf定律：![](https://ws1.sinaimg.cn/large/006tNbRwly1fxnrryrw7mj301z013t8h.jpg)
+  - Zipf定律：![](https://blog.idejie.com/pics/ir-review24.jpg)
   - 第$i$常见的词项的频率$cf_i$ 和$\frac{1}{i}$ 成正比
 
 ### (3)词典压缩
@@ -620,7 +620,7 @@ dictionary表示每个用户，而posting表示用户所能访问的文档ID；�
     - 可变字节码通常按字边界对齐，因此可能效率更高
     - 除去效率高之外，可变字节码虽然额外增加了一点点开销，但是在概念上也要简单很多
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+![](https://blog.idejie.com/pics/ir-review0.gif)
 
 ## 6-TF-IDF
 
@@ -636,7 +636,7 @@ dictionary表示每个用户，而posting表示用户所能访问的文档ID；�
 - 权重学习：
   - 给定一批已经标记得训练样本：<d,q,d与q的相关性>
   - 学习得$g_i$
-  - 最优权重：![](https://ws2.sinaimg.cn/large/006tNbRwly1fxo1atwgbkj30q209kac1.jpg)
+  - 最优权重：![](https://blog.idejie.com/pics/ir-review26.jpg)
 
 ### (2)词项频率和权重计算
 
@@ -648,13 +648,13 @@ dictionary表示每个用户，而posting表示用户所能访问的文档ID；�
 
 - 余弦相似度
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fxo2ikx9vij31fq08ajue.jpg)
+![](https://blog.idejie.com/pics/ir-review27.jpg)
 
 
 
 ### （4）其他权重计算方法
 
-- 长度向量归一化：![](https://ws4.sinaimg.cn/large/006tNbRwly1fxo36ciidmj309k017dfr.jpg)
+- 长度向量归一化：![](https://blog.idejie.com/pics/ir-review28.jpg)
 
   长度长的文档词项也多；长度长的文档TF高（q,d都是归一化的向量）
 
@@ -663,13 +663,13 @@ dictionary表示每个用户，而posting表示用户所能访问的文档ID；�
   - 于是可以先找到一个支点(pivot，平衡点)，然后通过这个支点对余弦归一化操作进行线性调整。
   - 效果：短文档的相似度降低，而长文档的相似度增大
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fxo38ohn4hj31ns0u0h58.jpg)
+![](https://blog.idejie.com/pics/ir-review29.jpg)
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fxo3b3zmy5j31ji0qiqb5.jpg)
+![](https://blog.idejie.com/pics/ir-review30.jpg)
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fxo3bcyn20j31bb0u07im.jpg)
+![](https://blog.idejie.com/pics/ir-review31.jpg)
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+![](https://blog.idejie.com/pics/ir-review0.gif)
 
 ## 7-System
 
@@ -685,7 +685,7 @@ dictionary表示每个用户，而posting表示用户所能访问的文档ID；�
   - 堆排序
   - 提前终止计算：
 
-  ![](https://ws4.sinaimg.cn/large/006tNbRwly1fxpxhyxrm8j30v40akjuw.jpg)
+  ![](https://blog.idejie.com/pics/ir-review33.jpg)
 
   ![image-20181130113107548](/Users/idejie/Library/Application%20Support/typora-user-images/image-20181130113107548.png)
 
@@ -697,10 +697,10 @@ dictionary表示每个用户，而posting表示用户所能访问的文档ID；�
     - （2）只考虑几个查询词项,对于多词项查询而言，只需要计算包含其中大部分词项的文档
   - 胜者表：对每个词项t，预先计算出其倒排记录表中权重最高的r篇文档，如果采用tfidf机制，即tf最高的r篇;上面的`索引去除`方法是从查询进行优化裁剪。`胜者表`是从倒排表进行处理优化。我们针对每个查询词项，只取其倒排表中排名靠前的r个文档。这个r值的设置根据场景不同而异。而排名的依据可以用tf（词项频率）。
   - 静态得分和排序：每片文档都有一个与查询无关的静态得分，这个分数基于用户的正面评价；所以先按这个分数排序；权威度
-  - ![](https://ws4.sinaimg.cn/large/006tNbRwly1fxpy51zd7rj30yg0j6wke.jpg)
+  - ![](https://blog.idejie.com/pics/ir-review34.jpg)
     - net-score评价法（高分文档先被遍历）
 
-  ![](https://ws1.sinaimg.cn/large/006tNbRwly1fxq5qaq5m0j31o80koth6.jpg)
+  ![](https://blog.idejie.com/pics/ir-review35.jpg)
 
   - 高低端表：一个词项的文档集分成两部分：高端版、低端版；如果高端版满足就不查低端了
 
@@ -713,7 +713,7 @@ dictionary表示每个用户，而posting表示用户所能访问的文档ID；�
 
     选一个leader
 
-    ![](https://ws4.sinaimg.cn/large/006tNbRwly1fxoxx0zfzgj30pe06ego0.jpg)
+    ![](https://blog.idejie.com/pics/ir-review36.jpg)
 
 ### （2）信息检索系统的组成
 
@@ -721,7 +721,7 @@ dictionary表示每个用户，而posting表示用户所能访问的文档ID；�
 
   该例中，第 1 层索引中的 tf 阈值是 20，第 2 层阈值是 10。这意味着第 1 层索引只保留 tf 值超过 20 的倒排记录，而第 2 层的记录只保留 tf 值超过 10 的倒排记录。本例中每层的倒排记录表均按照文档 ID 排序。
 
-  ![](https://ws1.sinaimg.cn/large/006tNbRwly1fxp2ra3h36j30vx0u0jy9.jpg)
+  ![](https://blog.idejie.com/pics/ir-review37.jpg)
 
 - 查询词项邻近性
 
@@ -729,11 +729,11 @@ dictionary表示每个用户，而posting表示用户所能访问的文档ID；�
 
 - 查询分析和文档评分函数的设计
 
-  ![](https://ws2.sinaimg.cn/large/006tNbRwly1fxp2t4polvj31l40dmq8b.jpg)
+  ![](https://blog.idejie.com/pics/ir-review38.jpg)
 
 - 搜索系统的组成
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fxp2tic9paj316i0pi10u.jpg)
+![](https://blog.idejie.com/pics/ir-review39.jpg)
 
 ### （3）向量空间模型对各种查询操作的支持
 
@@ -749,7 +749,7 @@ dictionary表示每个用户，而posting表示用户所能访问的文档ID；�
 
   用于向量空间方法的索引通常并不能用于短语查询的处理。
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+![](https://blog.idejie.com/pics/ir-review0.gif)
 
 ## 8-Evaluation
 
@@ -770,11 +770,11 @@ dictionary表示每个用户，而posting表示用户所能访问的文档ID；�
 - 评价指标分类
   - 单个查询的评价
     - 召回率（查全率）+正确率（查准率）
-    - ![](https://ws3.sinaimg.cn/large/006tNbRwly1fxqb0mkir5j31l60u04la.jpg)
-    - ![](https://ws1.sinaimg.cn/large/006tNbRwly1fxqb0yodd3j31ci0u0wra.jpg)
-    - 精准率：![](https://ws3.sinaimg.cn/large/006tNbRwly1fxqb8fzm9yj31ag05wdh4.jpg)
-    - ![](https://ws2.sinaimg.cn/large/006tNbRwly1fxqba8wbe4j31610u0tqu.jpg)
-    - ![](https://ws2.sinaimg.cn/large/006tNbRwly1fxqd1n1tt3j31gw0u07kr.jpg)
+    - ![](https://blog.idejie.com/pics/ir-review41.jpg)
+    - ![](https://blog.idejie.com/pics/ir-review42.jpg)
+    - 精准率：![](https://blog.idejie.com/pics/ir-review43.jpg)
+    - ![](https://blog.idejie.com/pics/ir-review44.jpg)
+    - ![](https://blog.idejie.com/pics/ir-review45.jpg)
     - 平均正确率
       - 未插值的AP：【未插值的AP(常用): 某个查询Q共有6个相关结果，某系统排序返回了5篇相关文档，其位置分别是第1，第2，第5，第10，第20位，则AP=(1/1+2/2+3/5+4/10+5/20+0)/6
       - 插值的AP：【在召回率分别为0,0.1,0.2,…,1.0的十一个点上的正确率求平均，等价于11点平均
@@ -786,28 +786,28 @@ dictionary表示每个用户，而posting表示用户所能访问的文档ID；�
     - MAP(Mean AP)：对所有查询的AP求宏平均
   - 相关性试图度量用户的满意程度，但是用户是否满意取决于很多因素。
   - 面向用户的指标
-    - ![](https://ws4.sinaimg.cn/large/006tNbRwly1fxr6sqe1jrj31di0rk4c8.jpg)
-    - ![](https://ws3.sinaimg.cn/large/006tNbRwly1fxr6zh8m2lj31be0hgalp.jpg)
-    - ![](https://ws2.sinaimg.cn/large/006tNbRwly1fxr70bnqd3j31700nkjxf.jpg)
+    - ![](https://blog.idejie.com/pics/ir-review46.jpg)
+    - ![](https://blog.idejie.com/pics/ir-review47.jpg)
+    - ![](https://blog.idejie.com/pics/ir-review48.jpg)
   - Bpref
     - 基本的思想：在相关性判断(Relevance Judgment) 不完全的情况下，计算在进行了相关性判断的文档集合中，在判断到相关文档前，需要判断的不相关文档的篇数
-    - ![image-20181201143103572](https://ws4.sinaimg.cn/large/006tNbRwly1fxr8cz4ha5j30fg02qq32.jpg)
+    - ![image-20181201143103572](https://blog.idejie.com/pics/ir-review49.jpg)
   - GMAP
-    - ![](https://ws2.sinaimg.cn/large/006tNbRwly1fxr8pf7kazj30ps05kq3p.jpg)
+    - ![](https://blog.idejie.com/pics/ir-review50.jpg)
     - GMAP和MAP各有利弊，可以配合使用，如果存在难Topic时，GMAP更能体现细微差别
   - NDCG
-    - ![](https://ws3.sinaimg.cn/large/006tNbRwly1fxr9m7ppvfj30w40i4wj6.jpg)
-    - ![](https://ws1.sinaimg.cn/large/006tNbRwly1fxr9p2eufuj30wo0he42g.jpg)
-    - ![](https://ws2.sinaimg.cn/large/006tNbRwly1fxr9xp1r9dj31ie0ggn3z.jpg)
-    - ![](https://ws2.sinaimg.cn/large/006tNbRwly1fxra1jrfszj31cb0u07de.jpg)
-    - ![](https://ws1.sinaimg.cn/large/006tNbRwly1fxra3i9zvjj31ey0u07l1.jpg)
+    - ![](https://blog.idejie.com/pics/ir-review51.jpg)
+    - ![](https://blog.idejie.com/pics/ir-review52.jpg)
+    - ![](https://blog.idejie.com/pics/ir-review53.jpg)
+    - ![](https://blog.idejie.com/pics/ir-review54.jpg)
+    - ![](https://blog.idejie.com/pics/ir-review55.jpg)
     - 
 
 ### （2）标准测试集
 
 ### （3）无序检索集合的评价
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fxraeqnrtuj31ca0tyaia.jpg)
+![](https://blog.idejie.com/pics/ir-review56.jpg)
 
 ### （4）有序检索结果的评价
 
@@ -817,13 +817,13 @@ dictionary表示每个用户，而posting表示用户所能访问的文档ID；�
 
 ### （5）相关性判定
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fxragg5qnnj30c00343yo.jpg)
+![](https://blog.idejie.com/pics/ir-review57.jpg)
 
 ### （6）系统质量和用户效用
 
 ### （7）结果片段
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+![](https://blog.idejie.com/pics/ir-review0.gif)
 
 ## 9-Query Expansion
 
@@ -831,10 +831,10 @@ dictionary表示每个用户，而posting表示用户所能访问的文档ID；�
 
 - Rocchio 相关反馈
   - Cr表示相关文档集，Cnr表示不相关文档集，那么我们希望找到的最优的 qr 是
-    - ![](https://ws2.sinaimg.cn/large/006tNbRwly1fxral54j8ej30mi01wjrm.jpg)
-    - ![](https://ws2.sinaimg.cn/large/006tNbRwly1fxraljhz34j31jm08cmzg.jpg)
-    - ![](https://ws3.sinaimg.cn/large/006tNbRwly1fxramnqj1wj30ng03gaad.jpg)
-- 基于概率的相关反馈方法：![](https://ws2.sinaimg.cn/large/006tNbRwly1fxranodoc9j30pg056t97.jpg)
+    - ![](https://blog.idejie.com/pics/ir-review59.jpg)
+    - ![](https://blog.idejie.com/pics/ir-review60.jpg)
+    - ![](https://blog.idejie.com/pics/ir-review61.jpg)
+- 基于概率的相关反馈方法：![](https://blog.idejie.com/pics/ir-review62.jpg)
 - 相关反馈策略的评价
   - 首先计算出原始查询 q0 的正确率—召回率曲线，一轮相关反馈之后，我们计算出修改后的
     查询 qm 并再次计算出新的正确率—召回率曲线。
@@ -843,21 +843,21 @@ dictionary表示每个用户，而posting表示用户所能访问的文档ID；�
 - 伪相关反馈
 - 
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+![](https://blog.idejie.com/pics/ir-review0.gif)
 
 ## 10-Probabilistic Model
 
 - 基于Logistic回归的检索模型
-  - ![](https://ws4.sinaimg.cn/large/006tNbRwly1fxrbf69c1qj30zm0jcgql.jpg)
+  - ![](https://blog.idejie.com/pics/ir-review64.jpg)
 - 经典的二值独立概率模型BIM
-  - ![](https://ws3.sinaimg.cn/large/006tNbRwly1fxrbhciuh3j310a0heq7b.jpg)
+  - ![](https://blog.idejie.com/pics/ir-review65.jpg)
 - 经典的BM25模型 (BestMatch25)
-  - ![](https://ws3.sinaimg.cn/large/006tNbRwly1fxrdy90xcpj30wm0jydk6.jpg)
-  - ![](https://ws3.sinaimg.cn/large/006tNbRwly1fxrdxoqdm0j310m0l2q8v.jpg)
+  - ![](https://blog.idejie.com/pics/ir-review66.jpg)
+  - ![](https://blog.idejie.com/pics/ir-review67.jpg)
 - 贝叶斯网络模型：本讲义不介绍，请参考有关文献。
 - 基于语言建模的检索模型
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+![](https://blog.idejie.com/pics/ir-review0.gif)
 
 ## 11- Language Model
 
@@ -865,17 +865,17 @@ dictionary表示每个用户，而posting表示用户所能访问的文档ID；�
 
 - - 规则方法：词、句、篇章的生成比如满足某些规则，不满足该规则就不应存在。
   - 统计方法：任何语言片断都有存在的可能，只是可能性大小不同
-  - ![](https://ws2.sinaimg.cn/large/006tNbRwly1fxrbl7dqoyj30z009itax.jpg)
+  - ![](https://blog.idejie.com/pics/ir-review69.jpg)
 
 - 查询似然模型
 
-  - ![](https://ws2.sinaimg.cn/large/006tNbRwly1fxrkhdiw1fj30yo0kctdd.jpg)
+  - ![](https://blog.idejie.com/pics/ir-review70.jpg)
 
   - 几种平滑方法
 
-    ![](https://ws3.sinaimg.cn/large/006tNbRwly1fxrkii4yphj30yq0m0q93.jpg)
+    ![](https://blog.idejie.com/pics/ir-review71.jpg)
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+![](https://blog.idejie.com/pics/ir-review0.gif)
 
 ## 12-Navie Bayes
 
@@ -886,21 +886,21 @@ dictionary表示每个用户，而posting表示用户所能访问的文档ID；�
 
 - 贝叶斯分类器
 
-  ![](https://ws2.sinaimg.cn/large/006tNbRwly1fxrkmnkyz0j31bc0u0tnl.jpg)
+  ![](https://blog.idejie.com/pics/ir-review73.jpg)
 
-  ![](https://ws3.sinaimg.cn/large/006tNbRwly1fxs6ql4stwj310s09a76z.jpg)
+  ![](https://blog.idejie.com/pics/ir-review74.jpg)
 
-  ![](https://ws2.sinaimg.cn/large/006tNbRwly1fxs70jhz4uj31qi0u04gf.jpg)
+  ![](https://blog.idejie.com/pics/ir-review75.jpg)
 
-  ![](https://ws3.sinaimg.cn/large/006tNbRwly1fxs71m9sgsj31uk0m0dpr.jpg)
+  ![](https://blog.idejie.com/pics/ir-review76.jpg)
 
-- 生成式模型：![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs7fj8flcj30sg040wfg.jpg)
+- 生成式模型：![](https://blog.idejie.com/pics/ir-review77.jpg)
 
 - 贝努力模型：
 
-  ![](https://ws2.sinaimg.cn/large/006tNbRwly1fxs7pinuvxj31720u04bv.jpg)
+  ![](https://blog.idejie.com/pics/ir-review78.jpg)
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+![](https://blog.idejie.com/pics/ir-review0.gif)
 
 ## 13-vector classify
 
@@ -915,21 +915,21 @@ dictionary表示每个用户，而posting表示用户所能访问的文档ID；�
 
 - 互信息
 
-  ![](https://ws2.sinaimg.cn/large/006tNbRwly1fxs7tbu5cwj30x80hwjxc.jpg)
+  ![](https://blog.idejie.com/pics/ir-review80.jpg)
 
 - 信息增益
 
-  ![](https://ws2.sinaimg.cn/large/006tNbRwly1fxs7u21wzmj30wm0dmwhq.jpg)
+  ![](https://blog.idejie.com/pics/ir-review81.jpg)
 
 - 如何计算互信息
 
-  ![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs7uo9kg5j30tm0hg7a4.jpg)
+  ![](https://blog.idejie.com/pics/ir-review82.jpg)
 
-  ![](https://ws4.sinaimg.cn/large/006tNbRwly1fxs8lfucnkj30ym0rgwox.jpg)
+  ![](https://blog.idejie.com/pics/ir-review83.jpg)
 
 - 另一种互信息
 
-  ![](https://ws3.sinaimg.cn/large/006tNbRwly1fxs7v9m8s7j30x00lawiu.jpg)
+  ![](https://blog.idejie.com/pics/ir-review84.jpg)
 
 - 基于DF的选择方法 (DF Thresholding)
 
@@ -938,112 +938,113 @@ dictionary表示每个用户，而posting表示用户所能访问的文档ID；�
 
 - 卡方选择法
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fxs7w8osu1j30z20hajvq.jpg)
+![](https://blog.idejie.com/pics/ir-review85.jpg)
 
 - 基于向量空间模型的分类
 
   -  利用Rocchio方法进行向量空间分类
 
-  ![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs7xjxiffj30se08mq4z.jpg)![](https://ws4.sinaimg.cn/large/006tNbRwly1fxs7xxfm2gj311s0gimzq.jpg)
+  ![](https://blog.idejie.com/pics/ir-review123.jpg)
+  ![](https://blog.idejie.com/pics/ir-review124.jpg)
 
   - KNN分类
 
-  ![](https://ws4.sinaimg.cn/large/006tNbRwly1fxs7zdu5xdj30z60lagte.jpg)
+  ![](https://blog.idejie.com/pics/ir-review87.jpg)
 
   - 线性分类器
-    - ![](https://ws4.sinaimg.cn/large/006tNbRwly1fxs7zz286gj30rc0d040x.jpg)
-    - ![](https://ws2.sinaimg.cn/large/006tNbRwly1fxs80at9l2j30zk0lw44a.jpg)
-    - ![](https://ws4.sinaimg.cn/large/006tNbRwly1fxs80ios0qj310o0lmn4l.jpg)
-    - ![](https://ws3.sinaimg.cn/large/006tNbRwly1fxs8l3au2vj310c0p2104.jpg)
+    - ![](https://blog.idejie.com/pics/ir-review88.jpg)
+    - ![](https://blog.idejie.com/pics/ir-review89.jpg)
+    - ![](https://blog.idejie.com/pics/ir-review90.jpg)
+    - ![](https://blog.idejie.com/pics/ir-review91.jpg)
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+![](https://blog.idejie.com/pics/ir-review0.gif)
 
 ## 14-svm ltr
 
-- ![](https://ws3.sinaimg.cn/large/006tNbRwly1fxsc1vju5wj31fl0u0k5d.jpg)
+- ![](https://blog.idejie.com/pics/ir-review93.jpg)
 
-- ![](https://ws1.sinaimg.cn/large/006tNbRwly1fxsc1480clj31b70u0k4f.jpg)
+- ![](https://blog.idejie.com/pics/ir-review94.jpg)
 
 - 权重学习
 
   - 域加权
 
-    ![](https://ws1.sinaimg.cn/large/006tNbRwly1fxscjfop66j31pm0ks48c.jpg)
+    ![](https://blog.idejie.com/pics/ir-review95.jpg)
 
-    ![](https://ws2.sinaimg.cn/large/006tNbRwly1fxsck9q3btj317t0u04go.jpg)
+    ![](https://blog.idejie.com/pics/ir-review96.jpg)
 
-    ![](https://ws3.sinaimg.cn/large/006tNbRwly1fxsclij2obj31f70u07g3.jpg)
+    ![](https://blog.idejie.com/pics/ir-review97.jpg)
 
-    ![](https://ws2.sinaimg.cn/large/006tNbRwly1fxscmfd1sfj31lw0tgdqg.jpg)
+    ![](https://blog.idejie.com/pics/ir-review98.jpg)
 
-    ![](https://ws4.sinaimg.cn/large/006tNbRwly1fxscnphdstj31jw0mu154.jpg)
+    ![](https://blog.idejie.com/pics/ir-review99.jpg)
 
-    ![](https://ws1.sinaimg.cn/large/006tNbRwly1fxsco9sdmrj313b0u0qi6.jpg)
+    ![](https://blog.idejie.com/pics/ir-review100.jpg)
 
-    ![](https://ws1.sinaimg.cn/large/006tNbRwly1fxscplvkh8j31p60q87kz.jpg)
+    ![](https://blog.idejie.com/pics/ir-review101.jpg)
 
-    ![](https://ws1.sinaimg.cn/large/006tNbRwly1fxscpwb84oj30zi0te0wk.jpg)
+    ![](https://blog.idejie.com/pics/ir-review102.jpg)
 
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+![](https://blog.idejie.com/pics/ir-review0.gif)
 
 ## 15- lsi
 
 
 
 - 层次聚类
-  - ![](https://ws1.sinaimg.cn/large/006tNbRwly1fxscsvgeotj311w0mado2.jpg)
-  - ![](https://ws3.sinaimg.cn/large/006tNbRwly1fxscv7ebdjj30zm0mitee.jpg)
+  - ![](https://blog.idejie.com/pics/ir-review104.jpg)
+  - ![](https://blog.idejie.com/pics/ir-review105.jpg)
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9e803m5j30pa0fijwr.jpg)
-
-
+![](https://blog.idejie.com/pics/ir-review106.jpg)
 
 
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+
+
+![](https://blog.idejie.com/pics/ir-review0.gif)
 
 ## 16- Neural IR
 
 
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fxsduxjgfzj31220qwdms.jpg)
+![](https://blog.idejie.com/pics/ir-review108.jpg)
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fxsdvbv9o2j313q0litgc.jpg)
+![](https://blog.idejie.com/pics/ir-review109.jpg)
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fxsdvm13u9j311g0mytgf.jpg)
+![](https://blog.idejie.com/pics/ir-review110.jpg)
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fxsdvti4faj310a0k0q8a.jpg)
+![](https://blog.idejie.com/pics/ir-review111.jpg)
 
 
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+![](https://blog.idejie.com/pics/ir-review0.gif)
 
 ## 17- WebSearch
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fxsdwomeouj312e0o47cm.jpg)
+![](https://blog.idejie.com/pics/ir-review113.jpg)
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fxsdwfdy5wj31280pm7ct.jpg)
+![](https://blog.idejie.com/pics/ir-review114.jpg)
 
 - 近似重复检测
   - 将每篇文档表示成一个**shingle**集合
-    - ![](https://ws4.sinaimg.cn/large/006tNbRwly1fxse0mp7koj30xs0m0wlp.jpg)
-    - ![](https://ws4.sinaimg.cn/large/006tNbRwly1fxsdzp93srj30ze0hu0xf.jpg)
+    - ![](https://blog.idejie.com/pics/ir-review115.jpg)
+    - ![](https://blog.idejie.com/pics/ir-review116.jpg)
   - 将文档表示成梗概(sketch)
-    - ![](https://ws1.sinaimg.cn/large/006tNbRwly1fxse0feao6j30w00l2wlh.jpg)
+    - ![](https://blog.idejie.com/pics/ir-review117.jpg)
     - ![image-20181202144354952](/Users/idejie/Library/Application%20Support/typora-user-images/image-20181202144354952.png)
-    - ![](https://ws3.sinaimg.cn/large/006tNbRwly1fxse8dgg7ej310o0qyagu.jpg)
-    - ![](https://ws1.sinaimg.cn/large/006tNbRwly1fxse8mnh3vj31000iktbd.jpg)
+    - ![](https://blog.idejie.com/pics/ir-review118.jpg)
+    - ![](https://blog.idejie.com/pics/ir-review119.jpg)
     - 
-    - ![](https://ws3.sinaimg.cn/large/006tNbRwly1fxse95e3sij30j80bqmyd.jpg)
+    - ![](https://blog.idejie.com/pics/ir-review120.jpg)
 
 
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+![](https://blog.idejie.com/pics/ir-review0.gif)
 
 ## 18 -Crawling
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+![](https://blog.idejie.com/pics/ir-review0.gif)
 
 ## 19-LinkAnalysis
 

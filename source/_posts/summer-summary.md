@@ -19,11 +19,14 @@ category: 总结
 
 6.关键词/时间的摘取
 
-![](https://ws4.sinaimg.cn/large/006tNc79ly1fga7kio4zgj30o308wq47.jpg)
+![](https://blog.idejie.com/pics/summer-summary0.jpg)
 
-![](https://ws1.sinaimg.cn/large/006tNc79ly1fga7s16sj0j312c0eemxk.jpg)![](https://ws3.sinaimg.cn/large/006tNc79ly1fga7rh87thj31110jt0tl.jpg)![](https://ws4.sinaimg.cn/large/006tNc79gy1fga7qm32hqj31170jr0yg.jpg)
+![](https://blog.idejie.com/pics/summer-summary1.jpg)
+![](https://blog.idejie.com/pics/summer-summary2.jpg)
+![](https://blog.idejie.com/pics/summer-summary3.jpg)
 
-![](https://ws1.sinaimg.cn/large/006tNc79ly1fga7ieza90j305s0j5js9.jpg)![](https://ws2.sinaimg.cn/large/006tNc79ly1fga7gybw1fj305x0comxr.jpg)![](https://ws2.sinaimg.cn/large/006tNc79ly1fga7hlmm62j30670iawfg.jpg)
+![](ttps://blog.idejie.com/pics/summer-summary4.jpg)
+
 
 原文：
 

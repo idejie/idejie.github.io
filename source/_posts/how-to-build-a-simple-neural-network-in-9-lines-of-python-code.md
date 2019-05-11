@@ -31,7 +31,7 @@ print 1 / (1 + exp(-(dot(array([1, 0, 0]), synaptic_weights))))
 
 ​	 人脑由1000亿个称为神经元的细胞组成，通过突触连接在一起。 如果对神经元有足够的突触输入，那神经元也会发射。 我们把这个过程叫做“思考”。
 
-![](https://ww2.sinaimg.cn/large/006tNc79gy1fegrdlgmlcj30b40b4gls.jpg)
+![](https://blog.idejie.com/pics/how-to-build-a-simple-neural-network-in-9-lines-of-python-code0.jpg)
 
 
 
@@ -39,7 +39,7 @@ print 1 / (1 + exp(-(dot(array([1, 0, 0]), synaptic_weights))))
 
 我们要训练神经元来解决下面的问题。 前四个例子称为训练集。 你能锻炼出模式吗？ '**？**'是0或1吗？
 
-![](https://ww3.sinaimg.cn/large/006tNc79gy1fegrfy2br2j30is08ut9n.jpg)
+![](https://blog.idejie.com/pics/how-to-build-a-simple-neural-network-in-9-lines-of-python-code1.jpg)
 
 您可能已经注意到，输出总是等于最左侧输入列的值。 所以答案是'？'应该是1。
 
@@ -52,7 +52,7 @@ print 1 / (1 + exp(-(dot(array([1, 0, 0]), synaptic_weights))))
 3. 根据误差的方向，稍微调整权重
 4. 重复此过程10,000次。
 
-![](https://ww3.sinaimg.cn/large/006tNc79gy1fegrji90ioj30b406mjrk.jpg)
+![](https://blog.idejie.com/pics/how-to-build-a-simple-neural-network-in-9-lines-of-python-code2.jpg)
 
 最终，神经元的权重将达到训练集的最佳值。 如果我们允许神经元考虑一个新的情况，那么遵循相同的模式，它应该做出很好的预测。
 
@@ -62,19 +62,19 @@ print 1 / (1 + exp(-(dot(array([1, 0, 0]), synaptic_weights))))
 
 你可能会想，计算神经元输出的特殊公式是什么？ 首先，我们采用神经元输入的加权和，即：
 
-![](https://ww2.sinaimg.cn/large/006tNc79gy1fegrl5pg7pj30fq00q0sr.jpg)
+![](https://blog.idejie.com/pics/how-to-build-a-simple-neural-network-in-9-lines-of-python-code3.jpg)
 
 接下来我们归一化这个，所以结果在0和1之间。为此，我们使用一个数学上方便的函数，称为**Sigmoid**函数：
 
-![](https://ww4.sinaimg.cn/large/006tNc79gy1fegrmh5568j301m012744.jpg)
+![](https://blog.idejie.com/pics/how-to-build-a-simple-neural-network-in-9-lines-of-python-code4.jpg)
 
 如果绘制在图形上，Sigmoid函数绘制S形曲线。
 
-![](https://ww1.sinaimg.cn/large/006tNc79gy1fegrmzy9eej30hs0bvjrt.jpg)
+![](https://blog.idejie.com/pics/how-to-build-a-simple-neural-network-in-9-lines-of-python-code5.jpg)
 
 所以通过将第一个方程代入第二个方程，输出神经元的最终公式是：
 
-![](https://ww3.sinaimg.cn/large/006tNc79gy1fegrnxahf4j308w012747.jpg)
+![](https://blog.idejie.com/pics/how-to-build-a-simple-neural-network-in-9-lines-of-python-code6.jpg)
 
 你可能已经注意到，我们没有使用最小的触发阈值，这是为了保持简单。
 
@@ -82,7 +82,7 @@ print 1 / (1 + exp(-(dot(array([1, 0, 0]), synaptic_weights))))
 
 在训练周期中，我们调整权重。 但是我们靠什么来调整权重呢？ 我们可以使用“误加权导数”公式：
 
-![](https://ww4.sinaimg.cn/large/006tNc79gy1fegrrjgf3mj30eq00i74a.jpg)
+![](https://blog.idejie.com/pics/how-to-build-a-simple-neural-network-in-9-lines-of-python-code7.jpg)
 
 为什么要用这个公式？ 
 
@@ -98,11 +98,11 @@ print 1 / (1 + exp(-(dot(array([1, 0, 0]), synaptic_weights))))
 
 Sigmoid曲线的梯度可以通过采用导数求出：
 
-![](https://ww4.sinaimg.cn/large/006tNc79gy1fegrrjgf3mj30eq00i74a.jpg)
+![](https://blog.idejie.com/pics/how-to-build-a-simple-neural-network-in-9-lines-of-python-code7.jpg)
 
 所以通过将第二个方程代入第一个方程，调整权重的最终公式是：
 
-![](https://ww3.sinaimg.cn/large/006tNc79ly1feguk0un4gj30c300iweg.jpg)
+![](https://blog.idejie.com/pics/how-to-build-a-simple-neural-network-in-9-lines-of-python-code9.jpg)
 
 有一些替代公式，这将使神经元能够更快地学习，但是这个方法的优点是相当简单。
 
@@ -126,7 +126,7 @@ training_set_outputs = array([[0, 1, 1, 0]]).T
 
 `.T`功能将矩阵从水平转换为垂直。 所以计算机正在存储这样的数字。
 
-![](https://ww2.sinaimg.cn/large/006tNc79ly1fegup8rxwdj303002hq2u.jpg)
+![](https://blog.idejie.com/pics/how-to-build-a-simple-neural-network-in-9-lines-of-python-code10.jpg)
 
 好。 我想我们已经准备好了更漂亮的源代码版本。 一旦我给了你，我将总结一些最后的想法。
 

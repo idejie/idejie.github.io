@@ -7,7 +7,7 @@ category: 课程复习
 
 ## 1.抢金币
 
-![](https://ws4.sinaimg.cn/large/006tNc79ly1fz7kxqggwnj31b00dg41g.jpg)
+![](https://blog.idejie.com/pics/dp0.jpg)
 
 ------
 
@@ -29,7 +29,7 @@ $max(w[1]+dp[n-3],dp[n-1])$
 
 ## 2.节点选择
 
-![](https://ws3.sinaimg.cn/large/006tNc79ly1fz7lb55q7rj319m0403zj.jpg)
+![](https://blog.idejie.com/pics/dp1.jpg)
 
 如果选择root，最大值=四个孙子树的最大值之和
 
@@ -43,7 +43,7 @@ $$
 
 ## *3.解码
 
-![](https://ws2.sinaimg.cn/large/006tNc79ly1fz7llhy0drj31a80jego6.jpg)
+![](https://blog.idejie.com/pics/dp2.jpg)
 $$
 dp[i]=\begin{cases}
 1 & if \ i = 1,0 \\
@@ -92,7 +92,7 @@ print(num)
 
 ## 4.最长连续数列
 
-![](https://ws4.sinaimg.cn/large/006tNc79ly1fz8aorruy6j31b803a3z7.jpg)
+![](https://blog.idejie.com/pics/dp3.jpg)
 $$
 OPT[i]=max\begin{cases}
 opt[i-1] & if \ L[i] \ not \ in \ longest
@@ -104,13 +104,13 @@ j=first[r]是指第一次,即  $arg \min\sum_{w=0}^{j}L[w]=r$
 
 ## 5.最大交易利润
 
-![](https://ws1.sinaimg.cn/large/006tNc79ly1fz8dwubqbcj31900a876a.jpg)
+![](https://blog.idejie.com/pics/dp4.jpg)
 
-![](https://ws1.sinaimg.cn/large/006tNc79ly1fz8eqo18nij31ep0u0x1k.jpg)
+![](https://blog.idejie.com/pics/dp5.jpg)
 
 ## 6.最长增序列
 
-![](https://ws4.sinaimg.cn/large/006tNc79ly1fz8ercw6u9j31b00c641g.jpg)
+![](https://blog.idejie.com/pics/dp6.jpg)
 
 opt[i]表示如果找长度为i的单增数列，最小的结尾是opt[i]
 
@@ -135,7 +135,7 @@ $$
 
 ## 7.机器人移动
 
-![](https://ws4.sinaimg.cn/large/006tNc79ly1fz8f69hy6uj31aq0asmzj.jpg)
+![](https://blog.idejie.com/pics/dp7.jpg)
 
 令opt[i,j]表示在（i，j）的所有解
 $$
@@ -150,7 +150,7 @@ $$
 
 ## 8.最大整除集
 
-![](https://ws1.sinaimg.cn/large/006tNc79ly1fz8f96ejxtj319603qmxy.jpg)
+![](https://blog.idejie.com/pics/dp8.jpg)
 
 将数组从小到大排列，记opt[i]为输入数列遍历到i时最大的整除集长度
 $$
@@ -162,7 +162,7 @@ $$
 
 ## 9.字符串分割
 
-![](https://ws1.sinaimg.cn/large/006tNc79ly1fz8f9epvugj31ae0860u8.jpg)
+![](https://blog.idejie.com/pics/dp9.jpg)
 $$
 dp[i]=\begin{cases}
 0 & if \ s[i:] is \ palindrome \\
@@ -178,7 +178,7 @@ cut_num_array[i]的初值设为：s.length() - i; 也就是按照字符串中的
 
 ## 10.蛙跳
 
-![](https://ws3.sinaimg.cn/large/006tNc79ly1fz8fdujebkj31ak0du779.jpg)
+![](https://blog.idejie.com/pics/dp10.jpg)
 
 青蛙过河，上一次跳k长度，下一次只能跳k­-1,k或者k+1。 因此对于到达了某一个点，我们可以查看其上一次是从哪个点跳过来的。 
 
@@ -226,7 +226,7 @@ def canCross(self, stones):
 
 ## 11.最小路径和
 
-![](https://ws1.sinaimg.cn/large/006tNc79ly1fz8fakaihij311u0dqjw2.jpg)
+![](https://blog.idejie.com/pics/dp11.jpg)
 
 贪心加递归:
 
@@ -234,11 +234,11 @@ def canCross(self, stones):
 $$
 opt[Node_n]=min\{opt[node_{P_l}],opt[node_{p_r}]\}+Node_n.v
 $$
-![](https://ws3.sinaimg.cn/large/006tNc79ly1fz8v47vo06j30vv0u07wh.jpg)
+![](https://blog.idejie.com/pics/dp12.jpg)
 
 ## 12.子序列
 
-![](https://ws2.sinaimg.cn/large/006tNc79ly1fz8fb0pdm9j317m0bsk0r.jpg)
+![](https://blog.idejie.com/pics/dp13.jpg)
 $$
 dp[i][j]=
 dp[i-1][j-1] \and S[i]==T[j]
@@ -249,9 +249,9 @@ dp\[i][j]表示S[0:i]是否为T[0:j]的子序列
 
 ## 13.爬楼梯
 
-![](https://ws4.sinaimg.cn/large/006tNc79ly1fz8fhkdpykj30qq03gwjp.jpg)
+![](https://blog.idejie.com/pics/dp14.jpg)
 
-![](https://ws4.sinaimg.cn/large/006tNc79ly1fz8fizd0myj30le02gmzo.jpg)
+![](https://blog.idejie.com/pics/dp15.jpg)
 $$
 dp[i]= \begin{cases}
 i & if\ i\leq3 \\
@@ -262,9 +262,9 @@ $$
 
 ## 14.同义子集
 
-![](https://ws3.sinaimg.cn/large/006tNc79ly1fz8fgieeelj30qw024tbl.jpg)
+![](https://blog.idejie.com/pics/dp16.jpg)
 
-![](https://ws3.sinaimg.cn/large/006tNc79ly1fz8fgqswj1j30ou03sq6w.jpg)
+![](https://blog.idejie.com/pics/dp17.jpg)
 
 每次都需要比i-1次,复杂度为$O(n^2)$
 
@@ -276,7 +276,7 @@ $$
 
 ## 15.回文
 
-![](https://ws2.sinaimg.cn/large/006tNc79ly1fz8ffltn8wj30oi07246y.jpg)
+![](https://blog.idejie.com/pics/dp18.jpg)
 
 
 

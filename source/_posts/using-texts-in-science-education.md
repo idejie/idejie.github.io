@@ -21,7 +21,7 @@ category: 语言学
 
 **阅读是激活的景观模型。**情境模型依赖于文本元素之间、文本元素与背景知识之间有意义关系的识别。读者识别关系或未能识别重要关系的过程被心理模型所捕获，如景观模型（5，8）。这些模型主要是在叙事阅读（小说和故事）的背景下开发的，但也被发现适用于科学性的（信息性和事实性）文本（9-11）。景观模型将阅读过程识别为读者有限的注意力或工作记忆与连贯性需求之间的平衡行为。在阅读过程中的任何时刻，读者只能关注文本中所有元素的子集或所有相关背景知识（2）。当读者阅读文本时，工作记忆的内容会不断刷新，其中一些元素仍然是注意力的焦点，而另一些则被新的元素取代。随着阅读的进展，个别概念的激活景观也会发生变化（图1）。
 
-<img style="width:700px;height:500px" src="https://ws4.sinaimg.cn/large/006tKfTcgy1g1lzp28gjtj310p0u07p2.jpg"  alt="真棒" align=center />
+<img style="width:700px;height:500px" src="https://blog.idejie.com/pics/using-texts-in-science-education0.jpg"  alt="真棒" align=center />
 
 
 
@@ -33,7 +33,7 @@ category: 语言学
 
 ​	读者的注意力受到工作记忆和相关背景知识的影响（12）。 动机因素，如阅读文本的目标（9）、阅读和推理策略等技能因素（13）也决定了读者对文本的关注程度。这些策略和技能使读者能够控制注意力集中，确定激活元素之间存在何种类型的关系，并在进一步阅读之前决定是否需要进一步分析。读者会在阅读中带入个体差异，在眼球运动中可以测量的差异，对探针的反应速度，或者能够预测推理产生的出声思考法（14，15）（图2）。
 
-<img style="width:300px;height:300px" src="https://ws1.sinaimg.cn/large/006tKfTcgy1g1m10jqmbqj30u00v54qp.jpg"  alt="真棒" align=center />
+<img style="width:300px;height:300px" src="https://blog.idejie.com/pics/using-texts-in-science-education1.jpg"  alt="真棒" align=center />
 
 > 图2：阅读过程中的认知过程可以用眼睛跟踪装置来研究。[照片由明尼苏达大学的S.Carlson提供]
 
@@ -71,7 +71,7 @@ category: 语言学
 
 从文本中学习可能需要扩展和修改读者的知识库（图3）。 特定阅读器对特定文本的处理是文本和阅读器属性之间的交互的结果。 没有文字适合所有读者。
 
-<img style="width:300px;height:400px" src="https://ws3.sinaimg.cn/large/006tKfTcly1g1mgfmttptj30lq0yo000.jpg"  alt="真棒" align=center />
+<img style="width:300px;height:400px" src="https://blog.idejie.com/pics/using-texts-in-science-education2.jpg"  alt="真棒" align=center />
 
 > **图3**：从文本中学习。 扩展和修改假想读者的知识结构。 代表的是正确的先前知识（黑色），新获得的知识（蓝色）和纠正的误解（红色）。
 

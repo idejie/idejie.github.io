@@ -22,7 +22,7 @@ category: 知乎Live
 # 2.传统开发转行AI工程师的障碍
 
 - 概念晕（急于求成）：LR, SVM, 决策树，DNN,CNN, AlexNet, GoogleNet, Caffee,TensorFlow, 智能驾驶，AlphaGo, 个性化推荐, 智能语音，GPU, FPGA....
-- 数学公式繁杂（望而却步）：![](https://ww1.sinaimg.cn/large/006tKfTcly1feebf4lbzkj30du05mt8w.jpg)
+- 数学公式繁杂（望而却步）：![](https://blog.idejie.com/pics/how-to-be-an-AI-Engineer0.jpg)
   - 建议：不要期望内部原理，许多数学公式目前没办法解释清楚；化整为零，有的放矢
 - 自底向上的学习方法(误)
   - 不要从理论开始
@@ -34,7 +34,7 @@ category: 知乎Live
 
 ## 3.1机器学习的相关概念
 
-![](https://ww4.sinaimg.cn/large/006tKfTcly1feebmz40dcj30nx09kjsd.jpg)
+![](https://blog.idejie.com/pics/how-to-be-an-AI-Engineer1.jpg)
 
 - 人工智能/机器学习/深度学习
   - 人工智能是最大的范畴，只要你用计算机做了一点智能的事情都可以称为做了人工智能的工作。真正的人工智能应该是让机器拥有人的智能，让机器跟人一样能看、能听、能说，能用自然语言跟人进行交流。这个涉及到计算机视觉、语音识别、自然语言处理、人机交互、语音合成等等，是常规的我们研究讨论的人工智能的主要发力点，在互联网公司有着广阔应用场景的。
@@ -82,25 +82,26 @@ category: 知乎Live
 
 - 线上应用和持续优化
 
-![](https://ww2.sinaimg.cn/large/006tKfTcly1feebraspgcj30hj07cmy2.jpg)
+![](https://blog.idejie.com/pics/how-to-be-an-AI-Engineer2.jpg)
 
 ## 3.3DNN
 
 - DNN深度神经网络
 
-  ![](https://ww4.sinaimg.cn/large/006tKfTcly1feecq68296j30nk09sgmf.jpg)
+  ![](https://blog.idejie.com/pics/how-to-be-an-AI-Engineer3.jpg)
 
-  ​
+  
 
-  ​
+  
 
-  ![](https://ww3.sinaimg.cn/large/006tKfTcly1feecqp0avpj30cv0aujsi.jpg)![](https://ww3.sinaimg.cn/large/006tKfTcly1feect3m3uuj30fr030dfy.jpg)
+  ![](https://blog.idejie.com/pics/how-to-be-an-AI-Engineer14.jpg)
+  ![](https://blog.idejie.com/pics/how-to-be-an-AI-Engineer15.jpg)
 
 ## 3.4CNN
 
-  ![](https://ww4.sinaimg.cn/large/006tKfTcly1feecvay8pxj30do0bc757.jpg)
+  ![](https://blog.idejie.com/pics/how-to-be-an-AI-Engineer5.jpg)
 
-  ![](https://ww1.sinaimg.cn/large/006tKfTcly1feecvytuffj30jl0dbgms.jpg)
+  ![](https://blog.idejie.com/pics/how-to-be-an-AI-Engineer6.jpg)
 
 ## 3.5入门成为AI工程师的可行路径
 
@@ -112,18 +113,18 @@ AI应用
 
 # 4.AI实践案例分享
 
-![](https://ww3.sinaimg.cn/large/006tKfTcly1feecy79n96j30pe0dtac0.jpg)
+![](https://blog.idejie.com/pics/how-to-be-an-AI-Engineer7.jpg)
 
-![](https://ww1.sinaimg.cn/large/006tKfTcly1feeczr03vhj30n50c0whb.jpg)
+![](https://blog.idejie.com/pics/how-to-be-an-AI-Engineer8.jpg)
 
-![](https://ww2.sinaimg.cn/large/006tKfTcly1feed3e2u97j30ow0ebdhe.jpg)
+![](https://blog.idejie.com/pics/how-to-be-an-AI-Engineer9.jpg)
 
 # 5.腾讯云的GPU云、FPGA云
 
-![](https://ww4.sinaimg.cn/large/006tKfTcly1feed4ulv0rj30p20edmyr.jpg)
+![](https://blog.idejie.com/pics/how-to-be-an-AI-Engineer10.jpg)
 
-![](https://ww1.sinaimg.cn/large/006tKfTcly1feed5dz3c4j30of0dgaba.jpg)
+![](https://blog.idejie.com/pics/how-to-be-an-AI-Engineer11.jpg)
 
-![](https://ww4.sinaimg.cn/large/006tKfTcly1feed5wuaeej30o90e7mym.jpg)
+![](https://blog.idejie.com/pics/how-to-be-an-AI-Engineer12.jpg)
 
-![](https://ww3.sinaimg.cn/large/006tKfTcly1feed648g0ij30ow0ctdh8.jpg)
+![](https://blog.idejie.com/pics/how-to-be-an-AI-Engineer13.jpg)

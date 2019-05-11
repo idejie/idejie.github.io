@@ -7,7 +7,7 @@ category: 信息检索
 
 >何苯老师上课画的重点2018.11
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+![](https://blog.idejie.com/pics/ir-im0.gif)
 
 ## 第一讲 布尔检索
 
@@ -58,7 +58,7 @@ category: 信息检索
 
 解: 
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fxsrydq9fkj31r80tqtbw.jpg)
+![](https://blog.idejie.com/pics/ir-im1.jpg)
 
 ### 5.、利用 Westlaw 系统的语法构造一个查询，
 
@@ -71,7 +71,7 @@ category: 信息检索
 - 存词项的词典+对应的记录文档id的倒排记录表
 - 一是压缩了存储空间，倒排记录表避免了词项文档矩阵的高度稀疏；二是加快了索引的速度；三是保留了原有信息，能够适用于其他的检索操作和排序。
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+![](https://blog.idejie.com/pics/ir-im0.gif)
 
 ## 第二讲 词汇表和倒排记录表
 
@@ -81,7 +81,7 @@ category: 信息检索
 - 词类(Type) – 多个词条构成的等价类(equivalence class)集合
 - 词类经过一些处理(去除停用词、归一化)之后，最后用于索引的称为为词项
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fxssf6y0kqj31140ein0v.jpg)
+![](https://blog.idejie.com/pics/ir-im3.jpg)
 
 
 
@@ -100,7 +100,7 @@ category: 信息检索
 - 相对于删除了对应的词项-倒排记录表，大大压缩的空间占用
 - 所谓的停用词并不一定没用，比如：短语查询: “King of Denmark”。所以可能降低检索效果。
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+![](https://blog.idejie.com/pics/ir-im0.gif)
 
 ## 第三讲 词典及容错式检索
 
@@ -108,7 +108,7 @@ category: 信息检索
 
 dis\[i][j] = min⁡{dis\[i − 1][j] + 1, dis\[i][j − 1] + 1, dis\[i − 1][j − 1] + (s[i] == s[j])}
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+![](https://blog.idejie.com/pics/ir-im0.gif)
 
 ## 第四章：索引构建
 
@@ -142,7 +142,7 @@ dis\[i][j] = min⁡{dis\[i − 1][j] + 1, dis\[i][j − 1] + 1, dis\[i − 1][j 
 
 - SPIMI的核心算法为(2)(3)，因此算法复杂度为O(T);
 
-- ![](https://ws2.sinaimg.cn/large/006tNbRwly1fxlpbrjgj0j30ji0ba0wn.jpg)
+- ![](https://blog.idejie.com/pics/ir-im6.jpg)
 
 ### 3.分布式索引构建方法
 
@@ -221,7 +221,7 @@ I3   I2  I1   I0
 
 dictionary表示每个用户，而posting表示用户所能访问的文档ID；简单的来说就是一个用户-文档ID矩阵；
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+![](https://blog.idejie.com/pics/ir-im0.gif)
 
 ## 第五章：索引压缩
 
@@ -236,11 +236,11 @@ dictionary表示每个用户，而posting表示用户所能访问的文档ID；�
   - - [读压缩数据到内存+在内存中解压]比直接读入未压缩数据要快很多
     - 前提: 解压速度很快
 
-- ![](https://ws1.sinaimg.cn/large/006tNbRwly1fxst3186uuj31ce0u0ne8.jpg)
+- ![](https://blog.idejie.com/pics/ir-im8.jpg)
 
 ### 2.对于一个用于检索的压缩算法，有什么要求？是有损还是无损？
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fxst3hu9ohj31f20k2107.jpg)
+![](https://blog.idejie.com/pics/ir-im9.jpg)
 
 ### 3.在检索时，是否要全部解压？支持随机读取；
 
@@ -261,7 +261,7 @@ dictionary表示每个用户，而posting表示用户所能访问的文档ID；�
   - 偏移对应G的二进制编码，只不过将首部的1去掉，13->1101偏移是101
   - 长度是3（101偏移部分），长度编码（一元码）是1110
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+![](https://blog.idejie.com/pics/ir-im0.gif)
 
 ## 第六章：文档评分、权重计算及向量空间模型
 
@@ -280,7 +280,7 @@ dictionary表示每个用户，而posting表示用户所能访问的文档ID；�
   效果：短文档的相似度降低，而长文档的相似度增大
 - 对于查询和文档常常采用不同的权重计算机制
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+![](https://blog.idejie.com/pics/ir-im0.gif)
 
 ## 第八章：检索评价& 结果摘要
 
@@ -291,7 +291,7 @@ dictionary表示每个用户，而posting表示用户所能访问的文档ID；�
 
 ### 2.评价指标的计算。未插值的平均正确率。
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fxstg2xhrwj31fc0u07kd.jpg)
+![](https://blog.idejie.com/pics/ir-im12.jpg)
 
 ### 3.近年来出现的一些指标：如Bpref，为什么需要这样的指标？NDCG指标能解决什么问题？
 
@@ -301,7 +301,7 @@ dictionary表示每个用户，而posting表示用户所能访问的文档ID；�
 - 基本的思想：在相关性判断(Relevance Judgment) 不完全的情况下，计算在进行了相关性判断的文档集合中，在判断到相关文档前，需要判断的不相关文档的篇数
 - 相关性判断完全的情况下，利用Bpref和MAP进行评价的结果很一致，但是相关性判断不完全的情况下，Bpref更鲁棒。
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fxstizlf81j31ii0e67be.jpg)
+![](https://blog.idejie.com/pics/ir-im13.jpg)
 
 
 
@@ -312,17 +312,17 @@ dictionary表示每个用户，而posting表示用户所能访问的文档ID；�
 - - 相关度级别越高的结果越多越好
   - 相关度级别越高的结果越靠前越好
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fxstjt1kw9j31lc0quai4.jpg)
+![](https://blog.idejie.com/pics/ir-im14.jpg)
 
 
 
 ### 4.交叉检验
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fxstklsayaj31e10u0tr8.jpg)
+![](https://blog.idejie.com/pics/ir-im15.jpg)
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fxstkxbradj31us0l2dsp.jpg)
+![](https://blog.idejie.com/pics/ir-im16.jpg)
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+![](https://blog.idejie.com/pics/ir-im0.gif)
 
 
 
@@ -330,109 +330,109 @@ dictionary表示每个用户，而posting表示用户所能访问的文档ID；�
 
 ### 1.了解基本概念：BIM模型，BM25模型，考虑了哪些因素？长度是怎样反应的？局部重要性和全局重要性的计算，怎么考虑长度的？（考试不会要求计算）
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fxstnn7fybj30zk0je0zh.jpg)
+![](https://blog.idejie.com/pics/ir-im18.jpg)
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fxstodu3xnj30ze0i6wj2.jpg)
+![](https://blog.idejie.com/pics/ir-im19.jpg)
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fxstr8rhicj310m0lgjvx.jpg)
+![](https://blog.idejie.com/pics/ir-im20.jpg)
 
 
 
 ### 2.两个基本的分布——多项式分布和贝努力分布，BM25模型假设了一个什么分布？查询似然模型假设了一个什么总体分布(了解)
 
 - 泊松分布
-- ![](https://ws3.sinaimg.cn/large/006tNbRwly1fxstt7fk5qj311g0nutem.jpg)
+- ![](https://blog.idejie.com/pics/ir-im21.jpg)
 - 一元模型
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+![](https://blog.idejie.com/pics/ir-im0.gif)
 
 ## 第十一章：语言模型
 
 ### 1.查询似然模型是什么样的基本假设
 
-- ![](https://ws4.sinaimg.cn/large/006tNbRwly1fxstvaekfzj30xu0kswkw.jpg)
+- ![](https://blog.idejie.com/pics/ir-im23.jpg)
 - QLM在1998年提出时采用的是多元贝努利模型，后来才有人用多项式模型并发现多项式模型通常优于贝努利模型。所以后来介绍QLM时大都用多项式模型。
 - QLM是多项式分布，然后文档的分布都是均匀分布以及词项独立性假设，位置独立性假设
 
 ### 2.一个查询词项的局部重要性、全局重要性、基于模型在文档中是否有体现，怎么体现？
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+![](https://blog.idejie.com/pics/ir-im0.gif)
 
 ## 第十二章：朴素贝叶斯
 
 ### 1.了解一个基于多项式分布的朴素贝爷斯（看课件上的例子，给定训练集，能够推出分类器并用数据预测所属类别）
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fxsty5ubn6j311k0ewdjx.jpg)
+![](https://blog.idejie.com/pics/ir-im25.jpg)
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fxstyk3vz0j313e0iu104.jpg)
+![](https://blog.idejie.com/pics/ir-im26.jpg)
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fxstysm1arj31260c20wv.jpg)
-
-
+![](https://blog.idejie.com/pics/ir-im27.jpg)
 
 
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+
+
+![](https://blog.idejie.com/pics/ir-im0.gif)
 
 ## 第十三章: 向量空间分类器
 
 ## 1.了解算法Rocchio,knn，这些算法哪些是线性，哪些是非线性。SVM对于线性不可分情况，怎么处理的。
 
 - 线性：rocchio，svm；knn非线性
-- ![](https://ws4.sinaimg.cn/large/006tNbRwly1fxsu1jnscyj30x00dqgq7.jpg)
+- ![](https://blog.idejie.com/pics/ir-im29.jpg)
 - 采用如下的内积函数(核函数)
 
 
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+![](https://blog.idejie.com/pics/ir-im0.gif)
 
 ## 第十四章：支持向量机
 
 ### 1.了解基本概念。知道机器学习方法怎样用于信息检索（掌握例题P64）
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fxsu3gkuixj30yo0qy48a.jpg)
+![](https://blog.idejie.com/pics/ir-im31.jpg)
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fxsu3qmlhwj30zq0nuwls.jpg)
+![](https://blog.idejie.com/pics/ir-im32.jpg)
 
 
 
 ### 2.了解序回归的排序学习，了解基本概念。
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fxsu7t5nhwj30x60fiaft.jpg)
+![](https://blog.idejie.com/pics/ir-im33.jpg)
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fxsu5w011ij311m0l6qc0.jpg)
+![](https://blog.idejie.com/pics/ir-im34.jpg)
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fxsu6s43q3j30ym0gmafy.jpg)
+![](https://blog.idejie.com/pics/ir-im35.jpg)
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fxsu73ispoj30xy0hgaeb.jpg)
+![](https://blog.idejie.com/pics/ir-im36.jpg)
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fxsu89xh9nj30ti0jkn1j.jpg)
+![](https://blog.idejie.com/pics/ir-im37.jpg)
 
 
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+![](https://blog.idejie.com/pics/ir-im0.gif)
 
 ## 第十七章：互联网搜索
 
 ### 1.第一代互联网广告为什么被第二代淘汰？问题出在哪了？
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fxsua7t1wxj30xo0ayadf.jpg)
+![](https://blog.idejie.com/pics/ir-im39.jpg)
 
 ### 2.次高价拍卖（看例题，给类似数据做出计算）
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fxsu9je1xsj311o0ok46x.jpg)
+![](https://blog.idejie.com/pics/ir-im40.jpg)
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+![](https://blog.idejie.com/pics/ir-im0.gif)
 
 ## 第十八章：爬虫
 
 ### 1.设计爬虫存在什么问题？要遵守什么协议？(看课件)
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fxsub7f5xvj30wu0moai9.jpg)
+![](https://blog.idejie.com/pics/ir-im42.jpg)
 
 - robots
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+![](https://blog.idejie.com/pics/ir-im0.gif)
 
 ## 第十九章：链接分析
 
@@ -440,7 +440,7 @@ dictionary表示每个用户，而posting表示用户所能访问的文档ID；�
 
 - 算法
 - 可能存在回环；只进不出；
-- ![](https://ws4.sinaimg.cn/large/006tNbRwly1fxsud5ilrnj31120lcaie.jpg)
+- ![](https://blog.idejie.com/pics/ir-im44.jpg)
 - 给他加一个只想所有的
 
 ### 2.HITS算法基本概念，以及和pagerank的相同点和不同点。实际应用中，hits算法存在什么困难？它是一个动态的算法，对于每一个查询，都要重新构建基本集，重新计算，在线开销较大。
@@ -465,4 +465,4 @@ dictionary表示每个用户，而posting表示用户所能访问的文档ID；�
 8.HITS算法结构不稳定，当对“扩充网页集合”内链接关系作出很小改变，则对最终排名有很大影响；而PageRank相对HITS而言表现稳定，其根本原因在于PageRank计算时的“远程跳转”。
 ```
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fxs9dy4oxgg302s02s3zn.gif)
+![](https://blog.idejie.com/pics/ir-im0.gif)

@@ -5,4 +5,4 @@ tags: 工具
 category: 数学
 ---
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fxzo1bsripj31100u0trd.jpg)
+![](https://blog.idejie.com/pics/greek-handwriting0.jpg)

@@ -7,7 +7,7 @@ category: 教程
 
 罗平老师在讲数据挖掘的时候大致提供了以下几种方式：
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fy6b0vq6uyj30bi0jgtal.jpg)
+![](https://blog.idejie.com/pics/a-rec-sys0.jpg)
 
 ## 0.介绍
 > It's just a homework for [UCAS-091M5042H -网络数据挖掘](http://jwxk.ucas.ac.cn/course/courseplan/148444).
@@ -24,13 +24,13 @@ category: 教程
 
 字段之间用table符即”\t”隔开，文本编码为utf8编码格式，如下为截取训练集中的一行：
 
-​	![](https://ws2.sinaimg.cn/large/006tNbRwly1fxp50f1fpjj30bj00nmx7.jpg)
+​	![](https://blog.idejie.com/pics/a-rec-sys1.jpg)
 
 ## 1.非个性化推荐
 
 对于没有历史记录的用户，提供了目前热门新闻。
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fy68pk87ygj32ko0sswoa.jpg)
+![](https://blog.idejie.com/pics/a-rec-sys2.jpg)
 
 ## 2.基于内容的推荐
 
@@ -140,11 +140,11 @@ Time usage: 0:00:08
 
 1.基于用户已阅读的新闻，进行分析。能够找到用户目前关心的问题。
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fy68om8ixzj31xb0u079c.jpg)
+![](https://blog.idejie.com/pics/a-rec-sys3.jpg)
 
 2.根据其余新闻的主题和标签权重，推荐给用户目前关心的新闻
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fy68pk87ygj32ko0sswoa.jpg)
+![](https://blog.idejie.com/pics/a-rec-sys2.jpg)
 
 3.同理可以推荐给用户推荐关注同一主题和标签相似的用户
 
@@ -154,7 +154,7 @@ Time usage: 0:00:08
 
 1.SVD
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fy6by05szpj30u00vhahu.jpg)
+![](https://blog.idejie.com/pics/a-rec-sys5.jpg)
 
 ```python
 class SVD(AlgoBase):
@@ -304,7 +304,7 @@ user: 5218791    item: 100642618  r_ui = None   est = 3.00   {'was_impossible': 
 
 2.SVD++
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fy6byus9euj31260t2n30.jpg)
+![](https://blog.idejie.com/pics/a-rec-sys6.jpg)
 
 ```python
 class SVDpp(AlgoBase):
@@ -462,7 +462,7 @@ user: 5218791    item: 100642618  r_ui = None   est = 3.00   {'was_impossible': 
 
 3.NMF
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fy6bygl93zj30u00x1ai5.jpg)
+![](https://blog.idejie.com/pics/a-rec-sys7.jpg)
 
 ```python
 class NMF(AlgoBase):
@@ -663,7 +663,7 @@ user: 5218791    item: 100642618  r_ui = None   est = 1.00   {'actual_k': 0, 'wa
 
 5.SlopeOne
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fy6c3xrt5kj311i0lc41r.jpg)
+![](https://blog.idejie.com/pics/a-rec-sys8.jpg)
 
 ```python
 class SlopeOne(AlgoBase):
@@ -745,7 +745,7 @@ user: 5218791    item: 100642618  r_ui = None   est = 0.00   {'was_impossible': 
 
 6.Co-Clustering
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fy6c5j5y0zj311y0hyq6j.jpg)
+![](https://blog.idejie.com/pics/a-rec-sys9.jpg)
 
 ```python
 class CoClustering(AlgoBase):
@@ -977,7 +977,7 @@ LightFM是针对隐式和显式反馈的许多流行推荐算法的Python实现�
 
 选定算法后，使用flask+html实现了一个系统，大致结构如下。
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fy6caq2v6jj31fi0u0tdg.jpg)
+![](https://blog.idejie.com/pics/a-rec-sys11.jpg)
 
 项目地址：[推荐系统](https://github.com/idejie/recsys_web)
 

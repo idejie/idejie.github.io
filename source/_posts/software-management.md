@@ -178,7 +178,7 @@ category: 课程复习
 
 特点：平衡矩阵式组织结构处于弱矩阵式组织结构和强矩阵式组织结构之间，弱矩阵式组织结构接近于职能型组织结构，强矩阵式组织结构接近于项目型组织结构。
 
-   ![](https://ws3.sinaimg.cn/large/006tNbRwly1fgnefptzckj30ek07v75c.jpg)
+   ![](https://blog.idejie.com/pics/software-management0.jpg)
 
    **15.什么是软件的综合管理？其实现目标是什么**
 
@@ -353,7 +353,7 @@ WBS(Work Breakdown Structure)主要是将一个项目分解成易于管理的几
 
 **32.项目过程组、项目活动和项目知识领域之间的关系**
 
- ![](https://ws1.sinaimg.cn/large/006tNbRwly1fgnewpf0yjj30c00ceq46.jpg)
+ ![](https://blog.idejie.com/pics/software-management1.jpg)
 
 **33. 项目的整体管理主要工作所涉及到的过程有哪些？**
 
@@ -513,7 +513,7 @@ d.收尾的主要工作有：完成顾客对项目的整体的验收,进行项�
 **44.请详细描述项目过程组、项目活动和项目知识领域的关系。**
 
 项目过程组、项目活动和项目知识领域的关系见下表。
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fgnf1vb3afj30cy07ygmm.jpg)
+![](https://blog.idejie.com/pics/software-management2.jpg)
 
 **45.一个好的WBS(共组分解结构)应该遵循的基本原则有哪些？**
 

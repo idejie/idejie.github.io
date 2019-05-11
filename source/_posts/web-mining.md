@@ -57,7 +57,7 @@ category: 课程复习
 
 （3）KDD 过程：预处理》数据挖掘》后续处理
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fgbl0aio8gj30lx0d93zu.jpg)
+![](https://blog.idejie.com/pics/web-mining0.jpg)
 
 （4）KDD 的数据类型：数据库、文本、图片、万维网等
 

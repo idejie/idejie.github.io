@@ -15,7 +15,7 @@ category: 信息检索
 
 ## 第一章
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fx0rlfrxovj30tc07qgn3.jpg)
+![](https://blog.idejie.com/pics/ir-solution-zh0.jpg)
 
 ```
 forecast->1
@@ -29,7 +29,7 @@ sale->1->2->3->4
 top->1
 ```
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fx0rnl8fnqj30n80b0jth.jpg)
+![](https://blog.idejie.com/pics/ir-solution-zh1.jpg)
 
 ```
 Term-Document matrix: 
@@ -58,27 +58,27 @@ schizophrenia ->1->2->3->4
 treatment >3
 ```
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fx0rrntb0wj30z404i0ts.jpg)
+![](https://blog.idejie.com/pics/ir-solution-zh2.jpg)
 
 ```
 a  doc1 doc2
 b  doc4
 ```
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fx0rtr64w3j313i05sq4q.jpg)
+![](https://blog.idejie.com/pics/ir-solution-zh3.jpg)
 
 ```
 a. O(x+y)
 b. 不能。不可以在O(x+y)次内完成。因为NOT Caesar的倒排记录表需要提取其他所有词项对应的倒排记录表。所以需要遍历几乎全体倒排记录表，于是时间复杂度即为所有倒排记录表的长度的和N，即O(N) 或者说O(x+N-y)。
 ```
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fx0s0txff9j313a068mz4.jpg)
+![](https://blog.idejie.com/pics/ir-solution-zh4.jpg)
 
 ```
 时间复杂度为O(qN)，其中q为表达式中词项的个数，N为所有倒排记录表长度之和。也就是说可以在词项个数q及所有倒排记录表长度N的线性时间内完成合并。由于任意布尔表达式处理算法复杂度的上界为O(N)，所以上述复杂度无法进一步改进。
 ```
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fx4gk3q8oej30tu062di0.jpg)
+![](https://blog.idejie.com/pics/ir-solution-zh5.jpg)
 
 ```
 a. 析取范式为：(Brutus And Not Anthony And Not Cleopatra) OR (Caesar AND NOT Anthony AND NOT Cleopatra)
@@ -86,9 +86,9 @@ b. 这里的析取范式处理比前面的合取范式更有效。这是因为�
 c. 上述结果不一定对，比如两个罕见词A和B构成的查询 (A OR B) AND NOT(HONG OR KONG)，假设HONG KONG一起出现很频繁。此时合取方式可能处理起来更高效。如果在析取范式中仅有词项的非操作时，b中结果不对。
 ```
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fx51emlwojj31gw02aq3e.jpg)
+![](https://blog.idejie.com/pics/ir-solution-zh6.jpg)
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fx51f2b54ij31g40hitc4.jpg)
+![](https://blog.idejie.com/pics/ir-solution-zh7.jpg)
 
 ```
 由于：
@@ -111,13 +111,13 @@ b. 执行 (i) AND (iii) = (iv): 在AND运算符的情况下，合并记录表的
 c. 执行（iv）and（ii）：这是唯一剩下的合并的操作。
 ```
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fxjojebbn7j31gc082wgw.jpg)
+![](https://blog.idejie.com/pics/ir-solution-zh8.jpg)
 
 ```
 令friends、romans和countrymen的文档频率分别为x、y、z。如果z极高，则将N-z作为NOT countrymen的长度估计值，然后按照x、y、N-z从小到大合并。如果z极低，则按照x、y、z从小到大合并。
 ```
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fxceywovgbj30oi020jrv.jpg)
+![](https://blog.idejie.com/pics/ir-solution-zh9.jpg)
 
 ```
 排序不保证是最佳的。 考虑三个词项，倒排记录表中s1 = 100，s2 = 105和s3 = 110.假设s1和s2的交集长度为100，s1和s3的交集长度为0.排序s1，s2，s3需要100 + 105 + 100 + 110 = 315步。更合理的顺序是s1,s3,s2此时需要100 + 110 + 0 + 0 = 210步。
@@ -125,7 +125,7 @@ c. 执行（iv）and（ii）：这是唯一剩下的合并的操作。
 不一定。比如三个长度分别为x,y,z的倒排记录表进行合并，其中x>y>z，如果x和y的交集为空集，那么有可能先合并x、y效率更高
 ```
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fxcf8r228aj31gi020aar.jpg)
+![](https://blog.idejie.com/pics/ir-solution-zh10.jpg)
 
 ```python
 answer<- ( )
@@ -145,7 +145,7 @@ else while p2!=NIL do ADD(answer,docID(p2))
 return(answer) 
 ```
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fxdnrqhu5dj31me04cgn4.jpg)
+![](https://blog.idejie.com/pics/ir-solution-zh11.jpg)
 
 ```python
 由于NOT y几乎要遍历所有倒排表，因此如果采用列举倒排表的方式非常耗时。可以采用两个有序集合求减的方式处理 x AND NOT y。算法如下：
@@ -167,13 +167,13 @@ else	ADD(answer, docID(p2))
 	return(answer)
 ```
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fxdo2q8sxwj31nm04ctav.jpg)
+![](https://blog.idejie.com/pics/ir-solution-zh12.jpg)
 
 ```
 professor teacher lecturer /s explain!
 ```
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fxdoq1804cj31oy0g0dls.jpg)
+![](https://blog.idejie.com/pics/ir-solution-zh13.jpg)
 
 ```
 a.google
@@ -188,7 +188,7 @@ b.
 
 ## 第二章
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fxj5fc17bij310m0a2ad2.jpg)
+![](https://blog.idejie.com/pics/ir-solution-zh14.jpg)
 
 ```
 a F 
@@ -197,7 +197,7 @@ c F
 d F
 ```
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fxj5jiufxwj314y0b4gn3.jpg)
+![](https://blog.idejie.com/pics/ir-solution-zh15.jpg)
 
 ```
 a cos
@@ -207,16 +207,16 @@ d hawaii
 e orourke
 ```
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fxj5l33kkdj31go0cutbh.jpg)
+![](https://blog.idejie.com/pics/ir-solution-zh16.jpg)
 
 ```
 c 不应该同样结果 营销和市场是两个概念
 d 大学和宇宙也是两个不同的概念
 ```
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fxj5ovmct8j312q0agwhf.jpg)
+![](https://blog.idejie.com/pics/ir-solution-zh17.jpg)
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fxjoke1pczj31ee04edh3.jpg)
+![](https://blog.idejie.com/pics/ir-solution-zh18.jpg)
 
 
 
@@ -227,7 +227,7 @@ c. y->i
 d.不会，因为查询也会进行词干还原，此时可以认为poni就是pony(ponies)
 ```
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fxj5w26klcj30ts01ywf0.jpg)
+![](https://blog.idejie.com/pics/ir-solution-zh19.jpg)
 
 
 
@@ -235,7 +235,7 @@ d.不会，因为查询也会进行词干还原，此时可以认为poni就是po
 这种情况需要对倒排索引的表都进行查询
 ```
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fxj5xj26kkj31go0gc795.jpg)
+![](https://blog.idejie.com/pics/ir-solution-zh20.jpg)
 
 ```
 a. 11 
@@ -253,7 +253,7 @@ b.6
 	6. 47 & 47
 ```
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fxj61m2t02j31di0gcagi.jpg)
+![](https://blog.idejie.com/pics/ir-solution-zh21.jpg)
 
 ```
 a. 一次  24 ->75
@@ -299,22 +299,22 @@ c. 19
 (101,115)
 ```
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fxj6cwtfm7j31gw03kta0.jpg)
+![](https://blog.idejie.com/pics/ir-solution-zh22.jpg)
 
 ```
 Some alumni had arrived from New York. University faculty said that Stanford is the best place to study....
 ```
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fxj6dj05ewj318m0ocn3k.jpg)
+![](https://blog.idejie.com/pics/ir-solution-zh23.jpg)
 
 ```
 a 2 4 7
 b 4
 ```
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fxj6pzrgrqj30s405kwfa.jpg)
+![](https://blog.idejie.com/pics/ir-solution-zh24.jpg)
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fxj6qmjgm5j31hw0fg79k.jpg)
+![](https://blog.idejie.com/pics/ir-solution-zh25.jpg)
 
 ```
 a.1,3
@@ -325,26 +325,26 @@ k>=5 1,2,3
 
 
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fxj6r4eo7mj31h40a6n2c.jpg)
+![](https://blog.idejie.com/pics/ir-solution-zh26.jpg)
 
 ```
 O((m+n)L) 
 m为词项1的倒排索引表中文档记录长度，相应的n为词项2的
 ```
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fxj6rem2gdj31gg0cedlc.jpg)
+![](https://blog.idejie.com/pics/ir-solution-zh27.jpg)
 
 ```
 
 ```
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fxj6rrgqrtj31gq0egwki.jpg)
+![](https://blog.idejie.com/pics/ir-solution-zh28.jpg)
 
 ```
 
 ```
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fxjokqxh5qj31hc01ut9j.jpg)
+![](https://blog.idejie.com/pics/ir-solution-zh29.jpg)
 
 ```
 

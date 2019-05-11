@@ -5,4 +5,4 @@ tags: 脑图
 category: 课程复习
 ---
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fy9zk0zm5sj30u014nn32.jpg)
+![](https://blog.idejie.com/pics/net-mining-naotu0.jpg)

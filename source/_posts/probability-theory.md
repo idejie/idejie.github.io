@@ -76,9 +76,9 @@ category: 概率论
   - 样本点互不相容
   - 样本点发生概率相同
 - 公式
-  - ![](https://ws4.sinaimg.cn/large/006tNbRwly1fx6oyfexy2j30gc02eq34.jpg)
-  - ![](https://ws2.sinaimg.cn/large/006tNbRwly1fx6oyrbl4pj30ho04sgm4.jpg)
-  - ![](https://ws2.sinaimg.cn/large/006tNbRwly1fx6oz4dkkyj30gi02ut99.jpg)
+  - ![](https://blog.idejie.com/pics/probability-theory0.jpg)
+  - ![](https://blog.idejie.com/pics/probability-theory1.jpg)
+  - ![](https://blog.idejie.com/pics/probability-theory2.jpg)
 
 #### 二.基本组合和分析公式
 
@@ -90,7 +90,7 @@ category: 概率论
 - 不记顺序的抽取：$C_n^r$
 - 分成k份：$\frac{n!}{r_1!r_2!..r_k!}$
 - 脚标
-  ![](https://ws2.sinaimg.cn/large/006tNbRwly1fx6p5kbwtwj30x60aw41j.jpg)
+  ![](https://blog.idejie.com/pics/probability-theory3.jpg)
 - 有重复不记顺序：$C_{n-r+1}^r$
 
 #### 三.概率直接计算的例子
