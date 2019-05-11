@@ -96,13 +96,13 @@ donation:
   items:
     - type: 微信
       text: 微信扫一扫
-      imgUrl: https://ws1.sinaimg.cn/large/006tNbRwly1fxjlq29zkkj30f60f675t.jpg
+      imgUrl: https://blog.idejie.com/pics/wechat.jpg
     - type: 支付宝
       text: 支付宝扫一扫
-      imgUrl: https://ws2.sinaimg.cn/large/006tNbRwly1fxjlwikh27j30a20a2wfe.jpg
+      imgUrl: https://blog.idejie.com/pics/alipay.jpg
     - type: QQ
       text: QQ扫一扫
-      imgUrl: https://ws3.sinaimg.cn/large/006tNbRwly1fxjlztplu9j30jd0jeadu.jpg
+      imgUrl: https://blog.idejie.co,/pics/qq.jpg
 
 
 
