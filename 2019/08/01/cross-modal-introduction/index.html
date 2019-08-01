@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <meta name="google-site-verification" content="rEUG6A2SLvgx5-OW-Q2fuuC4q9qNnwo62YXM9KhQlPg">
+  
+  <title>跨模态指北 | idejie</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="">
+  
+
+  <meta name="description" content="跨模态 指北  1.To Read  Supervised Image Hashing Papers List   1.1 Our Team’s Papers List 2017-2019   Dayan Wu, Qi Dai, Jing Liu, Bo Li, Weiping Wang Deep Incremental Hashing Network for Efficient Image R">
+<meta name="keywords" content="跨模态 指南">
+<meta property="og:type" content="article">
+<meta property="og:title" content="跨模态指北">
+<meta property="og:url" content="https://blog.idejie.com/2019/08/01/cross-modal-introduction/index.html">
+<meta property="og:site_name" content="idejie">
+<meta property="og:description" content="跨模态 指北  1.To Read  Supervised Image Hashing Papers List   1.1 Our Team’s Papers List 2017-2019   Dayan Wu, Qi Dai, Jing Liu, Bo Li, Weiping Wang Deep Incremental Hashing Network for Efficient Image R">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-08-01T02:16:40.037Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="跨模态指北">
+<meta name="twitter:description" content="跨模态 指北  1.To Read  Supervised Image Hashing Papers List   1.1 Our Team’s Papers List 2017-2019   Dayan Wu, Qi Dai, Jing Liu, Bo Li, Weiping Wang Deep Incremental Hashing Network for Efficient Image R">
+
+  
+
+  
+    <link rel="icon" href="https://avatars0.githubusercontent.com/u/12479824">
+  
+
+  <link href="/css/styles.css?v=d671a41f" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/styles.css">
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+<script src="//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0"></script>
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+ <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css">
+<script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/github-markdown-css/2.2.1/github-markdown.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+
+    <!-- The loading of KaTeX is deferred to speed up page rendering -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+
+    <!-- To automatically render math in text elements, include the auto-render extension: -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+        
+</head>
+<script src="//pixijs.download/release/pixi.js"></script>
+<script src="https://unpkg.com/ityped@1.0.2"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+</html>
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">菜单</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">菜单</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+            目录
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/category/" rel="noopener noreferrer" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/tag/" rel="noopener noreferrer" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/project/" rel="noopener noreferrer" target="_self">
+            项目
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#跨模态-指北"><span class="toc-text"> 跨模态 指北</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1to"><span class="toc-text"> 1.To Read</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#11-our-teams-papers-list"><span class="toc-text"> 1.1 Our Team’s Papers List</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-nice-papers-list"><span class="toc-text"> 1.2 Nice Papers List</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2014"><span class="toc-text"> 2014</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2015"><span class="toc-text"> 2015</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2016"><span class="toc-text"> 2016</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2017"><span class="toc-text"> 2017</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2018"><span class="toc-text"> 2018</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2019"><span class="toc-text"> 2019</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2to"><span class="toc-text"> 2.To Follow</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3to"><span class="toc-text"> 3.To Emphasize</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4to"><span class="toc-text"> 4.To Do</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#thanks-to"><span class="toc-text"> Thanks To</span></a></li></ol></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-cross-modal-introduction" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">跨模态指北</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2019.08.01</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>idejie</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/跨模态/">跨模态</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp 阅读量：<span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>
+        </span>
+      
+
+     
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h1 id="跨模态-指北"><a class="markdownIt-Anchor" href="#跨模态-指北"></a> 跨模态 指北</h1>
+<h2 id="1to"><a class="markdownIt-Anchor" href="#1to"></a> <a href="http://1.To" target="_blank" rel="noopener">1.To</a> Read</h2>
+<blockquote>
+<p>Supervised Image Hashing Papers List</p>
+</blockquote>
+<h3 id="11-our-teams-papers-list"><a class="markdownIt-Anchor" href="#11-our-teams-papers-list"></a> 1.1 Our Team’s Papers List</h3>
+<p><strong>2017-2019</strong></p>
+<ol>
+<li>
+<p>Dayan Wu, Qi Dai, Jing Liu, Bo Li, Weiping Wang<br>
+Deep Incremental Hashing Network for Efficient Image Retrieval. CVPR 2019: 9069-9077</p>
+</li>
+<li>
+<p>Wanqian Zhang, Dayan Wu, Jing Liu, Bo Li, Xiaoyan Gu, Weiping Wang, Dan Meng<br>
+Fast and Multilevel Semantic-Preserving Discrete Hashing. BMVC 2019</p>
+</li>
+<li>
+<p>Jingzi Gu, Jinchao Zhang, Zheng Lin, Bo Li, Weiping Wang, Dan Meng<br>
+Asymmetric Deep Cross-modal Hashing. ICCS (5) 2019: 41-54</p>
+</li>
+<li>
+<p>Wen Gu, Xiaoyan Gu, Jingzi Gu, Bo Li, Zhi Xiong, Weiping Wang<br>
+Adversary Guided Asymmetric Hashing for Cross-Modal Retrieval. ICMR 2019: 159-167</p>
+</li>
+<li>
+<p>Zhi Xiong, Bo Li, Xiaoyan Gu, Wen Gu, Weiping Wang<br>
+Discriminative Deep Attention-aware Hashing for Face Image Retrieval. PRICAI 2019</p>
+</li>
+<li>
+<p>Dayan Wu, Zheng Lin, Bo Li, Jing Liu, Weiping Wang<br>
+Deep Uniqueness-Aware Hashing for Fine-Grained Multi-Label Image Retrieval. ICASSP 2018: 1683-1687</p>
+</li>
+<li>
+<p>Dayan Wu, Jing Liu, Bo Li, Weiping Wang<br>
+Deep Index-Compatible Hashing for Fast Image Retrieval. ICME 2018: 1-6</p>
+</li>
+<li>
+<p>Jing Liu, Dayan Wu, Wanqian Zhang, Bo Li, Weiping Wang<br>
+Robust and Index-Compatible Deep Hashing for Accurate and Fast Image Retrieval. PCM (2) 2018: 67-77</p>
+</li>
+<li>
+<p>Dayan Wu, Zheng Lin, Bo Li, Mingzhen Ye, Weiping Wang<br>
+Deep Supervised Hashing for Multi-Label and Large-Scale Image Retrieval. ICMR 2017: 150-158</p>
+</li>
+</ol>
+<h3 id="12-nice-papers-list"><a class="markdownIt-Anchor" href="#12-nice-papers-list"></a> 1.2 Nice Papers List</h3>
+<p><strong>2014-2019</strong></p>
+<h4 id="2014"><a class="markdownIt-Anchor" href="#2014"></a> 2014</h4>
+<ol>
+<li>CVPR 《Fast supervised hashing with decision trees for high-dimensional data》</li>
+<li>AAAI 《Supervised Hashing for Image Retrieval via Image Representation Learning》</li>
+<li>TIP 《Scalable Similarity Search With Topology Preserving Hashing》</li>
+<li>ECCV 《Learning to Hash with Partial Tags: Exploring Correlation between Tags and Hashing Bits for Large Scale Image Retrieval》</li>
+<li>TPAMI 《Fast Exact Search in Hamming Space With Multi-Index Hashing》</li>
+</ol>
+<h4 id="2015"><a class="markdownIt-Anchor" href="#2015"></a> 2015</h4>
+<ol>
+<li>CVPR 《Supervised Discrete Hashing》</li>
+<li>CVPR 《Hashing With Binary Autoencoders》</li>
+<li>CVPR 《Deep Semantic Ranking Based Hashing for Multi-Label Image Retrieval》</li>
+<li>CVPR 《Deep Hashing for Compact Binary Codes Learning》</li>
+<li>CVPR 《Revisiting Kernelized Locality-Sensitive Hashing for Improved Large-Scale Image Retrieval》</li>
+<li>ICCV 《Adaptive Hashing for Fast Similarity Search》</li>
+<li>ICCV 《kNN Hashing With Factorized Neighborhood Representation》</li>
+<li>ICCV 《An NMF Perspective on Binary Hashing》</li>
+<li>AAAI 《Probabilistic Attributed Hashing》</li>
+<li>IJCAI 《Scalable Graph Hashing with Feature Transformation》</li>
+<li>IJCAI 《Hamming Compatible Quantization for Hashing》</li>
+<li>IJCAI 《Ranking Preserving Hashing for Fast Similarity Search》</li>
+<li>TIP 《Neighborhood Discriminant Hashing for Large-Scale Image Retrieval》</li>
+<li>TIP 《Bit-Scalable Deep Hashing With Regularized Similarity Learning for Image Retrieval and Person Re-Identification》</li>
+<li>TIP 《Hashing on Nonlinear Manifolds》</li>
+<li>TIP 《Multiview Alignment Hashing for Efficient Image Search》</li>
+<li>TPAMI 《Supervised Hashing Using Graph Cuts and Boosted Decision Trees》</li>
+<li>TPAMI 《Spherical Hashing: Binary Code Embedding with Hyperspheres》</li>
+</ol>
+<h4 id="2016"><a class="markdownIt-Anchor" href="#2016"></a> 2016</h4>
+<ol>
+<li>CVPR 《Efficient Training of Very Deep Neural Networks for Supervised Hashing》</li>
+<li>CVPR 《Deep Supervised Hashing for Fast Image Retrieval》</li>
+<li>CVRP 《Multilinear Hyperplane Hashing》</li>
+<li>ECCV 《Binary Hashing with Semidefinite Relaxation and Augmented Lagrangian》</li>
+<li>ECCV 《Network flow formulations for Learning Binary Hashing》</li>
+<li>ECCV 《Kernel-Based Supervised Discrete Hashing for Image Retrieval》</li>
+<li>AAAI 《Supervised Hashing via Uncorrelated Component Analysis》</li>
+<li>AAAI 《Affinity Preserving Quantization for Hashing: A Vector Quantization Approach to Learning Compact Binary Codes》</li>
+<li>AAAI 《Column Sampling Based Discrete Supervised Hashing》</li>
+<li>AAAI 《Deep Hashing Network for Efficient Similarity Retrieval》</li>
+<li>IJCAI 《Feature Learning based Deep Supervised Hashing with Pairwise Labels》</li>
+<li>IJCAI 《Natural Supervised Hashing》</li>
+<li>IJCAI 《Learning A Deep <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi mathvariant="normal">ℓ</mi><mi mathvariant="normal">∞</mi></msub></mrow><annotation encoding="application/x-tex">\ell_\infty</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="base"><span class="mord"><span class="mord">ℓ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">∞</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span> Encoder for Hashing》</li>
+<li>IJCAI 《Class-wise Supervised Hashing with Taxonomy and Active Bits》</li>
+<li>IJCAI 《Transfer Hashing with Privileged Information》</li>
+<li>IJCAI 《Deep Semantics-preserving and Ranking-based Hashing for Image Retrieval》</li>
+<li>TIP 《Instance-Aware Hashing for Multi-Label Image Retrieval》</li>
+<li>TIP 《Query-Adaptive Hash Code Ranking for Large-Scale Multi-View Visual Search》</li>
+<li>TPAMI 《Coherency Sensitive Hashing》</li>
+</ol>
+<h4 id="2017"><a class="markdownIt-Anchor" href="#2017"></a> 2017</h4>
+<ol>
+<li>CVPR 《AMVH: Asymmetric Multi-Valued Hashing》</li>
+<li>CVPR 《Discretely Coding Semantic Rank Orders for Supervised Image Hashing》</li>
+<li>CVPR 《Bayesian Supervised Hashing》</li>
+<li>CVPR 《Simultaneous Feature Aggregating and Hashing for Large-Scale Image Search》</li>
+<li>ICCV 《MIHash: Online Hashing With Mutual Information》</li>
+<li>AAAI 《Transitive Hashing Network for Heterogeneous Multimedia Retrieval》</li>
+<li>AAAI 《Large Graph Hashing with Spectral Rotation》</li>
+<li>AAAI 《Deep Hashing: A Joint Approach for Image Signature Learning》</li>
+<li>AAAI 《Asymmetric Discrete Graph Hashing》</li>
+<li>AAAI 《S2JSD-LSH: A Locality-Sensitive Hashing Schema for Probability Distributions》</li>
+<li>IJCAI 《Dynamic Multi-View Hashing for Online Image Retrieval》</li>
+<li>IJCAI 《TUCH: Turning Cross-view Hashing into Single-view Hashing via Generative Adversarial Nets》</li>
+<li>IJCAI 《RHash: Robust Hashing via <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi mathvariant="normal">ℓ</mi><mi mathvariant="normal">∞</mi></msub></mrow><annotation encoding="application/x-tex">\ell_{\infty}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="base"><span class="mord"><span class="mord">ℓ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">∞</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span>-norm Distortion》</li>
+<li>IJCAI 《Deep Multiple Instance Hashing for Object-based Image Retrieval》</li>
+<li>IJCAI 《Locality Constrained Deep Supervised Hashing for Image Retrieval》</li>
+<li>IJCAI 《Deep Supervised Hashing with Nonlinear Projections》</li>
+<li>IJCAI 《SitNet: Discrete Similarity Transfer Network for Zero-shot Hashing》</li>
+<li>TIP 《Hash Bit Selection for Nearest Neighbor Search》</li>
+<li>TIP 《Toward Optimal Manifold Hashing via Discrete Locally Linear Embedding》</li>
+<li>TIP 《Partial Hash Update via Hamming Subspace Learning》</li>
+<li>TIP 《Latent Semantic Minimal Hashing for Image Retrieval》</li>
+<li>TIP 《Learning to Hash With Optimized Anchor Embedding for Scalable Retrieval》</li>
+<li>TIP 《Global Hashing System for Fast Image Search》</li>
+<li>TIP 《Deep Hashing for Scalable Image Search》</li>
+</ol>
+<h4 id="2018"><a class="markdownIt-Anchor" href="#2018"></a> 2018</h4>
+<ol>
+<li>CVPR 《Deep Cauchy Hashing for Hamming Space Retrieval》</li>
+<li>CVPR 《Hashing as Tie-Aware Learning to Rank》</li>
+<li>CVPR 《Deep Hashing via Discrepancy Minimization》</li>
+<li>ECCV 《Hashing with Binary Matrix Pursuit》</li>
+<li>ECCV 《Relaxation-Free Deep Hashing via Policy Gradient》</li>
+<li>ECCV 《ForestHash: Semantic Hashing With Shallow Random Forests and Tiny Convolutional Networks》</li>
+<li>AAAI 《Deep Region Hashing for Generic Instance Search from Images》</li>
+<li>AAAI 《On Trivial Solution and High Correlation Problems in Deep Supervised Hashing》</li>
+<li>AAAI 《From Hashing to CNNs: Training Binary Weight Network–root /mnt/disk5/zhaoshu/ILSVRC2012 --gpu 0 --print-freq 100 --lr 1e-3 --batch-size 128 --arch resnet50s via Hashing》</li>
+<li>AAAI 《Asymmetric Deep Supervised Hashing》</li>
+<li>AAAI 《Direct Hashing without Pseudo-Labels》</li>
+<li>AAAI 《Transfer Adversarial Hashing for Hamming Space Retrieval》</li>
+<li>AAAI 《Supervised Deep Hashing for Hierarchical Labeled Data》</li>
+<li>IJCAI 《Deep Joint Semantic-Embedding Hashing》</li>
+<li>IJCAI 《Redundancy-resistant Generative Hashing for Image Retrieval》</li>
+<li>IJCAI 《Progressive Generative Hashing for Image Retrieval》</li>
+<li>IJCAI 《Feature Hashing for Network Representation Learning》</li>
+<li>TIP 《A General Framework for Linear Distance Preserving Hashing》</li>
+<li>TIP 《Deep Constrained Siamese Hash Coding Network and Load-Balanced Locality-Sensitive Hashing for Near Duplicate Image Detection》</li>
+<li>TIP 《Object-Location-Aware Hashing for Multi-Label Image Retrieval via Automatic Mask Learning》</li>
+<li>TIP 《Hierarchical Recurrent Neural Hashing for Image Retrieval With Hierarchical Convolutional Features》</li>
+<li>TIP 《Binary Multidimensional Scaling for Hashing》</li>
+<li>TIP 《Deep Discrete Supervised Hashing》</li>
+<li>TIP 《Jointly Sparse Hashing for Image Retrieval》</li>
+<li>TIP 《Hadamard Coding for Supervised Discrete Hashing》</li>
+<li>TPAMI 《Fast Supervised Discrete Hashing》</li>
+<li>TPAMI 《Supervised Learning of Semantics-Preserving Hash via Deep Convolutional Neural Networks》</li>
+</ol>
+<h4 id="2019"><a class="markdownIt-Anchor" href="#2019"></a> 2019</h4>
+<ol>
+<li>CVPR 《K-Nearest Neighbors Hashing》</li>
+<li>CVPR 《Deep Incremental Hashing Network for Efficient Image Retrieval》</li>
+<li>AAAI 《SADIH: Semantic-Aware DIscrete Hashing》</li>
+<li>AAAI 《Towards Optimal Discrete Online Hashing with Balanced Similarity》</li>
+<li>AAAI 《Optimal Projection Guided Transfer Hashing for Image Retrieval》</li>
+<li>TIP 《Discrete Hashing With Multiple Supervision》</li>
+<li>TIP 《Discrete Spectral Hashing for Efficient Similarity Retrieval》</li>
+<li>TIP 《Semantic Cluster Unary Loss for Efficient Deep Hashing》</li>
+<li>TIP 《Deep Ordinal Hashing With Spatial Attention》</li>
+<li>TIP 《Local Semantic-Aware Deep Hashing With Hamming-Isometric Quantization》</li>
+<li>TIP 《Simultaneous Feature Aggregating and Hashing for Compact Binary Code Learning》</li>
+<li>TIP 《Scalable Supervised Asymmetric Hashing with Semantic and Latent Factor Embedding》</li>
+<li>TPAMI 《Hashing with Mutual Information》</li>
+<li>TPAMI 《Deep Variational and Structural Hashing》</li>
+<li>TPAMI 《Nonlinear Asymmetric Multi-Valued Hashing》</li>
+</ol>
+<h2 id="2to"><a class="markdownIt-Anchor" href="#2to"></a> <a href="http://2.To" target="_blank" rel="noopener">2.To</a> Follow</h2>
+<ul>
+<li>
+<p><strong>颜水成</strong></p>
+<ul>
+<li>Homepage: <a href="https://www.ece.nus.edu.sg/stfpage/eleyans/" target="_blank" rel="noopener">https://www.ece.nus.edu.sg/stfpage/eleyans/</a> (已失效)</li>
+<li>Google Scholar: <a href="https://scholar.google.com.hk/citations?user=DNuiPHwAAAAJ&amp;hl=zh-CN" target="_blank" rel="noopener">https://scholar.google.com.hk/citations?user=DNuiPHwAAAAJ&amp;hl=zh-CN</a></li>
+</ul>
+</li>
+<li>
+<p><strong>沈复民</strong></p>
+<ul>
+<li>Homepage: <a href="http://cfm.uestc.edu.cn/~fshen/" target="_blank" rel="noopener">http://cfm.uestc.edu.cn/~fshen/</a></li>
+<li>Google Scholar: <a href="https://scholar.google.com.au/citations?user=oqYL6fQAAAAJ&amp;hl=en" target="_blank" rel="noopener">https://scholar.google.com.au/citations?user=oqYL6fQAAAAJ&amp;hl=en</a></li>
+</ul>
+</li>
+<li>
+<p><strong>梅涛</strong></p>
+<ul>
+<li>Homepage: <a href="https://taomei.me/" target="_blank" rel="noopener">https://taomei.me/</a></li>
+<li>Google Scholar: <a href="https://scholar.google.com.hk/citations?user=7Yq4wf4AAAAJ&amp;hl=zh-CN" target="_blank" rel="noopener">https://scholar.google.com.hk/citations?user=7Yq4wf4AAAAJ&amp;hl=zh-CN</a></li>
+</ul>
+</li>
+<li>
+<p><strong>邱钊凡</strong></p>
+<ul>
+<li>Homepage: <a href="http://zhaofanqiu.deepfun.club/" target="_blank" rel="noopener">http://zhaofanqiu.deepfun.club/</a></li>
+<li>Google Scholar: <a href="https://scholar.google.com/citations?user=mvPyFLoAAAAJ&amp;hl=en" target="_blank" rel="noopener">https://scholar.google.com/citations?user=mvPyFLoAAAAJ&amp;hl=en</a></li>
+</ul>
+</li>
+<li>
+<p><strong>姚霆</strong></p>
+<ul>
+<li>Homepage: <a href="http://tingyao.deepfun.club/" target="_blank" rel="noopener">http://tingyao.deepfun.club/</a></li>
+<li>Google Scholar: <a href="https://scholar.google.com/citations?user=7Yc6yssAAAAJ" target="_blank" rel="noopener">https://scholar.google.com/citations?user=7Yc6yssAAAAJ</a></li>
+</ul>
+</li>
+<li>
+<p><strong>Zi Huang</strong></p>
+<ul>
+<li>Homepage: <a href="http://staff.itee.uq.edu.au/huang/" target="_blank" rel="noopener">http://staff.itee.uq.edu.au/huang/</a></li>
+<li>Google Scholar: <a href="https://scholar.google.com.au/citations?user=iAWMsgEAAAAJ&amp;hl=en" target="_blank" rel="noopener">https://scholar.google.com.au/citations?user=iAWMsgEAAAAJ&amp;hl=en</a></li>
+</ul>
+</li>
+<li>
+<p><strong>申恒涛</strong></p>
+<ul>
+<li>Homepage: <a href="http://staff.itee.uq.edu.au/shenht/" target="_blank" rel="noopener">http://staff.itee.uq.edu.au/shenht/</a></li>
+<li>Google Scholar: <a href="https://scholar.google.com.au/citations?user=krryaDkAAAAJ&amp;hl=en" target="_blank" rel="noopener">https://scholar.google.com.au/citations?user=krryaDkAAAAJ&amp;hl=en</a></li>
+</ul>
+</li>
+<li>
+<p><strong>王井东</strong></p>
+<ul>
+<li>Homepage: <a href="https://jingdongwang2017.github.io/" target="_blank" rel="noopener">https://jingdongwang2017.github.io/</a></li>
+<li>Google Scholar: <a href="https://scholar.google.com/citations?user=z5SPCmgAAAAJ&amp;hl=en" target="_blank" rel="noopener">https://scholar.google.com/citations?user=z5SPCmgAAAAJ&amp;hl=en</a></li>
+</ul>
+</li>
+<li>
+<p><strong>李武军</strong></p>
+<ul>
+<li>Homepage: <a href="http://cs.nju.edu.cn/lwj/" target="_blank" rel="noopener">http://cs.nju.edu.cn/lwj/</a></li>
+<li>Google Scholar: <a href="https://scholar.google.com/citations?user=NCCdqdcAAAAJ&amp;hl=zh-CN&amp;oi=ao" target="_blank" rel="noopener">https://scholar.google.com/citations?user=NCCdqdcAAAAJ&amp;hl=zh-CN&amp;oi=ao</a></li>
+</ul>
+</li>
+<li>
+<p><strong>蒋庆远</strong></p>
+<ul>
+<li>Homepage: <a href="http://lamda.nju.edu.cn/jiangqy/?AspxAutoDetectCookieSupport=1" target="_blank" rel="noopener">http://lamda.nju.edu.cn/jiangqy/?AspxAutoDetectCookieSupport=1</a></li>
+<li>Google Scholar: <a href="https://scholar.google.com.hk/citations?user=MHYWbKEAAAAJ&amp;hl=en" target="_blank" rel="noopener">https://scholar.google.com.hk/citations?user=MHYWbKEAAAAJ&amp;hl=en</a></li>
+</ul>
+</li>
+<li>
+<p><strong>龙明盛</strong></p>
+<ul>
+<li>Homepage: <a href="http://ise.thss.tsinghua.edu.cn/~mlong/" target="_blank" rel="noopener">http://ise.thss.tsinghua.edu.cn/~mlong/</a></li>
+<li>Google Scholar: <a href="https://scholar.google.com/citations?user=_MjXpXkAAAAJ&amp;hl=zh-CN" target="_blank" rel="noopener">https://scholar.google.com/citations?user=_MjXpXkAAAAJ&amp;hl=zh-CN</a></li>
+</ul>
+</li>
+<li>
+<p><strong>曹越</strong></p>
+<ul>
+<li>Homepage: <a href="http://yue-cao.me/" target="_blank" rel="noopener">http://yue-cao.me/</a></li>
+<li>Google Scholar: <a href="https://scholar.google.com/citations?user=iRUO1ckAAAAJ&amp;hl=zh-CN" target="_blank" rel="noopener">https://scholar.google.com/citations?user=iRUO1ckAAAAJ&amp;hl=zh-CN</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="3to"><a class="markdownIt-Anchor" href="#3to"></a> <a href="http://3.To" target="_blank" rel="noopener">3.To</a> Emphasize</h2>
+<p>详见<a href="https://github.com/WendellGul" target="_blank" rel="noopener">@古文</a>师兄博客：</p>
+<p>[跨模态检索及深度哈希总结]([<a href="https://wendellgul.github.io/research%20note/2019/07/31/%E8%B7%A8%E6%A8%A1%E6%80%81%E6%A3%80%E7%B4%A2%E5%8F%8A%E6%B7%B1%E5%BA%A6%E5%93%88%E5%B8%8C%E6%80%BB%E7%BB%93-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/?nsukey=64Y0gbJuq%2FClvowEAm0CURlzqzLDQQj22URFdOeqRs4P7ZHGI7%2Be5u8Ly4yNIvIJ05SQX5Ub%2BhF7WZp4Q7B%2F%2Bsk%2FOj0M92HfBdgQsvfyCbF7ddzb65lc%2FYZbqBvDgC%2Ftbo1y%2B9K8f9fRtCmmGFD6sidzVIVbofBtU07gQOTaPhYSrF4z28vOP4FUgW4DDTuRcBw2kK0HSPCcTvTO1qDTPw%3D%3D" target="_blank" rel="noopener">https://wendellgul.github.io/research note/2019/07/31/跨模态检索及深度哈希总结-持续更新/?nsukey=64Y0gbJuq%2FClvowEAm0CURlzqzLDQQj22URFdOeqRs4P7ZHGI7%2Be5u8Ly4yNIvIJ05SQX5Ub%2BhF7WZp4Q7B%2F%2Bsk%2FOj0M92HfBdgQsvfyCbF7ddzb65lc%2FYZbqBvDgC%2Ftbo1y%2B9K8f9fRtCmmGFD6sidzVIVbofBtU07gQOTaPhYSrF4z28vOP4FUgW4DDTuRcBw2kK0HSPCcTvTO1qDTPw%3D%3D</a>](<a href="https://wendellgul.github.io/research" target="_blank" rel="noopener">https://wendellgul.github.io/research</a> note/2019/07/31/跨模态检索及深度哈希总结-持续更新/?nsukey=64Y0gbJuq%2FClvowEAm0CURlzqzLDQQj22URFdOeqRs4P7ZHGI7%2Be5u8Ly4yNIvIJ05SQX5Ub%2BhF7WZp4Q7B%2F%2Bsk%2FOj0M92HfBdgQsvfyCbF7ddzb65lc%2FYZbqBvDgC%2Ftbo1y%2B9K8f9fRtCmmGFD6sidzVIVbofBtU07gQOTaPhYSrF4z28vOP4FUgW4DDTuRcBw2kK0HSPCcTvTO1qDTPw%3D%3D))</p>
+<h2 id="4to"><a class="markdownIt-Anchor" href="#4to"></a> <a href="http://4.To" target="_blank" rel="noopener">4.To</a> Do</h2>
+<ul>
+<li>
+<p>Read Papers</p>
+</li>
+<li>
+<p>Extract ideas</p>
+</li>
+<li>
+<p>Code and Implement</p>
+</li>
+<li>
+<p>Summary</p>
+</li>
+<li>
+<p>Transfer</p>
+</li>
+<li>
+<p>Other Skills</p>
+<ul>
+<li>Deep Learning</li>
+<li>CV</li>
+<li>NLP</li>
+<li>Leetcode</li>
+</ul>
+</li>
+<li>
+<p>More</p>
+</li>
+</ul>
+<h2 id="thanks-to"><a class="markdownIt-Anchor" href="#thanks-to"></a> Thanks To</h2>
+<ul>
+<li>Tree哥整理的paper list</li>
+<li>Dayan师兄整理的组内论文、以及圈内大佬 list</li>
+<li>古文师兄整理的跨模态总结</li>
+</ul>
+
+    
+  </div>
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation"><strong><a href="#" style="color: #999;">赞赏</a></strong></span>
+      <div class="donation-body">
+        <div class="tip text-center"><strong>支持一下</strong></div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="https://blog.idejie.com/pics/wechat.jpg" alt="">
+            <a>微信扫一扫</a>
+          </li>
+        
+          <li class="item">
+            <img src="https://blog.idejie.com/pics/alipay.jpg" alt="">
+            <a>支付宝扫一扫</a>
+          </li>
+        
+          <li class="item">
+            <img src="https://blog.idejie.com/pics/qq.jpg" alt="">
+            <a>QQ扫一扫</a>
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="hide pull-left" href="/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2019/04/02/using-texts-in-science-education/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+              目录
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/category/" rel="noopener noreferrer" target="_self">
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/tag/" rel="noopener noreferrer" target="_self">
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/project/" rel="noopener noreferrer" target="_self">
+              项目
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+
+
+
+
+  <div id="vcomments"></div>
+    <script>
+        new Valine({
+            el: '#vcomments',
+            appId: 'm2JW5otJtf3PU6V2F3ORdsVl-gzGzoHsz',
+            appKey: 'sT0JdEoQA7RJThLQ7z6xiT0c'
+        })
+    </script>
+
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+
+</body>
+</html>
