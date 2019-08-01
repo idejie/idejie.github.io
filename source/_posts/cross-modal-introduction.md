@@ -16,30 +16,47 @@ category: 跨模态
 **2017-2019**
 
 1. Dayan Wu, Qi Dai, Jing Liu, Bo Li, Weiping Wang
-   Deep Incremental Hashing Network for Efficient Image Retrieval. CVPR 2019: 9069-9077
+
+	Deep Incremental Hashing Network for Efficient Image Retrieval. CVPR 2019: 9069-9077
 
 2. Wanqian Zhang, Dayan Wu, Jing Liu, Bo Li, Xiaoyan Gu, Weiping Wang, Dan Meng
+
    Fast and Multilevel Semantic-Preserving Discrete Hashing. BMVC 2019
+
 3. Jingzi Gu, Jinchao Zhang, Zheng Lin, Bo Li, Weiping Wang, Dan Meng
-   Asymmetric Deep Cross-modal Hashing. ICCS (5) 2019: 41-54
+   Asymmetric
+
+   Deep Cross-modal Hashing. ICCS (5) 2019: 41-54
+
 4. Wen Gu, Xiaoyan Gu, Jingzi Gu, Bo Li, Zhi Xiong, Weiping Wang
+
    Adversary Guided Asymmetric Hashing for Cross-Modal Retrieval. ICMR 2019: 159-167
+
 5. Zhi Xiong, Bo Li, Xiaoyan Gu, Wen Gu, Weiping Wang
+
    Discriminative Deep Attention-aware Hashing for Face Image Retrieval. PRICAI 2019
+
 6. Dayan Wu, Zheng Lin, Bo Li, Jing Liu, Weiping Wang
+
    Deep Uniqueness-Aware Hashing for Fine-Grained Multi-Label Image Retrieval. ICASSP 2018: 1683-1687
+
 7. Dayan Wu, Jing Liu, Bo Li, Weiping Wang
+
    Deep Index-Compatible Hashing for Fast Image Retrieval. ICME 2018: 1-6
+
 8. Jing Liu, Dayan Wu, Wanqian Zhang, Bo Li, Weiping Wang
+
    Robust and Index-Compatible Deep Hashing for Accurate and Fast Image Retrieval. PCM (2) 2018: 67-77
+
 9. Dayan Wu, Zheng Lin, Bo Li, Mingzhen Ye, Weiping Wang
+
    Deep Supervised Hashing for Multi-Label and Large-Scale Image Retrieval. ICMR 2017: 150-158
 
 ### 1.2 Nice Papers List
 
 **2014-2019**
 
-####  2014
+**2014**
 
 1. CVPR 《Fast supervised hashing with decision trees for high-dimensional data》
 2. AAAI 《Supervised Hashing for Image Retrieval via Image Representation Learning》
@@ -47,7 +64,7 @@ category: 跨模态
 4. ECCV 《Learning to Hash with Partial Tags: Exploring Correlation between Tags and Hashing Bits for Large Scale Image Retrieval》
 5. TPAMI 《Fast Exact Search in Hamming Space With Multi-Index Hashing》
 
-#### 2015
+**2015**
 
 1. CVPR 《Supervised Discrete Hashing》
 2. CVPR 《Hashing With Binary Autoencoders》
@@ -68,7 +85,7 @@ category: 跨模态
 17. TPAMI 《Supervised Hashing Using Graph Cuts and Boosted Decision Trees》
 18. TPAMI 《Spherical Hashing: Binary Code Embedding with Hyperspheres》
 
-#### 2016
+**2016**
 
 1. CVPR 《Efficient Training of Very Deep Neural Networks for Supervised Hashing》
 2. CVPR 《Deep Supervised Hashing for Fast Image Retrieval》
@@ -90,7 +107,7 @@ category: 跨模态
 18. TIP 《Query-Adaptive Hash Code Ranking for Large-Scale Multi-View Visual Search》
 19. TPAMI 《Coherency Sensitive Hashing》
 
-#### 2017
+**2017**
 
 1. CVPR 《AMVH: Asymmetric Multi-Valued Hashing》
 2. CVPR 《Discretely Coding Semantic Rank Orders for Supervised Image Hashing》
@@ -117,7 +134,7 @@ category: 跨模态
 23. TIP 《Global Hashing System for Fast Image Search》
 24. TIP 《Deep Hashing for Scalable Image Search》
 
-#### 2018
+**2018**
 
 1. CVPR 《Deep Cauchy Hashing for Hamming Space Retrieval》
 2. CVPR 《Hashing as Tie-Aware Learning to Rank》
@@ -147,7 +164,7 @@ category: 跨模态
 26. TPAMI 《Fast Supervised Discrete Hashing》
 27. TPAMI 《Supervised Learning of Semantics-Preserving Hash via Deep Convolutional Neural Networks》
 
-#### 2019
+**2019**
 
 1. CVPR 《K-Nearest Neighbors Hashing》
 2. CVPR 《Deep Incremental Hashing Network for Efficient Image Retrieval》
@@ -165,7 +182,7 @@ category: 跨模态
 14. TPAMI 《Deep Variational and Structural Hashing》
 15. TPAMI 《Nonlinear Asymmetric Multi-Valued Hashing》
 
-## 2.To Follow
+## 2. To Follow
 
 - **颜水成**
   - Homepage: https://www.ece.nus.edu.sg/stfpage/eleyans/ (已失效)
@@ -219,7 +236,7 @@ category: 跨模态
 
 详见[@古文](https://github.com/WendellGul)师兄博客：
 
-[跨模态检索及深度哈希总结](https://wendellgul.github.io/research note/2019/07/31/跨模态检索及深度哈希总结-持续更新/?nsukey=64Y0gbJuq%2FClvowEAm0CURlzqzLDQQj22URFdOeqRs4P7ZHGI7%2Be5u8Ly4yNIvIJ05SQX5Ub%2BhF7WZp4Q7B%2F%2Bsk%2FOj0M92HfBdgQsvfyCbF7ddzb65lc%2FYZbqBvDgC%2Ftbo1y%2B9K8f9fRtCmmGFD6sidzVIVbofBtU07gQOTaPhYSrF4z28vOP4FUgW4DDTuRcBw2kK0HSPCcTvTO1qDTPw%3D%3D)
+[跨模态检索及深度哈希总结](https://wendellgul.github.io/research%20note/2019/07/31/跨模态检索及深度哈希总结-持续更新/)
 
 ## 4. To Do
 
