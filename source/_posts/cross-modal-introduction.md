@@ -1,13 +1,13 @@
 ---
 title: 跨模态指北
 date: 2019-08-01 09:43:17
-tags: 跨模态 指南
+tags: 跨模态/指南
 category: 跨模态
 ---
 
 # 跨模态 指北
 
-## 1.To Read
+## 1. To Read
 
 >  Supervised Image Hashing Papers List
 
@@ -215,13 +215,13 @@ category: 跨模态
   - Homepage: http://yue-cao.me/
   - Google Scholar: https://scholar.google.com/citations?user=iRUO1ckAAAAJ&hl=zh-CN
 
-## 3.To Emphasize
+## 3. To Emphasize
 
 详见[@古文](https://github.com/WendellGul)师兄博客：
 
 [跨模态检索及深度哈希总结]([https://wendellgul.github.io/research%20note/2019/07/31/%E8%B7%A8%E6%A8%A1%E6%80%81%E6%A3%80%E7%B4%A2%E5%8F%8A%E6%B7%B1%E5%BA%A6%E5%93%88%E5%B8%8C%E6%80%BB%E7%BB%93-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/?nsukey=64Y0gbJuq%2FClvowEAm0CURlzqzLDQQj22URFdOeqRs4P7ZHGI7%2Be5u8Ly4yNIvIJ05SQX5Ub%2BhF7WZp4Q7B%2F%2Bsk%2FOj0M92HfBdgQsvfyCbF7ddzb65lc%2FYZbqBvDgC%2Ftbo1y%2B9K8f9fRtCmmGFD6sidzVIVbofBtU07gQOTaPhYSrF4z28vOP4FUgW4DDTuRcBw2kK0HSPCcTvTO1qDTPw%3D%3D](https://wendellgul.github.io/research note/2019/07/31/跨模态检索及深度哈希总结-持续更新/?nsukey=64Y0gbJuq%2FClvowEAm0CURlzqzLDQQj22URFdOeqRs4P7ZHGI7%2Be5u8Ly4yNIvIJ05SQX5Ub%2BhF7WZp4Q7B%2F%2Bsk%2FOj0M92HfBdgQsvfyCbF7ddzb65lc%2FYZbqBvDgC%2Ftbo1y%2B9K8f9fRtCmmGFD6sidzVIVbofBtU07gQOTaPhYSrF4z28vOP4FUgW4DDTuRcBw2kK0HSPCcTvTO1qDTPw%3D%3D))
 
-## 4.To Do
+## 4. To Do
 
 - Read Papers 
 - Extract ideas
