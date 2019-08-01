@@ -15,42 +15,23 @@ category: 跨模态
 
 **2017-2019**
 
-1. Dayan Wu, Qi Dai, Jing Liu, Bo Li, Weiping Wang
+- Dayan Wu, Qi Dai, Jing Liu, Bo Li, Weiping Wang《Deep Incremental Hashing Network for Efficient Image Retrieval》. CVPR 2019: 9069-9077
+- Wanqian Zhang, Dayan Wu, Jing Liu, Bo Li, Xiaoyan Gu, Weiping Wang, Dan Meng《Fast and Multilevel Semantic-Preserving Discrete Hashing》. BMVC 2019
 
-	Deep Incremental Hashing Network for Efficient Image Retrieval. CVPR 2019: 9069-9077
+- Jingzi Gu, Jinchao Zhang, Zheng Lin, Bo Li, Weiping Wang, Dan Meng
+  《Asymmetric Deep Cross-modal Hashing》. ICCS (5) 2019: 41-54
 
-2. Wanqian Zhang, Dayan Wu, Jing Liu, Bo Li, Xiaoyan Gu, Weiping Wang, Dan Meng
+- Wen Gu, Xiaoyan Gu, Jingzi Gu, Bo Li, Zhi Xiong, Weiping Wang 《Adversary Guided Asymmetric Hashing for Cross-Modal Retrieval》. ICMR 2019: 159-167
 
-   Fast and Multilevel Semantic-Preserving Discrete Hashing. BMVC 2019
+- Zhi Xiong, Bo Li, Xiaoyan Gu, Wen Gu, Weiping Wang 《Discriminative Deep Attention-aware Hashing for Face Image Retrieval》. PRICAI 2019
 
-3. Jingzi Gu, Jinchao Zhang, Zheng Lin, Bo Li, Weiping Wang, Dan Meng
-   Asymmetric
+- Dayan Wu, Zheng Lin, Bo Li, Jing Liu, Weiping Wang 《Deep Uniqueness-Aware Hashing for Fine-Grained Multi-Label Image Retrieval》. ICASSP 2018: 1683-1687
 
-   Deep Cross-modal Hashing. ICCS (5) 2019: 41-54
+- Dayan Wu, Jing Liu, Bo Li, Weiping Wang《Deep Index-Compatible Hashing for Fast Image Retrieval》. ICME 2018: 1-6
 
-4. Wen Gu, Xiaoyan Gu, Jingzi Gu, Bo Li, Zhi Xiong, Weiping Wang
+- Jing Liu, Dayan Wu, Wanqian Zhang, Bo Li, Weiping Wang《Robust and Index-Compatible Deep Hashing for Accurate and Fast Image Retrieval》. PCM (2) 2018: 67-77
 
-   Adversary Guided Asymmetric Hashing for Cross-Modal Retrieval. ICMR 2019: 159-167
-
-5. Zhi Xiong, Bo Li, Xiaoyan Gu, Wen Gu, Weiping Wang
-
-   Discriminative Deep Attention-aware Hashing for Face Image Retrieval. PRICAI 2019
-
-6. Dayan Wu, Zheng Lin, Bo Li, Jing Liu, Weiping Wang
-
-   Deep Uniqueness-Aware Hashing for Fine-Grained Multi-Label Image Retrieval. ICASSP 2018: 1683-1687
-
-7. Dayan Wu, Jing Liu, Bo Li, Weiping Wang
-
-   Deep Index-Compatible Hashing for Fast Image Retrieval. ICME 2018: 1-6
-
-8. Jing Liu, Dayan Wu, Wanqian Zhang, Bo Li, Weiping Wang
-
-   Robust and Index-Compatible Deep Hashing for Accurate and Fast Image Retrieval. PCM (2) 2018: 67-77
-
-9. Dayan Wu, Zheng Lin, Bo Li, Mingzhen Ye, Weiping Wang
-
-   Deep Supervised Hashing for Multi-Label and Large-Scale Image Retrieval. ICMR 2017: 150-158
+- Dayan Wu, Zheng Lin, Bo Li, Mingzhen Ye, Weiping Wang 《Deep Supervised Hashing for Multi-Label and Large-Scale Image Retrieval》 ICMR 2017: 150-158
 
 ### 1.2 Nice Papers List
 
