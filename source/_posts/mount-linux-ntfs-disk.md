@@ -93,8 +93,8 @@ $ ll file1 #文件的默认权限是644
 通过umask命令可以修改umask值，比如将umask值设为0077。
 
 ```bash
-[root@localhost ~]# umask 0077
-[root@localhost ~]# umask
+$ umask 0077
+$ umask
 0077
 ```
 

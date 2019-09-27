@@ -1,5 +1,5 @@
 ---
-title: 跨模态指北
+title: 跨模态总结指北
 date: 2019-08-01 09:43:17
 tags: 跨模态/指南
 category: 跨模态
@@ -215,7 +215,7 @@ category: 跨模态
 
 ## 3. To Emphasize
 
-详见[@古文](https://github.com/WendellGul)师兄博客：
+详见[古文](https://github.com/WendellGul)师兄博客：
 
 [跨模态检索及深度哈希总结](https://wendellgul.github.io/research%20note/2019/07/31/跨模态检索及深度哈希总结-持续更新/)
 
@@ -236,7 +236,7 @@ category: 跨模态
 
 ## Thanks To
 
-- Tree哥整理的paper list
-- Dayan师兄整理的组内论文、以及圈内大佬 list
-- 古文师兄整理的跨模态总结
+- Zhaoshu整理的paper list
+- Dayan师兄整理的组内论文、以及圈内大佬
+- Guwen师兄整理的跨模态总结
 
