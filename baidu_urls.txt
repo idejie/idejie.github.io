@@ -1,6 +1,5 @@
 https://blog.idejie.com/2019/09/24/mount-linux-ntfs-disk/
 https://blog.idejie.com/2019/09/11/basic-algorithms/
-https://blog.idejie.com/2019/08/09/deep-visual-semantic-hashing-for-cross-modal-retrieval/
 https://blog.idejie.com/2019/08/02/deep-cross-modal-hashing/
 https://blog.idejie.com/2019/08/01/cross-modal-introduction/
 https://blog.idejie.com/2019/04/02/using-texts-in-science-education/
@@ -16,8 +15,8 @@ https://blog.idejie.com/2018/12/03/ir-im/
 https://blog.idejie.com/2018/11/26/ir-naotu/
 https://blog.idejie.com/2018/11/25/probability-theory/
 https://blog.idejie.com/2018/11/25/for-new-mac/
-https://blog.idejie.com/2018/11/25/ir-solution-zh/
 https://blog.idejie.com/2018/11/25/ir-review/
+https://blog.idejie.com/2018/11/25/ir-solution-zh/
 https://blog.idejie.com/2018/01/23/colab/
 https://blog.idejie.com/2018/01/16/data-science-1/
 https://blog.idejie.com/2017/08/13/word-embeding/
@@ -83,8 +82,8 @@ https://blog.idejie.com/2016/10/21/rest-learn/
 https://blog.idejie.com/2016/10/21/express-blog-3/
 https://blog.idejie.com/2016/10/21/express-blog-2/
 https://blog.idejie.com/2016/10/21/express-blog-1/
-https://blog.idejie.com/2016/09/13/hexo-blog/
 https://blog.idejie.com/2016/09/13/hmi/
+https://blog.idejie.com/2016/09/13/hexo-blog/
 https://blog.idejie.com/2016/08/24/baiduyun-crack/
 https://blog.idejie.com/2016/08/23/mac-tips/
 https://blog.idejie.com/2016/06/29/mayuan/

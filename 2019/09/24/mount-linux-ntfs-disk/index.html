@@ -25,7 +25,7 @@
 <meta property="og:site_name" content="idejie">
 <meta property="og:description" content="最近下载的数据有点多，Ubuntu系统盘空间不够了，寻思着挂载一个移动硬盘上去，可以随时拷贝数据了   问题 使用mount命令挂载成功，但是挂载目录权限迅速变成777，新建目录、新建文件也是777 $ sudo mount /dev/sda2 /data$ ls -al /|grep datadrwxrwxrwx   2 root root       4096 Sep 24 08:38 da">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-27T02:20:57.554Z">
+<meta property="og:updated_time" content="2019-09-27T02:24:10.343Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux挂载NTFS盘爬坑">
 <meta name="twitter:description" content="最近下载的数据有点多，Ubuntu系统盘空间不够了，寻思着挂载一个移动硬盘上去，可以随时拷贝数据了   问题 使用mount命令挂载成功，但是挂载目录权限迅速变成777，新建目录、新建文件也是777 $ sudo mount /dev/sda2 /data$ ls -al /|grep datadrwxrwxrwx   2 root root       4096 Sep 24 08:38 da">
@@ -227,7 +227,7 @@
 <p>可以通过下面的测试操作来了解umask值。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ mkdir directory1 <span class="comment">#创建测试目录</span></span><br><span class="line">$ ll -d directory1 <span class="comment">#目录的默认权限是755</span></span><br><span class="line">drwxr-xr-x. 2 root root 4096 12月 2 13:08 directory1</span><br><span class="line">$ touch file1 <span class="comment">#创建测试文件</span></span><br><span class="line">$ ll file1 <span class="comment">#文件的默认权限是644</span></span><br><span class="line">-rw-r--r--. 1 root root 0 12月 2 13:09 file1</span><br></pre></td></tr></table></figure>
 <p>通过umask命令可以修改umask值，比如将umask值设为0077。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># umask 0077</span></span><br><span class="line">[root@localhost ~]<span class="comment"># umask</span></span><br><span class="line">0077</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">umask</span> 0077</span><br><span class="line">$ <span class="built_in">umask</span></span><br><span class="line">0077</span><br></pre></td></tr></table></figure>
 <p>此时创建的目录默认权限为700，文件默认权限是600：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ mkdir directory2</span><br><span class="line">$ ll -d directory2</span><br><span class="line">drwx------. 2 root root 4096 12月 2 13:14 directory2</span><br><span class="line">$ touch file2</span><br><span class="line">$ ll file2</span><br><span class="line">-rw-------. 1 root root 0 12月 2 13:14 file2</span><br></pre></td></tr></table></figure>
 <p>考虑一下，如果将umask值设为0003，那么此时创建的目录或文件的默认权限是多少？</p>

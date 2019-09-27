@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.idejie.com/2019/08/01/cross-modal-introduction/</loc>
+    
+    <lastmod>2019-09-27T02:26:07.483Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.idejie.com/2019/09/24/mount-linux-ntfs-disk/</loc>
     
-    <lastmod>2019-09-27T02:20:57.554Z</lastmod>
+    <lastmod>2019-09-27T02:24:10.343Z</lastmod>
     
   </url>
   
@@ -16,23 +23,9 @@
   </url>
   
   <url>
-    <loc>https://blog.idejie.com/2019/08/09/deep-visual-semantic-hashing-for-cross-modal-retrieval/</loc>
-    
-    <lastmod>2019-08-09T09:27:28.804Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.idejie.com/2019/08/02/deep-cross-modal-hashing/</loc>
     
     <lastmod>2019-08-06T04:29:46.202Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.idejie.com/2019/08/01/cross-modal-introduction/</loc>
-    
-    <lastmod>2019-08-01T02:30:15.058Z</lastmod>
     
   </url>
   
@@ -744,13 +737,6 @@
   </url>
   
   <url>
-    <loc>https://blog.idejie.com/search/index.html</loc>
-    
-    <lastmod>2018-11-24T16:32:27.597Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.idejie.com/tag/index.html</loc>
     
     <lastmod>2018-11-24T16:32:27.597Z</lastmod>
@@ -758,14 +744,14 @@
   </url>
   
   <url>
-    <loc>https://blog.idejie.com/private/interview.html</loc>
+    <loc>https://blog.idejie.com/search/index.html</loc>
     
-    <lastmod>2018-11-24T16:32:27.596Z</lastmod>
+    <lastmod>2018-11-24T16:32:27.597Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.idejie.com/private/love-not-lovely.html</loc>
+    <loc>https://blog.idejie.com/private/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95.html</loc>
     
     <lastmod>2018-11-24T16:32:27.596Z</lastmod>
     
@@ -779,14 +765,21 @@
   </url>
   
   <url>
-    <loc>https://blog.idejie.com/private/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95.html</loc>
+    <loc>https://blog.idejie.com/private/shenzhen-trip-last.html</loc>
     
     <lastmod>2018-11-24T16:32:27.596Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.idejie.com/private/shenzhen-trip-last.html</loc>
+    <loc>https://blog.idejie.com/private/love-not-lovely.html</loc>
+    
+    <lastmod>2018-11-24T16:32:27.596Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.idejie.com/private/interview.html</loc>
     
     <lastmod>2018-11-24T16:32:27.596Z</lastmod>
     
@@ -835,7 +828,14 @@
   </url>
   
   <url>
-    <loc>https://blog.idejie.com/private/nlp-chinese-5.html</loc>
+    <loc>https://blog.idejie.com/private/nlp-chinese-4.html</loc>
+    
+    <lastmod>2018-11-24T16:32:27.549Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.idejie.com/private/nlp-chinese-6.html</loc>
     
     <lastmod>2018-11-24T16:32:27.549Z</lastmod>
     
@@ -849,14 +849,7 @@
   </url>
   
   <url>
-    <loc>https://blog.idejie.com/private/nlp-chinese-4.html</loc>
-    
-    <lastmod>2018-11-24T16:32:27.549Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.idejie.com/private/nlp-chinese-6.html</loc>
+    <loc>https://blog.idejie.com/private/nlp-chinese-5.html</loc>
     
     <lastmod>2018-11-24T16:32:27.549Z</lastmod>
     
