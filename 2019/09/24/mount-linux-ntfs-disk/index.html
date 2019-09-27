@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <meta name="google-site-verification" content="rEUG6A2SLvgx5-OW-Q2fuuC4q9qNnwo62YXM9KhQlPg">
+  
+  <title>Linux挂载NTFS盘爬坑 | idejie</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="">
+  
+
+  <meta name="description" content="最近下载的数据有点多，Ubuntu系统盘空间不够了，寻思着挂载一个移动硬盘上去，可以随时拷贝数据了   问题 使用mount命令挂载成功，但是挂载目录权限迅速变成777，新建目录、新建文件也是777 $ sudo mount /dev/sda2 /data$ ls -al /|grep datadrwxrwxrwx   2 root root       4096 Sep 24 08:38 da">
+<meta name="keywords" content="NTFS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux挂载NTFS盘爬坑">
+<meta property="og:url" content="https://blog.idejie.com/2019/09/24/mount-linux-ntfs-disk/index.html">
+<meta property="og:site_name" content="idejie">
+<meta property="og:description" content="最近下载的数据有点多，Ubuntu系统盘空间不够了，寻思着挂载一个移动硬盘上去，可以随时拷贝数据了   问题 使用mount命令挂载成功，但是挂载目录权限迅速变成777，新建目录、新建文件也是777 $ sudo mount /dev/sda2 /data$ ls -al /|grep datadrwxrwxrwx   2 root root       4096 Sep 24 08:38 da">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-27T02:20:57.554Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux挂载NTFS盘爬坑">
+<meta name="twitter:description" content="最近下载的数据有点多，Ubuntu系统盘空间不够了，寻思着挂载一个移动硬盘上去，可以随时拷贝数据了   问题 使用mount命令挂载成功，但是挂载目录权限迅速变成777，新建目录、新建文件也是777 $ sudo mount /dev/sda2 /data$ ls -al /|grep datadrwxrwxrwx   2 root root       4096 Sep 24 08:38 da">
+
+  
+
+  
+    <link rel="icon" href="https://avatars0.githubusercontent.com/u/12479824">
+  
+
+  <link href="/css/styles.css?v=d671a41f" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/styles.css">
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+<script src="//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0"></script>
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+ <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css">
+<script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/github-markdown-css/2.2.1/github-markdown.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+
+    <!-- The loading of KaTeX is deferred to speed up page rendering -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+
+    <!-- To automatically render math in text elements, include the auto-render extension: -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+        
+</head>
+<script src="//pixijs.download/release/pixi.js"></script>
+<script src="https://unpkg.com/ityped@1.0.2"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+</html>
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">菜单</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">菜单</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+            目录
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/category/" rel="noopener noreferrer" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/tag/" rel="noopener noreferrer" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/project/" rel="noopener noreferrer" target="_self">
+            项目
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#问题"><span class="toc-text"> 问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决"><span class="toc-text"> 解决</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-mount-linux-ntfs-disk" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">Linux挂载NTFS盘爬坑</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2019.09.24</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>idejie</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/Linux/">Linux</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp 阅读量：<span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>
+        </span>
+      
+
+     
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <blockquote>
+<p>最近下载的数据有点多，Ubuntu系统盘空间不够了，寻思着挂载一个移动硬盘上去，可以随时拷贝数据了</p>
+</blockquote>
+<h2 id="问题"><a class="markdownIt-Anchor" href="#问题"></a> 问题</h2>
+<p>使用<code>mount</code>命令挂载成功，但是挂载目录<strong>权限</strong>迅速变成<code>777</code>，新建目录、新建文件也是<code>777</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo mount /dev/sda2 /data</span><br><span class="line">$ ls -al /|grep data</span><br><span class="line">drwxrwxrwx   2 root root       4096 Sep 24 08:38 data</span><br><span class="line">$ ls -al /data</span><br><span class="line">total 8</span><br><span class="line">drwxrwxrwx  1 root root 4096 Sep 25 01:44 .</span><br><span class="line">drwxr-xr-x 25 root root 4096 Sep 24 08:38 ..</span><br><span class="line">drwxrwxrwx  1 root root    0 Sep 24 08:09 .fseventsd</span><br><span class="line">drwxrwxrwx  1 root root    0 Sep 24 02:44 my_data</span><br><span class="line">$ ls -al /data/my_data</span><br><span class="line">total 23263020</span><br><span class="line">drwxrwxrwx 1 root root       4096 Sep 24 05:25 .</span><br><span class="line">drwxrwxrwx 1 root root          0 Sep 24 02:44 ..</span><br><span class="line">-rwxrwxrwx 1 root root 1460568449 Aug 15 10:22 DCMH-FLICKR-25K.mat</span><br><span class="line">-rwxrwxrwx 1 root root 3320572656 Aug 19 07:19 FLICKR-25K.mat</span><br><span class="line">drwxrwxrwx 1 root root       4096 Dec 18  2008 iaprtc12</span><br><span class="line">-rwxrwxrwx 1 root root  212159349 Aug 15 10:27 imagenet-vgg-f.mat</span><br><span class="line">drwxrwxrwx 1 root root          0 Aug 16 07:40 mirflickr</span><br><span class="line">-rwxrwxrwx 1 root root 4942078436 Sep  1 07:39 mobike.zip</span><br><span class="line">drwxrwxrwx 1 root root       4096 Aug 13 10:03 NUS-WIDE</span><br><span class="line">-rwxrwxrwx 1 root root 6934610146 Sep 23 12:50 task2.zip</span><br><span class="line">drwxrwxrwx 1 root root          0 Aug 20 09:20 task3</span><br><span class="line">-rwxrwxrwx 1 root root 6951316869 Sep 23 12:50 task3.zip</span><br></pre></td></tr></table></figure>
+<p>如上，所有的文件权限都变成了<code>777</code></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo chomd -x task3.zip</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ls -al task3.zip</span></span><br><span class="line">-rwxrwxrwx 1 root root 6951316869 Sep 23 12:50 task3.zip</span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo chown dejie:dejie task3.zip</span></span><br><span class="line">-rwxrwxrwx 1 root root 6951316869 Sep 23 12:50 task3.zip</span><br></pre></td></tr></table></figure>
+<p><code>chmod</code>和<code>chown</code>,以及<code>chgrp</code>都失效了</p>
+<h2 id="解决"><a class="markdownIt-Anchor" href="#解决"></a> 解决</h2>
+<p>首先挂载<code>mount</code>只有root用户可以执行</p>
+<p>然后目前看文件的权限，文件时<code>-rwxrwxrwx</code>，目录是<code>drwxrwxrwx</code></p>
+<p>分析原因可能是挂载的时候出现了问题，极有可能是NTFS盘的原因，毕竟是windows下的格式</p>
+<p>后发现mount在挂载时，自动启用了ntfs或者ntfs-3g文件系统格式</p>
+<p>而使用这种格式时，NTFS硬盘一旦挂载，所有的权限都和初始指定的权限有关，就算创建新的文件、目录也是按照初始权限，无法修改</p>
+<p><strong>这权限可不可以改呢？</strong></p>
+<p>这权限和系统的<code>umask</code>有关，这个编码正好和linux下的权限编码相反。</p>
+<p>具体地讲，<a href="https://gg0.chn.moe/extdomains/en.wikipedia.org/wiki/Umask" target="_blank" rel="noopener">维基百科-umask</a></p>
+<p><strong>umask命令</strong>用来设置限制新建文件权限的掩码。当新文件被创建时，其最初的权限由文件创建掩码决定。用户每次注册进入系统时，umask命令都被执行， 并自动设置掩码mode来限制新文件的权限。用户可以通过再次执行umask命令来改变默认值，新的权限将会把旧的覆盖掉。</p>
+<p>举一个简单的例子，<a href="https://www.cnblogs.com/wish123/p/7073114.html" target="_blank" rel="noopener">在Linux中设置UMASK值</a></p>
+<p>对于root用户，系统默认的umask值是0022；对于普通用户，系统默认的umask值是0002。执行umask命令可以查看当前用户的umask值。</p>
+<p>umask值一共有4组数字，其中第1组数字用于定义特殊权限，我们一般不予考虑，与一般权限有关的是后3组数字。</p>
+<p>默认情况下，对于目录，用户所能拥有的最大权限是777；对于文件，用户所能拥有的最大权限是目录的最大权限去掉执行权限，即666。因为x执行权限对于目录是必须的，没有执行权限就无法进入目录，而对于文件则不必默认赋予x执行权限。</p>
+<p>对于root用户，他的umask值是022。当root用户创建目录时，默认的权限就是用最大权限777去掉相应位置的umask值权限，即对于所有者不必去掉任何权限，对于所属组要去掉w权限，对于其他用户也要去掉w权限，所以目录的默认权限就是755；当root用户创建文件时，默认的权限则是用最大权限666去掉相应位置的umask值，即文件的默认权限是644。</p>
+<p>可以通过下面的测试操作来了解umask值。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ mkdir directory1 <span class="comment">#创建测试目录</span></span><br><span class="line">$ ll -d directory1 <span class="comment">#目录的默认权限是755</span></span><br><span class="line">drwxr-xr-x. 2 root root 4096 12月 2 13:08 directory1</span><br><span class="line">$ touch file1 <span class="comment">#创建测试文件</span></span><br><span class="line">$ ll file1 <span class="comment">#文件的默认权限是644</span></span><br><span class="line">-rw-r--r--. 1 root root 0 12月 2 13:09 file1</span><br></pre></td></tr></table></figure>
+<p>通过umask命令可以修改umask值，比如将umask值设为0077。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># umask 0077</span></span><br><span class="line">[root@localhost ~]<span class="comment"># umask</span></span><br><span class="line">0077</span><br></pre></td></tr></table></figure>
+<p>此时创建的目录默认权限为700，文件默认权限是600：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ mkdir directory2</span><br><span class="line">$ ll -d directory2</span><br><span class="line">drwx------. 2 root root 4096 12月 2 13:14 directory2</span><br><span class="line">$ touch file2</span><br><span class="line">$ ll file2</span><br><span class="line">-rw-------. 1 root root 0 12月 2 13:14 file2</span><br></pre></td></tr></table></figure>
+<p>考虑一下，如果将umask值设为0003，那么此时创建的目录或文件的默认权限是多少？</p>
+<p>正确的结果应该是：目录的默认权限是774，文件的默认权限是664。在计算默认权限时，不应用最大权限直接减去umask值，而是将umask值所对应的相应位置的权限去掉，这样才能得到正确的结果。</p>
+<p><code>mode_code + mask_code = 777</code></p>
+<p><strong>所以，我们在挂载的时候要指定umask</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo mount -t ntfs /dev/sda2 /data -o iocharset=utf8,<span class="built_in">umask</span>=001</span><br></pre></td></tr></table></figure>
+<p>同样，你还可以使用<code>fmask</code>和<code>dmask</code>分别指定文件权限、目录权限</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo mount -t ntfs /dev/sda2 /data -o iocharset=utf8,fmask=111,dmask=002</span><br></pre></td></tr></table></figure>
+<p>你也可以可以配置在<code>/etc/fstab</code>下面，在后面<code>追加一行</code></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">/dev/sda2 /data ntfs  iocharset=utf8,fmask=111,dmask=002 0 0</span><br></pre></td></tr></table></figure>
+<p><strong>怎么在挂载后修改权限呢？</strong></p>
+<p>针对NTFS盘，目前还没有找到方法</p>
+<p>只能格式化为ext或者xfs格式了。。。c</p>
+
+    
+  </div>
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation"><strong><a href="#" style="color: #999;">赞赏</a></strong></span>
+      <div class="donation-body">
+        <div class="tip text-center"><strong>支持一下</strong></div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="https://blog.idejie.com/pics/wechat.jpg" alt="">
+            <a>微信扫一扫</a>
+          </li>
+        
+          <li class="item">
+            <img src="https://blog.idejie.com/pics/alipay.jpg" alt="">
+            <a>支付宝扫一扫</a>
+          </li>
+        
+          <li class="item">
+            <img src="https://blog.idejie.com/pics/qq.jpg" alt="">
+            <a>QQ扫一扫</a>
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="hide pull-left" href="/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2019/09/11/basic-algorithms/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+              目录
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/category/" rel="noopener noreferrer" target="_self">
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/tag/" rel="noopener noreferrer" target="_self">
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/project/" rel="noopener noreferrer" target="_self">
+              项目
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+
+
+
+
+  <div id="vcomments"></div>
+    <script>
+        new Valine({
+            el: '#vcomments',
+            appId: 'm2JW5otJtf3PU6V2F3ORdsVl-gzGzoHsz',
+            appKey: 'sT0JdEoQA7RJThLQ7z6xiT0c'
+        })
+    </script>
+
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+
+</body>
+</html>
