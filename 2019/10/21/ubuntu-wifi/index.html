@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <meta name="google-site-verification" content="rEUG6A2SLvgx5-OW-Q2fuuC4q9qNnwo62YXM9KhQlPg">
+  
+  <title>【已解决】Ubuntu无法通过WPA连接WiFi | idejie</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="">
+  
+
+  <meta name="description" content="安装wpa相关的package  sudo apt install wpasupplicant  使用wpa生产配置文件  wpa_passphrase your_SSID# reading passphrase from stdinyour_passowrdnetwork=&amp;#123;	ssid=&quot;your_SSID&quot;	#psk=&quot;your_passowrd&quot;	psk=9b16759eb502">
+<meta name="keywords" content="Ubuntu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【已解决】Ubuntu无法通过WPA连接WiFi">
+<meta property="og:url" content="https://blog.idejie.com/2019/10/21/ubuntu-wifi/index.html">
+<meta property="og:site_name" content="idejie">
+<meta property="og:description" content="安装wpa相关的package  sudo apt install wpasupplicant  使用wpa生产配置文件  wpa_passphrase your_SSID# reading passphrase from stdinyour_passowrdnetwork=&amp;#123;	ssid=&quot;your_SSID&quot;	#psk=&quot;your_passowrd&quot;	psk=9b16759eb502">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-21T02:51:26.928Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【已解决】Ubuntu无法通过WPA连接WiFi">
+<meta name="twitter:description" content="安装wpa相关的package  sudo apt install wpasupplicant  使用wpa生产配置文件  wpa_passphrase your_SSID# reading passphrase from stdinyour_passowrdnetwork=&amp;#123;	ssid=&quot;your_SSID&quot;	#psk=&quot;your_passowrd&quot;	psk=9b16759eb502">
+
+  
+
+  
+    <link rel="icon" href="https://avatars0.githubusercontent.com/u/12479824">
+  
+
+  <link href="/css/styles.css?v=d671a41f" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/styles.css">
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+<script src="//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0"></script>
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+ <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css">
+<script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/github-markdown-css/2.2.1/github-markdown.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+
+    <!-- The loading of KaTeX is deferred to speed up page rendering -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+
+    <!-- To automatically render math in text elements, include the auto-render extension: -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+        
+</head>
+<script src="//pixijs.download/release/pixi.js"></script>
+<script src="https://unpkg.com/ityped@1.0.2"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+</html>
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">菜单</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">菜单</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+            目录
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/category/" rel="noopener noreferrer" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/tag/" rel="noopener noreferrer" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/project/" rel="noopener noreferrer" target="_self">
+            项目
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-ubuntu-wifi" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">【已解决】Ubuntu无法通过WPA连接WiFi</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2019.10.21</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>idejie</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/教程/">教程</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp 阅读量：<span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>
+        </span>
+      
+
+     
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <ol>
+<li>安装wpa相关的package</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt install wpasupplicant</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>使用wpa生产配置文件</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wpa_passphrase your_SSID</span><br><span class="line"><span class="comment"># reading passphrase from stdin</span></span><br><span class="line">your_passowrd</span><br><span class="line">network=&#123;</span><br><span class="line">	ssid=<span class="string">"your_SSID"</span></span><br><span class="line">	<span class="comment">#psk="your_passowrd"</span></span><br><span class="line">	psk=9b16759eb50227bdad9cb3b313afd6ed4975d9a8422c71f1acda73af224c222f</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>将生成的psk写入<code>/etc/wpa_supplicant.conf</code></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">network=&#123;</span><br><span class="line">	ssid=&quot;your_SSID&quot;</span><br><span class="line">	#psk=&quot;your_passowrd&quot;</span><br><span class="line">	psk=9b16759eb50227bdad9cb3b313afd6ed4975d9a8422c71f1acda73af224c222f</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>进行连接</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo wpa_supplicant -i your_SSID -c /etc/wpa_supplicant.conf</span><br></pre></td></tr></table></figure>
+<p>此时还是连接错误</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Successfully initialized wpa_supplicant</span><br><span class="line">wlan0: Trying to associate with xx:xx:xx:xx:xx:xx (SSID=<span class="string">'WLAN-XXXX'</span> freq=2412 MHz)</span><br><span class="line">wlan0: Associated with xx:xx:xx:xx:xx:xx</span><br><span class="line">wlan0: CTRL-EVENT-DISCONNECTED bssid=xx:xx:xx:xx:xx:xx reason=0 locally_generated=1</span><br><span class="line">wlan0: WPA: 4-Way Handshake failed - pre-shared key may be incorrect</span><br><span class="line">wlan0: CTRL-EVENT-SSID-TEMP-DISABLED id=0 ssid=<span class="string">"WLAN-XXXX"</span> auth_failures=1 duration=10 reason=WRONG_KEY</span><br><span class="line">wlan0: CTRL-EVENT-REGDOM-CHANGE init=CORE <span class="built_in">type</span>=WORLD</span><br><span class="line">wlan0: CTRL-EVENT-ASSOC-REJECT status_code=1</span><br><span class="line">wlan0: Reject scan trigger since one is already pending</span><br><span class="line">wlan0: Failed to initiate AP scan</span><br><span class="line">wlan0: Reject scan trigger since one is already pending</span><br><span class="line">wlan0: Failed to initiate AP scan</span><br><span class="line">wlan0: Reject scan trigger since one is already pending</span><br><span class="line">wlan0: Failed to initiate AP scan</span><br><span class="line">wlan0: CTRL-EVENT-SCAN-FAILED ret=-16 retry=1</span><br><span class="line">wlan0: CTRL-EVENT-SSID-REENABLED id=0 ssid=<span class="string">"WLAN-XXXX"</span></span><br><span class="line">wlan0: Trying to associate with xx:xx:xx:xx:xx:xx (SSID=<span class="string">'WLAN-XXXX'</span> freq=2412 MHz)</span><br><span class="line">wlan0: Associated with xx:xx:xx:xx:xx:xx</span><br></pre></td></tr></table></figure>
+<p>这里是Ubuntu下的一个<a href="https://bugs.launchpad.net/ubuntu/+source/network-manager/+bug/1681513" target="_blank" rel="noopener">Bug</a>，需要修改network-manager的参数</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo vim /etc/NetworkManager/NetworkManager.conf</span><br></pre></td></tr></table></figure>
+<p>写入</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[device]</span><br><span class="line">wifi.scan-rand-mac-address=no</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>重启</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo reboot</span><br></pre></td></tr></table></figure>
+<ol start="6">
+<li>重新连接</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo wpa_supplicant -i your_SSID -c /etc/wpa_supplicant.conf</span><br></pre></td></tr></table></figure>
+<ol start="7">
+<li>DHCP</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo dhcp -v &lt;your_wifi_device&gt;</span><br></pre></td></tr></table></figure>
+<p>WiFi设备接口可通过<code>ip a</code>或者<code>ifconfig</code>获取</p>
+
+    
+  </div>
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation"><strong><a href="#" style="color: #999;">赞赏</a></strong></span>
+      <div class="donation-body">
+        <div class="tip text-center"><strong>支持一下</strong></div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="https://blog.idejie.com/pics/wechat.jpg" alt="">
+            <a>微信扫一扫</a>
+          </li>
+        
+          <li class="item">
+            <img src="https://blog.idejie.com/pics/alipay.jpg" alt="">
+            <a>支付宝扫一扫</a>
+          </li>
+        
+          <li class="item">
+            <img src="https://blog.idejie.com/pics/qq.jpg" alt="">
+            <a>QQ扫一扫</a>
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="hide pull-left" href="/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2019/09/24/mount-linux-ntfs-disk/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+              目录
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/category/" rel="noopener noreferrer" target="_self">
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/tag/" rel="noopener noreferrer" target="_self">
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/project/" rel="noopener noreferrer" target="_self">
+              项目
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+
+
+
+
+  <div id="vcomments"></div>
+    <script>
+        new Valine({
+            el: '#vcomments',
+            appId: 'm2JW5otJtf3PU6V2F3ORdsVl-gzGzoHsz',
+            appKey: 'sT0JdEoQA7RJThLQ7z6xiT0c'
+        })
+    </script>
+
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+
+</body>
+</html>
