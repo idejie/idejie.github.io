@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.idejie.com/2019/11/08/image-retrieval-conferences/</loc>
+    
+    <lastmod>2019-11-08T12:34:47.524Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.idejie.com/2019/10/21/ubuntu-wifi/</loc>
     
     <lastmod>2019-10-21T02:51:26.928Z</lastmod>
@@ -744,13 +751,6 @@
   </url>
   
   <url>
-    <loc>https://blog.idejie.com/tag/index.html</loc>
-    
-    <lastmod>2018-11-24T16:32:27.597Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.idejie.com/search/index.html</loc>
     
     <lastmod>2018-11-24T16:32:27.597Z</lastmod>
@@ -758,7 +758,28 @@
   </url>
   
   <url>
+    <loc>https://blog.idejie.com/tag/index.html</loc>
+    
+    <lastmod>2018-11-24T16:32:27.597Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.idejie.com/private/shenzhen-trip-last.html</loc>
+    
+    <lastmod>2018-11-24T16:32:27.596Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.idejie.com/private/interview.html</loc>
+    
+    <lastmod>2018-11-24T16:32:27.596Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.idejie.com/private/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95.html</loc>
     
     <lastmod>2018-11-24T16:32:27.596Z</lastmod>
     
@@ -779,28 +800,14 @@
   </url>
   
   <url>
-    <loc>https://blog.idejie.com/private/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95.html</loc>
-    
-    <lastmod>2018-11-24T16:32:27.596Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.idejie.com/private/shenzhen-trip-last.html</loc>
-    
-    <lastmod>2018-11-24T16:32:27.596Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.idejie.com/private/exam-jsxw-2016.html</loc>
+    <loc>https://blog.idejie.com/private/hmi.html</loc>
     
     <lastmod>2018-11-24T16:32:27.595Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.idejie.com/private/hmi.html</loc>
+    <loc>https://blog.idejie.com/private/exam-jsxw-2016.html</loc>
     
     <lastmod>2018-11-24T16:32:27.595Z</lastmod>
     
@@ -814,14 +821,14 @@
   </url>
   
   <url>
-    <loc>https://blog.idejie.com/about/index.html</loc>
+    <loc>https://blog.idejie.com/category/index.html</loc>
     
     <lastmod>2018-11-24T16:32:27.563Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.idejie.com/category/index.html</loc>
+    <loc>https://blog.idejie.com/about/index.html</loc>
     
     <lastmod>2018-11-24T16:32:27.563Z</lastmod>
     
@@ -849,14 +856,14 @@
   </url>
   
   <url>
-    <loc>https://blog.idejie.com/private/nlp-chinese-6.html</loc>
+    <loc>https://blog.idejie.com/private/nlp-chinese-5.html</loc>
     
     <lastmod>2018-11-24T16:32:27.549Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.idejie.com/private/nlp-chinese-5.html</loc>
+    <loc>https://blog.idejie.com/private/nlp-chinese-6.html</loc>
     
     <lastmod>2018-11-24T16:32:27.549Z</lastmod>
     
